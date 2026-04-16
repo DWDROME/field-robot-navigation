@@ -1,0 +1,26 @@
+<launch>
+  <!--
+    对外导航入口：正向模式。
+    语义：base_link 与车头方向一致。
+    当前仅通过 body -> base_link 的 yaw 安装角进行模式切换；
+    建图链与 FAST-LIO 原生 camera_init/body 不受影响。
+  -->
+
+  <include file="$(find greenhouse_nav)/launch/system_greenhouse_with_route_planner.launch">
+    <arg name="use_route_planner" value="true" />
+    <arg name="use_livox" value="true" />
+    <arg name="use_localization" value="true" />
+    <arg name="use_fastlio_mapping" value="true" />
+    <arg name="use_global_localization" value="true" />
+    <arg name="use_map_publisher" value="true" />
+    <arg name="use_adapter" value="false" />
+    <arg name="use_base_autonomy" value="true" />
+    <arg name="use_terrain_analysis" value="true" />
+    <arg name="use_terrain_analysis_ext" value="true" />
+    <arg name="use_graph_decoder" value="false" />
+    <arg name="use_far_rviz" value="true" />
+    <arg name="use_base_serial" value="true" />
+    <arg name="localization_rviz" value="false" />
+    <arg name="body_to_base_yaw" value="0.0" />
+  </include>
+</launch>

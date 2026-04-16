@@ -230,6 +230,16 @@ public:
   //   return bytes;
   // }
 
+  // =========================================================================
+  // slam_octvox modification: cheap O(1) getters for the adapter's stats()
+  // path. Upstream exposes only printInfo() which goes to stdout; we need
+  // non-logging accessors to avoid an O(N) getMap() every time validSize()
+  // is called.
+  std::size_t voxel_count() const { return data_.size(); }
+  std::size_t capacity()    const { return capacity_; }
+  float       resolution()  const { return resolution_; }
+  // =========================================================================
+
 
 private:
   float resolution_ = 0.5;

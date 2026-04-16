@@ -41,3 +41,8 @@ slam_core:
     voxel_size: 0.5              # 与 filter_size_map 对齐；ikdtree 的 downsample size
     capacity: 2000000            # OctVox LRU 上限；ikdtree 后端忽略
     enable_lru: true             # ikdtree 后端忽略
+    # B-1.c：h_share_model 里 knn 残差并发度。
+    #   0  = 沿用编译期 MP_PROC_NUM（默认 3，FAST-LIO2 原值）
+    #   <0 = 用 omp_get_max_threads()（机器所有 core）
+    #   >0 = 显式指定（建议 = 物理核数的 0.5~0.8）
+    omp_threads: 0

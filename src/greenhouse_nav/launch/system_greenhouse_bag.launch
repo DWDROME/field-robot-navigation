@@ -27,6 +27,12 @@
   <arg name="path_topic" default="/path" />
   <arg name="cmd_vel_stamped_topic" default="/cmd_vel_stamped" />
   <arg name="cmd_vel_topic" default="/cmd_vel" />
+  <arg name="body_to_base_x" default="0.00" />
+  <arg name="body_to_base_y" default="-0.2" />
+  <arg name="body_to_base_z" default="0.0" />
+  <arg name="body_to_base_roll" default="0.0" />
+  <arg name="body_to_base_pitch" default="-0.471239" />
+  <arg name="body_to_base_yaw" default="0.0" />
 
   <group if="$(arg play_bag)">
     <param name="/use_sim_time" value="true" />
@@ -58,5 +64,11 @@
     <arg name="path_topic" value="$(arg path_topic)" />
     <arg name="cmd_vel_stamped_topic" value="$(arg cmd_vel_stamped_topic)" />
     <arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)" />
+    <arg name="body_to_base_x" value="$(arg body_to_base_x)" />
+    <arg name="body_to_base_y" value="$(arg body_to_base_y)" />
+    <arg name="body_to_base_z" value="$(arg body_to_base_z)" />
+    <arg name="body_to_base_roll" value="$(arg body_to_base_roll)" />
+    <arg name="body_to_base_pitch" value="$(arg body_to_base_pitch)" />
+    <arg name="body_to_base_yaw" value="$(arg body_to_base_yaw)" />
   </include>
 </launch>

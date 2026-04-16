@@ -13,9 +13,10 @@ static_assert(std::is_same<typename KD_TREE<PointT>::PointVector, PointVec>::val
               "KD_TREE<PointT>::PointVector must match slam::PointVec");
 
 namespace {
-inline double nowMs() {
+inline uint64_t nowNs() {
   using namespace std::chrono;
-  return duration<double, std::milli>(steady_clock::now().time_since_epoch()).count();
+  return static_cast<uint64_t>(
+      duration_cast<nanoseconds>(steady_clock::now().time_since_epoch()).count());
 }
 inline BoxPointType toBoxPoint(const BoundingBox& b) {
   BoxPointType out;
@@ -41,7 +42,7 @@ void IkdTreeMap::configure(const MapConfig& cfg) {
 
 void IkdTreeMap::insert(const PointVec& world_pts) {
   if (world_pts.empty()) return;
-  const double t0 = nowMs();
+  const uint64_t t0 = nowNs();
 
   // KD_TREE::Add_Points / Build 均以非 const 引用接收；拷贝一次以匹配签名。
   PointVec buf = world_pts;
@@ -51,28 +52,26 @@ void IkdTreeMap::insert(const PointVec& world_pts) {
     tree_.Add_Points(buf, /*downsample_on=*/true);
   }
 
-  std::lock_guard<std::mutex> lk(stats_mu_);
-  stats_.last_insert_ms = nowMs() - t0;
-  stats_.num_points     = static_cast<std::size_t>(tree_.validnum());
-  stats_.num_voxels     = 0;
+  last_insert_ns_.store(nowNs() - t0, std::memory_order_relaxed);
 }
 
 void IkdTreeMap::insertNoDownsample(const PointVec& world_pts) {
   if (world_pts.empty()) return;
-  const double t0 = nowMs();
+  const uint64_t t0 = nowNs();
   PointVec buf = world_pts;
   if (tree_.Root_Node == nullptr) {
-    tree_.Build(buf);  // 首次插入仍要 Build；downsample 参数由 configure 决定
+    tree_.Build(buf);
   } else {
     tree_.Add_Points(buf, /*downsample_on=*/false);
   }
-  std::lock_guard<std::mutex> lk(stats_mu_);
-  stats_.last_insert_ms = nowMs() - t0;
-  stats_.num_points     = static_cast<std::size_t>(tree_.validnum());
+  last_insert_ns_.store(nowNs() - t0, std::memory_order_relaxed);
 }
 
 int IkdTreeMap::knn(const nn::Query& q, std::array<Neighbor, 8>& out) const {
-  const double t0 = nowMs();
+  // B-1.c：热路径零锁。ikd-Tree::Nearest_Search 自身线程安全（支持并发读）；
+  // 只用 relaxed atomic 记录最近一次 query 的耗时，OMP 并行下允许 race，
+  // 值仅作为 stats 监控、不影响正确性。
+  const uint64_t t0 = nowNs();
   const int k = std::min(q.k, 8);
 
   PointVec            nearest;
@@ -90,10 +89,7 @@ int IkdTreeMap::knn(const nn::Query& q, std::array<Neighbor, 8>& out) const {
     out[i].voxel_id = 0;
   }
 
-  {
-    std::lock_guard<std::mutex> lk(stats_mu_);
-    stats_.last_query_ms = nowMs() - t0;
-  }
+  last_query_ns_.store(nowNs() - t0, std::memory_order_relaxed);
   return n;
 }
 
@@ -161,9 +157,12 @@ std::size_t IkdTreeMap::size()      const { return static_cast<std::size_t>(tree
 std::size_t IkdTreeMap::validSize() const { return static_cast<std::size_t>(tree_.validnum()); }
 
 MapStats IkdTreeMap::stats() const {
-  std::lock_guard<std::mutex> lk(stats_mu_);
-  MapStats s = stats_;
-  s.num_points = static_cast<std::size_t>(tree_.validnum());
+  MapStats s;
+  s.num_points     = validSize();
+  s.num_voxels     = 0;  // ikd-tree 不按 voxel 计数
+  s.bytes          = 0;
+  s.last_insert_ms = last_insert_ns_.load(std::memory_order_relaxed) * 1e-6;
+  s.last_query_ms  = last_query_ns_.load(std::memory_order_relaxed) * 1e-6;
   return s;
 }
 

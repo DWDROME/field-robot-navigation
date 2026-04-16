@@ -670,8 +670,15 @@ void h_share_model(state_ikfom &s, esekfom::dyn_share_datastruct<double> &ekfom_
     total_residual = 0.0; 
 
     /** closest surface search and residual computation **/
+    // B-1.c：由 yaml `slam_core/omp_threads` 运行时控制并发度，取代
+    // 原先编译期固定的 MP_PROC_NUM（默认 3）。0 = 用 MP_PROC_NUM，
+    // 负数 = 用 omp_get_max_threads()。见 slam_core_omp_threads 定义。
     #ifdef MP_EN
-        omp_set_num_threads(MP_PROC_NUM);
+        extern int slam_core_omp_threads;  // 定义在 main() 上方
+        const int _omp_n = (slam_core_omp_threads > 0) ? slam_core_omp_threads
+                           : (slam_core_omp_threads < 0) ? omp_get_max_threads()
+                                                         : MP_PROC_NUM;
+        omp_set_num_threads(_omp_n);
         #pragma omp parallel for
     #endif
     for (int i = 0; i < feats_down_size; i++)
@@ -791,6 +798,10 @@ void h_share_model(state_ikfom &s, esekfom::dyn_share_datastruct<double> &ekfom_
     solve_time += omp_get_wtime() - solve_start_;
 }
 
+// B-1.c：OMP 并发度由 yaml 在 main() 里写入，供 h_share_model 消费。
+// 默认 0 = 用编译期 MP_PROC_NUM；yaml `slam_core/omp_threads: 8` 等可覆盖。
+int slam_core_omp_threads = 0;
+
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "laserMapping");
@@ -841,6 +852,7 @@ int main(int argc, char** argv)
         nh.param<double>("slam_core/voxel_size",  sc_voxel,       filter_size_map_min);
         nh.param<int>   ("slam_core/capacity",    sc_capacity,    2000000);
         nh.param<bool>  ("slam_core/enable_lru",  sc_enable_lru,  true);
+        nh.param<int>   ("slam_core/omp_threads", slam_core_omp_threads, 0);
 
         if (sc_backend == "octvox") {
             slamMapPtr() = slam::map::makeOctVoxMap();
@@ -860,7 +872,9 @@ int main(int argc, char** argv)
 
         ROS_INFO_STREAM("[slam_core] map_backend=" << slamMap().name()
                         << " voxel_size=" << mc.voxel_size
-                        << " capacity=" << mc.capacity);
+                        << " capacity=" << mc.capacity
+                        << " omp_threads=" << slam_core_omp_threads
+                        << " (0=MP_PROC_NUM, <0=omp_get_max_threads)");
     }
 
     p_pre->lidar_type = lidar_type;

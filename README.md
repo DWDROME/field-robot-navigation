@@ -7,6 +7,9 @@ ROS1 Noetic `catkin` 工作空间，用于温室场景下的激光定位、地�
 - 已收口两个用户入口：
   - 建图：`roslaunch greenhouse_nav greenhouse_mapping.launch`
   - 导航：`roslaunch greenhouse_nav greenhouse_navigation.launch`
+- 已补导航朝向选择：
+  - 正向：`roslaunch greenhouse_nav greenhouse_navigation_forward.launch`
+  - 反向：`roslaunch greenhouse_nav greenhouse_navigation_reverse.launch`
 - 兼容旧命令：`roslaunch greenhouse_nav system_greenhouse.launch`
 - 已完成：
   - 新工作空间迁移
@@ -111,6 +114,24 @@ roslaunch greenhouse_nav greenhouse_mapping.launch
 ```bash
 roslaunch greenhouse_nav greenhouse_navigation.launch
 ```
+
+若车头方向与传感器 / `body` 一致，用正向模式：
+
+```bash
+roslaunch greenhouse_nav greenhouse_navigation_forward.launch
+```
+
+若车头方向与传感器 / `body` **正好反过来**，用反向模式：
+
+```bash
+roslaunch greenhouse_nav greenhouse_navigation_reverse.launch
+```
+
+说明：
+
+- `greenhouse_navigation.launch` 默认等价于 `greenhouse_navigation_forward.launch`
+- 反向模式只修正导航链里的 `body -> base_link` yaw = `pi`
+- 建图入口 `greenhouse_mapping.launch` 不受这个模式影响
 
 ### 4.4 仅检查导航 launch 装配关系
 
@@ -259,6 +280,8 @@ rostopic pub -1 /goal_point geometry_msgs/PointStamped \
 
 - 建图：`src/greenhouse_nav/launch/greenhouse_mapping.launch`
 - 导航：`src/greenhouse_nav/launch/greenhouse_navigation.launch`
+- 正向导航：`src/greenhouse_nav/launch/greenhouse_navigation_forward.launch`
+- 反向导航：`src/greenhouse_nav/launch/greenhouse_navigation_reverse.launch`
 
 其中导航入口默认已经固化：
 

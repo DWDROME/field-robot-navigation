@@ -14,10 +14,19 @@
 //     A/B 实验时 FAST-LIO2 的 cub_needrm 代价会被"吞掉"。
 //   - KNN K 固定为 5（Super-LIO `KNNHeap<5, Point>`），我们接口允许 k<=8，
 //     这里对 k>5 的请求仍只返回 5 个并在日志里标注一次（rate-limited）。
+//
+// 并发模型（B-1.c）
+// ----------------
+//   - knn()  const，热路径零锁；OctVoxMap::getTopK 本身对 const map 是
+//     线程安全的（只读 grids_/data_，本地 KNNHeap 输出）
+//   - insert() 不加锁；调用方应保证同一 map 不被多 writer 并发调用
+//     （FAST-LIO2 里 insert 只在主线程 UpdateMap 中调用，天然串行）
+//   - 计时用 std::atomic<uint64_t> ns，OMP 并行下允许 race
 #pragma once
 
+#include <atomic>
+#include <cstdint>
 #include <memory>
-#include <mutex>
 
 #include "slam/common_types.hpp"
 #include "slam/map/map_manager.hpp"
@@ -46,9 +55,9 @@ class OctVoxMapAdapter final : public IMapManager, public nn::INeighborSearch {
   int  removeBoxes(const std::vector<BoundingBox>& boxes) override;
   void cropAround(const Eigen::Vector3d& c, float radius) override;
   void drainRemoved(PointVec& out) override;
-  bool        empty()     const override;
-  std::size_t size()      const override;
-  std::size_t validSize() const override;
+  bool        empty()     const override { return backend_->voxel_count() == 0; }
+  std::size_t size()      const override { return backend_->voxel_count(); }
+  std::size_t validSize() const override { return backend_->voxel_count(); }
   MapStats    stats()     const override;
   const char* name()      const override { return "octvox"; }
 
@@ -57,10 +66,10 @@ class OctVoxMapAdapter final : public IMapManager, public nn::INeighborSearch {
   bool fitPlane(const nn::Query& q, PlaneCoef& out) const override;
 
  private:
-  std::unique_ptr<BackendT>           backend_;
-  MapConfig                           cfg_{};
-  mutable MapStats                    stats_{};
-  mutable std::mutex                  stats_mu_;
+  std::unique_ptr<BackendT>     backend_;
+  MapConfig                     cfg_{};
+  mutable std::atomic<uint64_t> last_query_ns_{0};
+  mutable std::atomic<uint64_t> last_insert_ns_{0};
 };
 
 // 工厂

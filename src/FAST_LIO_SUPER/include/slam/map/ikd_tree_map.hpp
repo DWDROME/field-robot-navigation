@@ -4,8 +4,9 @@
 // 让后续 OctVoxMap / HknnSearch 可以在不动 IESKF 代码的前提下替换。
 #pragma once
 
+#include <atomic>
+#include <cstdint>
 #include <memory>
-#include <mutex>
 
 #include "ikd-Tree/ikd_Tree.h"
 #include "slam/common_types.hpp"
@@ -46,10 +47,13 @@ class IkdTreeMap final : public IMapManager, public nn::INeighborSearch {
  private:
   // KD_TREE 的一些操作是非 const 的（Nearest_Search 会动锁），
   // 故用 mutable 包装以满足 INeighborSearch 的 const 语义。
-  mutable KD_TREE<PointT> tree_;
-  MapConfig cfg_{};
-  mutable MapStats stats_{};
-  mutable std::mutex stats_mu_;
+  // ikd-Tree 内部本身线程安全（支持并发 Nearest_Search），所以 knn()
+  // 路径不再加额外的锁——B-1.c 移除了原先的 stats_mu_。
+  // 计时字段用 atomic 避免 OMP 并行下的 write-torn。
+  mutable KD_TREE<PointT>    tree_;
+  MapConfig                  cfg_{};
+  mutable std::atomic<uint64_t> last_query_ns_{0};
+  mutable std::atomic<uint64_t> last_insert_ns_{0};
 };
 
 }  // namespace slam::map

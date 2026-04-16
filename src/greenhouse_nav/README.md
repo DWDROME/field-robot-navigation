@@ -8,7 +8,9 @@
 本包当前承担四类职责：
 
 1. **系统入口收口**
-   - 提供两个用户入口：`greenhouse_mapping.launch` / `greenhouse_navigation.launch`
+   - 提供建图入口：`greenhouse_mapping.launch`
+   - 提供导航入口：`greenhouse_navigation.launch`
+   - 提供显式导航模式入口：`greenhouse_navigation_forward.launch` / `greenhouse_navigation_reverse.launch`
    - 保留 `system_greenhouse.launch` 作为兼容别名
 2. **定位状态统一输出**
    - 通过 `localization_manager.py` 对外发布 `/state_estimation`
@@ -89,6 +91,8 @@ roslaunch greenhouse_nav greenhouse_navigation.launch
 对应文件：
 
 - `launch/greenhouse_navigation.launch`
+- `launch/greenhouse_navigation_forward.launch`
+- `launch/greenhouse_navigation_reverse.launch`
 
 该入口默认固化：
 
@@ -108,6 +112,14 @@ roslaunch greenhouse_nav greenhouse_navigation.launch
 - `localization_rviz := false`
 
 也就是说，日常操作层现在只需要记两个命令：建图一个，导航一个。
+如果当前实机传感器 / `body` 与车头正好反向，则直接改用：
+
+```bash
+roslaunch greenhouse_nav greenhouse_navigation_reverse.launch
+```
+
+它只会给导航链使用的 `body -> base_link` 追加 `180° yaw`；
+`greenhouse_mapping.launch` 建图链不受影响。
 
 ### 兼容入口
 
@@ -185,7 +197,9 @@ system_greenhouse.launch
 | 文件 | 角色 | 是否对外 |
 | --- | --- | --- |
 | `launch/greenhouse_mapping.launch` | 建图一键入口 | 是 |
-| `launch/greenhouse_navigation.launch` | 导航一键入口 | 是 |
+| `launch/greenhouse_navigation.launch` | 导航默认入口（等价正向模式） | 是 |
+| `launch/greenhouse_navigation_forward.launch` | 导航正向模式入口 | 是 |
+| `launch/greenhouse_navigation_reverse.launch` | 导航反向模式入口 | 是 |
 | `launch/system_greenhouse.launch` | 导航兼容别名 | 是 |
 | `launch/system_greenhouse_with_route_planner.launch` | FAR + base autonomy 内部装配层 | 否 |
 | `launch/system_greenhouse_base.launch` | 定位 + terrain + CMU local 内部装配层 | 否 |

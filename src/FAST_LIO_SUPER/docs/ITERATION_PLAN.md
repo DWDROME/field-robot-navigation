@@ -76,18 +76,27 @@
 - [x] C++17 全包升级；license 改 GPLv3
 - [x] Docker 编译验证通过（`fastlivo-dev:noetic-ros-base`）
 
-### B-1.b 遗留 / 约束
+### B-1.b 语义遗留（仍待）
 - [ ] OctVox 后端**不支持** box-delete / drainRemoved / cropAround（no-op）；
       A/B 时 FAST-LIO2 的 `cub_needrm` 计算时间会被吞掉，但不影响正确性
 - [ ] `insertNoDownsample` 当前降级为 `insert`；若下游需要真正无损通道，
-      需要扩展 Super-LIO backend（不在本阶段）
+      需要扩展 Super-LIO backend
 - [ ] 平面拟合走接口 `fitPlane`，但 `laserMapping.cpp` 目前仍调用原
       `esti_plane`（Phase A 决策）；若要用 OctVox 的 `calc_plane_coeff`，
       需要单独迁移这一步
-- [ ] **并发**：Super-LIO 原版用 TBB 跑每帧 knn 并行；我们目前 knn 循环
-      仍单线程（FAST-LIO2 原状），所以 OctVox 后端的实际时延优势不会完全
-      体现。要复现论文数字需要在 laserMapping 的 knn 循环上加 OpenMP
-      parallel-for（留给 B-1.c 或单独 PR）
+
+### B-1.c 并发（DONE）
+- [x] `IkdTreeMap::knn` / `OctVoxMapAdapter::knn` 移除 `std::mutex stats_mu_`，
+      计时改用 `std::atomic<uint64_t>` + `std::memory_order_relaxed`
+- [x] `OctVoxMapAdapter::size/validSize/empty` 改用 vendored 新增的 cheap
+      `OctVoxMap::voxel_count()`（O(1) 读 `data_.size()`），不再每次调
+      `getMap()` 做 O(N) 全表拷贝
+- [x] `h_share_model` 的 OMP 并发度从编译期固定的 `MP_PROC_NUM=3` 改为
+      yaml `slam_core/omp_threads`（0=默认 / <0=max / >0=显式）
+- [x] 原生 `#pragma omp parallel for` 已在 FAST-LIO2 第 673 行，本次改动
+      让它在 OctVox 后端下不再被 stats_mu 串行化
+- [ ] **待用户验证**：在多核机器上 `omp_threads=8` 对比 `0` 的 p99 latency
+      降幅（无 bag 环境不做）
 
 ### B-2 HKNN 调优（DONE 来自 vendored，后续可调）
 - [x] Group 分层 + 早停 + mirror + XOR 优化（`HKNN_list60_gem.h` 直接用）

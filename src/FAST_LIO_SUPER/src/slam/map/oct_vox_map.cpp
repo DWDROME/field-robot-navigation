@@ -8,9 +8,10 @@
 namespace slam::map {
 
 namespace {
-inline double nowMs() {
+inline uint64_t nowNs() {
   using namespace std::chrono;
-  return duration<double, std::milli>(steady_clock::now().time_since_epoch()).count();
+  return static_cast<uint64_t>(
+      duration_cast<nanoseconds>(steady_clock::now().time_since_epoch()).count());
 }
 // PointXYZINormal -> V3
 inline OctVoxMapAdapter::V3 toV3(const PointT& p) {
@@ -27,7 +28,6 @@ inline PointT fromV3(const OctVoxMapAdapter::V3& v) {
 }  // namespace
 
 OctVoxMapAdapter::OctVoxMapAdapter() {
-  // 先用默认 options 构造；configure() 会重建以应用 yaml 参数。
   backend_ = std::make_unique<BackendT>(typename BackendT::Options{0.5f, 1'000'000});
 }
 
@@ -43,7 +43,7 @@ void OctVoxMapAdapter::configure(const MapConfig& cfg) {
 
 void OctVoxMapAdapter::insert(const PointVec& world_pts) {
   if (world_pts.empty()) return;
-  const double t0 = nowMs();
+  const uint64_t t0 = nowNs();
 
   // 投射到 Vector3f。OctVoxMap::insert 自带 sub-voxel 均值过滤，无需我们
   // 再做 voxel 下采样；downsample 语义由 Super-LIO 内部的 8×sub-voxel
@@ -53,27 +53,24 @@ void OctVoxMapAdapter::insert(const PointVec& world_pts) {
   for (const auto& p : world_pts) v3_buf.emplace_back(toV3(p));
   backend_->insert(v3_buf);
 
-  std::lock_guard<std::mutex> lk(stats_mu_);
-  stats_.last_insert_ms = nowMs() - t0;
-  stats_.num_voxels     = validSize();  // 此处即 data_.size()
+  last_insert_ns_.store(nowNs() - t0, std::memory_order_relaxed);
 }
 
 void OctVoxMapAdapter::insertNoDownsample(const PointVec& world_pts) {
   // Super-LIO 没有"不下采样"通道——其 AddPoint 会拒绝与当前均值距离 >0.1m
-  // 的点，这本身就是一种几何稳健性过滤。我们把 NoDownsample 的点一样交给
-  // insert：效果上 sub-voxel 均值仍会更新，但不会 bypass 过滤器。文档里
-  // 标注这点；若下游需要"无损插入"，需要扩展 OctVox backend。
+  // 的点，这本身就是一种几何稳健性过滤。见 docs/SUPERLIO_REFERENCE_NOTES.md §4。
   insert(world_pts);
 }
 
 int OctVoxMapAdapter::knn(const nn::Query& q, std::array<Neighbor, 8>& out) const {
-  const double t0 = nowMs();
+  // B-1.c：热路径零锁。OctVoxMap::getTopK const 安全，允许并发读。
+  const uint64_t t0 = nowNs();
 
   HeapT top_k;
   backend_->getTopK(toV3(q.center), top_k);
 
   const int n = std::min<int>(top_k.count, std::min(q.k, 5));
-  // HeapT::points_ 与 dist2_ 顺序不保证递增；我们按 dist2 排序后写回。
+  // HeapT::points_ 与 dist2_ 顺序不保证递增；按 dist2 排序后写回。
   std::array<std::pair<float, V3>, 5> tmp{};
   for (int i = 0; i < top_k.count; ++i) tmp[i] = {top_k.dist2_[i], top_k.points_[i]};
   std::sort(tmp.begin(), tmp.begin() + top_k.count,
@@ -84,10 +81,7 @@ int OctVoxMapAdapter::knn(const nn::Query& q, std::array<Neighbor, 8>& out) cons
     out[i].voxel_id = 0;
   }
 
-  {
-    std::lock_guard<std::mutex> lk(stats_mu_);
-    stats_.last_query_ms = nowMs() - t0;
-  }
+  last_query_ns_.store(nowNs() - t0, std::memory_order_relaxed);
   return n;
 }
 
@@ -121,6 +115,7 @@ bool OctVoxMapAdapter::fitPlane(const nn::Query& q, PlaneCoef& out) const {
 }
 
 CloudPtr OctVoxMapAdapter::snapshot(float /*voxel*/) const {
+  // snapshot 路径是慢路径（落盘/可视化），允许 O(N) getMap。
   std::vector<float> flat;
   backend_->getMap(flat);
   CloudPtr cloud(new CloudT());
@@ -140,6 +135,7 @@ CloudPtr OctVoxMapAdapter::snapshot(float /*voxel*/) const {
 }
 
 void OctVoxMapAdapter::flattenInto(PointVec& out) const {
+  // 同 snapshot，慢路径。
   std::vector<float> flat;
   backend_->getMap(flat);
   const std::size_t n = flat.size() / 3;
@@ -170,26 +166,16 @@ void OctVoxMapAdapter::drainRemoved(PointVec& /*out*/) {
   // Super-LIO 不追踪被 LRU 淘汰的点。返回空集合。
 }
 
-bool OctVoxMapAdapter::empty() const {
-  // 借 validSize 判断：Super-LIO 内部 data_ 为空时没有 API 直接暴露，
-  // 用 validSize==0 间接判断。
-  return validSize() == 0;
-}
-
-std::size_t OctVoxMapAdapter::size() const {
-  return validSize();  // voxel 级计数，与 validSize 相同
-}
-
-std::size_t OctVoxMapAdapter::validSize() const {
-  std::vector<float> flat;
-  backend_->getMap(flat);
-  return flat.size() / 3;  // 代表点总数
-}
-
 MapStats OctVoxMapAdapter::stats() const {
-  std::lock_guard<std::mutex> lk(stats_mu_);
-  MapStats s = stats_;
-  s.num_points = validSize();
+  MapStats s;
+  s.num_voxels     = backend_->voxel_count();
+  // 代表点精确总数需要 O(N_voxels*8) 扫描，stats() 调用频繁，近似为
+  // voxel_count * 1（每 voxel 至少 1 sub-voxel 被初始化即计 1 点）。
+  // 若需精确值，调用方可调 snapshot() 再 size()。
+  s.num_points     = s.num_voxels;
+  s.bytes          = 0;
+  s.last_insert_ms = last_insert_ns_.load(std::memory_order_relaxed) * 1e-6;
+  s.last_query_ms  = last_query_ns_.load(std::memory_order_relaxed) * 1e-6;
   return s;
 }
 

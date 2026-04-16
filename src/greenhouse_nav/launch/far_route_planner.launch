@@ -1,0 +1,75 @@
+<launch>
+  <!--
+    FAR route planner 包装入口。
+    当前按温室主线做最小收敛：
+    - odom: /state_estimation
+    - scan: /cloud_registered
+    - local terrain: /terrain_map
+    - extended terrain: /terrain_map_ext
+    - goal input: /goal_point
+    - FAR outputs direct to /way_point + /navigation_boundary
+  -->
+
+  <arg name="use_terrain_analysis_ext" default="true" />
+  <arg name="use_graph_decoder" default="false" />
+  <arg name="use_far_rviz" default="false" />
+  <arg name="config" default="greenhouse" />
+
+  <arg name="state_estimation_topic" default="/state_estimation" />
+  <arg name="registered_scan_topic" default="/cloud_registered" />
+  <arg name="terrain_map_topic" default="/terrain_map" />
+  <arg name="terrain_map_ext_topic" default="/terrain_map_ext" />
+  <arg name="goal_point_topic" default="/goal_point" />
+  <arg name="way_point_topic" default="/way_point" />
+  <arg name="navigation_boundary_topic" default="/navigation_boundary" />
+  <arg name="robot_vgraph_topic" default="/robot_vgraph" />
+
+  <group if="$(arg use_terrain_analysis_ext)">
+    <node pkg="terrain_analysis_ext" type="terrainAnalysisExt" name="terrainAnalysisExt" output="screen" required="true">
+      <param name="scanVoxelSize" type="double" value="0.1" />
+      <param name="decayTime" type="double" value="10.0" />
+      <param name="noDecayDis" type="double" value="0" />
+      <param name="clearingDis" type="double" value="30.0" />
+      <param name="useSorting" type="bool" value="false" />
+      <param name="quantileZ" type="double" value="0.1" />
+      <param name="vehicleHeight" type="double" value="1.5" />
+      <param name="voxelPointUpdateThre" type="int" value="100" />
+      <param name="voxelTimeUpdateThre" type="double" value="2.0" />
+      <param name="lowerBoundZ" type="double" value="-2.5" />
+      <param name="upperBoundZ" type="double" value="1.0" />
+      <param name="disRatioZ" type="double" value="0.1" />
+      <param name="checkTerrainConn" type="bool" value="false" />
+      <param name="terrainConnThre" type="double" value="0.5" />
+      <param name="terrainUnderVehicle" type="double" value="-0.75" />
+      <param name="ceilingFilteringThre" type="double" value="2.0" />
+      <param name="localTerrainMapRadius" type="double" value="4.0" />
+      <remap from="/state_estimation" to="$(arg state_estimation_topic)" />
+      <remap from="/registered_scan" to="$(arg registered_scan_topic)" />
+      <remap from="/terrain_map" to="$(arg terrain_map_topic)" />
+      <remap from="/terrain_map_ext" to="$(arg terrain_map_ext_topic)" />
+    </node>
+  </group>
+
+  <node pkg="far_planner" type="far_planner" name="far_planner" output="screen" required="true">
+    <rosparam command="load" file="$(find far_planner)/config/$(arg config).yaml" />
+    <remap from="/odom_world" to="$(arg state_estimation_topic)" />
+    <remap from="/terrain_cloud" to="$(arg terrain_map_ext_topic)" />
+    <remap from="/scan_cloud" to="$(arg registered_scan_topic)" />
+    <remap from="/terrain_local_cloud" to="$(arg terrain_map_topic)" />
+    <remap from="/goal_point" to="$(arg goal_point_topic)" />
+    <remap from="/way_point" to="$(arg way_point_topic)" />
+    <remap from="/navigation_boundary" to="$(arg navigation_boundary_topic)" />
+    <remap from="/robot_vgraph" to="$(arg robot_vgraph_topic)" />
+  </node>
+
+  <group if="$(arg use_graph_decoder)">
+    <node pkg="graph_decoder" type="graph_decoder" name="graph_decoder" output="screen">
+      <rosparam command="load" file="$(find graph_decoder)/config/default.yaml" />
+      <remap from="/robot_vgraph" to="$(arg robot_vgraph_topic)" />
+    </node>
+  </group>
+
+  <group if="$(arg use_far_rviz)">
+    <node type="rviz" name="far_rviz" pkg="rviz" args="-d $(find far_planner)/rviz/$(arg config).rviz" respawn="true"/>
+  </group>
+</launch>

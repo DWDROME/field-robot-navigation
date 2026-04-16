@@ -1,0 +1,11 @@
+<launch>
+  <!--
+    兼容入口。
+    当前对外已拆成两个一键入口：
+    1) greenhouse_mapping.launch
+    2) greenhouse_navigation.launch
+    本文件保留为旧命令兼容别名，等价于 greenhouse_navigation.launch。
+  -->
+
+  <include file="$(find greenhouse_nav)/launch/greenhouse_navigation.launch" />
+</launch>

@@ -1,0 +1,152 @@
+<launch>
+  <!--
+    WP4 主线统一入口。
+    当前不再直接 include localization_avia.launch：
+    1) 该旧入口仍引用一个缺失的 PointsCloud2toLaserscan.launch
+    2) 旧入口内部使用 transform_fusion.py 直接发布 /state_estimation
+    因此这里改为显式拼装定位相关节点，并切回当前主线使用的 localization_manager.launch。
+  -->
+
+  <arg name="use_livox" default="true" />
+  <arg name="use_localization" default="true" />
+  <arg name="use_fastlio_mapping" default="true" />
+  <arg name="use_global_localization" default="true" />
+  <arg name="use_map_publisher" default="true" />
+  <arg name="use_adapter" default="true" />
+  <arg name="use_base_autonomy" default="true" />
+  <arg name="use_terrain_analysis" default="true" />
+  <arg name="use_base_serial" default="true" />
+
+  <arg name="localization_rviz" default="false" />
+  <arg name="localization_map" default="$(find fast_lio)/PCD/scans.pcd" />
+  <arg name="global_path_topic" default="/waypoints" />
+  <arg name="state_estimation_topic" default="/state_estimation" />
+  <arg name="registered_scan_topic" default="/cloud_registered" />
+  <arg name="terrain_map_topic" default="/terrain_map" />
+  <arg name="way_point_topic" default="/way_point" />
+  <arg name="speed_topic" default="/speed" />
+  <arg name="navigation_boundary_topic" default="/navigation_boundary" />
+  <arg name="path_topic" default="/path" />
+  <arg name="cmd_vel_stamped_topic" default="/cmd_vel_stamped" />
+  <arg name="cmd_vel_topic" default="/cmd_vel" />
+  <arg name="body_to_base_x" default="0.00" />
+  <arg name="body_to_base_y" default="-0.2" />
+  <arg name="body_to_base_z" default="0.0" />
+  <arg name="body_to_base_roll" default="0.0" />
+  <arg name="body_to_base_pitch" default="0.471239" />
+  <arg name="body_to_base_yaw" default="0.0" />
+
+  <group if="$(arg use_livox)">
+    <include file="$(find livox_ros_driver2)/launch_ROS1/msg_MID360.launch">
+      <arg name="rviz_enable" value="false" />
+      <arg name="rosbag_enable" value="false" />
+    </include>
+  </group>
+
+  <group if="$(arg use_localization)">
+    <rosparam command="load" file="$(find fast_lio)/config/mid360.yaml" />
+
+    <param name="feature_extract_enable" type="bool" value="0" />
+    <param name="point_filter_num" type="int" value="1" />
+    <param name="max_iteration" type="int" value="3" />
+    <param name="filter_size_surf" type="double" value="0.5" />
+    <param name="filter_size_map" type="double" value="0.5" />
+    <param name="cube_side_length" type="double" value="1000" />
+    <param name="runtime_pos_log_enable" type="bool" value="0" />
+    <param name="pcd_save_enable" type="bool" value="0" />
+
+    <group if="$(arg use_fastlio_mapping)">
+      <node pkg="fast_lio" type="fastlio_mapping" name="laserMapping" output="screen">
+        <!--
+          远端同时装有海康 MVS，/opt/MVS/lib/64 会污染 libusb 解析。
+          这里显式预加载系统 libusb，避免 fastlio_mapping 在运行时误用 MVS 自带旧版 libusb。
+        -->
+        <env name="LD_PRELOAD" value="/lib/x86_64-linux-gnu/libusb-1.0.so.0" />
+      </node>
+    </group>
+    <group if="$(arg use_global_localization)">
+      <node pkg="fast_lio_localization" type="global_localization.py" name="global_localization" output="screen" />
+    </group>
+
+    <include file="$(find greenhouse_nav)/launch/localization_manager.launch">
+      <arg name="output_topic" value="$(arg state_estimation_topic)" />
+      <arg name="output_child_frame_id" value="base_link" />
+      <arg name="body_to_base_x" value="$(arg body_to_base_x)" />
+      <arg name="body_to_base_y" value="$(arg body_to_base_y)" />
+      <arg name="body_to_base_z" value="$(arg body_to_base_z)" />
+      <arg name="body_to_base_roll" value="$(arg body_to_base_roll)" />
+      <arg name="body_to_base_pitch" value="$(arg body_to_base_pitch)" />
+      <arg name="body_to_base_yaw" value="$(arg body_to_base_yaw)" />
+    </include>
+
+    <group if="$(arg use_map_publisher)">
+      <node pkg="pcl_ros"
+            type="pcd_to_pointcloud"
+            name="map_publishe"
+            output="screen"
+            args="$(arg localization_map) 5 _frame_id:=map cloud_pcd:=map" >
+        <!--
+          pcl_ros/pcd_to_pointcloud 同样会走到 libpcl_io，也会被 /opt/MVS/lib/64 的旧版 libusb 污染。
+          显式预加载系统 libusb，避免导航阶段地图发布节点启动即崩。
+        -->
+        <env name="LD_PRELOAD" value="/lib/x86_64-linux-gnu/libusb-1.0.so.0" />
+      </node>
+    </group>
+
+    <group if="$(arg localization_rviz)">
+      <node launch-prefix="nice"
+            pkg="rviz"
+            type="rviz"
+            name="rviz"
+            args="-d $(find fast_lio_localization)/rviz_cfg/localization.rviz" />
+    </group>
+
+    <node pkg="tf2_ros"
+          type="static_transform_publisher"
+          name="tf_pub_1"
+          args="-0.10 -0.11 0 0 0 0 body body_foot" />
+    <node pkg="tf2_ros"
+          type="static_transform_publisher"
+          name="tf_pub_2"
+          args="-0.10 -0.11 0 0 0 0 camera_init robot_foot_init" />
+    <!--
+      当前运行时直接在 launch 层发布固定安装外参，避免额外依赖 xacro。
+      static_transform_publisher 参数顺序：x y z yaw pitch roll frame child
+      “向前下倾 27°” => 绕 Y 轴 pitch。
+      这里发布的是 body -> base_link：传感器 body 相对机器人本体前下倾 27°，
+      因此反向补回到 base_link 语义时，应写 +0.471239 rad。
+    -->
+    <node pkg="tf2_ros"
+          type="static_transform_publisher"
+          name="tf_pub_3"
+          args="$(arg body_to_base_x) $(arg body_to_base_y) $(arg body_to_base_z) $(arg body_to_base_yaw) $(arg body_to_base_pitch) $(arg body_to_base_roll) body base_link" />
+  </group>
+
+  <group if="$(arg use_adapter)">
+    <include file="$(find greenhouse_nav)/launch/global_to_local_adapter.launch">
+      <arg name="state_estimation_topic" value="$(arg state_estimation_topic)" />
+      <arg name="global_path_topic" value="$(arg global_path_topic)" />
+      <arg name="local_waypoint_topic" value="$(arg way_point_topic)" />
+      <arg name="speed_topic" value="$(arg speed_topic)" />
+    </include>
+  </group>
+
+  <group if="$(arg use_base_autonomy)">
+    <include file="$(find greenhouse_nav)/launch/base_autonomy_cmu.launch">
+      <arg name="use_terrain_analysis" value="$(arg use_terrain_analysis)" />
+      <arg name="state_estimation_topic" value="$(arg state_estimation_topic)" />
+      <arg name="registered_scan_topic" value="$(arg registered_scan_topic)" />
+      <arg name="terrain_map_topic" value="$(arg terrain_map_topic)" />
+      <arg name="way_point_topic" value="$(arg way_point_topic)" />
+      <arg name="speed_topic" value="$(arg speed_topic)" />
+      <arg name="navigation_boundary_topic" value="$(arg navigation_boundary_topic)" />
+      <arg name="path_topic" value="$(arg path_topic)" />
+      <arg name="cmd_vel_stamped_topic" value="$(arg cmd_vel_stamped_topic)" />
+      <arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)" />
+    </include>
+  </group>
+
+  <group if="$(arg use_base_serial)">
+    <include file="$(find dlrobot_robot)/launch/base_serial.launch" />
+  </group>
+</launch>

@@ -1,0 +1,37 @@
+.ace-tool/
+
+# === catkin build / devel artifacts ===
+/build/
+/build_*/
+/devel/
+/install/
+/logs/
+.catkin_workspace
+
+# === 上游仓库的 .git 目录（被我们重命名保留，但不纳入本仓库历史） ===
+**/.git-upstream-ref/
+
+# === binary / generated ===
+*.pcd
+*.bag
+*.log
+*.o
+*.so
+*.a
+*.pyc
+__pycache__/
+
+# === workspace-local scratch ===
+other.zip
+other/
+.agentdocs/runtime/
+
+# === editor/IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# === OS ===
+Thumbs.db

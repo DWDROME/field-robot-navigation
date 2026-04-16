@@ -22,16 +22,22 @@
 
 - 当前实机 Mid360 是**向前下倾 27°**
 - 这在 ROS 坐标里属于**绕 Y 轴的 pitch**
-- 当前主线实际发布的是 **`body -> base_link`**
-- 因此把传感器 body 补回机器人本体语义时应写：
-  - **`pitch = +27° = +0.471239 rad`**
+- 当前采用 **方案 A**：
+  - 保留 FAST-LIO 原生 `camera_init -> body`
+  - 新增 `body -> body_foot`
+  - 新增 `camera_init -> robot_foot_init`
+  - 现有导航兼容仍保留 `body -> base_link`
+- 当前前下倾 27° 的补偿统一按：
+  - **`pitch = -27° = -0.471239 rad`**
 
 这里要特别区分：
 
 - `body`：FAST-LIO 输出的传感器 / IMU body 语义
-- `base_link`：机器人本体语义
+- `body_foot`：机器人水平辅助机体帧
+- `robot_foot_init`：机器人水平辅助世界帧
+- `base_link`：为现有导航下游保留的兼容机体帧
 
-当前主线已把这层固定安装外参收敛到：
+当前主线已把这层固定安装/辅助帧逻辑收敛到：
 
 - `launch/system_greenhouse_base.launch`
 - `scripts/localization_manager.py`
@@ -45,7 +51,8 @@
 
 - `camera_init` 基本继承传感器启动时姿态
 - 所以即使安装外参改对了，只要 RViz 的 `Fixed Frame` 仍然是 `camera_init`，`/cloud_registered` 依旧可能看起来前下倾
-- 需要检查本体语义是否摆正时，应切到 **`Fixed Frame = base_link`**
+- 当前建图 RViz 默认切到 **`Fixed Frame = robot_foot_init`**
+- 这不是改 FAST-LIO 世界帧，而是给上层增加一层更符合机器人语义的水平参考系
 
 ## 2. 当前推荐入口
 
@@ -69,9 +76,9 @@ roslaunch greenhouse_nav greenhouse_mapping.launch
 其中 RViz 默认使用：
 
 - `rviz/greenhouse_mapping_base_link.rviz`
-- `Fixed Frame = base_link`
+- `Fixed Frame = robot_foot_init`
 
-这样建图时先看到的是机器人本体语义，而不是 FAST-LIO 默认的 `camera_init` 初始姿态语义。
+这样建图时先看到的是机器人水平辅助世界帧，而不是 FAST-LIO 默认的 `camera_init` 初始姿态语义。
 
 ### 导航入口
 
@@ -300,6 +307,7 @@ roslaunch greenhouse_nav greenhouse_navigation.launch --nodes
 - 负责对齐定位输出接口
 - 对外统一发布 `/state_estimation`
 - 将 `camera_init -> body` 与固定安装外参 `body -> base_link` 合成为 `map -> base_link`
+- 同时通过静态 TF 额外提供 `body_foot` / `robot_foot_init` 给建图与上层可视化使用
 
 ### `scripts/cmd_vel_stamped_bridge.py`
 

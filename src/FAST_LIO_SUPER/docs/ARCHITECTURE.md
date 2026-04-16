@@ -33,8 +33,9 @@ slam_core  │  IMapManager   INeighborSearch         │
            │  │   Map    │  │  (内嵌)  │            │
            │  └──────────┘  └──────────┘            │
            │  ┌──────────┐  ┌──────────┐            │
-           │  │ OctVox   │  │  HKNN    │  Phase B   │
-           │  │   Map    │  │ Search   │            │
+           │  │ OctVox   │  │  HKNN    │  Phase B-1 │
+           │  │ Adapter  │  │ Search   │  (DONE,    │
+           │  │  (GPL)   │  │  (GPL)   │   vendored)│
            │  └──────────┘  └──────────┘            │
            │  ┌──────────┐                          │
            │  │Relocalizer│                 Phase B │
@@ -49,31 +50,39 @@ slam_core  │  IMapManager   INeighborSearch         │
 ### 2.1 目录布局
 
 ```
-src/FAST_LIO_SUPER/
-├── include/
-│   ├── slam/
-│   │   ├── common_types.hpp          # PointT / Pose6D / Neighbor / PlaneCoef
-│   │   ├── nn/neighbor_search.hpp    # INeighborSearch
-│   │   ├── map/map_manager.hpp       # IMapManager + MapConfig/Stats
-│   │   ├── map/ikd_tree_map.hpp      # Phase A 后端
-│   │   ├── io/ …                     # Phase B：MapIO
-│   │   ├── reloc/ …                  # Phase B：IRelocalizer
-│   │   └── graph/ …                  # Phase C：IKeyframeManager
-│   ├── common_lib.h / so3_math.h / use-ikfom.hpp / IKFoM_toolkit/  # FAST-LIO2 原件
-│   └── ikd-Tree/                     # 原 ikd-tree，slam_core 内部复用
-├── src/
-│   ├── laserMapping.cpp              # FAST-LIO2 主节点，暂未改
-│   ├── preprocess.{h,cpp}            # 原件
-│   ├── IMU_Processing.hpp            # 原件
-│   └── slam/
-│       ├── map/ikd_tree_map.cpp      # Phase A 实现
-│       └── …                         # 后续阶段
-├── docs/
-│   ├── ARCHITECTURE.md               # 本文件
-│   ├── ITERATION_PLAN.md
-│   └── SLAM_CORE_API.md
-├── config / launch / msg / rviz_cfg  # 原件（pkg 名已改为 fast_lio_super）
-└── CMakeLists.txt                    # 增 target: fast_lio_super_slam
+src/
+├── slam_octvox/                       # Phase B-1 新增（GPLv3，header-only）
+│   ├── include/slam_octvox/OctVoxMap.hpp      # vendored from Super-LIO
+│   ├── include/slam_octvox/HKNN_list60_gem.h  # vendored from Super-LIO
+│   ├── include/tsl/robin_*.h                  # vendored (MIT)
+│   └── CMakeLists.txt / package.xml / LICENSE（GPLv3）
+│
+└── FAST_LIO_SUPER/
+    ├── include/
+    │   ├── slam/
+    │   │   ├── common_types.hpp          # PointT / PointVec / BoundingBox / Neighbor
+    │   │   ├── nn/neighbor_search.hpp    # INeighborSearch
+    │   │   ├── map/map_manager.hpp       # IMapManager + MapConfig/Stats
+    │   │   ├── map/ikd_tree_map.hpp      # Phase A 后端（ikd-tree 封装）
+    │   │   ├── map/oct_vox_map.hpp       # Phase B-1 后端（GPL 适配器）
+    │   │   ├── io/ …                     # Phase B-3：MapIO（TODO）
+    │   │   ├── reloc/ …                  # Phase B-4：IRelocalizer（TODO）
+    │   │   └── graph/ …                  # Phase C：IKeyframeManager
+    │   ├── common_lib.h / so3_math.h / use-ikfom.hpp / IKFoM_toolkit/
+    │   └── ikd-Tree/
+    ├── src/
+    │   ├── laserMapping.cpp              # main() 按 yaml map_backend 选后端
+    │   ├── preprocess.{h,cpp}
+    │   ├── IMU_Processing.hpp
+    │   └── slam/map/
+    │       ├── ikd_tree_map.cpp
+    │       └── oct_vox_map.cpp           # OctVoxMapAdapter，含 slam_octvox/
+    ├── docs/
+    │   ├── ARCHITECTURE.md
+    │   ├── ITERATION_PLAN.md
+    │   ├── SLAM_CORE_API.md
+    │   └── SUPERLIO_REFERENCE_NOTES.md   # Phase B-1 源码阅读记录
+    └── CMakeLists.txt                    # C++17，depends on slam_octvox
 ```
 
 ### 2.2 CMake target

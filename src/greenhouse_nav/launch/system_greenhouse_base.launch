@@ -33,7 +33,7 @@
   <arg name="body_to_base_y" default="-0.2" />
   <arg name="body_to_base_z" default="0.0" />
   <arg name="body_to_base_roll" default="0.0" />
-  <arg name="body_to_base_pitch" default="0.471239" />
+  <arg name="body_to_base_pitch" default="-0.471239" />
   <arg name="body_to_base_yaw" default="0.0" />
 
   <group if="$(arg use_livox)">
@@ -104,17 +104,17 @@
     <node pkg="tf2_ros"
           type="static_transform_publisher"
           name="tf_pub_1"
-          args="-0.10 -0.11 0 0 0 0 body body_foot" />
+          args="-0.10 -0.11 0 0 -0.471239 0 body body_foot" />
     <node pkg="tf2_ros"
           type="static_transform_publisher"
           name="tf_pub_2"
-          args="-0.10 -0.11 0 0 0 0 camera_init robot_foot_init" />
+          args="-0.10 -0.11 0 0 -0.471239 0 camera_init robot_foot_init" />
     <!--
-      当前运行时直接在 launch 层发布固定安装外参，避免额外依赖 xacro。
+      方案 A：保留 FAST-LIO 原生 `camera_init -> body` 语义不动，
+      额外补 `body -> body_foot` 与 `camera_init -> robot_foot_init` 作为水平辅助帧。
+      对导航链仍保留 `body -> base_link`，避免下游继续大改。
       static_transform_publisher 参数顺序：x y z yaw pitch roll frame child
-      “向前下倾 27°” => 绕 Y 轴 pitch。
-      这里发布的是 body -> base_link：传感器 body 相对机器人本体前下倾 27°，
-      因此反向补回到 base_link 语义时，应写 +0.471239 rad。
+      当前实机为“向前下倾 27°”，辅助帧与 base_link 补偿统一写 -0.471239 rad。
     -->
     <node pkg="tf2_ros"
           type="static_transform_publisher"

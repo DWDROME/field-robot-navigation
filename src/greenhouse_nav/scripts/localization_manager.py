@@ -64,7 +64,7 @@ class LocalizationManager(object):
         ]
         rpy = [
             rospy.get_param('~body_to_base_roll', 0.0),
-            rospy.get_param('~body_to_base_pitch', 0.471239),
+            rospy.get_param('~body_to_base_pitch', -0.471239),
             rospy.get_param('~body_to_base_yaw', 0.0),
         ]
         body_to_base_mat = tf.transformations.euler_matrix(*rpy)

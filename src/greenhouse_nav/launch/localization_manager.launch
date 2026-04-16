@@ -10,7 +10,7 @@
   <arg name="body_to_base_y" default="-0.2" />
   <arg name="body_to_base_z" default="0.0" />
   <arg name="body_to_base_roll" default="0.0" />
-  <arg name="body_to_base_pitch" default="0.471239" />
+  <arg name="body_to_base_pitch" default="-0.471239" />
   <arg name="body_to_base_yaw" default="0.0" />
 
   <node pkg="greenhouse_nav"

@@ -69,7 +69,8 @@ class IMapManager {
   virtual const char* name()  const = 0;   // "ikdtree" / "octvox" ...
 };
 
-// 工厂入口，后续 phase B 再追加 "octvox"。
-std::unique_ptr<IMapManager> makeIkdTreeMap();
+// 工厂入口
+std::unique_ptr<IMapManager> makeIkdTreeMap();   // Phase A，封装 ikd-tree
+std::unique_ptr<IMapManager> makeOctVoxMap();    // Phase B-1，封装 Super-LIO OctVoxMap（GPL）
 
 }  // namespace slam::map

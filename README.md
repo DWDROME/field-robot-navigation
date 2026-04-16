@@ -34,8 +34,12 @@ ROS1 Noetic `catkin` 工作空间，用于温室场景下的激光定位、地�
 
 - 当前 Mid360 安装不是水平，而是**向前下倾 27°**
 - 这在 ROS 坐标语义里应理解为：**绕 Y 轴（pitch）旋转**
-- 当前主线显式发布的是 **`body -> base_link`**
-- 传感器 body 相对机器人本体前下倾 27°，补回到 `base_link` 语义时应写：**`pitch = +27° = +0.471239 rad`**
+- 当前采用 **方案 A**：保留 FAST-LIO 原生 `camera_init -> body` 不动
+- 额外发布水平辅助帧：
+  - `body -> body_foot`
+  - `camera_init -> robot_foot_init`
+- 对现有导航兼容仍保留 `body -> base_link`
+- 当前前下倾 27° 的补偿统一按：**`pitch = -27° = -0.471239 rad`**
 
 这层安装外参现在不再塞进：
 
@@ -47,15 +51,17 @@ ROS1 Noetic `catkin` 工作空间，用于温室场景下的激光定位、地�
 - `greenhouse_nav/launch/system_greenhouse_base.launch`
 - `greenhouse_nav/localization_manager.py`
 
-目的只有一个：  
-**让 `/state_estimation` 输出真正的 `base_link` 语义，而不是继续把传感器 body 当成车体。**
+目的有两个：  
+1. 让建图/可视化优先基于 `robot_foot_init` / `body_foot` 这套水平辅助帧  
+2. 保持 `/state_estimation` 与 `base_link` 兼容现有导航下游
 
 补充说明：
 
 - `FAST-LIO` 默认发布的是 `camera_init -> body`
 - 若启动瞬间传感器本体本来就是前下倾，`camera_init` 也会继承这份初始姿态
 - 所以在 RViz 里如果 `Fixed Frame = camera_init`，`/cloud_registered` 看起来仍可能是倾斜的
-- 这不是安装外参失效；检查“机器人本体是否摆正”时，应切到 **`Fixed Frame = base_link`**
+- 当前建图入口默认改为 **`Fixed Frame = robot_foot_init`**
+- 这样看到的是“水平辅助世界帧”，而不是 FAST-LIO 原生初始姿态帧
 
 ## 3. 默认数据流
 
@@ -97,8 +103,8 @@ roslaunch greenhouse_nav greenhouse_mapping.launch
 说明：
 
 - 该入口现在默认打开 `greenhouse_nav/rviz/greenhouse_mapping_base_link.rviz`
-- RViz 默认 `Fixed Frame = base_link`
-- 目的不是改 FAST-LIO 内部世界帧，而是避免建图时继续被 `camera_init` 的初始倾斜语义误导
+- RViz 默认 `Fixed Frame = robot_foot_init`
+- 目的不是改 FAST-LIO 内部世界帧，而是在其之上补一层水平辅助帧，避免被 `camera_init` 的初始倾斜语义误导
 
 ### 4.3 启动导航
 

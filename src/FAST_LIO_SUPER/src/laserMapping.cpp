@@ -59,10 +59,11 @@
 #include <livox_ros_driver2/CustomMsg.h>
 #include "preprocess.h"
 #include <ikd-Tree/ikd_Tree.h>
-#include "slam/map/ikd_tree_map.hpp"   // slam_core Phase A-2
+#include "slam/map/map_manager.hpp"    // slam_core Phase B：统一走 IMapManager
 #include <limits>
 #include <algorithm>
 #include <array>
+#include <string>
 
 #define INIT_TIME           (0.1)
 #define LASER_POINT_COV     (0.001)
@@ -121,11 +122,18 @@ PointCloudXYZI::Ptr _featsArray;
 pcl::VoxelGrid<PointType> downSizeFilterSurf;
 pcl::VoxelGrid<PointType> downSizeFilterMap;
 
-// slam_core (Phase A-2.b)：全量 KD_TREE 操作均经 IMapManager 接口。
-// IkdTreeMap 拥有自己的 KD_TREE 实例，laserMapping 不再直接访问原始树。
-static slam::map::IkdTreeMap& slamMap() {
-    static slam::map::IkdTreeMap inst;
+// slam_core (Phase B-1)：IMapManager 运行时分发。
+// - backend = "ikdtree" → makeIkdTreeMap()（Phase A 默认）
+// - backend = "octvox"  → makeOctVoxMap()（Super-LIO vendored，GPL）
+// 注意：OctVox 后端无 box-delete / cropAround / drainRemoved 语义，相关
+// 调用会 no-op；详见 include/slam/map/oct_vox_map.hpp 顶部注释。
+static std::unique_ptr<slam::map::IMapManager>& slamMapPtr() {
+    static std::unique_ptr<slam::map::IMapManager> inst;
     return inst;
+}
+static inline slam::map::IMapManager& slamMap() {
+    // main() 必须在第一次 IESKF 回调之前把 slamMapPtr() 置上；否则 crash。
+    return *slamMapPtr();
 }
 
 V3F XAxisPoint_body(LIDAR_SP_LEN, 0.0, 0.0);
@@ -822,21 +830,37 @@ int main(int argc, char** argv)
     nh.param<vector<double>>("mapping/extrinsic_T", extrinT, vector<double>());
     nh.param<vector<double>>("mapping/extrinsic_R", extrinR, vector<double>());
 
-    // slam_core (Phase A-3)：外化地图后端参数。当前只有 ikdtree 后端会消费
-    // voxel_size；capacity / enable_lru 在 Phase B 的 OctVoxMap 落地后生效。
-    // 见 docs/SLAM_CORE_API.md §3.
+    // slam_core (Phase B-1)：读 yaml 选后端 + 外化地图参数。
+    // 见 docs/SLAM_CORE_API.md §3 与 docs/ITERATION_PLAN.md Phase B-1。
     {
-        slam::map::MapConfig mc;
+        std::string sc_backend = "ikdtree";
         double sc_voxel = filter_size_map_min;
         int    sc_capacity = 2000000;
         bool   sc_enable_lru = true;
+        nh.param<std::string>("slam_core/map_backend", sc_backend, std::string("ikdtree"));
         nh.param<double>("slam_core/voxel_size",  sc_voxel,       filter_size_map_min);
         nh.param<int>   ("slam_core/capacity",    sc_capacity,    2000000);
         nh.param<bool>  ("slam_core/enable_lru",  sc_enable_lru,  true);
+
+        if (sc_backend == "octvox") {
+            slamMapPtr() = slam::map::makeOctVoxMap();
+        } else {
+            if (sc_backend != "ikdtree") {
+                ROS_WARN_STREAM("slam_core/map_backend='" << sc_backend
+                                << "' unknown, fallback to ikdtree");
+            }
+            slamMapPtr() = slam::map::makeIkdTreeMap();
+        }
+
+        slam::map::MapConfig mc;
         mc.voxel_size = static_cast<float>(sc_voxel);
         mc.capacity   = static_cast<std::size_t>(std::max(0, sc_capacity));
         mc.enable_lru = sc_enable_lru;
         slamMap().configure(mc);
+
+        ROS_INFO_STREAM("[slam_core] map_backend=" << slamMap().name()
+                        << " voxel_size=" << mc.voxel_size
+                        << " capacity=" << mc.capacity);
     }
 
     p_pre->lidar_type = lidar_type;

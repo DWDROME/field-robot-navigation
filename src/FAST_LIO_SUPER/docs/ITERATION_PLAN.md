@@ -3,15 +3,16 @@
 迁移 FAST-LIO2 → Super-LIO 风格的分阶段路线。每个阶段的完成标志都是可验证的
 构建/运行时产物，不依赖主观判断。
 
-**当前状态（Phase A 全部完成）**：
-- 包骨架就绪（`fast_lio_super`）
-- `slam_core` 接口就绪：`IMapManager`（含 `insert / insertNoDownsample /
-  removeBoxes / drainRemoved / flattenInto / empty / size / validSize / cropAround /
-  snapshot / configure / stats`）+ `INeighborSearch`
-- `IkdTreeMap` 是 `IMapManager` 的 ikd-tree 后端，自持 `KD_TREE<PointT>`
-- `laserMapping.cpp` **全部 KD_TREE 操作已走 slamMap() 接口**，全局
-  `KD_TREE<PointType> ikdtree` 已删除
-- `config/mid360.yaml` 有 `slam_core:` 段；`configure()` 在 `main()` 里生效
+**当前状态（Phase B-1 完成；Super-LIO 源码 vendored）**：
+- 包骨架就绪（`fast_lio_super` + 新 pkg `slam_octvox`）
+- `slam_core` 接口就绪：`IMapManager` + `INeighborSearch`
+- 两个后端并存，运行时按 yaml `slam_core/map_backend` 切换：
+  - `ikdtree` → `makeIkdTreeMap()`（Phase A）
+  - `octvox`  → `makeOctVoxMap()`（Phase B-1，封装 Super-LIO vendored GPL 代码）
+- 新包 `slam_octvox`：GPLv3 header-only，vendored `OctVoxMap.hpp` +
+  `HKNN_list60_gem.h` + `tsl::robin_map`；C++17
+- `fast_lio_super` 整体升 C++17，license 改 GPLv3
+- 源码阅读记录见 `docs/SUPERLIO_REFERENCE_NOTES.md`
 
 ---
 
@@ -65,32 +66,49 @@
 
 **目标**：用 Super-LIO 风格的地图/搜索/重定位替换 ikd-tree，可按 yaml 开关回退。
 
-### B-1 OctVox 数据结构
-- [ ] `include/slam/map/oct_vox_map.hpp` + `src/slam/map/oct_vox_map.cpp`
-  - Robin Hood hash（`absl/container/flat_hash_map` 或自实现）
-  - 每个 voxel 挂 8 个子体素代表点；增量均值更新
-  - LRU 链表，`capacity` 触发淘汰
-- [ ] `config` 追加 `map_backend: "octvox"` 的默认参数文件。
+### B-1 OctVox 后端（DONE，via vendored Super-LIO）
+- [x] 新建 header-only catkin 包 `slam_octvox`（GPLv3）
+- [x] Vendored：`OctVoxMap.hpp` + `HKNN_list60_gem.h` + `tsl/robin_*.h`
+- [x] `include/slam/map/oct_vox_map.hpp` + `src/slam/map/oct_vox_map.cpp`
+      适配器实现 `IMapManager` + `INeighborSearch`
+- [x] `laserMapping.cpp` 启动时按 `slam_core/map_backend` 选择后端
+- [x] `config/mid360.yaml` 已支持 `map_backend: "ikdtree" | "octvox"`
+- [x] C++17 全包升级；license 改 GPLv3
+- [x] Docker 编译验证通过（`fastlivo-dev:noetic-ros-base`）
 
-### B-2 HKNN 搜索
-- [ ] `include/slam/nn/hknn_search.hpp` + impl
-  - 子体素遍历顺序 LUT
-  - 早停（当前第 k 候选 dist2 > 下一个 cell 下界）
-- [ ] 单元测试：与 brute-force KNN 在随机点云上对比，topK 一致率 > 99%。
+### B-1.b 遗留 / 约束
+- [ ] OctVox 后端**不支持** box-delete / drainRemoved / cropAround（no-op）；
+      A/B 时 FAST-LIO2 的 `cub_needrm` 计算时间会被吞掉，但不影响正确性
+- [ ] `insertNoDownsample` 当前降级为 `insert`；若下游需要真正无损通道，
+      需要扩展 Super-LIO backend（不在本阶段）
+- [ ] 平面拟合走接口 `fitPlane`，但 `laserMapping.cpp` 目前仍调用原
+      `esti_plane`（Phase A 决策）；若要用 OctVox 的 `calc_plane_coeff`，
+      需要单独迁移这一步
+- [ ] **并发**：Super-LIO 原版用 TBB 跑每帧 knn 并行；我们目前 knn 循环
+      仍单线程（FAST-LIO2 原状），所以 OctVox 后端的实际时延优势不会完全
+      体现。要复现论文数字需要在 laserMapping 的 knn 循环上加 OpenMP
+      parallel-for（留给 B-1.c 或单独 PR）
+
+### B-2 HKNN 调优（DONE 来自 vendored，后续可调）
+- [x] Group 分层 + 早停 + mirror + XOR 优化（`HKNN_list60_gem.h` 直接用）
+- [ ] 单元测试：与 `getTopK_VN`（朴素 19-邻居）对比 topK 一致率 > 99%
+- [ ] 不同 `resolution` 下 `orders_min_dis2` 的重算（默认只对 0.5m 调过）
 
 ### B-3 MapIO
-- [ ] `include/slam/io/map_io.hpp`，二进制头 + voxel dump
-- [ ] CLI：`rosrun fast_lio_super map_dump /path/to/map.bin`
-      （建图结束时触发，或独立节点订阅）
+- [ ] `OctVoxMap::getMap(vector<float>)` 已 vendored，可直接 `pcl::io::savePCD`
+- [ ] `OctVoxMap::resetMap(vector<float>)` 已 vendored（带 10 帧稳定期）
+- [ ] `IMapIO` 接口暴露 + ROS 服务入口（B-3.b）
 
 ### B-4 Relocalizer
-- [ ] `include/slam/reloc/relocalizer.hpp` + impl（先 scan-to-map ICP+先验）
+- [ ] 参考 Super-LIO `super_lio_reloc.cpp`（未 vendored）实现 `IRelocalizer`
 - [ ] ROS 服务：`~/relocalize` 接收 `geometry_msgs/PoseWithCovarianceStamped`
-- [ ] 与 `FAST_LIO_LOCALIZATION` 共存时，`greenhouse_nav` 侧择一启用。
+- [ ] 与 `FAST_LIO_LOCALIZATION` 共存时，`greenhouse_nav` 侧择一启用
 
 ### B-5 A/B 实验
-- [ ] 跑 4 组配置：`fl2_baseline / fl2_star / fl2_octvox_sidecar / superlio_like`
+- [ ] 至少跑 3 组配置：`ikdtree / ikdtree+parallel / octvox`
 - [ ] 指标：p99 latency、mem peak、ATE/RMSE、每公里地图体量、重定位成功率
+- [ ] 参数对齐表：`voxel_size = 0.5` 时 ikdtree vs OctVox 的"有效代表点
+      密度"不同，需在报告里单独说明（OctVox sub-voxel = 0.25m）
 - [ ] 输出报告到 `docs/benchmarks/`。
 
 **退出条件**：`superlio_like` 在 bag 回放与真实 mid360 上均不差于 baseline，

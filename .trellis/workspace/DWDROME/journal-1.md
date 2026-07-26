@@ -38,3 +38,36 @@ Filled .trellis/spec/ with evidence-based workspace baseline: 27-package invento
 ### Next Steps
 
 - None - task complete
+
+
+## Session 2: Workspace overview doc
+
+**Date**: 2026-07-26
+**Task**: Workspace overview doc
+**Branch**: `main`
+
+### Summary
+
+Added root OVERVIEW.md (123 lines): two technical mainlines with data-flow diagrams, package inventory table (upstream GitHub URL / modified? / what changed) across SLAM line, navigation line, drivers-messages, and alternatives. All upstream URLs traced to in-repo evidence; 4 packages marked 待确认. trellis-check verified URLs, commit hashes, cited paths, and acceptance criteria; fixed slam_octvox modification summary.
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `68f0755` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

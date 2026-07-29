@@ -1,37 +1,54 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.8)
 project(dlrobot_robot)
 
-find_package(catkin REQUIRED COMPONENTS
-  actionlib
-  actionlib_msgs
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(serial REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_library(dlrobot_robot_core STATIC
+  src/orientation_filter.cpp
+  src/protocol.cpp
+)
+target_include_directories(dlrobot_robot_core PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+add_executable(dlrobot_robot_node src/dlrobot_robot_node.cpp)
+target_link_libraries(dlrobot_robot_node dlrobot_robot_core)
+ament_target_dependencies(dlrobot_robot_node
   geometry_msgs
-  message_generation
   nav_msgs
-  nav_msgs
-  roscpp
-  serial
-  roslib
-  rospy
+  rclcpp
   sensor_msgs
+  serial
   std_msgs
-  tf
 )
 
-# ulimit -c unlimited
-# ssh firefly@192.168.1.76
-add_compile_options(-g -std=c++11)    #-g -> core dumped
-
-catkin_package(
-  #INCLUDE_DIRS include
-  #LIBRARIES turn_on_dlrobot_robot
-  #CATKIN_DEPENDS geometry_msgs message_generation nav_msgs nav_msgs roscpp roslib rospy sensor_msgs std_msgs tf
-  #DEPENDS system_lib
+install(TARGETS dlrobot_robot_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
 )
 
-# defind robot status massage
-# command atkin_make -DCATKIN_WHITELIST_PACKAGES="new_msg"
-include_directories(include ${catkin_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
-include_directories(include/${PROJECT_NAME})
+if(BUILD_TESTING)
+  enable_testing()
+  add_executable(test_protocol test/test_protocol.cpp)
+  target_link_libraries(test_protocol dlrobot_robot_core)
+  add_test(NAME protocol COMMAND test_protocol)
+endif()
 
-add_executable(dlrobot_robot_node src/dlrobot_robot.cpp src/Quaternion_Solution.cpp)
-target_link_libraries(dlrobot_robot_node ${catkin_LIBRARIES})
+ament_package()

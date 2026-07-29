@@ -30,6 +30,15 @@ __pycache__/
 # === workspace-local scratch ===
 other.zip
 other/
+!other/
+other/*
+!other/COLCON_IGNORE
+!other/历史归档/
+other/历史归档/*
+!other/历史归档/ros1/
+other/历史归档/ros1/*
+!other/历史归档/ros1/dlrobot_robot/
+!other/历史归档/ros1/dlrobot_robot/**
 .agentdocs/runtime/
 
 # === AI 平台配置（Trellis 步骤 1.3 生成，跨平台字节重复，可再生；源头 .trellis/ 已追踪） ===

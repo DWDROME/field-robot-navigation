@@ -58,11 +58,13 @@ boundary.
 /state_estimation + /path + /speed
     -> pathFollower
        -> native /cmd_vel                [TwistStamped, vehicle]
-       -> remapped /cmd_vel_stamped
-    -> cmd_vel_stamped_bridge.py
-       -> /cmd_vel                       [Twist]
-    -> dlrobot_robot
 ```
+
+The diagram above stops at the ROS 1 planner output. The active
+`src/dlrobot_robot` package is now ROS 2 Jazzy and is intended to consume the
+CMU Jazzy `TwistStamped` command directly. The existing ROS 1 greenhouse
+bridge/launch path is retained in source but is not a direct runtime connection
+to the migrated chassis package.
 
 Default forward/reverse user entries set `use_adapter=false`. FAR publishes
 `/way_point` and `/navigation_boundary`, but not `/speed`. The only confirmed
@@ -217,7 +219,7 @@ Native inputs include `/state_estimation`, `/path`, `/joy`, `/speed`, and
 `/stop`. Its native `/cmd_vel` publisher is
 `geometry_msgs/TwistStamped`, stamped in frame `vehicle`.
 
-`base_autonomy_cmu.launch` remaps that native `/cmd_vel` to
+The existing ROS 1 `base_autonomy_cmu.launch` remaps that native `/cmd_vel` to
 `/cmd_vel_stamped`. This name/type distinction is deliberate:
 
 - `/cmd_vel_stamped`: `geometry_msgs/TwistStamped`;
@@ -233,16 +235,30 @@ Both `localPlanner` and `pathFollower` subscribe to `/speed`.
 the launch graph requires an external `/speed` owner; launch enumeration alone
 does not prove that path tracking can command motion.
 
-### Bridge And Chassis
+### ROS 1 Bridge And Archived Chassis Contract
 
 `cmd_vel_stamped_bridge.py` publishes `msg.twist` from
 `/cmd_vel_stamped` onto `/cmd_vel`, intentionally discarding the stamped
 header and frame.
 
-`dlrobot_robot` subscribes to relative topic `cmd_vel` as
-`geometry_msgs/Twist`. It publishes relative `odom`, `imu`, and
-`PowerVoltage`; its default odometry message is
+That bridge matched the archived ROS 1 chassis package at
+`other/历史归档/ros1/dlrobot_robot`, which subscribed to
+`geometry_msgs/Twist`.
+
+### Active ROS 2 Chassis Contract
+
+`src/dlrobot_robot` subscribes to relative topic `cmd_vel` as
+`geometry_msgs/msg/TwistStamped` and reads its `twist` field. It publishes
+relative `odom`, `imu`, and `PowerVoltage`; its default odometry message is
 `odom_combined -> base_footprint`, while IMU messages use `imu_link`.
+
+The ROS 2 package is designed to connect directly to the CMU Jazzy
+`pathFollower` output without the ROS 1 `cmd_vel_stamped_bridge.py`.
+
+The CMU Jazzy follower can also own a motor serial device. When
+`dlrobot_robot` owns the chassis serial port, that direct motor output must be
+disabled or left unconfigured. Two processes must never write the same chassis
+device.
 
 The chassis odometry tree is separate from the greenhouse localization tree
 unless another launch explicitly connects them.
@@ -285,8 +301,10 @@ Before adding or enabling a transform publisher:
 - [ ] `/map_to_odom` absence and its fitness gate are handled deliberately.
 - [ ] `/map_to_odom` is not described as a fully declared `map -> odom` TF.
 - [ ] `/speed` has one confirmed publisher in the assembled motion graph.
-- [ ] `/cmd_vel_stamped` remains `TwistStamped`; chassis `/cmd_vel` remains
-      `Twist`.
+- [ ] ROS 1 `/cmd_vel_stamped` remains `TwistStamped`; the archived chassis
+      contract remains `Twist`.
+- [ ] Active ROS 2 chassis `/cmd_vel` remains `TwistStamped`.
+- [ ] Exactly one process owns the chassis serial device.
 - [ ] Terrain inputs already satisfy map-coordinate semantics.
 - [ ] Changes are traced through the full launch include graph.
 
@@ -304,4 +322,5 @@ Before adding or enabling a transform publisher:
 - `src/terrain_analysis_ext/src/terrainAnalysisExt.cpp`
 - `src/local_planner/src/localPlanner.cpp`
 - `src/local_planner/src/pathFollower.cpp`
-- `src/dlrobot_robot/src/dlrobot_robot.cpp`
+- `src/dlrobot_robot/src/dlrobot_robot_node.cpp`
+- `other/历史归档/ros1/dlrobot_robot/src/dlrobot_robot.cpp`

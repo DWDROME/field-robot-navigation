@@ -1,6 +1,6 @@
 # Backend Development Guidelines
 
-> Working conventions for this ROS1 Noetic catkin workspace.
+> Working conventions for the ROS 1 Noetic workspace and packages being migrated to ROS 2 Jazzy.
 
 ---
 
@@ -35,7 +35,7 @@ One important distinction:
   - `src/terrain_analysis_ext`
   - `src/far_planner`
   - `src/local_planner`
-  - `src/dlrobot_robot`
+  - `src/dlrobot_robot` (ROS 2 Jazzy chassis package; not directly buildable by the ROS 1 catkin mainline)
 - Message, bridge, and support packages:
   - `src/visibility_graph_msg`
   - `src/dl_msgs`
@@ -104,6 +104,7 @@ Before editing this workspace:
 | [Error Handling](./error-handling.md) | How failures are surfaced in C++ and Python ROS nodes | Ready |
 | [Logging Guidelines](./logging-guidelines.md) | How ROS logging is used in runtime loops and startup | Ready |
 | [Quality Guidelines](./quality-guidelines.md) | Validation expectations and review checks | Ready |
+| [ROS 2 Robotics C++ Style](./ros2-robotics-code-style.md) | Direct C++17, protocol, hardware ownership, error, and test contracts for ROS 2 nodes | Ready |
 
 ## Shared Guides
 

@@ -10,9 +10,11 @@ A directory counts as a ROS package here only when it contains a
 `package.xml`. Package discovery must be recursive because `src/MoveBase3D/`
 is a container with nested packages.
 
-As of 2026-07-26, the workspace contains:
+As of 2026-07-29, `src/` contains:
 
-- 27 catkin package manifests under `src/`
+- 27 ROS package manifests under `src/`
+- 26 ROS 1 catkin packages
+- 1 ROS 2 `ament_cmake` package: `src/dlrobot_robot`
 - 17 packages outside `src/MoveBase3D/`
 - 10 packages inside `src/MoveBase3D/`
 
@@ -36,7 +38,13 @@ planning, and execution path described by the top-level `README.md` and
 | `src/terrain_analysis_ext/` | `terrain_analysis_ext` | Extended-range terrain analysis | Companion terrain-processing stage |
 | `src/far_planner/` | `far_planner` | FAR visibility-graph route planning | Global/route planning owner |
 | `src/local_planner/` | `local_planner` | Local path planning and tracking | Local motion planning owner |
-| `src/dlrobot_robot/` | `dlrobot_robot` | Chassis integration and command execution | Hardware-facing actuator boundary |
+| `src/dlrobot_robot/` | `dlrobot_robot` | ROS 2 Jazzy chassis serial integration and command execution | Hardware-facing actuator boundary for the CMU Jazzy migration |
+
+The current ROS 1 greenhouse launch files still describe the previous chassis
+wiring and cannot build or launch the new `ament_cmake` package through
+`catkin_make`. The archived ROS 1 implementation is at
+`other/历史归档/ros1/dlrobot_robot/`. Do not restore both implementations under
+`src/`.
 
 The default greenhouse runtime still uses `fast_lio` and
 `fast_lio_localization`. Do not describe `fast_lio_super` as the default
@@ -83,9 +91,12 @@ this order:
 
 This produces the current role split:
 
-- **default greenhouse runtime**: `greenhouse_nav`, `livox_ros_driver2`,
+- **default ROS 1 greenhouse runtime, before the chassis migration boundary**:
+  `greenhouse_nav`, `livox_ros_driver2`,
   `fast_lio`, `fast_lio_localization`, `terrain_analysis`,
-  `terrain_analysis_ext`, `far_planner`, `local_planner`, `dlrobot_robot`;
+  `terrain_analysis_ext`, `far_planner`, `local_planner`;
+- **ROS 2 chassis migration target**: `src/dlrobot_robot`, intended for the
+  CMU Jazzy stack rather than the existing ROS 1 launch tree;
 - **optional from the greenhouse assembly**: `graph_decoder` and the
   `greenhouse_nav` global-to-local adapter;
 - **SLAM candidate/research line**: `fast_lio_super`, `slam_octvox`;

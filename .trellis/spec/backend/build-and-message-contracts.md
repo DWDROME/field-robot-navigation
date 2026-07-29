@@ -1,14 +1,21 @@
 # Build And Message Contracts
 
-> Catkin dependency boundaries and custom ROS wire contracts in this workspace.
+> Catkin and ament dependency boundaries and custom ROS wire contracts in this workspace.
 
 ---
 
 ## Build Model
 
-This is one ROS1 catkin workspace with 27 recursively discovered packages.
-Package identity comes from `package.xml`; build behavior comes from both
-`package.xml` and `CMakeLists.txt`.
+This repository currently contains 26 ROS 1 catkin packages and one ROS 2
+Jazzy `ament_cmake` package, `src/dlrobot_robot`.
+
+The root `catkin_make` build does not own `src/dlrobot_robot`. Build that
+package explicitly with `colcon` in a Jazzy environment. Its `serial`
+dependency is the ROS 2 package used by the CMU Jazzy stack and must be present
+in the same workspace or a sourced underlay.
+
+For catkin packages, package identity comes from `package.xml`; build behavior
+comes from both `package.xml` and `CMakeLists.txt`.
 
 Do not assume either file is complete by itself. Several retained upstream or
 research packages have narrower `catkin_package(CATKIN_DEPENDS ...)` exports
@@ -185,7 +192,7 @@ cleanup during unrelated work.
 | `rviz_multi_goals_manager_plugins` | Finds `rover_msgs`, but exports only `message_runtime` |
 | `livox_to_pointcloud2` | Calls empty message generation, claims a library that is not built, and does not export all consumed packages |
 | FAST-LIO variants | Find `livox_ros_driver2`, but do not export it through `catkin_package`; SUPER does export `slam_octvox` |
-| `dlrobot_robot` | Manifest includes message-generation-related metadata while `catkin_package()` is empty |
+| archived ROS 1 `dlrobot_robot` | Manifest includes message-generation-related metadata while `catkin_package()` is empty |
 
 For system libraries such as PCL, OpenCV, Qt, APR, Eigen, and serial support,
 also compare package metadata with non-catkin `find_package`, `pkg_check_modules`,
@@ -206,6 +213,16 @@ and hard-coded include/library paths.
   hardware, rosserial, bag, and downstream workspace consumers.
 
 ## Validation
+
+For the ROS 2 chassis package:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+colcon build --base-paths src/dlrobot_robot --packages-select dlrobot_robot
+colcon test --packages-select dlrobot_robot
+```
+
+Source a workspace containing the ROS 2 `serial` package first.
 
 For a message or build-boundary change:
 

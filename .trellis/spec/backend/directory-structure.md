@@ -6,9 +6,12 @@
 
 ## Overview
 
-This is a ROS1 Noetic `catkin` workspace, not a monolithic application.
+This repository is in a mixed migration state:
 
 - The workspace root contains `src/CMakeLists.txt`, the catkin toplevel entry.
+- 26 packages under `src/` remain ROS 1 Noetic catkin packages.
+- `src/dlrobot_robot/` is a ROS 2 Jazzy `ament_cmake` package built with
+  `colcon`; it is not part of the root catkin build.
 - Each ROS package usually lives in its own directory under `src/`.
 - Most behavior is assembled through `launch/*.launch`, not a single `main()` binary.
 - Package-local docs matter. Many packages have a `CLAUDE.md` file that already explains module intent.
@@ -41,11 +44,17 @@ src/
 ├── local_planner/                     # planner package: src/ + launch/ + paths/
 ├── terrain_analysis/                  # mapping / terrain package
 ├── terrain_analysis_ext/              # extended terrain package
-├── dlrobot_robot/                     # actuator package: src/ + launch/ + scripts/ + urdf/
+├── dlrobot_robot/                     # ROS 2 actuator package: include/ + src/ + launch/ + test/
 ├── visibility_graph_msg/              # message-only package
 ├── dl_msgs/                           # msg/srv package
 ├── slam_octvox/                       # header-heavy support package for FAST_LIO_SUPER
 └── MoveBase3D/                        # container directory for several alternate subpackages
+```
+
+The previous ROS 1 chassis package is preserved outside the build source tree:
+
+```text
+other/历史归档/ros1/dlrobot_robot/
 ```
 
 ## Package Organization Patterns
@@ -145,6 +154,11 @@ list and status classification.
 ## Rules For New Work
 
 - Put new code in the owning ROS package, not in a shared misc directory.
+- Do not create a nested `ros2_ws/` for the chassis migration. The ROS 2
+  package remains at `src/dlrobot_robot` and is selected explicitly with
+  `colcon`.
+- Do not place the archived ROS 1 and active ROS 2 `dlrobot_robot` manifests
+  in the same source tree.
 - Prefer extending an existing integration package when the task is launch assembly, TF wiring, topic remapping, or a Python bridge node.
 - Prefer extending a message package only when the task changes the shared ROS contract.
 - Keep package-local docs close to the code when a package has non-trivial architecture, following the existing `CLAUDE.md` and `docs/` pattern in `FAST_LIO_SUPER`.

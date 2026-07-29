@@ -71,3 +71,36 @@ Added root OVERVIEW.md (123 lines): two technical mainlines with data-flow diagr
 ### Next Steps
 
 - None - task complete
+
+
+## Session 3: 迁移 dlrobot_robot 到 ROS 2 Jazzy
+
+**Date**: 2026-07-29
+**Task**: 迁移 dlrobot_robot 到 ROS 2 Jazzy
+**Branch**: `main`
+
+### Summary
+
+归档原 ROS 1 底盘包，在原路径重建 ROS 2 Jazzy ament_cmake 包，保留 STM32 串口协议与里程计行为，并补充协议测试、README 和 ROS 2 代码规范。
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `3dbfd97` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

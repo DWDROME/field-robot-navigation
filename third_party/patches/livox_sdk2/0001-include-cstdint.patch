@@ -1,0 +1,11 @@
+diff --git a/sdk_core/comm/define.h b/sdk_core/comm/define.h
+--- a/sdk_core/comm/define.h
++++ b/sdk_core/comm/define.h
+@@ -24,6 +24,7 @@
+ #ifndef LIVOX_DEFINE_H_
+ #define LIVOX_DEFINE_H_
+ 
++#include <cstdint>
+ #include <stdio.h>
+ #include <string>
+ #include <memory>

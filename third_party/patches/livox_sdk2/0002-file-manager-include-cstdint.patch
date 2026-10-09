@@ -1,0 +1,11 @@
+diff --git a/sdk_core/logger_handler/file_manager.h b/sdk_core/logger_handler/file_manager.h
+--- a/sdk_core/logger_handler/file_manager.h
++++ b/sdk_core/logger_handler/file_manager.h
+@@ -25,6 +25,7 @@
+ #ifndef LIVOX_FILE_MANAGER_
+ #define LIVOX_FILE_MANAGER_
+ 
++#include <cstdint>
+ #include <string>
+ #include <vector>
+ #include <map>

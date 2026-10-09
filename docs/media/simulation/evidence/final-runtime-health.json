@@ -1,0 +1,14 @@
+{
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "memory_events": {
+    "low": "0",
+    "high": "0",
+    "max": "0",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "live_gazebo_world_pids": [],
+  "far_binary_sha256": "d42fe736b103ff5c82c8b684e0f83c08cbcbc81052f38d6601de9424c2d06191",
+  "scope": "Final task container after 27 matrix runs and one RViz supplement; no live world remains"
+}

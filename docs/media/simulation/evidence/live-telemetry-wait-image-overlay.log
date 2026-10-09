@@ -1,0 +1,461 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from runner-overlay.Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from runner-overlay.Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 663B 0.3s done
+#1 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/library/greenhouse-sim:gazebo-sim-matrix
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/greenhouse-sim:gazebo-sim-matrix@sha256:f990fa340b7269d1553e5cefbb9b1427af39123905e7d4acd78d4321d96e666d
+#4 resolve docker.io/library/greenhouse-sim:gazebo-sim-matrix@sha256:f990fa340b7269d1553e5cefbb9b1427af39123905e7d4acd78d4321d96e666d 0.0s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 69.95kB 0.0s done
+#5 DONE 0.1s
+
+#4 [1/6] FROM docker.io/library/greenhouse-sim:gazebo-sim-matrix@sha256:f990fa340b7269d1553e5cefbb9b1427af39123905e7d4acd78d4321d96e666d
+#4 DONE 1.7s
+
+#6 [2/6] COPY --chmod=755 run_simulation_run.py run_matrix.py /opt/greenhouse/lib/greenhouse_nav2_bringup/
+#6 DONE 0.1s
+
+#7 [3/6] COPY --chmod=644 simulation_ground_vehicle.launch.py /opt/greenhouse/share/greenhouse_nav2_bringup/launch/
+#7 DONE 0.1s
+
+#8 [4/6] COPY --chmod=644 x500_sites.yaml /opt/greenhouse_air/share/greenhouse_sim_air/config/
+#8 DONE 0.1s
+
+#9 [5/6] COPY --chmod=644 inspect-simulation-geometry.py /opt/greenhouse_sim/tools/
+#9 DONE 0.1s
+
+#10 [6/6] RUN python3 /opt/greenhouse_sim/tools/inspect-simulation-geometry.py     --air-config /opt/greenhouse_air/share/greenhouse_sim_air/config/x500_sites.yaml     --output /opt/greenhouse_sim/geometry.json
+#10 1.163 {"result": "pass", "output": "/opt/greenhouse_sim/geometry.json", "sites": {"maize_field": {"result": "pass", "takeoff_column_half_width_m": 2.5, "obstacle_candidates_in_entire_vertical_column": 0, "cruise_altitude_above_home_m": 3.0, "conservative_vertical_clearance_m": 1.9918278503134879, "required_vertical_clearance_m": 1.6, "world_xy_route_including_return": [[-9.0, -8.5], [-7.0, -6.5], [-7.0, -0.5], [-1.0, -0.5], [-1.0, -6.5], [-9.0, -8.5]], "checked_segments": 5, "takeoff_and_landing": "same obstacle-free vertical column"}, "orchard": {"result": "pass", "takeoff_column_half_width_m": 2.5, "obstacle_candidates_in_entire_vertical_column": 0, "cruise_altitude_above_home_m": 6.0, "conservative_vertical_clearance_m": 3.911690728531001, "required_vertical_clearance_m": 1.6, "world_xy_route_including_return": [[-3.0, -3.0], [-3.0, 3.0], [-3.0, 9.0], [3.0, 9.0], [3.0, 3.0], [-3.0, -3.0]], "checked_segments": 5, "takeoff_and_landing": "same obstacle-free vertical column"}, "pipeline": {"result": "pass", "takeoff_column_half_width_m": 2.5, "obstacle_candidates_in_entire_vertical_column": 0, "cruise_altitude_above_home_m": 10.0, "conservative_vertical_clearance_m": 3.092306831418931, "required_vertical_clearance_m": 1.6, "world_xy_route_including_return": [[-3.0, 3.0], [5.0, 3.0], [5.0, 13.0], [-3.0, 13.0], [-3.0, 3.0], [-3.0, 3.0]], "checked_segments": 5, "takeoff_and_landing": "same obstacle-free vertical column"}}}
+#10 DONE 1.2s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.6s done
+#11 exporting manifest sha256:e59ae416bfcd2eb8ef64f4d64bd8183e938d45d5c576a6c7d0b96372f37fe461 0.0s done
+#11 exporting config sha256:ece39a510d96e3a64b2bc2fca68d9bae26282b4e15df49df4183d17920c13f5e 0.0s done
+#11 exporting attestation manifest sha256:da8188c35d505e694dcc735df6b9ca088672177ee20feddcb9eb09372596356c 0.1s done
+#11 exporting manifest list sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d
+#11 exporting manifest list sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d 0.0s done
+#11 naming to docker.io/library/greenhouse-sim:gazebo-sim-matrix done
+#11 unpacking to docker.io/library/greenhouse-sim:gazebo-sim-matrix
+#11 unpacking to docker.io/library/greenhouse-sim:gazebo-sim-matrix 0.2s done
+#11 DONE 1.0s
+time="2026-10-07T19:48:57+08:00" level=warning msg="Found orphan containers ([sim-matrix-candidate-before-live-telemetry-wait sim-matrix-candidate-before-flat-air-spawn sim-matrix-candidate-before-bridge-isolation sim-matrix-candidate-before-process-cleanup sim-matrix-candidate-before-empty-param-fix sim-matrix-candidate-matrix-before-rviz sim-matrix-candidate-qa5 sim-matrix-candidate-qa4 sim-matrix-candidate-qa3 sim-matrix-candidate-qa2 sim-matrix-candidate-qa1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container sim-matrix-candidate Creating 
+ Container sim-matrix-candidate Created 
+1936dcbab15d09b3dfd8e197d3fd3dd8ab347e9ee3364b11547db90448eff11e
+{
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "source_files": [
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/launch/simulation.launch.py",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/launch/simulation.launch.py",
+      "sha256": "fed7e0d9c977fa202e55c60fc2ced829ba9bb10e9c59e6ab21fecff92b4d8892"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/launch/simulation_ground_vehicle.launch.py",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/launch/simulation_ground_vehicle.launch.py",
+      "sha256": "b94b7ae64e5077aba236f18b9865f2bb2dd7c06ad5278c3ccde50b2527f774cf"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/launch/simulation_matrix.launch.py",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/launch/simulation_matrix.launch.py",
+      "sha256": "3ac7d2de59fdda7a131bfd828523627b719998c34bc0dfc0883f240fe9da2dc4"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/launch/simulation_vehicle.launch.py",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/launch/simulation_vehicle.launch.py",
+      "sha256": "4570711ea941ad3973ee0d28c1a5490cf935900987b25c8c447986e8100748fb"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/launch/simulation_x500.launch.py",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/launch/simulation_x500.launch.py",
+      "sha256": "3f9808cccfcd49ed47c78b8899fbc921fd3fd42f911289851626ce431be321b2"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/capture_simulation_image.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/capture_simulation_image.py",
+      "sha256": "e78a7e22b0e07dc605506e0564f5f1d9ee627cd01314d38ff55e625670cfecde"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/capture_simulation_rviz.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/capture_simulation_rviz.py",
+      "sha256": "75209f2cd78c3056d9d61480ffe4278cb09e2651e08599c313cd62fb9f69d234"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/run_simulation_run.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/run_simulation_run.py",
+      "sha256": "63960769457df4cf83a1bfd2098fbd163545961b1c1391cdfb138082184a6c5d"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/simulation_ground_startup.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/simulation_ground_startup.py",
+      "sha256": "abb8bdc420854cd031cb8eeda4fad3d9de07eb28d2eaf82b900354e760f916f0"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/simulation_lidar_filter.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/simulation_lidar_filter.py",
+      "sha256": "93d1a9d16930f4da12a929852229c8bcf669b865e202e5288cdb7bcb390fdb38"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/scripts/run_matrix.py",
+      "installed": "/opt/greenhouse/lib/greenhouse_nav2_bringup/run_matrix.py",
+      "sha256": "b04c94bf17879bd78be73986e91e26ca6bf9f16b53be67795ecada6762e25d13"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/command-gate.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/command-gate.yaml",
+      "sha256": "eeb0bff77ac2800a1a855e2541e19de37379c15be0e16916e50f9b3211b50984"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/dds-loopback.xml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/dds-loopback.xml",
+      "sha256": "2838e0fdaa1e54ead53d60ba99ffc26788f0736d560f695ec4ed0a23a41765e3"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/deployment-husky_a200.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/deployment-husky_a200.yaml",
+      "sha256": "67cc8cca4b580f86b0709ca85a776844ea965df2ca74d16c2b783fad3fbfd2ee"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/deployment-jackal_j100.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/deployment-jackal_j100.yaml",
+      "sha256": "5c85aec5ec24bcc38a149c3d76fb2f0cda2f48b2f4ee509b85f0f2bce38dc8c2"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/navigation.rviz",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/navigation.rviz",
+      "sha256": "8119e697a8f4231fab859e6f130089a2021e0e7143e497199546d833ba5a691a"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/robot.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robot.yaml",
+      "sha256": "cb47e53e9e2c4a42594999747e3017325ba2ea55675cc3a64019f988f6059ec5"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/sensor-bridge-a200.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/sensor-bridge-a200.yaml",
+      "sha256": "23305cd120e05b2793a6c29cc136559637a728b5e8b433fc3762ecfbccd1122f"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/sensor-bridge-j100.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/sensor-bridge-j100.yaml",
+      "sha256": "8d3e03c9e4e05ad1d1df36ae05c749e47925528a012182d8f2a2ec92997935c9"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/sensor-bridge.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/sensor-bridge.yaml",
+      "sha256": "c1f321214583c2a7425bd85e161de60a9bc304f08c720d1f05906b478f64e958"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/robots/husky_a200.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robots/husky_a200.yaml",
+      "sha256": "02fff475dc02140523d5330a5bcd46154f8e31fe66ed5b4516c5487430b084dc"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/robots/jackal_j100.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robots/jackal_j100.yaml",
+      "sha256": "53279c99678f9c4aca983de6f2285e952f24e8db88b4b35cacdf425260c7f59a"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/config/simulation/tasks/ground_sites.yaml",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/tasks/ground_sites.yaml",
+      "sha256": "9f692bf502ccbc32e5d65fd6f836dee3f8c94b986d547bb417bbfe5f19a950c9"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/worlds/empty.sdf",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/worlds/empty.sdf",
+      "sha256": "0befa37c944d17f1af0decb2ff56060b226bafe69d198ff44990dc5871a3dda5"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/worlds/generic-sensors.sdf",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/worlds/generic-sensors.sdf",
+      "sha256": "f1b83e5f362d0c6275d7525ec2f78c9a820a71c961cd605ca660e3a3db74b8e7"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_nav2_bringup/worlds/simulation_camera.sdf",
+      "installed": "/opt/greenhouse/share/greenhouse_nav2_bringup/worlds/simulation_camera.sdf",
+      "sha256": "349c6bd3843f3269e9ae0d719052e8bc79861fa21ee51c7ca65b4655bffbd08d"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_sim_air/greenhouse_sim_air/air_mission.py",
+      "installed": "/opt/greenhouse_air/lib/python3.12/site-packages/greenhouse_sim_air/air_mission.py",
+      "sha256": "61bde3a5d504b1a774bedd997aa10b2c489bfc359744382dc118ccf7a887ca4f"
+    },
+    {
+      "source": "/work/src/bringup/greenhouse_sim_air/config/x500_sites.yaml",
+      "installed": "/opt/greenhouse_air/share/greenhouse_sim_air/config/x500_sites.yaml",
+      "sha256": "0cab4cb7c3eea37c2aca016287b67d5e4ab404424d06d804b3d309343a7f3ba1"
+    },
+    {
+      "source": "/work/tools/inspect-simulation-geometry.py",
+      "installed": "/opt/greenhouse_sim/tools/inspect-simulation-geometry.py",
+      "sha256": "439f1978e04cd264759bf99b9e221625063051b731a1be789e748758e8d0dc24"
+    }
+  ],
+  "message_prefix": "/opt/greenhouse_air/share/px4_msgs",
+  "mission_prefix": "/opt/greenhouse_air/share/greenhouse_sim_air",
+  "geometry": {
+    "schema": 1,
+    "air_config_sha256": "0cab4cb7c3eea37c2aca016287b67d5e4ab404424d06d804b3d309343a7f3ba1",
+    "coordinate_conversion": "world ENU: x=spawn.x+waypoint.y, y=spawn.y+waypoint.x; altitude relative to settled home",
+    "envelope": {
+      "vehicle_radius_m": 0.5,
+      "xy_error_m": 1.5,
+      "horizontal_margin_m": 0.5,
+      "vertical_half_extent_m": 0.5,
+      "altitude_error_m": 0.6,
+      "vertical_margin_m": 0.5
+    },
+    "limitations": [
+      "Static asset geometry check, not online 3D avoidance or terrain following",
+      "Normal takeoff and landing ground contact is expected; maize is a rigid model",
+      "Triangle/pixel slopes describe the asset, not validated traversability limits"
+    ],
+    "sites": {
+      "maize_field": {
+        "terrain_z_range": [
+          0.0033057851239669425,
+          0.4
+        ],
+        "terrain_pixel_slope_degrees": {
+          "max": 66.71155110471697,
+          "percentile95": 9.729617252316908
+        },
+        "heightmap_size_m": [
+          20.34,
+          20.34,
+          0.4
+        ],
+        "heightmap_resolution": [
+          1024,
+          1024
+        ],
+        "heightmap_physics": {
+          "sampling": 2,
+          "vertex_count_per_axis": 2047,
+          "z_conversion": "pixel / maximum_pixel * size.z (MinElevation=0)",
+          "row_direction": "Bullet flips ImageHeightmap rows",
+          "spawn_elevation": "lower bound of enclosing pixel corners"
+        },
+        "plant_count": 1015,
+        "plant_visual_z_max": 1.057758926546016,
+        "plant_collision_z_max": 0.8239616163508243,
+        "plant_collision_model": "original rigid 0.02 x 0.02 x 0.4 m boxes; not flexible crop physics",
+        "air_spawn": [
+          -9.0,
+          -8.5,
+          0.35,
+          0.0
+        ],
+        "ground_under_spawn_m": 0.09256198347107439,
+        "ground_under_vehicle_range_m": [
+          0.049586776859504134,
+          0.11074380165289256
+        ],
+        "spawn_collision_clearance_m": 0.2654793388429752,
+        "world_max_geometry_z_m": 1.057758926546016,
+        "physics_step_s": 0.01,
+        "gravity": "0 0 -9.8 (SDF default)",
+        "air_clearance": {
+          "result": "pass",
+          "takeoff_column_half_width_m": 2.5,
+          "obstacle_candidates_in_entire_vertical_column": 0,
+          "cruise_altitude_above_home_m": 3.0,
+          "conservative_vertical_clearance_m": 1.9918278503134879,
+          "required_vertical_clearance_m": 1.6,
+          "world_xy_route_including_return": [
+            [
+              -9.0,
+              -8.5
+            ],
+            [
+              -7.0,
+              -6.5
+            ],
+            [
+              -7.0,
+              -0.5
+            ],
+            [
+              -1.0,
+              -0.5
+            ],
+            [
+              -1.0,
+              -6.5
+            ],
+            [
+              -9.0,
+              -8.5
+            ]
+          ],
+          "checked_segments": 5,
+          "takeoff_and_landing": "same obstacle-free vertical column"
+        }
+      },
+      "orchard": {
+        "terrain_z_range": [
+          -0.1,
+          0.07080399
+        ],
+        "terrain_face_slope_degrees": {
+          "max": 17.984844720828598,
+          "percentile95": 8.802006598122134
+        },
+        "terrain_triangles": 3648,
+        "obstacle_triangles": 176464,
+        "air_spawn": [
+          -3.0,
+          -3.0,
+          0.15,
+          0.0
+        ],
+        "ground_under_spawn_m": -0.0874689025,
+        "ground_under_vehicle_range_m": [
+          -0.1,
+          -0.062406707500000005
+        ],
+        "spawn_collision_clearance_m": 0.24420335374999996,
+        "world_max_geometry_z_m": 1.9883092714689994,
+        "physics_step_s": 0.003,
+        "gravity": "0 0 -9.8",
+        "air_clearance": {
+          "result": "pass",
+          "takeoff_column_half_width_m": 2.5,
+          "obstacle_candidates_in_entire_vertical_column": 0,
+          "cruise_altitude_above_home_m": 6.0,
+          "conservative_vertical_clearance_m": 3.911690728531001,
+          "required_vertical_clearance_m": 1.6,
+          "world_xy_route_including_return": [
+            [
+              -3.0,
+              -3.0
+            ],
+            [
+              -3.0,
+              3.0
+            ],
+            [
+              -3.0,
+              9.0
+            ],
+            [
+              3.0,
+              9.0
+            ],
+            [
+              3.0,
+              3.0
+            ],
+            [
+              -3.0,
+              -3.0
+            ]
+          ],
+          "checked_segments": 5,
+          "takeoff_and_landing": "same obstacle-free vertical column"
+        }
+      },
+      "pipeline": {
+        "terrain_z_range": [
+          -3.7187457,
+          6.7256473
+        ],
+        "terrain_face_slope_degrees": {
+          "max": 89.54670624440762,
+          "percentile95": 54.50275689301912
+        },
+        "terrain_triangles": 3360,
+        "obstacle_triangles": 9871,
+        "air_spawn": [
+          -3.0,
+          3.0,
+          0.1,
+          0.0
+        ],
+        "ground_under_spawn_m": -0.16728019749237785,
+        "ground_under_vehicle_range_m": [
+          -0.18204586858106925,
+          -0.15251452640368643
+        ],
+        "spawn_collision_clearance_m": 0.2741359850741786,
+        "world_max_geometry_z_m": 6.7256473,
+        "physics_step_s": 0.003,
+        "gravity": "0 0 -9.8",
+        "air_clearance": {
+          "result": "pass",
+          "takeoff_column_half_width_m": 2.5,
+          "obstacle_candidates_in_entire_vertical_column": 0,
+          "cruise_altitude_above_home_m": 10.0,
+          "conservative_vertical_clearance_m": 3.092306831418931,
+          "required_vertical_clearance_m": 1.6,
+          "world_xy_route_including_return": [
+            [
+              -3.0,
+              3.0
+            ],
+            [
+              5.0,
+              3.0
+            ],
+            [
+              5.0,
+              13.0
+            ],
+            [
+              -3.0,
+              13.0
+            ],
+            [
+              -3.0,
+              3.0
+            ],
+            [
+              -3.0,
+              3.0
+            ]
+          ],
+          "checked_segments": 5,
+          "takeoff_and_landing": "same obstacle-free vertical column"
+        }
+      }
+    },
+    "asset_sha256": {
+      "/opt/greenhouse_air/share/greenhouse_sim_air/config/x500_sites.yaml": "0cab4cb7c3eea37c2aca016287b67d5e4ab404424d06d804b3d309343a7f3ba1",
+      "/opt/px4/Tools/simulation/gz/models/x500_depth/model.sdf": "84d05a5072b49e87ca164ec9be8bda2e58201baf624d6d10f7117a5e6d6bbb5f",
+      "/opt/px4/Tools/simulation/gz/models/x500/model.sdf": "cfe92f98360967faa895b77aa8a6fff3fc9b290286e94e45297c4bdd7b62fbf9",
+      "/opt/px4/Tools/simulation/gz/models/x500_base/model.sdf": "e807dca3406f7cd5cb3d545898601c3ec17e0e5242e25cf467a69df1812cf436",
+      "/opt/px4/Tools/simulation/gz/models/OakD-Lite/model.sdf": "f8a78a93c19eb3902ec751fc56bf22b389c7528b38f4d5e3a6c177f3548ee070",
+      "/opt/greenhouse_sim/worlds/maize_field/generated.world": "92c3b0e6c9c080a301edead89ea18a3b8d59ffa0bb9923366f8a16a223a2135b",
+      "/opt/greenhouse_sim/worlds/maize_field/virtual_maize_field_heightmap.png": "dcb9fb14996f106cb471d0cfd9ddcb7a84464e04b1a0ad7af13108b57dacbe94",
+      "/opt/maize_field/share/virtual_maize_field/models/maize_01/model.sdf": "f72c61180f044048654bb44d1b991821ab74497be513b2042afaef7f70877028",
+      "/opt/maize_field/share/virtual_maize_field/models/maize_01/meshes/maize_01.dae": "de70f934e2f0803058b97157e0c0072e7d0d8ee18fcde79fb3a0065443e5df28",
+      "/opt/maize_field/share/virtual_maize_field/models/maize_02/model.sdf": "c4604918f18d1fe8a60910de5821d1f333d173a897f357ce21cf3b8d11b55470",
+      "/opt/maize_field/share/virtual_maize_field/models/maize_02/meshes/maize_02.dae": "a78ef5a6728d8f814211e3406cc076663a6d8979753f5bad3441389998665e75",
+      "/opt/ros/jazzy/share/clearpath_gz/worlds/orchard.sdf": "fa4ab6ed09d7462d407faed423f70d15f7d999f50add4474522a8b5041482623",
+      "/opt/ros/jazzy/share/clearpath_gz/meshes/orchard/orchard_world.dae": "355f544918399677f682a2514a12c4a8c8b6e93d04a3468e8d4e7f36d17619c0",
+      "/opt/ros/jazzy/share/clearpath_gz/meshes/orchard/orchard_trunks.dae": "014f6f523d6735bfb354010c90df39f8a66ad00e88aa19be55cddf19f121a6c6",
+      "/opt/ros/jazzy/share/clearpath_gz/meshes/orchard/orchard_leaves.dae": "14c1b2b69eed67338a9f5144b594bbd1cc9f0b4997448cb7f51ee1721c164abe",
+      "/opt/ros/jazzy/share/clearpath_gz/meshes/accessories/base_station_with_tripod.stl": "e25712405f4a3d9d58f78f3a078c7733e67a90199ccd33506d6a10cb18914cf7",
+      "/opt/ros/jazzy/share/clearpath_gz/worlds/pipeline.sdf": "76cb7925fb47d116bb74f3403328d4cfbdcbb060d9eb2eb08ce5aeaad8eb03b9",
+      "/opt/ros/jazzy/share/clearpath_gz/meshes/pipeline/inspection_world.dae": "2ab85e1e733e409cedd298ddeedbbd5f6d6ed9e80d0e6983d55180a4fe9c24ca"
+    },
+    "result": "pass"
+  }
+}

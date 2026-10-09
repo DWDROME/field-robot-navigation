@@ -1,0 +1,11 @@
+# Pipeline X500 startup diagnosis
+
+The original air spawn was `(-6, 4, -0.45)`. PX4 received fresh position, attitude, status and clock data, but rejected preflight with `Attitude failure (pitch)`. The mission stopped before arming. Gazebo's actual model quaternion was approximately `(-0.02515, -0.53047, 0.01666, 0.84716)`, confirming a physical pitch of approximately 64 degrees; this was not a delayed ROS attitude message.
+
+The conservative ground height range across the original one-metre footprint was `[-0.69092, -0.49580] m` (0.19512 m variation). Static route clearance alone did not establish stable ground support. Inspection of the delivered model also showed that `x500_base` contributes a 0.24 m model offset, so its leg depth must not be interpreted as an initial collision solely from the outer model origin.
+
+The new staging patch is `(-3, 3, 0.1)`, selected from the actual unchanged collision mesh. Its complete footprint height range is `[-0.18205, -0.15251] m` (0.02953 m variation), with no obstacles in the complete 2.5 m half-width home column. The inspector now reads all delivered X500 and camera box collisions and checks their initial terrain clearance. This spawn has 0.27414 m conservative collision clearance; the full fixed 10 m cruise route has 3.09231 m conservative vertical clearance against a required 1.6 m.
+
+The revised spawn completed a real full flight on image `sha256:f990fa340b7269d1553e5cefbb9b1427af39123905e7d4acd78d4321d96e666d`: preflight readiness, arm, Offboard, takeoff, three simulated seconds of stable hover, all four waypoints, centered return, AUTO_LAND, touchdown and disarm. Maximum measured roll/pitch were 0.72920/0.73821 rad, below the unchanged 45-degree limit. Return error was 0.09600 m, return speed 0.19052 m/s and stable return duration 2.001 simulated seconds. Cleanup left no tracked process alive. This diagnostic flight is separate from the final 27-run matrix.
+
+Evidence: [original actual pose](pipeline-original-spawn-pose.json), [candidate staging patches](pipeline-staging-ground.json), [installed source and full geometry](installed-source-and-geometry.json). World geometry, robot size, preflight checks and safety thresholds were not changed.

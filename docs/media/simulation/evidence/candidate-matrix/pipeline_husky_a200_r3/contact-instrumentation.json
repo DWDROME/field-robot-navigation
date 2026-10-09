@@ -1,0 +1,9 @@
+{
+  "wheel_collision_names": [
+    "front_left_wheel_link_collision",
+    "front_right_wheel_link_collision",
+    "rear_left_wheel_link_collision",
+    "rear_right_wheel_link_collision"
+  ],
+  "sensor_count": 9
+}

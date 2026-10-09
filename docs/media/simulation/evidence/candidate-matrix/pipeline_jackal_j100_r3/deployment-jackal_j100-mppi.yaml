@@ -1,0 +1,44 @@
+chassis:
+  footprint:
+  - - 0.254
+    - 0.215
+  - - 0.254
+    - -0.215
+  - - -0.254
+    - -0.215
+  - - -0.254
+    - 0.215
+  limits:
+    angular_acceleration: 1.0
+    angular_velocity: 1.0
+    linear_acceleration: 0.5
+    linear_velocity: 0.6
+  motion_model: DiffDrive
+controllers:
+- mppi
+localization: fast_lio_super
+loop_enabled: true
+mode: simulation
+sensor:
+  base_from_lidar_xyzrpy:
+  - 0.0
+  - 0.0
+  - 0.3217
+  - 0.0
+  - 0.0
+  - 0.0
+  imu_from_lidar_R:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  imu_from_lidar_T:
+  - 0.0
+  - 0.0
+  - 0.3217
+simulation_fixture: true

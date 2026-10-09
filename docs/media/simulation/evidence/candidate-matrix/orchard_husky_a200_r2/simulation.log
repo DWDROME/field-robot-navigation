@@ -1,0 +1,375 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-07-12-09-12-256131-DW-8992
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [9008]
+[INFO] [parameter_bridge-2]: process started with pid [9009]
+[INFO] [robot_state_publisher-3]: process started with pid [9010]
+[INFO] [spawner-4]: process started with pid [9012]
+[INFO] [spawner-5]: process started with pid [9013]
+[INFO] [parameter_bridge-6]: process started with pid [9014]
+[INFO] [parameter_bridge-7]: process started with pid [9015]
+[INFO] [parameter_bridge-8]: process started with pid [9016]
+[INFO] [greenhouse_cmd_sink-9]: process started with pid [9017]
+[INFO] [create-10]: process started with pid [9018]
+[INFO] [parameter_bridge-11]: process started with pid [9019]
+[INFO] [simulation_lidar_filter.py-12]: process started with pid [9020]
+[INFO] [simulation_ground_startup.py-13]: process started with pid [9021]
+[robot_state_publisher-3] [INFO] [1791374953.955902292] [robot_state_publisher]: Robot initialized
+[parameter_bridge-2] [INFO] [1791374955.539235156] [simulation_clock_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[create-10] [INFO] [1791374955.558272902] [create_husky_a200]: Entity creation successful.
+[spawner-4] [INFO] [1791374955.642661512] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[INFO] [create-10]: process has finished cleanly [pid 9018]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="a200-0000"]/link[@name="base_link"]/sensor[@name="camera_0"]/camera/gz_frame_id:///evidence/candidate-matrix/orchard_husky_a200_r2/robot-instrumented.sdf:L181]: XML Element[gz_frame_id], child of element[camera], not defined in SDF. Copying[gz_frame_id] as children of [camera].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="a200-0000"]/link[@name="base_link"]/sensor[@name="camera_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_husky_a200_r2/robot-instrumented.sdf:L188]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="a200-0000"]/link[@name="base_link"]/sensor[@name="imu_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_husky_a200_r2/robot-instrumented.sdf:L196]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="a200-0000"]/link[@name="base_link"]/sensor[@name="lidar3d_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_husky_a200_r2/robot-instrumented.sdf:L226]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [INFO] [1791374956.439889987] [gz_ros_control]: Loading controller_manager
+[gazebo-1] [INFO] [1791374956.458277397] [controller_manager]: Using ROS clock for triggering controller manager cycles.
+[gazebo-1] [WARN] [1791374956.458378289] [controller_manager]: The resource manager is not yet initialized, will wait for the robot description to initialize it..
+[gazebo-1] [INFO] [1791374956.467673407] [controller_manager]: Subscribing to '/robot_description' topic for robot description.
+[gazebo-1] [WARN] [1791374956.467779310] [gz_ros_control]: Waiting RM to load and initialize hardware...
+[gazebo-1] [INFO] [1791374956.479210499] [controller_manager]: Received robot description from topic.
+[gazebo-1] [INFO] [1791374956.479290084] [controller_manager]: Enforcing command limits is disabled. Command limits from URDF will be ignored.
+[gazebo-1] [INFO] [1791374956.483116502] [gz_ros_control]: The position_proportional_gain has been set to: 0.1
+[gazebo-1] [INFO] [1791374956.483208690] [gz_ros_control]: Loading joint: front_left_wheel_joint
+[gazebo-1] [INFO] [1791374956.483215452] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374956.483220532] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374956.483223965] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483229760] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374956.483232049] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483242911] [gz_ros_control]: Loading joint: rear_left_wheel_joint
+[gazebo-1] [INFO] [1791374956.483245541] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374956.483247847] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374956.483250654] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483253026] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374956.483255040] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483261966] [gz_ros_control]: Loading joint: front_right_wheel_joint
+[gazebo-1] [INFO] [1791374956.483264543] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374956.483266760] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374956.483269469] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483271603] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374956.483273834] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483280975] [gz_ros_control]: Loading joint: rear_right_wheel_joint
+[gazebo-1] [INFO] [1791374956.483283290] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374956.483285442] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374956.483287787] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483289875] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374956.483291860] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374956.483324426] [gz_ros_control]: Loading sensor: imu_0
+[gazebo-1] [INFO] [1791374956.483329213] [gz_ros_control]: 	State:
+[gazebo-1] [WARN] [1791374956.483332131] [gz_ros_control]: IMU sensor 'imu_0' not found in hardware_info, skipping.
+[gazebo-1] [INFO] [1791374956.483401430] [controller_manager]: Initialize hardware 'a200_hardware' 
+[gazebo-1] [WARN] [1791374956.483415109] [controller_manager.hardware_component.system.a200_hardware]: Executor is not available during hardware component initialization for 'a200_hardware'. Skipping node creation!
+[gazebo-1] [INFO] [1791374956.483504747] [controller_manager]: Successful initialization of hardware 'a200_hardware'
+[gazebo-1] [INFO] [1791374956.483601470] [controller_manager]: Activating component 'a200_hardware'.
+[gazebo-1] [INFO] [1791374956.483609959] [resource_manager]: 'configure' hardware 'a200_hardware' 
+[gazebo-1] [INFO] [1791374956.483613776] [gz_ros_control]: System Successfully configured!
+[gazebo-1] [INFO] [1791374956.483617622] [resource_manager]: Successful 'configure' of hardware 'a200_hardware'
+[gazebo-1] [INFO] [1791374956.483623244] [resource_manager]: 'activate' hardware 'a200_hardware' 
+[gazebo-1] [INFO] [1791374956.483633830] [resource_manager]: Successful 'activate' of hardware 'a200_hardware'
+[gazebo-1] [WARN] [1791374956.483700124] [controller_manager]: Component 'a200_hardware' does not have read or write statistics initialized, skipping registration.
+[gazebo-1] [INFO] [1791374956.483707803] [controller_manager]: Resource Manager has been successfully initialized. Starting Controller Manager services...
+[gazebo-1] [INFO] [1791374956.646252330] [controller_manager]: Loading controller : 'joint_state_broadcaster' of type 'joint_state_broadcaster/JointStateBroadcaster'
+[gazebo-1] [INFO] [1791374956.646341242] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[gazebo-1] [WARN] [1791374956.650415498] [controller_manager]: The use of remapping arguments to the controller_manager node is deprecated. Please use the '--controller-ros-args' argument of the spawner to pass remapping arguments to the controller node.
+[gazebo-1] [INFO] [1791374956.650475967] [controller_manager]: Controller 'joint_state_broadcaster' node arguments: --ros-args --params-file /opt/greenhouse_sim/robot/husky_a200/platform/config/control.yaml --ros-args --remap ~/odom:=platform/odom --remap ~/cmd_vel:=platform/cmd_vel --remap /tf:=tf --remap /tf_static:=tf_static --remap /diagnostics:=diagnostics --remap /dynamic_joint_states:=platform/dynamic_joint_states --remap joint_states:=platform/joint_states --remap ~/reference:=platform/cmd_vel --remap ~/odometry:=platform/odom -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-4] [INFO] [1791374956.666679623] [spawner_joint_state_broadcaster]: Loaded joint_state_broadcaster
+[gazebo-1] [INFO] [1791374956.667873868] [controller_manager]: Configuring controller: 'joint_state_broadcaster'
+[gazebo-1] [INFO] [1791374956.668051161] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[gazebo-1] [INFO] [1791374956.678974423] [controller_manager]: Activating controllers: [ joint_state_broadcaster ]
+[parameter_bridge-6] [INFO] [1791374956.690451087] [simulation_sensor_bridge]: Creating GZ->ROS Bridge: [/sensors/imu_0/data (gz.msgs.IMU) -> /sensors/imu/data (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-8] [INFO] [1791374956.827653796] [simulation_camera_bridge]: Creating GZ->ROS Bridge: [/sensors/camera_0/image (gz.msgs.Image) -> /sensors/camera/color/image (sensor_msgs/msg/Image)] (Lazy 1)
+[parameter_bridge-8] [INFO] [1791374956.830033461] [simulation_camera_bridge]: Creating GZ->ROS Bridge: [/sensors/camera_0/points (gz.msgs.PointCloudPacked) -> /sensors/camera/points (sensor_msgs/msg/PointCloud2)] (Lazy 1)
+[parameter_bridge-7] [INFO] [1791374956.899169236] [simulation_lidar_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar3d_0/scan/points (gz.msgs.PointCloudPacked) -> /simulation/lidar/unfiltered (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.929216955] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_0/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.932180699] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_1/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.932745482] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_2/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.933294288] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_3/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.933789968] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_4/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.934338580] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/front_left_wheel_link/sensor/simulation_contact_5/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.934888810] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/front_right_wheel_link/sensor/simulation_contact_6/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.935401190] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/rear_left_wheel_link/sensor/simulation_contact_7/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374956.936026030] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/rear_right_wheel_link/sensor/simulation_contact_8/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[gazebo-1] [WARN] [1791374959.011630259] [gz_ros_control]:  Desired controller update period (0.05 s) is slower than the gazebo simulation period (0.003 s).
+[gazebo-1] [INFO] [1791374961.159495428] [controller_manager]: Successfully switched controllers!
+[spawner-4] [INFO] [1791374961.211670970] [spawner_joint_state_broadcaster]: Configured and activated joint_state_broadcaster
+[INFO] [spawner-4]: process has finished cleanly [pid 9012]
+[spawner-5] [INFO] [1791374961.506412405] [spawner_platform_velocity_controller]: waiting for service /controller_manager/list_controllers to become available...
+[gazebo-1] [INFO] [1791374961.759572020] [controller_manager]: Loading controller : 'platform_velocity_controller' of type 'diff_drive_controller/DiffDriveController'
+[gazebo-1] [INFO] [1791374961.759661703] [controller_manager]: Loading controller 'platform_velocity_controller'
+[gazebo-1] [WARN] [1791374961.764488447] [controller_manager]: The use of remapping arguments to the controller_manager node is deprecated. Please use the '--controller-ros-args' argument of the spawner to pass remapping arguments to the controller node.
+[gazebo-1] [INFO] [1791374961.764636406] [controller_manager]: Controller 'platform_velocity_controller' node arguments: --ros-args --params-file /opt/greenhouse_sim/robot/husky_a200/platform/config/control.yaml --ros-args --remap ~/odom:=platform/odom --remap ~/cmd_vel:=platform/cmd_vel --remap /tf:=tf --remap /tf_static:=tf_static --remap /diagnostics:=diagnostics --remap /dynamic_joint_states:=platform/dynamic_joint_states --remap joint_states:=platform/joint_states --remap ~/reference:=platform/cmd_vel --remap ~/odometry:=platform/odom -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-5] [INFO] [1791374961.824558219] [spawner_platform_velocity_controller]: Loaded platform_velocity_controller
+[gazebo-1] [INFO] [1791374961.828943650] [controller_manager]: Configuring controller: 'platform_velocity_controller'
+[gazebo-1] [INFO] [1791374961.876212172] [controller_manager]: Activating controllers: [ platform_velocity_controller ]
+[gazebo-1] [INFO] [1791374961.924878475] [controller_manager]: Successfully switched controllers!
+[spawner-5] [INFO] [1791374961.977318687] [spawner_platform_velocity_controller]: Configured and activated platform_velocity_controller
+[INFO] [spawner-5]: process has finished cleanly [pid 9013]
+[gazebo-1] [WARN] [1791374962.332480603] [platform_velocity_controller]: Velocity command timed out. Braking.
+[simulation_ground_startup.py-13] {"result": "settled", "sim_time_s": 1.254, "stable_sim_s": 1.002, "acceleration_norm_mps2": 9.800005958489738, "angular_speed_radps": 0.01260023030845076, "clock_publishers": 1}
+[INFO] [simulation_ground_startup.py-13]: process has finished cleanly [pid 9021]
+[INFO] [launch.user]: closed-loop runtime_ready=true hardware_qualified=false mode=simulation
+[INFO] [fastlio_mapping-14]: process started with pid [9320]
+[INFO] [greenhouse_cloud_normalizer-15]: process started with pid [9321]
+[INFO] [greenhouse_cmd_gate-16]: process started with pid [9322]
+[INFO] [fast_lio_super_backend-17]: process started with pid [9323]
+[INFO] [static_transform_publisher-18]: process started with pid [9336]
+[INFO] [terrainAnalysis-19]: process started with pid [9337]
+[INFO] [terrainAnalysisExt-20]: process started with pid [9338]
+[INFO] [far_planner-21]: process started with pid [9339]
+[INFO] [graph_decoder-22]: process started with pid [9340]
+[INFO] [controller_server-23]: process started with pid [9341]
+[INFO] [lifecycle_manager-24]: process started with pid [9342]
+[INFO] [terrain_grid-25]: process started with pid [9343]
+[INFO] [command_adapter-26]: process started with pid [9344]
+[INFO] [mission-27]: process started with pid [9345]
+[gazebo-1] [WARN] [1791374963.364570989] [platform_velocity_controller]: Velocity command timed out. Braking.
+[gazebo-1] [WARN] [1791374964.384492526] [platform_velocity_controller]: Velocity command timed out. Braking.
+[greenhouse_cmd_gate-16] [INFO] [1791374965.146103371] [greenhouse_cmd_gate]: gate source=/cmd_vel/nav output=/cmd_vel scope=simulation_fixture auto_recover_after_watchdog=true
+[greenhouse_cloud_normalizer-15] [INFO] [1791374966.726003604] [slam_cloud_to_map]: Transforming /localization/registered_cloud_odom into frame map on /localization/registered_cloud
+[fast_lio_super_backend-17] [INFO] [1791374967.159831438] [fast_lio_super_backend]: SLAM frames: map -> odom -> base_link
+[static_transform_publisher-18] [INFO] [1791374967.530486976] [static_sensor_tf]: Spinning until stopped - publishing transform
+[static_transform_publisher-18] translation: ('0.000000', '0.000000', '0.382700')
+[static_transform_publisher-18] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-18] from 'base_link' to 'livox_frame'
+[graph_decoder-22] [INFO] [1791374967.768486593] [graph_decoder]: Graph Decoder Node Initialized
+[terrainAnalysis-19] [INFO] [1791374968.173895407] [terrainAnalysis]: terrain analysis: odometry=/localization/global_odometry cloud=/localization/registered_cloud output=/perception/terrain_map frame=map
+[lifecycle_manager-24] [INFO] [1791374968.331572230] [mppi_lifecycle_manager]: Creating
+[lifecycle_manager-24] [INFO] [1791374968.338017941] [mppi_lifecycle_manager]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[lifecycle_manager-24] [INFO] [1791374968.604400977] [mppi_lifecycle_manager]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-24] [INFO] [1791374968.604521303] [mppi_lifecycle_manager]: [34m[1mConfiguring controller_server[0m[0m
+[controller_server-23] [INFO] [1791374968.606229112] [controller_server]: 
+[controller_server-23] 	controller_server lifecycle node launched. 
+[controller_server-23] 	Waiting on external lifecycle transitions to activate
+[controller_server-23] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-23] [INFO] [1791374968.607731681] [controller_server]: Creating controller server
+[controller_server-23] [INFO] [1791374968.632294712] [local_costmap.local_costmap]: 
+[controller_server-23] 	local_costmap lifecycle node launched. 
+[controller_server-23] 	Waiting on external lifecycle transitions to activate
+[controller_server-23] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-23] [INFO] [1791374968.633111679] [local_costmap.local_costmap]: Creating Costmap
+[controller_server-23] [INFO] [1791374968.638591376] [controller_server]: Configuring controller interface
+[controller_server-23] [INFO] [1791374968.638649476] [controller_server]: getting progress checker plugins..
+[controller_server-23] [INFO] [1791374968.638833919] [controller_server]: getting goal checker plugins..
+[controller_server-23] [INFO] [1791374968.639482701] [controller_server]: Controller frequency set to 20.0000Hz
+[controller_server-23] [INFO] [1791374968.639571046] [local_costmap.local_costmap]: Configuring
+[controller_server-23] [INFO] [1791374968.651245549] [local_costmap.local_costmap]: Using plugin "terrain"
+[controller_server-23] [INFO] [1791374968.655007410] [local_costmap.local_costmap]: Initialized plugin "terrain"
+[controller_server-23] [INFO] [1791374968.655067891] [local_costmap.local_costmap]: Using plugin "inflation"
+[controller_server-23] [INFO] [1791374968.674872583] [local_costmap.local_costmap]: Initialized plugin "inflation"
+[controller_server-23] [INFO] [1791374968.704313127] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[controller_server-23] [INFO] [1791374968.705007760] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[controller_server-23] [INFO] [1791374968.705639699] [controller_server]: Created goal checker : goal_checker of type nav2_controller::SimpleGoalChecker
+[controller_server-23] [INFO] [1791374968.706683737] [controller_server]: Controller Server has goal_checker  goal checkers available.
+[controller_server-23] [INFO] [1791374968.708641526] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[controller_server-23] [INFO] [1791374968.712866292] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[controller_server-23] [INFO] [1791374968.715449999] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[controller_server-23] [INFO] [1791374968.715517186] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[controller_server-23] [INFO] [1791374968.716552351] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on footprint cost.
+[controller_server-23] [INFO] [1791374968.716591311] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[controller_server-23] [INFO] [1791374968.716990908] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-23] [INFO] [1791374968.717014192] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[controller_server-23] [INFO] [1791374968.717967780] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[controller_server-23] [INFO] [1791374968.717998773] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[controller_server-23] [INFO] [1791374968.718605504] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[controller_server-23] [INFO] [1791374968.718631079] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[controller_server-23] [INFO] [1791374968.719224384] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[controller_server-23] [INFO] [1791374968.719947134] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[controller_server-23] [INFO] [1791374968.719970191] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[controller_server-23] [INFO] [1791374968.720418129] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-23] [INFO] [1791374968.720438187] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[fastlio_mapping-14] [INFO] [1791374968.724593283] [laser_mapping]: p_pre->lidar_type 5
+[controller_server-23] [INFO] [1791374968.725086745] [controller_server]: Optimizer reset
+[fastlio_mapping-14] ~~~~/build/robot/external/fast_lio/ doesn't exist
+[controller_server-23] [INFO] [1791374968.730716300] [MPPIController]: Configured MPPI Controller: FollowPath
+[controller_server-23] [INFO] [1791374968.730755420] [controller_server]: Controller Server has FollowPath  controllers available.
+[lifecycle_manager-24] [INFO] [1791374968.778875909] [mppi_lifecycle_manager]: [34m[1mActivating controller_server[0m[0m
+[controller_server-23] [INFO] [1791374968.779922910] [controller_server]: Activating
+[controller_server-23] [INFO] [1791374968.779960149] [local_costmap.local_costmap]: Activating
+[controller_server-23] [INFO] [1791374968.779967337] [local_costmap.local_costmap]: Checking transform
+[controller_server-23] [INFO] [1791374968.780031676] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[fastlio_mapping-14] [INFO] [1791374968.788848393] [laser_mapping]: Node init finished.
+[far_planner-21] [INFO] [1791374968.876718833] [far_planner]: FAR Planner Node Initiated
+[fastlio_mapping-14] [WARN] [1791374968.909711883] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[far_planner-21] [INFO] [1791374968.923144109] [far_planner]: voxel_dim: 0.100000
+[far_planner-21] [INFO] [1791374968.975959666] [far_planner]: FAR Planner ROS Params Initiated
+[far_planner-21] [INFO] [1791374968.976021658] [far_planner]: FAR Planner Callback Initiated
+[fastlio_mapping-14] [WARN] [1791374969.015275868] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[far_planner-21] [INFO] [1791374969.080980329] [far_planner]: FAR Planner Processing Objects Initiated
+[fastlio_mapping-14] [WARN] [1791374969.098473519] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [WARN] [1791374969.141653268] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [WARN] [1791374969.215822913] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [WARN] [1791374969.253173934] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[controller_server-23] [INFO] [1791374969.280117770] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[fastlio_mapping-14] [WARN] [1791374969.292145431] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [WARN] [1791374969.343716624] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [WARN] [1791374969.412267257] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] IMU Initial Done
+[fastlio_mapping-14] [WARN] [1791374969.463244805] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-14] 
+[fastlio_mapping-14] [INFO] [1791374969.519060616] [laser_mapping]: Initialize the map kdtree
+[controller_server-23] [INFO] [1791374969.780281711] [local_costmap.local_costmap]: start
+[controller_server-23] [WARN] [1791374969.830518545] [controller_server]: Parameter controller_server.verbose not found
+[controller_server-23] [INFO] [1791374969.832366024] [controller_server]: Optimizer reset
+[controller_server-23] [INFO] [1791374969.832613049] [MPPIController]: Activated MPPI Controller: FollowPath
+[controller_server-23] [INFO] [1791374969.832633282] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[lifecycle_manager-24] [INFO] [1791374969.941048878] [mppi_lifecycle_manager]: Server controller_server connected with bond.
+[lifecycle_manager-24] [INFO] [1791374969.941112327] [mppi_lifecycle_manager]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-24] [INFO] [1791374969.941119565] [mppi_lifecycle_manager]: [34m[1mCreating bond timer...[0m[0m
+[far_planner-21] [2J[0;0H
+[far_planner-21] [1;33m **************** DYNAMIC ENV PLANNING **************** [0m
+[far_planner-21] 
+[far_planner-21] 
+[far_planner-21] 
+[far_planner-21] [INFO] [1791374970.081155042] [far_planner]: FAR Planner Initiated Complete
+[far_planner-21] [A[A[2K[1;32m V-Graph Initialized [0m
+[far_planner-21] 
+[far_planner-21] [2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-21] [2K    Path Search Time: 0ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 0.95ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 8
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-21] [2K    Path Search Time: 0ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 1.997ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 8
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-21] [2K    Path Search Time: 0ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 1.056ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 8
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-21] [2K    Path Search Time: 0ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 1.142ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 8
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0.014ms
+[far_planner-21] [2K    Path Search Time: 0.211ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 0.727ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 9
+[controller_server-23] [INFO] [1791374971.407749368] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-23] [INFO] [1791374971.412469591] [controller_server]: Optimizer reset
+[controller_server-23] [INFO] [1791374971.415626574] [controller_server]: Optimizer reset
+[controller_server-23] [ERROR] [1791374971.415745203] [controller_server]: Optimizer fail to compute path
+[controller_server-23] [INFO] [1791374971.417093451] [controller_server]: Optimizer reset
+[controller_server-23] [WARN] [1791374971.417134779] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0.017ms
+[far_planner-21] [2K    Path Search Time: 0.203ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 0.976ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 9
+[controller_server-23] [INFO] [1791374971.595261454] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-23] [INFO] [1791374971.598018856] [controller_server]: Optimizer reset
+[controller_server-23] [INFO] [1791374971.602651565] [controller_server]: Optimizer reset
+[controller_server-23] [ERROR] [1791374971.602735759] [controller_server]: Optimizer fail to compute path
+[controller_server-23] [INFO] [1791374971.603579175] [controller_server]: Optimizer reset
+[controller_server-23] [WARN] [1791374971.603609401] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[far_planner-21] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0.013ms
+[far_planner-21] [2K    Path Search Time: 0.125ms
+[far_planner-21] [2K    Local V-Graph Updated. Number of local vertices: 7
+[far_planner-21] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-21]     Total V-Graph Update Time: 0.911ms
+[far_planner-21] [2K    Global V-Graph Updated. Number of global vertices: 9
+[controller_server-23] [INFO] [1791374971.840596468] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-23] [INFO] [1791374971.842828460] [controller_server]: Optimizer reset
+[controller_server-23] [INFO] [1791374971.844863520] [controller_server]: Optimizer reset
+[controller_server-23] [ERROR] [1791374971.844972436] [controller_server]: Optimizer fail to compute path
+[controller_server-23] [INFO] [1791374971.846294364] [controller_server]: Optimizer reset
+[controller_server-23] [WARN] [1791374971.846341166] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[mission-27] Traceback (most recent call last):
+[mission-27]   File "/opt/greenhouse/lib/greenhouse_mppi_navigation/mission", line 3, in <module>
+[terrain_grid-25] [INFO] [1791374971.951235262] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-24] [INFO] [1791374971.951248905] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-24] [INFO] [1791374971.951364865] [mppi_lifecycle_manager]: Running Nav2 LifecycleManager rcl preshutdown (mppi_lifecycle_manager)
+[lifecycle_manager-24] [INFO] [1791374971.951401506] [mppi_lifecycle_manager]: [34m[1mTerminating bond timer...[0m[0m
+[graph_decoder-22] [INFO] [1791374971.951262768] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[fastlio_mapping-14] catch sig %d2
+[controller_server-23] [INFO] [1791374971.951325851] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[controller_server-23] [INFO] [1791374971.951372408] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[controller_server-23] [INFO] [1791374971.951428267] [controller_server]: Deactivating
+[controller_server-23] [INFO] [1791374971.951457190] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[controller_server-23] [INFO] [1791374971.951470020] [local_costmap.local_costmap]: Deactivating
+[far_planner-21] [INFO] [1791374971.951332581] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [mission-27]: sending signal 'SIGINT' to process[mission-27]
+[INFO] [command_adapter-26]: sending signal 'SIGINT' to process[command_adapter-26]
+[INFO] [terrain_grid-25]: sending signal 'SIGINT' to process[terrain_grid-25]
+[ERROR] [mission-27]: process has died [pid 9345, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/mission --ros-args -r __node:=tracked_mission --params-file /tmp/launch_params_1jxicec7'].
+[INFO] [lifecycle_manager-24]: sending signal 'SIGINT' to process[lifecycle_manager-24]
+[ERROR] [command_adapter-26]: process has died [pid 9344, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/command_adapter --ros-args -r __node:=mppi_command_adapter --params-file /tmp/launch_params_4bw_vcak'].
+[ERROR] [terrain_grid-25]: process has died [pid 9343, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/terrain_grid --ros-args -r __node:=terrain_grid --params-file /tmp/launch_params_dqjifd_l'].
+[INFO] [controller_server-23]: sending signal 'SIGINT' to process[controller_server-23]
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 9009]
+[INFO] [parameter_bridge-11]: process has finished cleanly [pid 9019]
+[ERROR] [lifecycle_manager-24]: process has died [pid 9342, exit code -2, cmd '/opt/ros/jazzy/lib/nav2_lifecycle_manager/lifecycle_manager --ros-args -r __node:=mppi_lifecycle_manager --params-file /tmp/launch_params_rv7ocfeg'].
+[INFO] [graph_decoder-22]: sending signal 'SIGINT' to process[graph_decoder-22]
+[INFO] [parameter_bridge-8]: process has finished cleanly [pid 9016]
+[ERROR] [controller_server-23]: process has died [pid 9341, exit code -2, cmd '/opt/ros/jazzy/lib/nav2_controller/controller_server --ros-args -r __node:=controller_server --params-file /tmp/tmplvht57gp --params-file /tmp/launch_params_pndcc4pi -r cmd_vel:=/navigation/mppi_cmd'].
+[INFO] [parameter_bridge-7]: process has finished cleanly [pid 9015]
+[INFO] [terrainAnalysisExt-20]: process has finished cleanly [pid 9338]
+[INFO] [far_planner-21]: sending signal 'SIGINT' to process[far_planner-21]
+[INFO] [parameter_bridge-6]: process has finished cleanly [pid 9014]
+[ERROR] [graph_decoder-22]: process has died [pid 9340, exit code -2, cmd '/opt/greenhouse_far/lib/graph_decoder/graph_decoder --ros-args -r __node:=graph_decoder --params-file /tmp/launch_params_zyxlpxru'].
+[INFO] [terrainAnalysis-19]: sending signal 'SIGINT' to process[terrainAnalysis-19]
+[ERROR] [far_planner-21]: process has died [pid 9339, exit code -2, cmd '/opt/greenhouse_far/lib/far_planner/far_planner --ros-args -r __node:=far_planner --params-file /opt/greenhouse_far/share/far_planner/config/default.yaml --params-file /tmp/launch_params_rdez2v_q -r /odom_world:=/localization/global_odometry -r /terrain_cloud:=/perception/terrain_map_ext -r /scan_cloud:=/localization/registered_cloud -r /goal_point:=/planning/global_goal -r /terrain_local_cloud:=/perception/terrain_map -r /way_point:=/planning/way_point'].
+[INFO] [static_transform_publisher-18]: sending signal 'SIGINT' to process[static_transform_publisher-18]
+[INFO] [fast_lio_super_backend-17]: sending signal 'SIGINT' to process[fast_lio_super_backend-17]
+[INFO] [greenhouse_cloud_normalizer-15]: process has finished cleanly [pid 9321]
+[INFO] [greenhouse_cmd_sink-9]: process has finished cleanly [pid 9017]
+[INFO] [robot_state_publisher-3]: process has finished cleanly [pid 9010]
+[INFO] [greenhouse_cmd_gate-16]: sending signal 'SIGINT' to process[greenhouse_cmd_gate-16]
+[ERROR] [static_transform_publisher-18]: process has died [pid 9336, exit code -2, cmd '/opt/ros/jazzy/lib/tf2_ros/static_transform_publisher --frame-id base_link --child-frame-id livox_frame --x 0.0 --y 0.0 --z 0.3827 --roll 0.0 --pitch 0.0 --yaw 0.0 --ros-args -r __node:=static_sensor_tf --params-file /tmp/launch_params_fmqeqa4l'].
+[INFO] [terrainAnalysis-19]: process has finished cleanly [pid 9337]
+[ERROR] [fast_lio_super_backend-17]: process has died [pid 9323, exit code -2, cmd '/opt/greenhouse/lib/fast_lio_super_ros2/fast_lio_super_backend --ros-args -r __node:=fast_lio_super_backend --params-file /opt/greenhouse/share/fast_lio_super_ros2/config/backend.yaml --params-file /tmp/launch_params_7bwz8evs -r odometry:=/localization/odometry -r registered_cloud:=/localization/registered_cloud_odom -r global_odometry:=/localization/global_odometry -r global_pose:=/localization/global_pose -r corrected_path:=/localization/corrected_path -r corrected_map:=/localization/corrected_map -r diagnostics:=/diagnostics'].
+[INFO] [fastlio_mapping-14]: process has finished cleanly [pid 9320]
+[INFO] [simulation_lidar_filter.py-12]: sending signal 'SIGINT' to process[simulation_lidar_filter.py-12]
+[ERROR] [simulation_lidar_filter.py-12]: process has died [pid 9020, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_nav2_bringup/simulation_lidar_filter.py --ros-args --params-file /tmp/launch_params_sm9ojzx0'].
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[fast_lio_super_backend-17] [INFO] [1791374971.951348295] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-8] [INFO] [1791374971.951369570] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[terrainAnalysisExt-20] [INFO] [1791374971.951330926] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[greenhouse_cmd_sink-9] [INFO] [1791374971.951390555] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[mission-27]     main()
+[mission-27]   File "/opt/greenhouse/lib/python3.12/site-packages/greenhouse_mppi_navigation/mission.py", line 315, in main
+[mission-27]     if rclpy.ok(): node.cancel_control()
+[mission-27]                    ^^^^^^^^^^^^^^^^^^^^^
+[mission-27]   File "/opt/greenhouse/lib/python3.12/site-packages/greenhouse_mppi_navigation/mission.py", line 153, in cancel_control
+[mission-27]     self.enabled.publish(Bool(data=False)); self.control_feedback=False
+[mission-27]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[mission-27]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/publisher.py", line 70, in publish
+[mission-27]     self.__publisher.publish(msg)
+[mission-27] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:423
+[controller_server-23] [INFO] [1791374971.984287892] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[controller_server-23] [INFO] [1791374971.994450287] [controller_server]: Cleaning up
+[controller_server-23] [INFO] [1791374971.994533306] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[controller_server-23] [INFO] [1791374971.994742120] [local_costmap.local_costmap]: Cleaning up
+[robot_state_publisher-3] [INFO] [1791374971.951438630] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-11] [INFO] [1791374971.951507146] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[static_transform_publisher-18] [INFO] [1791374971.951537043] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-6] [INFO] [1791374971.973634681] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-7] [INFO] [1791374971.973650828] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[greenhouse_cloud_normalizer-15] [INFO] [1791374971.973767141] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1791374971.974081140] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-24] [INFO] [1791374972.075473875] [mppi_lifecycle_manager]: Destroying mppi_lifecycle_manager
+[controller_server-23] [INFO] [1791374972.187581315] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[controller_server-23] [INFO] [1791374972.191684569] [local_costmap.local_costmap]: Destroying
+[INFO] [greenhouse_cmd_gate-16]: process has finished cleanly [pid 9322]
+[ERROR] [gazebo-1]: process[gazebo-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [gazebo-1]: sending signal 'SIGTERM' to process[gazebo-1]
+[ERROR] [gazebo-1]: process has died [pid 9008, exit code -15, cmd 'ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r -s --headless-rendering /evidence/candidate-matrix/orchard_husky_a200_r2/orchard-runtime.sdf --force-version 8'].

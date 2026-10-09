@@ -1,0 +1,29 @@
+{
+  "run_id": "pipeline_jackal_j100_r1",
+  "kind": "panorama",
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "camera_pose": [
+    -150.0,
+    -180.0,
+    200.0,
+    0.0,
+    0.73,
+    0.836
+  ],
+  "view": "panorama",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 34,
+    "nanosec": 2000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 76.94,
+  "variance": 575.58,
+  "status": "fail",
+  "mission_state_at_capture_start": null,
+  "image": "pipeline_jackal_j100_r1_panorama.png",
+  "compressed_image": "pipeline_jackal_j100_r1_panorama.jpg",
+  "visual_review": "passed: main-agent visual inspection; main terrain, river, bridge, pipeline and solar facilities are visible; peripheral tunnel extension reaches the lower image edge",
+  "result_record": "evidence/candidate-matrix/pipeline_jackal_j100_r1.json"
+}

@@ -1,0 +1,9 @@
+repositories:
+  sophus:
+    type: git
+    url: https://github.com/strasdat/Sophus.git
+    version: a621ff2e56c56c839a6c40418d42c3c254424b5c
+  rpg_vikit:
+    type: git
+    url: https://github.com/xuankuzcr/rpg_vikit.git
+    version: 6c886c8e5d83997806e00294826d528cea3581dd

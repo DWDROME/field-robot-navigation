@@ -1,0 +1,29 @@
+{
+  "run_id": "orchard_jackal_j100_r1",
+  "kind": "panorama",
+  "world": "orchard",
+  "robot": "jackal_j100",
+  "camera_pose": [
+    -30.0,
+    -30.0,
+    40.0,
+    0.0,
+    0.6,
+    0.725
+  ],
+  "view": "panorama",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 18,
+    "nanosec": 0
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 88.07,
+  "variance": 456.39,
+  "status": "fail",
+  "mission_state_at_capture_start": null,
+  "image": "orchard_jackal_j100_r1_panorama.png",
+  "compressed_image": "orchard_jackal_j100_r1_panorama.jpg",
+  "visual_review": "passed: main-agent visual inspection; orchard rows, terrain and robot visible, no black frame or missing main scene asset",
+  "result_record": "evidence/candidate-matrix/orchard_jackal_j100_r1.json"
+}

@@ -1,0 +1,241 @@
+{
+  "run_id": "pipeline_husky_a200_r2",
+  "world": "pipeline",
+  "robot": "husky_a200",
+  "seed": "20261006",
+  "localization": "simulation_sensors",
+  "started_at": "2026-10-07T12:16:28",
+  "result": "fail",
+  "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ",
+  "observations": {
+    "path_length_m": 0.006992709014387731,
+    "max_abs_roll_rad": 5.083999832587938e-06,
+    "max_abs_pitch_rad": 4.8815550993553835e-06,
+    "odometry_samples": 27,
+    "unexpected_collisions": 0,
+    "collision_measurement": "contact-sensors",
+    "contact_messages": 10205,
+    "normal_wheel_contacts": 10205,
+    "collision_pairs": [],
+    "stall_events": 0,
+    "stalled": false,
+    "trace": "/evidence/candidate-matrix/pipeline_husky_a200_r2/pipeline_husky_a200_r2_trace.jsonl",
+    "clock_publishers": 1,
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.27714784600175335,
+          "final_position": [
+            0.003283398292423047,
+            0.00015892013153579495,
+            -0.29783571349321936
+          ],
+          "mission_status": "{\"mission_id\": 1, \"waypoint\": 0, \"goal_stamp_ns\": 9255000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.0003806791514724666,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 5.083999832587938e-06,
+          "max_abs_pitch_rad": 4.8815550993553835e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.23399999999999999,
+          "real_time_factor": 0.8443146983668768,
+          "goal_error_m": 4.003283401446785,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.22439170700090472,
+          "final_position": [
+            0.0033002952926707804,
+            4.261455039945067e-05,
+            -0.29783507080618005
+          ],
+          "mission_status": "{\"mission_id\": 2, \"waypoint\": 0, \"goal_stamp_ns\": 9486000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.00012423629583957832,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 5.083999832587938e-06,
+          "max_abs_pitch_rad": 4.8815550993553835e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.2159999999999993,
+          "real_time_factor": 0.9626024191666246,
+          "goal_error_m": 1.7305533676098117,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.23930346500128508,
+          "final_position": [
+            0.003392359155256579,
+            2.4365804044308396e-05,
+            -0.2978417745197134
+          ],
+          "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 9714000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.0002898842858556133,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 5.083999832587938e-06,
+          "max_abs_pitch_rad": 4.8815550993553835e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.2159999999999993,
+          "real_time_factor": 0.902619608950666,
+          "goal_error_m": 1.9966076409934188,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      }
+    ],
+    "mission_elapsed_s": 18.89702446999945,
+    "sim_elapsed_s": 9.911999999999999,
+    "real_time_factor": 0.7837211943644067,
+    "tipped": false
+  },
+  "thresholds": {
+    "goal_xy_m": 0.3,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "stall_window_wall_s": 10.0,
+    "stall_distance_m": 0.05,
+    "stall_rotation_rad": 0.1
+  },
+  "task": "site_ground_cases",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-pipeline_husky_a200_r2",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/pipeline_husky_a200_r2/simulation.log",
+  "task_configuration": {
+    "spawn_world_xy": [
+      -2.0,
+      8.0
+    ],
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ]
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "process_cleanup": {
+    "tracked_pids": [
+      14375,
+      14391,
+      14392,
+      14393,
+      14394,
+      14397,
+      14398,
+      14399,
+      14400,
+      14402,
+      14403,
+      14703,
+      14704,
+      14705,
+      14706,
+      14718,
+      14719,
+      14720,
+      14721,
+      14722,
+      14723,
+      14724,
+      14725,
+      14726,
+      14727
+    ],
+    "sigkill_pids": [
+      14394
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/pipeline_husky_a200_r2",
+  "ulog_files": [],
+  "finished_at": "2026-10-07T12:16:58"
+}

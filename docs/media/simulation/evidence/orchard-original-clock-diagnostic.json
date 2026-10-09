@@ -1,0 +1,51 @@
+{
+  "clock": 26.541,
+  "contacts": 26797,
+  "last_contact": 21338.3471263,
+  "imu_samples": 732,
+  "last_imu": {
+    "stamp": 16.722,
+    "frame": "imu_0_link",
+    "clock_minus_stamp": 9.738,
+    "contact_age_wall_s": 0.00029575700318673626,
+    "acceleration": [
+      0.08674731130871509,
+      0.25667114700171717,
+      9.796254122177352
+    ],
+    "angular": [
+      1.2848335475714168e-09,
+      -3.230921705663284e-11,
+      1.2892247406194107e-08
+    ]
+  },
+  "clock_imu_age_min": 0.0,
+  "clock_imu_age_max": 9.762,
+  "/clock": "{\"system\":{\"sec\":\"1791370968\",\"nsec\":251609853},\"real\":{\"sec\":\"43\",\"nsec\":461194481},\"sim\":{\"sec\":\"26\",\"nsec\":679000000}}\n",
+  "/world/orchard/clock": "{\"system\":{\"sec\":\"1791370968\",\"nsec\":459063334},\"real\":{\"sec\":\"43\",\"nsec\":668670865},\"sim\":{\"sec\":\"26\",\"nsec\":826000000}}\n",
+  "/sensors/imu_0/data_raw": "{\"header\":{\"stamp\":{\"sec\":\"26\",\"nsec\":961000000},\"data\":[{\"key\":\"frame_id\",\"value\":[\"imu_0_link\"]},{\"key\":\"seq\",\"value\":[\"1348\"]}]},\"entityName\":\"robot::base_link::imu_0\",\"orientation\":{\"x\":0.013149767625488444,\"y\":-0.0042661458689589923,\"z\":0.012202848090750206,\"w\":0.99982997259998885},\"orientationCovariance\":{\"data\":[0,0,0,0,0,0,0,0,0]},\"angularVelocity\":{\"x\":1.2848322716857709e-09,\"y\":-3.2309492586233835e-11,\"z\":1.2892251249382973e-08},\"angularVelocityCovariance\":{\"data\":[0,0,0,0,0,0,0,0,0]},\"linearAcceleration\":{\"x\":0.086747348431007537,\"y\":0.25667126442444926,\"z\":9.7962541187720973},\"linearAccelerationCovariance\":{\"data\":[0,0,0,0,0,0,0,0,0]}}\n",
+  "server_cmdlines": [
+    "/usr/bin/python3",
+    "/bin/sh",
+    "gz sim -r -s --headless-rendering /evidence/orchard-clock-probe/orchard-runtime.sdf"
+  ],
+  "cleanup": {
+    "tracked_pids": [
+      660,
+      676,
+      677,
+      678,
+      679,
+      680,
+      681,
+      682,
+      683,
+      685,
+      686
+    ],
+    "sigkill_pids": [
+      678
+    ],
+    "remaining_pids": []
+  }
+}

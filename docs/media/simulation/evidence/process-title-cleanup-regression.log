@@ -1,0 +1,5 @@
+Command: python3 -m pytest -q /work/src/bringup/greenhouse_nav2_bringup/test/test_simulation_process_cleanup.py
+Image: sha256:b190dc49e1384aa478a4a61f7b60ef0b1db5b61c317273076f974b0aa204f228
+Result: 2 passed in 7.13s
+Both a separate world-path argv entry and Gazebo's combined process-title representation were exercised. Reparented children ignoring SIGTERM were terminated; unrelated siblings with a similar path prefix survived.
+Pytest reported two read-only cache warnings for /work; test execution passed.

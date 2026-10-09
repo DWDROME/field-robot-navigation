@@ -1,0 +1,8 @@
+- direction: GZ_TO_ROS
+  gz_topic_name: /sensors/imu_0/data
+  gz_type_name: gz.msgs.IMU
+  publisher_queue: 10
+  qos_profile: SENSOR_DATA
+  ros_topic_name: /sensors/imu/data
+  ros_type_name: sensor_msgs/msg/Imu
+  subscriber_queue: 10

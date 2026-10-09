@@ -1,0 +1,21 @@
+# Derived from clearpath_config 2.9.4 a200_default.yaml.
+# The root namespace keeps the ROS interfaces at /cmd_vel,
+# /platform/odom, odom, and base_link instead of adding a robot prefix.
+serial_number: a200-0000
+version: 0
+system:
+  hosts:
+    - hostname: cpr-a200-0000
+      ip: 192.168.131.1
+  ros2:
+    namespace: "/"
+platform:
+  attachments:
+    - name: front_bumper
+      type: a200.bumper
+      parent: front_bumper_mount
+    - name: rear_bumper
+      type: a200.bumper
+      parent: rear_bumper_mount
+    - name: top_plate
+      type: a200.top_plate

@@ -1,0 +1,51 @@
+{
+  "run_id": "maize_field_jackal_j100_r1",
+  "kind": "rviz",
+  "world": "maize_field",
+  "robot": "jackal_j100",
+  "capture_source": "Actual RViz2 window on Xvfb, software GLX",
+  "path_display": "First actual /planning/global_path, retained unchanged on a display-only snapshot topic; may be cancelled at capture time",
+  "display": ":921",
+  "resolution": "1920x1080",
+  "view_configuration": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/navigation.rviz",
+  "camera_pose": {
+    "type": "Orbit",
+    "target_frame": "base_link",
+    "distance": 13,
+    "pitch": 0.85,
+    "yaw": 0.85,
+    "focal_point": [
+      2,
+      0,
+      0
+    ]
+  },
+  "observed_topics": {
+    "cloud_points": 3454,
+    "terrain_points": 2332,
+    "path_poses": 2,
+    "sim_time_s": 4.11,
+    "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 3840000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+    "path_snapshot_stamp_s": 3.62,
+    "path_snapshot_frame": "map",
+    "path_snapshot_xyz": [
+      [
+        -0.03406698256731033,
+        0.016558168455958366,
+        0.0004822040209546685
+      ],
+      [
+        2.0,
+        0.0,
+        0.43850430846214294
+      ]
+    ]
+  },
+  "sim_time_s": 4.11,
+  "status": "fail",
+  "image": "maize_field_jackal_j100_r1_rviz.png",
+  "compressed_image": "maize_field_jackal_j100_r1_rviz.jpg",
+  "visual_review": "passed: main-agent visual inspection; robot, measured cloud/terrain and recorded cyan FAR path are visible; actual 1920x1080 RViz window",
+  "status_at_capture": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 3840000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+  "result_record": "evidence/candidate-matrix/maize_field_jackal_j100_r1.json"
+}

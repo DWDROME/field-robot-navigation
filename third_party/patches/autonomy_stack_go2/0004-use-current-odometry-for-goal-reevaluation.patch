@@ -1,0 +1,51 @@
+diff --git a/src/route_planner/far_planner/include/far_planner/graph_planner.h b/src/route_planner/far_planner/include/far_planner/graph_planner.h
+--- a/src/route_planner/far_planner/include/far_planner/graph_planner.h
++++ b/src/route_planner/far_planner/include/far_planner/graph_planner.h
+@@ -214,7 +214,8 @@ void UpdateFreeTerrainGrid(const Point3D& center,
+  * @param goal_ptr current goal node pointer
+  * @param is_adjust_height whether or not adjust height of goal -> (False if multi layer planning)
+  */
+-void ReEvaluateGoalPosition(const NavNodePtr& goal_ptr, const bool& is_adjust_height);
++void ReEvaluateGoalPosition(const NavNodePtr& goal_ptr, const bool& is_adjust_height,
++                            const NavNodePtr& odom_node_ptr);
+ 
+ /**
+  * @brief Reset internal values and containers
+diff --git a/src/route_planner/far_planner/src/far_planner.cpp b/src/route_planner/far_planner/src/far_planner.cpp
+--- a/src/route_planner/far_planner/src/far_planner.cpp
++++ b/src/route_planner/far_planner/src/far_planner.cpp
+@@ -309,7 +309,7 @@ void FARMaster::PlanningCallBack() {
+     map_handler_.GetCloudOfPoint(ori_p, goal_obs, CloudType::OBS_CLOUD, true);
+     map_handler_.GetCloudOfPoint(ori_p, goal_free, CloudType::FREE_CLOUD, true);
+     graph_planner_.UpdateFreeTerrainGrid(ori_p, goal_obs, goal_free);
+-    graph_planner_.ReEvaluateGoalPosition(goal_ptr, !master_params_.is_multi_layer);
++    graph_planner_.ReEvaluateGoalPosition(goal_ptr, !master_params_.is_multi_layer, odom_node_ptr_);
+ 
+     // Adding goal into v-graph
+     FARUtil::Timer.start_time("Adding Goal to V-Graph");
+diff --git a/src/route_planner/far_planner/src/graph_planner.cpp b/src/route_planner/far_planner/src/graph_planner.cpp
+--- a/src/route_planner/far_planner/src/graph_planner.cpp
++++ b/src/route_planner/far_planner/src/graph_planner.cpp
+@@ -352,8 +352,12 @@ void GraphPlanner::UpdateGoal(const Point3D& goal)
+     this->ResetFreeTerrainGridOrigin(goal_node_ptr_->position);
+ }
+ 
+-void GraphPlanner::ReEvaluateGoalPosition(const NavNodePtr& goal_ptr, const bool& is_adjust_height)
++void GraphPlanner::ReEvaluateGoalPosition(const NavNodePtr& goal_ptr, const bool& is_adjust_height,
++                                        const NavNodePtr& odom_node_ptr)
+ {
++    // A goal can arrive before the first no-goal traversability update.
++    // Use this planning tick's odometry instead of a nullable cached pointer.
++    if (goal_ptr == NULL || odom_node_ptr == NULL) return;
+     if (is_use_internav_goal_) return; // return if using an exsiting internav node as goal
+     if (is_adjust_height && is_global_path_init_ && recorded_path_.size() > 1) { // use path to adjust goal height
+         const auto it = recorded_path_.end() - 2;
+@@ -366,7 +370,7 @@ void GraphPlanner::ReEvaluateGoalPosition(const NavNodePtr& goal_ptr, const bool& is
+     }
+     const Eigen::Vector3i ori_sub = free_terrain_grid_->Pos2Sub(origin_goal_pos_.x, origin_goal_pos_.y, grid_center_.z);
+     const Point3D ori_pos_height(origin_goal_pos_.x, origin_goal_pos_.y, goal_ptr->position.z);
+-    const bool is_origin_free = ContourGraph::IsPoint3DConnectFreePolygon(ori_pos_height, odom_node_ptr_->position) ? true : false;
++    const bool is_origin_free = ContourGraph::IsPoint3DConnectFreePolygon(ori_pos_height, odom_node_ptr->position) ? true : false;
+     if (is_origin_free) {
+         goal_ptr->position = ori_pos_height;
+     } else { // reproject to nearby free space

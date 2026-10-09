@@ -1,0 +1,38 @@
+{
+  "run_id": "maize_field_jackal_j100_r1",
+  "kind": "task",
+  "world": "maize_field",
+  "robot": "jackal_j100",
+  "camera_pose": [
+    -14.0,
+    -14.0,
+    4.0,
+    0.0,
+    0.45,
+    0.785
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 5,
+    "nanosec": 0
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 86.78,
+  "variance": 485.87,
+  "status": "fail",
+  "mission_state_at_capture_start": {
+    "phase": "ground-mission-active",
+    "case": "normal_headland",
+    "sim_time_s": 3.36,
+    "position": [
+      -0.052982869859862385,
+      0.0455636874057849,
+      -0.0005494903589155446
+    ]
+  },
+  "image": "maize_field_jackal_j100_r1_task.png",
+  "compressed_image": "maize_field_jackal_j100_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete robot and maize field/terrain are visible, unobstructed and not cropped",
+  "result_record": "evidence/candidate-matrix/maize_field_jackal_j100_r1.json"
+}

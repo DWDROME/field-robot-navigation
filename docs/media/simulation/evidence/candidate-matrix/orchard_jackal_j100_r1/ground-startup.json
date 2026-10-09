@@ -1,0 +1,8 @@
+{
+  "result": "settled",
+  "sim_time_s": 1.344,
+  "stable_sim_s": 1.002,
+  "acceleration_norm_mps2": 9.79992869207971,
+  "angular_speed_radps": 0.0029814354513729184,
+  "clock_publishers": 1
+}

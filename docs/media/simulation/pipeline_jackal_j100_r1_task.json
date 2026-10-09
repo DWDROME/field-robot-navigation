@@ -1,0 +1,38 @@
+{
+  "run_id": "pipeline_jackal_j100_r1",
+  "kind": "task",
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "camera_pose": [
+    -8.0,
+    3.0,
+    5.0,
+    0.0,
+    0.5,
+    0.56
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 11,
+    "nanosec": 1000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 93.78,
+  "variance": 223.01,
+  "status": "fail",
+  "mission_state_at_capture_start": {
+    "phase": "ground-mission-active",
+    "case": "normal_staging",
+    "sim_time_s": 9.738,
+    "position": [
+      0.0021458102562129026,
+      0.0014251905442317035,
+      -0.0003127243166876801
+    ]
+  },
+  "image": "pipeline_jackal_j100_r1_task.png",
+  "compressed_image": "pipeline_jackal_j100_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete Jackal, staging terrain and base-station context are visible",
+  "result_record": "evidence/candidate-matrix/pipeline_jackal_j100_r1.json"
+}

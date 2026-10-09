@@ -1,0 +1,86 @@
+{
+  "run_id": "maize_field_jackal_j100_r3",
+  "commands": {
+    "/cmd_vel": {
+      "count": 31,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/platform/cmd_vel": {
+      "count": 31,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/cmd_vel/nav": {
+      "count": 94,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/navigation/mppi_cmd": {
+      "count": 4,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    }
+  },
+  "publishers": {
+    "/clock": [
+      {
+        "node": "simulation_clock_bridge",
+        "type": "rosgraph_msgs/msg/Clock",
+        "reliability": "1"
+      }
+    ],
+    "/navigation/mppi_cmd": [
+      {
+        "node": "controller_server",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/cmd_vel/nav": [
+      {
+        "node": "mppi_command_adapter",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/cmd_vel": [
+      {
+        "node": "greenhouse_cmd_gate",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/platform/cmd_vel": [
+      {
+        "node": "greenhouse_sim_cmd_sink",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ]
+  },
+  "terrain_grid": {
+    "stamp": 3.75,
+    "frame": "odom",
+    "approximate_initial_footprint_cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "initial_2m_square_counts": {
+      "0": 3,
+      "-1": 97
+    },
+    "total_counts": {
+      "0": 360,
+      "-1": 9640
+    }
+  }
+}

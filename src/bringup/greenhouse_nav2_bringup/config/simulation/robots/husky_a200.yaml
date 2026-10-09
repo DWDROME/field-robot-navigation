@@ -1,0 +1,63 @@
+# Clearpath Husky A200 simulation configuration.
+# Derived from clearpath_config 2.9.4 a200_default.yaml with the same
+# simulation sensor suite as the Jackal J100 (3D lidar, RGB-D camera,
+# platform wheel odometry). The root namespace keeps ROS interfaces at
+# /cmd_vel, /platform/odom, odom and base_link.
+serial_number: a200-0000
+version: 0
+system:
+  hosts:
+    - hostname: cpr-a200-0000
+      ip: 192.168.131.1
+  ros2:
+    namespace: "/"
+platform:
+  attachments:
+    - name: front_bumper
+      type: a200.bumper
+      parent: front_bumper_mount
+    - name: rear_bumper
+      type: a200.bumper
+      parent: rear_bumper_mount
+    - name: top_plate
+      type: a200.top_plate
+sensors:
+  imu:
+    - model: chrobotics_um6
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_link
+      xyz: [0.0, 0.0, 0.05]
+      rpy: [0.0, 0.0, 0.0]
+  lidar3d:
+    - model: velodyne_lidar
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_link
+      xyz: [0.0, 0.0, 0.10]
+      rpy: [0.0, 0.0, 0.0]
+      ros_parameters:
+        velodyne_driver_node:
+          frame_id: lidar3d_0_laser
+          device_ip: 192.168.131.25
+          port: 2368
+          model: VLP16
+        velodyne_transform_node:
+          model: VLP16
+          fixed_frame: lidar3d_0_laser
+          target_frame: lidar3d_0_laser
+  camera:
+    - model: intel_realsense
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_link
+      xyz: [0.10, 0.0, 0.05]
+      rpy: [0.0, 0.0, 0.0]
+      ros_parameters:
+        intel_realsense:
+          camera_name: camera_0
+          device_type: d435
+          enable_depth: true
+          enable_color: true
+          pointcloud:
+            enable: true

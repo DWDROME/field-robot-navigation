@@ -1,0 +1,14 @@
+- direction: GZ_TO_ROS
+  gz_topic_name: /sensors/camera_0/image
+  gz_type_name: gz.msgs.Image
+  lazy: true
+  qos_profile: SENSOR_DATA
+  ros_topic_name: /sensors/camera/color/image
+  ros_type_name: sensor_msgs/msg/Image
+- direction: GZ_TO_ROS
+  gz_topic_name: /sensors/camera_0/points
+  gz_type_name: gz.msgs.PointCloudPacked
+  lazy: true
+  qos_profile: SENSOR_DATA
+  ros_topic_name: /sensors/camera/points
+  ros_type_name: sensor_msgs/msg/PointCloud2

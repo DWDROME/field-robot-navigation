@@ -1,0 +1,32 @@
+{
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "sim_base_image_id": "sha256:0cb39cb5b0670c845f20cd0ea2ff5f50ae3501cf96b804aa0c93065d669abcd8",
+  "far_binary_sha256": "d42fe736b103ff5c82c8b684e0f83c08cbcbc81052f38d6601de9424c2d06191",
+  "far_source_inputs_matched": 29,
+  "far_build_elapsed_s": 34.7,
+  "installed_sim_source_files_matched": 29,
+  "final_full_production_rebuild_after_patch_0005": "not-run",
+  "build_method": "Existing rebuilt production and SIM caches, separately compiled patched FAR executable, then current runner with real PX4 message startup, isolated bridges, revised pipeline spawn and actual X500 collision geometry installed with Docker build layers",
+  "patches": [
+    {
+      "file": "0001-jazzy-compatibility-and-runtime-fixes.patch",
+      "sha256": "9ce182a445a1d5b63e84d042b123bf68499fc8d469f0beee1e19e957de880dec"
+    },
+    {
+      "file": "0002-preserve-decoded-graph-header.patch",
+      "sha256": "831abba1ba13776e22c55f2c624a7d9ddb0af8c72a2e83be279e52f54b8cceb4"
+    },
+    {
+      "file": "0003-publish-ordered-route-and-goal-status.patch",
+      "sha256": "bcdd7e3bc01fd775d8b7bd67ca14a21280a6a658383fceba17b5374e8a65e452"
+    },
+    {
+      "file": "0004-use-current-odometry-for-goal-reevaluation.patch",
+      "sha256": "f1e5a4e30e7385051a5b9e3bbe5387ff43a4e183a203243ae0056331d42bc3b1"
+    },
+    {
+      "file": "0005-initialize-with-observed-free-terrain.patch",
+      "sha256": "2031f8bbbd32f4ce41f5727ce755415133be3517dabe142dba376db55c40ce0f"
+    }
+  ]
+}

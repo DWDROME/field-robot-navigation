@@ -1,0 +1,15 @@
+{
+  "world": "maize_field",
+  "robot": "husky_a200",
+  "view": "task",
+  "pose": [
+    -14.0,
+    -14.0,
+    4.0,
+    0.0,
+    0.45,
+    0.785
+  ],
+  "resolution": "1920x1080",
+  "topic": "/sim_camera/image"
+}

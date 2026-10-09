@@ -1,0 +1,241 @@
+{
+  "run_id": "pipeline_jackal_j100_r2",
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "seed": "20261006",
+  "localization": "simulation_sensors",
+  "started_at": "2026-10-07T12:14:47",
+  "result": "fail",
+  "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ",
+  "observations": {
+    "path_length_m": 0.029237049863437718,
+    "max_abs_roll_rad": 3.739178463740645e-06,
+    "max_abs_pitch_rad": 1.274992466387979e-05,
+    "odometry_samples": 40,
+    "unexpected_collisions": 0,
+    "collision_measurement": "contact-sensors",
+    "contact_messages": 12388,
+    "normal_wheel_contacts": 12388,
+    "collision_pairs": [],
+    "stall_events": 0,
+    "stalled": false,
+    "trace": "/evidence/candidate-matrix/pipeline_jackal_j100_r2/pipeline_jackal_j100_r2_trace.jsonl",
+    "clock_publishers": 1,
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 1.1729304350010352,
+          "final_position": [
+            -0.00043320275879812117,
+            0.00099542763634934,
+            -0.0003298695670376446
+          ],
+          "mission_status": "{\"mission_id\": 1, \"waypoint\": 0, \"goal_stamp_ns\": 8466000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.014282379434010672,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 3.739178463740645e-06,
+          "max_abs_pitch_rad": 1.274992466387979e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 1.1309999999999985,
+          "real_time_factor": 0.9642515585325401,
+          "goal_error_m": 3.9995669211141376,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.22845521400086,
+          "final_position": [
+            1.5910110145335605e-06,
+            0.0009430645921672728,
+            -0.0003461546753335137
+          ],
+          "mission_status": "{\"mission_id\": 2, \"waypoint\": 0, \"goal_stamp_ns\": 9603000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.00043922679647486265,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 3.739178463740645e-06,
+          "max_abs_pitch_rad": 1.274992466387979e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.20400000000000063,
+          "real_time_factor": 0.8929540124185246,
+          "goal_error_m": 1.7327560932306332,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.2199505849966954,
+          "final_position": [
+            8.095077361411801e-05,
+            0.0009926810154886842,
+            -0.00034670114360228646
+          ],
+          "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 9795000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.00010254492556839231,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 3.739178463740645e-06,
+          "max_abs_pitch_rad": 1.274992466387979e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.19200000000000017,
+          "real_time_factor": 0.8729233432267745,
+          "goal_error_m": 1.999919295590242,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      }
+    ],
+    "mission_elapsed_s": 19.036304965000454,
+    "sim_elapsed_s": 9.981,
+    "real_time_factor": 0.7832939076630673,
+    "tipped": false
+  },
+  "thresholds": {
+    "goal_xy_m": 0.3,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "stall_window_wall_s": 10.0,
+    "stall_distance_m": 0.05,
+    "stall_rotation_rad": 0.1
+  },
+  "task": "site_ground_cases",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-pipeline_jackal_j100_r2",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/pipeline_jackal_j100_r2/simulation.log",
+  "task_configuration": {
+    "spawn_world_xy": [
+      -2.0,
+      8.0
+    ],
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ]
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "process_cleanup": {
+    "tracked_pids": [
+      12637,
+      12653,
+      12654,
+      12655,
+      12656,
+      12659,
+      12660,
+      12661,
+      12662,
+      12664,
+      12665,
+      12965,
+      12966,
+      12967,
+      12968,
+      12980,
+      12981,
+      12982,
+      12983,
+      12984,
+      12985,
+      12986,
+      12987,
+      12988,
+      12989
+    ],
+    "sigkill_pids": [
+      12655
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/pipeline_jackal_j100_r2",
+  "ulog_files": [],
+  "finished_at": "2026-10-07T12:15:16"
+}

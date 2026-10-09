@@ -1,0 +1,246 @@
+{
+  "run_id": "pipeline_jackal_j100_r1",
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "seed": "20261006",
+  "localization": "simulation_sensors",
+  "started_at": "2026-10-07T12:13:46",
+  "result": "fail",
+  "reason": "normal_staging: global odometry unavailable or expired; terrain_challenge: global odometry unavailable or expired; dangerous_station: global odometry unavailable or expired",
+  "observations": {
+    "path_length_m": 0.0024611870702559544,
+    "max_abs_roll_rad": 2.7956299583262203e-06,
+    "max_abs_pitch_rad": 1.3867933031726687e-06,
+    "odometry_samples": 7,
+    "unexpected_collisions": 0,
+    "collision_measurement": "contact-sensors",
+    "contact_messages": 11721,
+    "normal_wheel_contacts": 11721,
+    "collision_pairs": [],
+    "stall_events": 0,
+    "stalled": false,
+    "trace": "/evidence/candidate-matrix/pipeline_jackal_j100_r1/pipeline_jackal_j100_r1_trace.jsonl",
+    "clock_publishers": 1,
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "global odometry unavailable or expired",
+        "observations": {
+          "mission_elapsed_s": 0.1596251699993445,
+          "final_position": [
+            0.0021458102562129026,
+            0.0014251905442317035,
+            -0.0003127243166876801
+          ],
+          "mission_status": "{\"mission_id\": 1, \"waypoint\": 0, \"goal_stamp_ns\": 9738000000, \"state\": \"failed\", \"reason\": \"global odometry unavailable or expired\"}",
+          "path_length_m": 0.001613166062494755,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 2.7956299583262203e-06,
+          "max_abs_pitch_rad": 1.3867933031726687e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.12899999999999956,
+          "real_time_factor": 0.8081432270395031,
+          "goal_error_m": 4.0021460640160855,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "global odometry unavailable or expired",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ],
+        "result": "fail",
+        "reason": "global odometry unavailable or expired",
+        "observations": {
+          "mission_elapsed_s": 0.009868410001217853,
+          "final_position": [
+            0.0021458102562129026,
+            0.0014251905442317035,
+            -0.0003127243166876801
+          ],
+          "mission_status": "{\"mission_id\": 2, \"waypoint\": 0, \"goal_stamp_ns\": 9750000000, \"state\": \"failed\", \"reason\": \"global odometry unavailable or expired\"}",
+          "path_length_m": 0.0,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 2.7956299583262203e-06,
+          "max_abs_pitch_rad": 1.3867933031726687e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.012000000000000455,
+          "real_time_factor": 1.2160013617715055,
+          "goal_error_m": 1.7322926984219962,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "global odometry unavailable or expired",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "global odometry unavailable or expired",
+        "observations": {
+          "mission_elapsed_s": 0.031441268998605665,
+          "final_position": [
+            0.0021458102562129026,
+            0.0014251905442317035,
+            -0.0003127243166876801
+          ],
+          "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 9765000000, \"state\": \"failed\", \"reason\": \"global odometry unavailable or expired\"}",
+          "path_length_m": 0.0,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 2.7956299583262203e-06,
+          "max_abs_pitch_rad": 1.3867933031726687e-06,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.006000000000000227,
+          "real_time_factor": 0.19083199219046507,
+          "goal_error_m": 1.9978546980811422,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "global odometry unavailable or expired",
+          "outcome": "failed"
+        }
+      }
+    ],
+    "mission_elapsed_s": 21.767716146001476,
+    "sim_elapsed_s": 9.498000000000001,
+    "real_time_factor": 0.665641468635667,
+    "tipped": false
+  },
+  "thresholds": {
+    "goal_xy_m": 0.3,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "stall_window_wall_s": 10.0,
+    "stall_distance_m": 0.05,
+    "stall_rotation_rad": 0.1
+  },
+  "task": "site_ground_cases",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-pipeline_jackal_j100_r1",
+  "camera_enabled": true,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/pipeline_jackal_j100_r1/simulation.log",
+  "task_configuration": {
+    "spawn_world_xy": [
+      -2.0,
+      8.0
+    ],
+    "cases": [
+      {
+        "name": "normal_staging",
+        "expectation": "reach",
+        "geometry": "Staging terrain west of the base station; original collision mesh retained",
+        "waypoints": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            -4.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees",
+        "waypoints": [
+          [
+            0.729,
+            -1.571
+          ]
+        ]
+      },
+      {
+        "name": "dangerous_station",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the original base_station collision model at world (0, 8) m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "capture_result": "saved",
+  "image_metadata": "/media/pipeline_jackal_j100_r1_task.json",
+  "rviz_capture_result": "fail",
+  "panorama_capture_result": "saved",
+  "process_cleanup": {
+    "tracked_pids": [
+      11864,
+      11967,
+      11968,
+      11969,
+      11970,
+      11973,
+      11974,
+      11975,
+      11976,
+      11978,
+      11979,
+      12004,
+      12318,
+      12319,
+      12320,
+      12321,
+      12322,
+      12323,
+      12324,
+      12325,
+      12326,
+      12327,
+      12328,
+      12329,
+      12330,
+      12331
+    ],
+    "sigkill_pids": [
+      11969
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/pipeline_jackal_j100_r1",
+  "ulog_files": [],
+  "finished_at": "2026-10-07T12:14:47"
+}

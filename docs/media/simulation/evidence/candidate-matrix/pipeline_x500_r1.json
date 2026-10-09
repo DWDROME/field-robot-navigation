@@ -1,0 +1,204 @@
+{
+  "run_id": "pipeline_x500_r1",
+  "world": "pipeline",
+  "robot": "x500",
+  "seed": "20261006",
+  "localization": "px4_simulated_sensors",
+  "started_at": "2026-10-07T12:17:27",
+  "result": "pass",
+  "reason": null,
+  "observations": {
+    "mission_log": "/evidence/candidate-matrix/pipeline_x500_r1/pipeline_x500_r1_air.log",
+    "mission_output_tail": "[INFO] [1791375468.517826932] [air_mission]: ready: nav_state=4\n[INFO] [1791375468.698959034] [air_mission]: armed: \n[INFO] [1791375468.898962264] [air_mission]: offboard: \n[INFO] [1791375476.798927169] [air_mission]: takeoff: altitude=9.41\n[INFO] [1791375482.099026966] [air_mission]: hover: position and velocity stable for 3 simulation seconds\n[INFO] [1791375484.199197455] [air_mission]: waypoint: 0 reached\n[INFO] [1791375486.598990056] [air_mission]: waypoint: 1 reached\n[INFO] [1791375488.699137364] [air_mission]: waypoint: 2 reached\n[INFO] [1791375490.899300625] [air_mission]: waypoint: 3 reached\n[INFO] [1791375494.099156615] [air_mission]: return: centered and stationary for 2 simulation seconds\n[INFO] [1791375512.299181841] [air_mission]: land: landing detector confirms touchdown and disarm\n[INFO] [1791375512.399097399] [air_mission]: disarm: \n[INFO] [1791375512.405524165] [air_mission]: mission pass: ok\n",
+    "air_mission": {
+      "site": "pipeline",
+      "waypoints": [
+        {
+          "index": 0,
+          "x": 0.04994409903883934,
+          "y": 8.023505184799433,
+          "z": 10.0,
+          "horizontal_error": 1.4423779738928588,
+          "altitude_error": 0.0281982421875,
+          "elapsed_s": 2.1
+        },
+        {
+          "index": 1,
+          "x": 10.04994409903884,
+          "y": 8.023505184799433,
+          "z": 10.0,
+          "horizontal_error": 1.422402008111173,
+          "altitude_error": 0.04058837890625,
+          "elapsed_s": 2.4
+        },
+        {
+          "index": 2,
+          "x": 10.04994409903884,
+          "y": 0.023505184799432755,
+          "z": 10.0,
+          "horizontal_error": 1.3241007279770187,
+          "altitude_error": 0.009033203125,
+          "elapsed_s": 2.1
+        },
+        {
+          "index": 3,
+          "x": 0.04994409903883934,
+          "y": 0.023505184799432755,
+          "z": 10.0,
+          "horizontal_error": 1.3599606873815666,
+          "altitude_error": 0.02532958984375,
+          "elapsed_s": 2.2
+        }
+      ],
+      "steps": [
+        {
+          "step": "ready",
+          "note": "nav_state=4",
+          "wall_elapsed_s": 4.72
+        },
+        {
+          "step": "armed",
+          "note": "",
+          "wall_elapsed_s": 0.18
+        },
+        {
+          "step": "offboard",
+          "note": "",
+          "wall_elapsed_s": 0.2
+        },
+        {
+          "step": "takeoff",
+          "note": "altitude=9.41",
+          "wall_elapsed_s": 7.9
+        },
+        {
+          "step": "hover",
+          "note": "position and velocity stable for 3 simulation seconds",
+          "wall_elapsed_s": 5.3
+        },
+        {
+          "step": "waypoint",
+          "note": "0 reached",
+          "wall_elapsed_s": 2.1
+        },
+        {
+          "step": "waypoint",
+          "note": "1 reached",
+          "wall_elapsed_s": 2.4
+        },
+        {
+          "step": "waypoint",
+          "note": "2 reached",
+          "wall_elapsed_s": 2.1
+        },
+        {
+          "step": "waypoint",
+          "note": "3 reached",
+          "wall_elapsed_s": 2.2
+        },
+        {
+          "step": "return",
+          "note": "centered and stationary for 2 simulation seconds",
+          "wall_elapsed_s": 3.2
+        },
+        {
+          "step": "land",
+          "note": "landing detector confirms touchdown and disarm",
+          "wall_elapsed_s": 17.16
+        },
+        {
+          "step": "disarm",
+          "note": "",
+          "wall_elapsed_s": 17.26
+        }
+      ],
+      "result": "pass",
+      "reason": null,
+      "thresholds": {
+        "waypoint_radius_m": 1.5,
+        "altitude_tolerance_m": 0.6,
+        "hover_speed_mps": 0.5,
+        "hover_stable_sim_s": 3.0,
+        "return_radius_m": 0.3,
+        "return_speed_mps": 0.3,
+        "return_stable_sim_s": 2.0,
+        "roll_pitch_limit_rad": 0.7853981633974483,
+        "telemetry_timeout_wall_s": 2.0
+      },
+      "max_abs_roll_rad": 0.7307028671078577,
+      "max_abs_pitch_rad": 0.7366737469604838,
+      "position_samples": 2330,
+      "minimum_cruise_altitude_m": 9.41375732421875,
+      "hover_samples": 53,
+      "hover_max_xy_error_m": 0.682688455046793,
+      "hover_max_altitude_error_m": 0.54974365234375,
+      "max_cruise_height_loss_m": 0.05157470703125,
+      "path_length_m": 57.55725905747107,
+      "landed": true,
+      "trace": "/evidence/candidate-matrix/pipeline_x500_r1/pipeline_x500_r1_air.jsonl",
+      "return_horizontal_error_m": 0.06725547276629532,
+      "return_speed_mps": 0.18687267928027254,
+      "return_stable_sim_s": 2.0010000000000048,
+      "telemetry_age_wall_s": {
+        "position": 0.018087342999933753,
+        "status": 0.12620767000043998,
+        "attitude": 0.006385477998264832,
+        "clock": 0.0039065769997250754,
+        "land": 0.09327398100140272
+      },
+      "clock_publishers": 1,
+      "mission_elapsed_s": 47.56643842400081,
+      "sim_elapsed_s": 47.501999999999995,
+      "real_time_factor": 0.9986452964288304,
+      "unstable": false
+    }
+  },
+  "thresholds": {
+    "waypoint_radius_m": 1.5,
+    "altitude_tolerance_m": 0.6,
+    "hover_speed_mps": 0.5,
+    "return_radius_m": 0.3,
+    "return_speed_mps": 0.3,
+    "return_stable_sim_s": 2.0,
+    "hover_stable_sim_s": 3.0,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "telemetry_timeout_wall_s": 2.0
+  },
+  "task": "site_offboard_inspection",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-pipeline_x500_r1",
+  "camera_enabled": true,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/pipeline_x500_r1/simulation.log",
+  "capture_result": "saved",
+  "image_metadata": "/media/pipeline_x500_r1_task.json",
+  "process_cleanup": {
+    "tracked_pids": [
+      15513,
+      15529,
+      15530,
+      15531,
+      15532,
+      15533,
+      15534,
+      15536,
+      15571
+    ],
+    "sigkill_pids": [
+      15531
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/pipeline_x500_r1",
+  "ulog_files": [
+    "/evidence/candidate-matrix/pipeline_x500_r1/px4-rootfs/log/2026-10-07/12_17_37.ulg"
+  ],
+  "finished_at": "2026-10-07T12:18:40"
+}

@@ -1,0 +1,53 @@
+common:
+    lid_topic:  "/livox/lidar"
+    imu_topic:  "/livox/imu"
+    time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
+    time_offset_lidar_to_imu: 0.0 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
+                                  # This param will take effect no matter what time_sync_en is. So if the time offset is not known exactly, please set as 0.0
+
+preprocess:
+    lidar_type: 1                # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 
+    scan_line: 4
+    blind: 0.5          #雷达盲区。
+
+mapping:
+    acc_cov: 0.1
+    gyr_cov: 0.1
+    b_acc_cov: 0.0001
+    b_gyr_cov: 0.0001
+    fov_degree:    360
+    det_range:     100.0
+    extrinsic_est_en:  false      # true: enable the online estimation of IMU-LiDAR extrinsic
+    extrinsic_T: [ -0.011, -0.02329, 0.04412 ]
+    extrinsic_R: [ 1, 0, 0,
+                   0, 1, 0,
+                   0, 0, 1]
+
+publish:
+    path_en:  false
+    scan_publish_en:  true       # false: close all the point cloud output
+    dense_publish_en: true       # false: low down the points number in a global-frame point clouds scan.
+    scan_bodyframe_pub_en: false  # true: output the point cloud scans in IMU-body-frame
+
+pcd_save:
+    pcd_save_en: false
+    interval: -1                 # how many LiDAR frames saved in each pcd file;
+                                 # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
+
+# slam_core: 两个后端的统一地图配置。
+# 详细语义见 src/localization/fast_lio_super/docs/SLAM_CORE_API.md §3
+slam_core:
+    map_backend: "ikdtree"       # ikdtree | octvox；launch 参数可覆盖
+    voxel_size: 0.5              # 与 filter_size_map 对齐；ikdtree 的 downsample size
+    capacity: 2000000            # OctVox LRU 上限；ikdtree 后端忽略
+    enable_lru: true             # ikdtree 后端忽略
+    local_crop_radius: 100.0     # 球形空间裁剪，与容量 LRU 独立
+    raw_capacity: 200000         # OctVox 原始点保留预算
+    removed_capacity: 10000      # 删除回取缓存预算；超限可由 stats 诊断
+    max_pts_per_vox: 8           # 每个父体素最多八个子体素代表点
+    incremental_mean: true
+    # B-1.c：h_share_model 里 knn 残差并发度。
+    #   0  = 沿用编译期 MP_PROC_NUM（默认 3，FAST-LIO2 原值）
+    #   <0 = 用 omp_get_max_threads()（机器所有 core）
+    #   >0 = 显式指定（建议 = 物理核数的 0.5~0.8）
+    omp_threads: 0

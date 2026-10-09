@@ -1,0 +1,37 @@
+{
+  "run_id": "maize_field_x500_r1",
+  "kind": "task",
+  "world": "maize_field",
+  "robot": "x500",
+  "camera_pose": [
+    -14.0,
+    -14.0,
+    6.0,
+    0.0,
+    0.3,
+    0.785
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 13,
+    "nanosec": 0
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 139.17,
+  "variance": 2740.3,
+  "status": "pass",
+  "mission_state_at_capture_start": {
+    "phase": "takeoff-reached",
+    "sim_time_s": 11.81,
+    "ned_position": [
+      -0.07212772220373154,
+      0.0159829780459404,
+      -2.3611345291137695
+    ]
+  },
+  "image": "maize_field_x500_r1_task.png",
+  "compressed_image": "maize_field_x500_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; airborne X500 is complete and unobstructed, maize field and relief visible",
+  "result_record": "evidence/candidate-matrix/maize_field_x500_r1.json"
+}

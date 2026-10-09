@@ -1,0 +1,73 @@
+name: greenhouse-sim
+
+services:
+  production:
+    image: "${SIM_PRODUCTION_IMAGE:-greenhouse-jazzy:local}"
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production-runtime
+      network: host
+      args:
+        BUILD_JOBS: "${BUILD_JOBS:-2}"
+        HTTP_PROXY: "${HTTP_PROXY:-}"
+        HTTPS_PROXY: "${HTTPS_PROXY:-}"
+        NO_PROXY: "${NO_PROXY:-}"
+      additional_contexts:
+        robot_source: ../src
+        dependencies: ../third_party
+        build_tools: ../tools
+
+  simulation-build:
+    image: "${SIM_BUILD_IMAGE:-greenhouse-sim-build:local}"
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile.sim
+      target: sim-build
+      network: host
+      args:
+        BUILD_JOBS: "${BUILD_JOBS:-2}"
+        HTTP_PROXY: "${HTTP_PROXY:-}"
+        HTTPS_PROXY: "${HTTPS_PROXY:-}"
+        NO_PROXY: "${NO_PROXY:-}"
+      additional_contexts:
+        production: service:production
+
+  # PX4 SITL build inputs: pinned firmware sources (prepare-px4.sh) and the
+  # staged build output (build-px4.sh). The staged tree is a task-specific
+  # product under .tmp/simulation; build-px4.sh must run before this service
+  # so the `px4_build` context exists.
+  simulation:
+    image: "${SIM_IMAGE:-greenhouse-sim:local}"
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile.sim
+      target: sim-runtime
+      network: host
+      args:
+        BUILD_JOBS: "${BUILD_JOBS:-2}"
+        HTTP_PROXY: "${HTTP_PROXY:-}"
+        HTTPS_PROXY: "${HTTPS_PROXY:-}"
+        NO_PROXY: "${NO_PROXY:-}"
+      additional_contexts:
+        production: service:production
+        simulation_assets: ../.tmp/simulation/assets
+        px4_builder: ../.tmp/simulation/px4
+        air_source: ../src/bringup/greenhouse_sim_air
+        simulation_tools: ../tools
+        simulation_bringup: ../src/bringup/greenhouse_nav2_bringup
+    network_mode: host
+    restart: unless-stopped
+    mem_limit: "${SIM_MEMORY_LIMIT:-6g}"
+    memswap_limit: "${SIM_SWAP_LIMIT:-8g}"
+    cpus: "${SIM_CPUS:-8}"
+    volumes:
+      - ../.tmp/simulation/runs:/evidence
+      - ../docs/media/simulation:/media
+    environment:
+      ROS_DOMAIN_ID: "${SIM_ROS_DOMAIN_ID:-42}"
+      FASTRTPS_DEFAULT_PROFILES_FILE: /opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/dds-loopback.xml
+    command: [ros2, launch, greenhouse_nav2_bringup, simulation_matrix.launch.py, "world:=${SIM_WORLD:-maize_field}", "robot:=${SIM_ROBOT:-husky_a200}"]

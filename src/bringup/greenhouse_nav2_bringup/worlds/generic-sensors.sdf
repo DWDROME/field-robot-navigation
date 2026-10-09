@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="greenhouse_sensor_static">
+    <physics name="greenhouse_1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics"/>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands"/>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu"/>
+
+    <!--
+      A closed, project-owned fixture keeps every GPU-lidar return finite and
+      avoids Fuel or other runtime network retrieval. It is representative
+      geometry only; it is not a greenhouse or Livox MID-360 physics model.
+    -->
+    <model name="sensor_room">
+      <static>true</static>
+      <link name="room">
+        <visual name="floor">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <geometry><box><size>12 12 0.1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.45 0.45 1</ambient>
+            <diffuse>0.45 0.45 0.45 1</diffuse>
+          </material>
+        </visual>
+        <visual name="ceiling">
+          <pose>0 0 3.05 0 0 0</pose>
+          <geometry><box><size>12 12 0.1</size></box></geometry>
+          <material>
+            <ambient>0.35 0.35 0.35 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wall_positive_x">
+          <pose>6.05 0 1.5 0 0 0</pose>
+          <geometry><box><size>0.1 12 3.0</size></box></geometry>
+          <material>
+            <ambient>0.55 0.25 0.25 1</ambient>
+            <diffuse>0.55 0.25 0.25 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wall_negative_x">
+          <pose>-6.05 0 1.5 0 0 0</pose>
+          <geometry><box><size>0.1 12 3.0</size></box></geometry>
+          <material>
+            <ambient>0.25 0.55 0.25 1</ambient>
+            <diffuse>0.25 0.55 0.25 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wall_positive_y">
+          <pose>0 6.05 1.5 0 0 0</pose>
+          <geometry><box><size>12 0.1 3.0</size></box></geometry>
+          <material>
+            <ambient>0.25 0.25 0.55 1</ambient>
+            <diffuse>0.25 0.25 0.55 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wall_negative_y">
+          <pose>0 -6.05 1.5 0 0 0</pose>
+          <geometry><box><size>12 0.1 3.0</size></box></geometry>
+          <material>
+            <ambient>0.55 0.55 0.25 1</ambient>
+            <diffuse>0.55 0.55 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--
+      Three project-owned obstacle fixtures sit inside terrain_analysis'
+      5.1 m planar window. Their vertical faces and ground returns share nearby
+      planar voxels, so the real terrain pipeline can produce non-zero height
+      residuals for FAR instead of classifying the distant room walls as flat.
+    -->
+    <model name="terrain_obstacles">
+      <static>true</static>
+      <link name="obstacles">
+        <collision name="front_obstacle_collision">
+          <pose>3.0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.8 1.2 1.0</size></box></geometry>
+        </collision>
+        <visual name="front_obstacle">
+          <pose>3.0 0 0.5 0 0 0</pose>
+          <geometry><box><size>0.8 1.2 1.0</size></box></geometry>
+          <material>
+            <ambient>0.8 0.3 0.1 1</ambient>
+            <diffuse>0.8 0.3 0.1 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="left_obstacle_collision">
+          <pose>-2.5 2.0 0.6 0 0 0</pose>
+          <geometry><box><size>0.7 0.7 1.2</size></box></geometry>
+        </collision>
+        <visual name="left_obstacle">
+          <pose>-2.5 2.0 0.6 0 0 0</pose>
+          <geometry><box><size>0.7 0.7 1.2</size></box></geometry>
+          <material>
+            <ambient>0.1 0.65 0.8 1</ambient>
+            <diffuse>0.1 0.65 0.8 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="right_obstacle_collision">
+          <pose>-2.0 -2.5 0.45 0 0 0</pose>
+          <geometry><box><size>1.0 0.6 0.9</size></box></geometry>
+        </collision>
+        <visual name="right_obstacle">
+          <pose>-2.0 -2.5 0.45 0 0 0</pose>
+          <geometry><box><size>1.0 0.6 0.9</size></box></geometry>
+          <material>
+            <ambient>0.55 0.2 0.75 1</ambient>
+            <diffuse>0.55 0.2 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="sensor_rig">
+      <static>true</static>
+      <pose>0 0 1.0 0 0 0</pose>
+      <link name="livox_frame">
+        <sensor name="generic_3d_lidar" type="gpu_lidar">
+          <topic>/greenhouse/generic_lidar</topic>
+          <gz_frame_id>livox_frame</gz_frame_id>
+          <update_rate>10</update_rate>
+          <always_on>true</always_on>
+          <visualize>false</visualize>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>256</samples>
+                <resolution>1</resolution>
+                <min_angle>-3.141592653589793</min_angle>
+                <max_angle>3.141592653589793</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>16</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.349065850398866</min_angle>
+                <max_angle>0.349065850398866</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.10</min>
+              <max>10.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </lidar>
+        </sensor>
+
+        <sensor name="generic_imu" type="imu">
+          <topic>/greenhouse/generic_imu</topic>
+          <gz_frame_id>livox_frame</gz_frame_id>
+          <update_rate>100</update_rate>
+          <always_on>true</always_on>
+          <visualize>false</visualize>
+        </sensor>
+      </link>
+    </model>
+  </world>
+</sdf>

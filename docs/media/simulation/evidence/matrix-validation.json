@@ -1,0 +1,143 @@
+{
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "runs": 27,
+  "results": {
+    "pass": 8,
+    "fail": 19,
+    "blocked": 0,
+    "not-run": 0
+  },
+  "images": [
+    {
+      "file": "maize_field_jackal_j100_r1_task.png",
+      "sha256": "9492ded276e3704ecad012a55a1995ef97038506db34427189ce0c48723a14af",
+      "run_id": "maize_field_jackal_j100_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "maize_field_jackal_j100_r1_panorama.png",
+      "sha256": "d3ee4e6fd251ebba56a99fdb695a568442314a2f1fc223ac53cba09920d14afa",
+      "run_id": "maize_field_jackal_j100_r1",
+      "kind": "panorama",
+      "status": "fail"
+    },
+    {
+      "file": "maize_field_jackal_j100_r1_rviz.png",
+      "sha256": "b736bf84e15ade1fde99b18c0f66edbfe469b11e93591be3bacb72701d987011",
+      "run_id": "maize_field_jackal_j100_r1",
+      "kind": "rviz",
+      "status": "fail"
+    },
+    {
+      "file": "maize_field_husky_a200_r1_task.png",
+      "sha256": "4d2730a03b9b0f50a89e03d956163c6098e3eedadd18ff0655ed3dbb0dda08ad",
+      "run_id": "maize_field_husky_a200_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "maize_field_x500_r1_task.png",
+      "sha256": "a1bf38cdb390a259dd95e05d1c24d872f69a3246f00dd7fe67329ca5eb8f23d9",
+      "run_id": "maize_field_x500_r1",
+      "kind": "task",
+      "status": "pass"
+    },
+    {
+      "file": "orchard_jackal_j100_r1_task.png",
+      "sha256": "7a64b51fa8c7944f6c1d3f4f17f55fc99f414303447799896e4ceb59dd35c660",
+      "run_id": "orchard_jackal_j100_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "orchard_jackal_j100_r1_panorama.png",
+      "sha256": "ec76eb722ed40f444382e2b8ceeaae1b4dfc9c7a85b33496586e2e2b254519db",
+      "run_id": "orchard_jackal_j100_r1",
+      "kind": "panorama",
+      "status": "fail"
+    },
+    {
+      "file": "orchard_jackal_j100_r1_rviz.png",
+      "sha256": "ec88b2169fb7fcc3d7e9d5642d4c1a89ef9ccf90aee881dabb4902bd9bc26afe",
+      "run_id": "orchard_jackal_j100_r1",
+      "kind": "rviz",
+      "status": "fail"
+    },
+    {
+      "file": "orchard_husky_a200_r1_task.png",
+      "sha256": "703e5f3c6c3a8d42ac8c45ee86f497e8958166506dcf8d2e9f4792591dfc5718",
+      "run_id": "orchard_husky_a200_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "orchard_x500_r1_task.png",
+      "sha256": "b932f9b9540e41de62f7eebe08cbc95a133ff28c1bef1043ce073d547a346923",
+      "run_id": "orchard_x500_r1",
+      "kind": "task",
+      "status": "pass"
+    },
+    {
+      "file": "pipeline_jackal_j100_r1_task.png",
+      "sha256": "6096199738ac4e778a2c4582cf24865c9d570881821e92081b1c8861610a0a2e",
+      "run_id": "pipeline_jackal_j100_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "pipeline_jackal_j100_r1_panorama.png",
+      "sha256": "541a00bb51c9da1da84c83ccbfc057a741cdd682b26cb986cebebf5c0d0a8747",
+      "run_id": "pipeline_jackal_j100_r1",
+      "kind": "panorama",
+      "status": "fail"
+    },
+    {
+      "file": "pipeline_jackal_j100_rviz_retry_rviz.png",
+      "sha256": "4db8d0b689478df8c180ba317db76b0eb727ebcce2ee132e0939afb36d52413d",
+      "run_id": "pipeline_jackal_j100_rviz_retry",
+      "kind": "rviz",
+      "status": "fail"
+    },
+    {
+      "file": "pipeline_husky_a200_r1_task.png",
+      "sha256": "370c0bf84e76d51bf5bc9e4018bdd044d544a84747e2f4e3f62a40834e76569f",
+      "run_id": "pipeline_husky_a200_r1",
+      "kind": "task",
+      "status": "fail"
+    },
+    {
+      "file": "pipeline_x500_r1_task.png",
+      "sha256": "7be7cd693939a1f45d18f091afdeb48511ca0a65e118eb4b1b1fcca759d61d7e",
+      "run_id": "pipeline_x500_r1",
+      "kind": "task",
+      "status": "pass"
+    }
+  ],
+  "source_check_files": 29,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "container_path_mapping": "/evidence/candidate-matrix maps to this evidence/candidate-matrix directory",
+  "rootfs_note": "Image-owned etc symlinks are omitted when unavailable outside the container; measured parameters, logs and ULogs are preserved",
+  "capture_supplement": {
+    "run_id": "pipeline_jackal_j100_rviz_retry",
+    "result": "fail",
+    "reason": "Pipeline first-round navigation expired before a FAR path could be rendered; one additional identical-version run supplied the RViz image and is excluded from the 27-run statistics"
+  },
+  "ulog_files": [
+    "maize_field_x500_r1/px4-rootfs/log/2026-10-07/12_00_34.ulg",
+    "maize_field_x500_r2/px4-rootfs/log/2026-10-07/12_02_49.ulg",
+    "maize_field_x500_r3/px4-rootfs/log/2026-10-07/12_05_00.ulg",
+    "orchard_x500_r1/px4-rootfs/log/2026-10-07/12_10_25.ulg",
+    "orchard_x500_r2/px4-rootfs/log/2026-10-07/12_11_35.ulg",
+    "orchard_x500_r3/px4-rootfs/log/2026-10-07/12_12_46.ulg",
+    "pipeline_x500_r1/px4-rootfs/log/2026-10-07/12_17_37.ulg",
+    "pipeline_x500_r2/px4-rootfs/log/2026-10-07/12_18_52.ulg",
+    "pipeline_x500_r3/px4-rootfs/log/2026-10-07/12_19_32.ulg"
+  ]
+}

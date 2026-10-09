@@ -1,0 +1,46 @@
+# Gazebo and Clearpath dependencies for the amd64 simulation image.
+python3-yaml
+python3-venv
+python3-numpy
+python3-pil
+ros-jazzy-clearpath-bt-joy
+ros-jazzy-clearpath-common=2.9.17-1noble.20261006.041747
+ros-jazzy-clearpath-config=2.9.8-1noble.20260921.024526
+ros-jazzy-clearpath-control
+ros-jazzy-clearpath-description
+ros-jazzy-clearpath-diagnostics
+ros-jazzy-clearpath-generator-common=2.9.17-1noble.20261006.040954
+ros-jazzy-clearpath-generator-gz=2.9.4-1noble.20261006.043515
+ros-jazzy-clearpath-gz=2.9.4-1noble.20261006.043800
+ros-jazzy-clearpath-manipulators
+ros-jazzy-clearpath-manipulators-description
+ros-jazzy-clearpath-mounts-description=2.9.17-1noble.20260921.023559
+ros-jazzy-clearpath-platform-description=2.9.17-1noble.20260921.023634
+ros-jazzy-clearpath-platform-msgs
+ros-jazzy-clearpath-sensors-description=2.9.17-1noble.20261001.232245
+ros-jazzy-clearpath-simulator
+ros-jazzy-clearpath-viz
+ros-jazzy-controller-manager
+ros-jazzy-diff-drive-controller
+ros-jazzy-gz-ros2-control
+ros-jazzy-joint-state-broadcaster
+ros-jazzy-rmw-fastrtps-cpp
+ros-jazzy-robot-state-publisher
+ros-jazzy-ros-gz-bridge
+ros-jazzy-ros-gz-image
+ros-jazzy-ros-gz-sim
+# Virtual maize field generator runtime dependencies.
+python3-jinja2
+python3-matplotlib
+python3-opencv
+python3-rospkg
+python3-shapely
+# Air mission and screenshot pipeline.
+ros-jazzy-cv-bridge
+ros-jazzy-tf2-ros
+ros-jazzy-rviz2
+xvfb
+xauth
+imagemagick
+# Micro-XRCE-DDS agent runtime (fastrtps 2.x needs the shared foonathan lib).
+libfoonathan-memory0.7.3t64

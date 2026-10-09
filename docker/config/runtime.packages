@@ -1,0 +1,25 @@
+# Runtime dependencies for CMU and MPPI navigation on amd64 Jazzy.
+libapr1
+libboost-serialization1.83.0
+libgomp1
+libopencv-core406t64
+libopencv-highgui406t64
+libopencv-imgcodecs406t64
+libopencv-imgproc406t64
+libpcl-filters1.14
+libpcl-io1.14
+libpcl-registration1.14
+python3-numpy
+python3-pil
+ros-jazzy-diagnostic-msgs
+ros-jazzy-nav2-common
+ros-jazzy-nav2-controller
+ros-jazzy-nav2-lifecycle-manager
+ros-jazzy-nav2-mppi-controller
+ros-jazzy-pcl-conversions
+ros-jazzy-pcl-ros
+ros-jazzy-rmw-fastrtps-cpp
+ros-jazzy-rosbag2-py
+ros-jazzy-tf2-eigen
+ros-jazzy-tf2-geometry-msgs
+ros-jazzy-tf2-sensor-msgs

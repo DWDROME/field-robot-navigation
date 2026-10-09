@@ -1,0 +1,38 @@
+{
+  "run_id": "maize_field_husky_a200_r1",
+  "kind": "task",
+  "world": "maize_field",
+  "robot": "husky_a200",
+  "camera_pose": [
+    -14.0,
+    -14.0,
+    4.0,
+    0.0,
+    0.45,
+    0.785
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 6,
+    "nanosec": 0
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 86.4,
+  "variance": 489.55,
+  "status": "fail",
+  "mission_state_at_capture_start": {
+    "phase": "ground-mission-active",
+    "case": "normal_headland",
+    "sim_time_s": 3.77,
+    "position": [
+      -0.015266241698161502,
+      -0.0026824466332632515,
+      -0.2970196332308797
+    ]
+  },
+  "image": "maize_field_husky_a200_r1_task.png",
+  "compressed_image": "maize_field_husky_a200_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete robot and maize field/terrain are visible, unobstructed and not cropped",
+  "result_record": "evidence/candidate-matrix/maize_field_husky_a200_r1.json"
+}

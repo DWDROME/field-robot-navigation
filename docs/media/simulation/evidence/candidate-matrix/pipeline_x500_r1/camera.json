@@ -1,0 +1,15 @@
+{
+  "world": "pipeline",
+  "robot": "x500",
+  "view": "task",
+  "pose": [
+    -15.0,
+    -8.0,
+    14.0,
+    0.0,
+    0.35,
+    0.84
+  ],
+  "resolution": "1920x1080",
+  "topic": "/sim_camera/image"
+}

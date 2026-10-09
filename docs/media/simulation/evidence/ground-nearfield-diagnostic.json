@@ -1,0 +1,56 @@
+{
+  "run_id": "maize_field_jackal_j100_r2",
+  "commands": {
+    "/cmd_vel": {
+      "count": 36,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/platform/cmd_vel": {
+      "count": 36,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/cmd_vel/nav": {
+      "count": 94,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    },
+    "/navigation/mppi_cmd": {
+      "count": 4,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frame": "base_link"
+    }
+  },
+  "terrain_grid": {
+    "stamp": 4.049999999,
+    "frame": "odom",
+    "approximate_initial_footprint_cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "initial_2m_square_counts": {
+      "0": 4,
+      "-1": 96
+    },
+    "total_counts": {
+      "0": 360,
+      "-1": 9640
+    }
+  },
+  "publishers": {
+    "/clock": [],
+    "/navigation/mppi_cmd": [],
+    "/cmd_vel/nav": [],
+    "/cmd_vel": [],
+    "/platform/cmd_vel": []
+  }
+}

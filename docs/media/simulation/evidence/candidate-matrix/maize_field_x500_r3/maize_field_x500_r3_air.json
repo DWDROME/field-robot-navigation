@@ -1,0 +1,142 @@
+{
+  "site": "maize_field",
+  "waypoints": [
+    {
+      "index": 0,
+      "x": 2.016424657776952,
+      "y": 2.035019665956497,
+      "z": 3.0,
+      "horizontal_error": 1.4935070408055744,
+      "altitude_error": 0.06680749356746674,
+      "elapsed_s": 3.3
+    },
+    {
+      "index": 1,
+      "x": 8.016424657776952,
+      "y": 2.035019665956497,
+      "z": 3.0,
+      "horizontal_error": 1.4738656024728807,
+      "altitude_error": 0.029271826148033142,
+      "elapsed_s": 4.3
+    },
+    {
+      "index": 2,
+      "x": 8.016424657776952,
+      "y": 8.035019665956497,
+      "z": 3.0,
+      "horizontal_error": 1.3602564697852053,
+      "altitude_error": 0.034811243414878845,
+      "elapsed_s": 3.9
+    },
+    {
+      "index": 3,
+      "x": 2.016424657776952,
+      "y": 8.035019665956497,
+      "z": 3.0,
+      "horizontal_error": 1.352944846129272,
+      "altitude_error": 0.02391718327999115,
+      "elapsed_s": 3.9
+    }
+  ],
+  "steps": [
+    {
+      "step": "ready",
+      "note": "nav_state=4",
+      "wall_elapsed_s": 2.01
+    },
+    {
+      "step": "armed",
+      "note": "",
+      "wall_elapsed_s": 0.19
+    },
+    {
+      "step": "offboard",
+      "note": "",
+      "wall_elapsed_s": 0.5
+    },
+    {
+      "step": "takeoff",
+      "note": "altitude=2.41",
+      "wall_elapsed_s": 16.0
+    },
+    {
+      "step": "hover",
+      "note": "position and velocity stable for 3 simulation seconds",
+      "wall_elapsed_s": 8.85
+    },
+    {
+      "step": "waypoint",
+      "note": "0 reached",
+      "wall_elapsed_s": 3.3
+    },
+    {
+      "step": "waypoint",
+      "note": "1 reached",
+      "wall_elapsed_s": 4.3
+    },
+    {
+      "step": "waypoint",
+      "note": "2 reached",
+      "wall_elapsed_s": 3.9
+    },
+    {
+      "step": "waypoint",
+      "note": "3 reached",
+      "wall_elapsed_s": 3.9
+    },
+    {
+      "step": "return",
+      "note": "centered and stationary for 2 simulation seconds",
+      "wall_elapsed_s": 13.2
+    },
+    {
+      "step": "land",
+      "note": "landing detector confirms touchdown and disarm",
+      "wall_elapsed_s": 18.63
+    },
+    {
+      "step": "disarm",
+      "note": "",
+      "wall_elapsed_s": 18.73
+    }
+  ],
+  "result": "pass",
+  "reason": null,
+  "thresholds": {
+    "waypoint_radius_m": 1.5,
+    "altitude_tolerance_m": 0.6,
+    "hover_speed_mps": 0.5,
+    "hover_stable_sim_s": 3.0,
+    "return_radius_m": 0.3,
+    "return_speed_mps": 0.3,
+    "return_stable_sim_s": 2.0,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "telemetry_timeout_wall_s": 2.0
+  },
+  "max_abs_roll_rad": 0.7400315734268723,
+  "max_abs_pitch_rad": 0.6054768271755461,
+  "position_samples": 1480,
+  "minimum_cruise_altitude_m": 2.414789453148842,
+  "hover_samples": 89,
+  "hover_max_xy_error_m": 0.1447713425264993,
+  "hover_max_altitude_error_m": 0.5852105468511581,
+  "max_cruise_height_loss_m": 0.04498051106929779,
+  "path_length_m": 34.86883074824092,
+  "landed": true,
+  "trace": "/evidence/candidate-matrix/maize_field_x500_r3/maize_field_x500_r3_air.jsonl",
+  "return_horizontal_error_m": 0.08807517076158902,
+  "return_speed_mps": 0.24087072995642633,
+  "return_stable_sim_s": 2.030000000000001,
+  "telemetry_age_wall_s": {
+    "position": 0.03243224100151565,
+    "status": 0.16099636299986742,
+    "attitude": 0.014338913002575282,
+    "clock": 0.013815587000863161,
+    "land": 0.03236350199949811
+  },
+  "clock_publishers": 1,
+  "mission_elapsed_s": 74.87649323200094,
+  "sim_elapsed_s": 29.840000000000003,
+  "real_time_factor": 0.3985229370657398,
+  "unstable": false
+}

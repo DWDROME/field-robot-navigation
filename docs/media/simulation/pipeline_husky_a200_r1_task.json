@@ -1,0 +1,38 @@
+{
+  "run_id": "pipeline_husky_a200_r1",
+  "kind": "task",
+  "world": "pipeline",
+  "robot": "husky_a200",
+  "camera_pose": [
+    -8.0,
+    3.0,
+    5.0,
+    0.0,
+    0.5,
+    0.56
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 13,
+    "nanosec": 2000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 93.71,
+  "variance": 223.71,
+  "status": "fail",
+  "mission_state_at_capture_start": {
+    "phase": "ground-mission-active",
+    "case": "normal_staging",
+    "sim_time_s": 9.063,
+    "position": [
+      0.003338054375796262,
+      0.0018105103773325372,
+      -0.29777677274771974
+    ]
+  },
+  "image": "pipeline_husky_a200_r1_task.png",
+  "compressed_image": "pipeline_husky_a200_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete Husky and staging terrain are visible",
+  "result_record": "evidence/candidate-matrix/pipeline_husky_a200_r1.json"
+}

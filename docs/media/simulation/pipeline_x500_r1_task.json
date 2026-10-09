@@ -1,0 +1,37 @@
+{
+  "run_id": "pipeline_x500_r1",
+  "kind": "task",
+  "world": "pipeline",
+  "robot": "x500",
+  "camera_pose": [
+    -15.0,
+    -8.0,
+    14.0,
+    0.0,
+    0.35,
+    0.84
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 23,
+    "nanosec": 1000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 114.48,
+  "variance": 1434.53,
+  "status": "pass",
+  "mission_state_at_capture_start": {
+    "phase": "takeoff-reached",
+    "sim_time_s": 21.42,
+    "ned_position": [
+      -0.5698273777961731,
+      0.0486118458211422,
+      -9.4542236328125
+    ]
+  },
+  "image": "pipeline_x500_r1_task.png",
+  "compressed_image": "pipeline_x500_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete airborne X500, river, bridge, terrain and solar facilities are visible",
+  "result_record": "evidence/candidate-matrix/pipeline_x500_r1.json"
+}

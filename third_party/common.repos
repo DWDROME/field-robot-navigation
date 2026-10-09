@@ -1,0 +1,9 @@
+repositories:
+  livox_sdk2:
+    type: git
+    url: https://github.com/Livox-SDK/Livox-SDK2.git
+    version: f5d9375f84efe2b15bc0a052d3e18482ed13adf4
+  gtsam:
+    type: git
+    url: https://github.com/borglab/gtsam.git
+    version: 4f66a491ffc83cf092d0d818b11dc35135521612

@@ -1,0 +1,201 @@
+{
+  "run_id": "maize_field_x500_r3",
+  "world": "maize_field",
+  "robot": "x500",
+  "seed": "20261006",
+  "localization": "px4_simulated_sensors",
+  "started_at": "2026-10-07T12:04:36",
+  "result": "pass",
+  "reason": null,
+  "observations": {
+    "mission_log": "/evidence/candidate-matrix/maize_field_x500_r3/maize_field_x500_r3_air.log",
+    "mission_output_tail": "[INFO] [1791374718.518813484] [air_mission]: ready: nav_state=4\n[INFO] [1791374718.705802691] [air_mission]: armed: \n[INFO] [1791374719.205655232] [air_mission]: offboard: \n[INFO] [1791374735.205774964] [air_mission]: takeoff: altitude=2.41\n[INFO] [1791374745.305966431] [air_mission]: hover: position and velocity stable for 3 simulation seconds\n[INFO] [1791374748.605741266] [air_mission]: waypoint: 0 reached\n[INFO] [1791374752.905695472] [air_mission]: waypoint: 1 reached\n[INFO] [1791374756.805453636] [air_mission]: waypoint: 2 reached\n[INFO] [1791374760.705690436] [air_mission]: waypoint: 3 reached\n[INFO] [1791374773.905864091] [air_mission]: return: centered and stationary for 2 simulation seconds\n[INFO] [1791374793.905541457] [air_mission]: land: landing detector confirms touchdown and disarm\n[INFO] [1791374794.005683522] [air_mission]: disarm: \n[INFO] [1791374794.011121021] [air_mission]: mission pass: ok\n",
+    "air_mission": {
+      "site": "maize_field",
+      "waypoints": [
+        {
+          "index": 0,
+          "x": 2.016424657776952,
+          "y": 2.035019665956497,
+          "z": 3.0,
+          "horizontal_error": 1.4935070408055744,
+          "altitude_error": 0.06680749356746674,
+          "elapsed_s": 3.3
+        },
+        {
+          "index": 1,
+          "x": 8.016424657776952,
+          "y": 2.035019665956497,
+          "z": 3.0,
+          "horizontal_error": 1.4738656024728807,
+          "altitude_error": 0.029271826148033142,
+          "elapsed_s": 4.3
+        },
+        {
+          "index": 2,
+          "x": 8.016424657776952,
+          "y": 8.035019665956497,
+          "z": 3.0,
+          "horizontal_error": 1.3602564697852053,
+          "altitude_error": 0.034811243414878845,
+          "elapsed_s": 3.9
+        },
+        {
+          "index": 3,
+          "x": 2.016424657776952,
+          "y": 8.035019665956497,
+          "z": 3.0,
+          "horizontal_error": 1.352944846129272,
+          "altitude_error": 0.02391718327999115,
+          "elapsed_s": 3.9
+        }
+      ],
+      "steps": [
+        {
+          "step": "ready",
+          "note": "nav_state=4",
+          "wall_elapsed_s": 2.01
+        },
+        {
+          "step": "armed",
+          "note": "",
+          "wall_elapsed_s": 0.19
+        },
+        {
+          "step": "offboard",
+          "note": "",
+          "wall_elapsed_s": 0.5
+        },
+        {
+          "step": "takeoff",
+          "note": "altitude=2.41",
+          "wall_elapsed_s": 16.0
+        },
+        {
+          "step": "hover",
+          "note": "position and velocity stable for 3 simulation seconds",
+          "wall_elapsed_s": 8.85
+        },
+        {
+          "step": "waypoint",
+          "note": "0 reached",
+          "wall_elapsed_s": 3.3
+        },
+        {
+          "step": "waypoint",
+          "note": "1 reached",
+          "wall_elapsed_s": 4.3
+        },
+        {
+          "step": "waypoint",
+          "note": "2 reached",
+          "wall_elapsed_s": 3.9
+        },
+        {
+          "step": "waypoint",
+          "note": "3 reached",
+          "wall_elapsed_s": 3.9
+        },
+        {
+          "step": "return",
+          "note": "centered and stationary for 2 simulation seconds",
+          "wall_elapsed_s": 13.2
+        },
+        {
+          "step": "land",
+          "note": "landing detector confirms touchdown and disarm",
+          "wall_elapsed_s": 18.63
+        },
+        {
+          "step": "disarm",
+          "note": "",
+          "wall_elapsed_s": 18.73
+        }
+      ],
+      "result": "pass",
+      "reason": null,
+      "thresholds": {
+        "waypoint_radius_m": 1.5,
+        "altitude_tolerance_m": 0.6,
+        "hover_speed_mps": 0.5,
+        "hover_stable_sim_s": 3.0,
+        "return_radius_m": 0.3,
+        "return_speed_mps": 0.3,
+        "return_stable_sim_s": 2.0,
+        "roll_pitch_limit_rad": 0.7853981633974483,
+        "telemetry_timeout_wall_s": 2.0
+      },
+      "max_abs_roll_rad": 0.7400315734268723,
+      "max_abs_pitch_rad": 0.6054768271755461,
+      "position_samples": 1480,
+      "minimum_cruise_altitude_m": 2.414789453148842,
+      "hover_samples": 89,
+      "hover_max_xy_error_m": 0.1447713425264993,
+      "hover_max_altitude_error_m": 0.5852105468511581,
+      "max_cruise_height_loss_m": 0.04498051106929779,
+      "path_length_m": 34.86883074824092,
+      "landed": true,
+      "trace": "/evidence/candidate-matrix/maize_field_x500_r3/maize_field_x500_r3_air.jsonl",
+      "return_horizontal_error_m": 0.08807517076158902,
+      "return_speed_mps": 0.24087072995642633,
+      "return_stable_sim_s": 2.030000000000001,
+      "telemetry_age_wall_s": {
+        "position": 0.03243224100151565,
+        "status": 0.16099636299986742,
+        "attitude": 0.014338913002575282,
+        "clock": 0.013815587000863161,
+        "land": 0.03236350199949811
+      },
+      "clock_publishers": 1,
+      "mission_elapsed_s": 74.87649323200094,
+      "sim_elapsed_s": 29.840000000000003,
+      "real_time_factor": 0.3985229370657398,
+      "unstable": false
+    }
+  },
+  "thresholds": {
+    "waypoint_radius_m": 1.5,
+    "altitude_tolerance_m": 0.6,
+    "hover_speed_mps": 0.5,
+    "return_radius_m": 0.3,
+    "return_speed_mps": 0.3,
+    "return_stable_sim_s": 2.0,
+    "hover_stable_sim_s": 3.0,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "telemetry_timeout_wall_s": 2.0
+  },
+  "task": "site_offboard_inspection",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-maize_field_x500_r3",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/maize_field_x500_r3/simulation.log",
+  "process_cleanup": {
+    "tracked_pids": [
+      5823,
+      5836,
+      5837,
+      5838,
+      5839,
+      5840,
+      5841,
+      5869
+    ],
+    "sigkill_pids": [
+      5838
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/maize_field_x500_r3",
+  "ulog_files": [
+    "/evidence/candidate-matrix/maize_field_x500_r3/px4-rootfs/log/2026-10-07/12_05_00.ulg"
+  ],
+  "finished_at": "2026-10-07T12:06:42"
+}

@@ -1,0 +1,51 @@
+{
+  "run_id": "pipeline_jackal_j100_rviz_retry",
+  "kind": "rviz",
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "capture_source": "Actual RViz2 window on Xvfb, software GLX",
+  "path_display": "First actual /planning/global_path, retained unchanged on a display-only snapshot topic; may be cancelled at capture time",
+  "display": ":380",
+  "resolution": "1920x1080",
+  "view_configuration": "/opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/navigation.rviz",
+  "camera_pose": {
+    "type": "Orbit",
+    "target_frame": "base_link",
+    "distance": 13,
+    "pitch": 0.85,
+    "yaw": 0.85,
+    "focal_point": [
+      2,
+      0,
+      0
+    ]
+  },
+  "observed_topics": {
+    "cloud_points": 8084,
+    "terrain_points": 3583,
+    "path_poses": 2,
+    "sim_time_s": 11.538,
+    "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 10203000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+    "path_snapshot_stamp_s": 9.936,
+    "path_snapshot_frame": "map",
+    "path_snapshot_xyz": [
+      [
+        0.015462220646440983,
+        0.0044733332470059395,
+        -0.000634681957308203
+      ],
+      [
+        -2.0,
+        0.0,
+        0.38287729024887085
+      ]
+    ]
+  },
+  "sim_time_s": 11.538,
+  "status": "fail",
+  "image": "pipeline_jackal_j100_rviz_retry_rviz.png",
+  "compressed_image": "pipeline_jackal_j100_rviz_retry_rviz.jpg",
+  "visual_review": "passed: main-agent visual inspection; real robot, measured terrain/point cloud and cyan historical FAR path are rendered",
+  "status_at_capture": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 10203000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+  "result_record": "evidence/capture-supplement/pipeline_jackal_j100_rviz_retry.json"
+}

@@ -1,0 +1,83 @@
+{
+  "result": "pass",
+  "matches": {
+    "virtual_maize_field_heightmap.png": true,
+    "gt_map.csv": true,
+    "markers.csv": true,
+    "driving_pattern.txt": true,
+    "robot_spawner.launch.py": true,
+    "generated.world (normalized delivery URI)": true
+  },
+  "models": {
+    "model://maize_01": 509,
+    "model://maize_02": 506
+  },
+  "generation": {
+    "seed": 20261006,
+    "command": [
+      "ros2",
+      "run",
+      "virtual_maize_field",
+      "generate_world",
+      "--row_length",
+      "10",
+      "--rows_count",
+      "12",
+      "--row_segments",
+      "straight",
+      "curved",
+      "--hole_prob",
+      "0.06",
+      "0.06",
+      "0.06",
+      "0.05",
+      "0.03",
+      "0.02",
+      "0.02",
+      "0.01",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.0",
+      "--hole_size_max",
+      "10",
+      "10",
+      "9",
+      "7",
+      "4",
+      "5",
+      "5",
+      "3",
+      "2",
+      "0",
+      "0",
+      "0",
+      "--ground_elevation_max",
+      "0.2",
+      "--ground_headland",
+      "2.0",
+      "--ground_ditch_depth",
+      "0.3",
+      "--litters",
+      "0",
+      "--weeds",
+      "0",
+      "--seed",
+      "20261006"
+    ],
+    "preset": null,
+    "preset_behavior": "Upstream config_file branch loads YAML and ignores CLI overrides; no preset is supplied here",
+    "models": [
+      "maize_01",
+      "maize_02"
+    ],
+    "weeds": 0,
+    "litters": 0,
+    "artifact_sha256": {
+      "virtual_maize_field_heightmap.png": "dcb9fb14996f106cb471d0cfd9ddcb7a84464e04b1a0ad7af13108b57dacbe94",
+      "gt_map.csv": "c68d97b9b98b4bbabed86fe1e984bc72374cc08311ec9f95e8350255005730ec",
+      "markers.csv": "0a5f5347a7f4eb02f14bbc6b3ab2c7d98118c55cd12995b2fc97d5bb2c079a5f",
+      "driving_pattern.txt": "ac95a4e16ca62e24e45051b9eb8aa7c58a0cc337f95d5763ddeac830f21887e7"
+    }
+  }
+}

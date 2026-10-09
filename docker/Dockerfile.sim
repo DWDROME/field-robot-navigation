@@ -1,0 +1,125 @@
+# syntax=docker/dockerfile:1
+# Simulation image: production runtime plus Gazebo, Clearpath platforms,
+# the virtual maize field generator, and the PX4 SITL air vehicle.
+#
+# Build order:
+#   1. bash tools/prepare-simulation.sh   (pinned sources under .tmp/simulation)
+#   2. docker compose -f docker/compose.sim.yaml build simulation-build
+#   3. bash tools/build-px4.sh            (PX4 + agent, uses the build image)
+#   4. docker compose -f docker/compose.sim.yaml build simulation
+FROM production AS sim-dependencies
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ARG HTTP_PROXY=""
+ARG HTTPS_PROXY=""
+ARG NO_PROXY=""
+ARG BUILD_JOBS=2
+COPY config/simulation.packages /build/packages/
+RUN mapfile -t packages < <(grep -Ev '^[[:space:]]*(#|$)' /build/packages/simulation.packages) \
+    && apt-get -o Acquire::Retries=8 -o Acquire::http::Proxy="${HTTP_PROXY}" \
+              -o Acquire::https::Proxy="${HTTPS_PROXY}" update \
+    && apt-get -o Acquire::Retries=8 -o Acquire::http::Proxy="${HTTP_PROXY}" \
+              -o Acquire::https::Proxy="${HTTPS_PROXY}" \
+              install -y --no-install-recommends --fix-missing "${packages[@]}" \
+    && rm -rf /var/lib/apt/lists/* /build
+
+# This target bootstraps PX4 without depending on staged PX4 output.
+FROM sim-dependencies AS sim-build
+RUN apt-get -o Acquire::Retries=8 -o Acquire::http::Proxy="${HTTP_PROXY}" \
+              -o Acquire::https::Proxy="${HTTPS_PROXY}" update \
+    && apt-get -o Acquire::Retries=8 -o Acquire::http::Proxy="${HTTP_PROXY}" \
+               -o Acquire::https::Proxy="${HTTPS_PROXY}" install -y --no-install-recommends \
+         build-essential cmake ninja-build git pkg-config python3-venv python3-dev \
+         libeigen3-dev libssl-dev libxml2-dev libxslt1-dev protobuf-compiler \
+    && rm -rf /var/lib/apt/lists/*
+
+FROM sim-dependencies AS sim-runtime
+# Keep MAVLink dependency isolated from Ubuntu's externally managed Python.
+RUN python3 -m venv --system-site-packages /opt/sim-python \
+    && /opt/sim-python/bin/pip install --no-cache-dir pymavlink==2.4.50
+ENV PYTHONPATH=/opt/sim-python/lib/python3.12/site-packages:${PYTHONPATH}
+
+# Virtual maize field: pinned source installed into the image and the world
+# pre-generated with a fixed configuration and seed. No runtime downloads.
+COPY --from=simulation_assets maize_field_src /build/maize_field_src
+COPY --from=simulation_tools generate-maize-world.py /build/maize_field_src/tools/generate-maize-world.py
+RUN mkdir -p /opt/greenhouse_sim/worlds \
+    && cp -r /build/maize_field_src /opt/greenhouse_sim/maize_field_src \
+    && rm -rf /build \
+    && source /opt/ros/jazzy/setup.bash \
+    && cd /opt/greenhouse_sim/maize_field_src \
+    && MAKEFLAGS=-j${BUILD_JOBS} CMAKE_BUILD_PARALLEL_LEVEL=${BUILD_JOBS} \
+         colcon build --executor sequential --merge-install --install-base /opt/maize_field \
+    && source /opt/maize_field/setup.bash \
+    && python3 /opt/greenhouse_sim/maize_field_src/tools/generate-maize-world.py \
+         /opt/greenhouse_sim/worlds/maize_field \
+    && rm -rf /root/.ros
+
+# PX4 SITL air vehicle and DDS agent, staged by tools/build-px4.sh.
+COPY --from=px4_builder Tools /opt/px4/Tools
+COPY --from=px4_builder source-revisions.txt /opt/px4/source-revisions.txt
+COPY --from=px4_builder build/px4_sitl_default /opt/px4/build/px4_sitl_default
+COPY --from=px4_builder xrce-agent /opt/xrce-agent
+ENV PX4_GZ_MODELS=/opt/px4/Tools/simulation/gz/models
+ENV PX4_GZ_WORLDS=/opt/px4/Tools/simulation/gz/worlds
+ENV PX4_GZ_PLUGINS=/opt/px4/build/px4_sitl_default/src/modules/simulation/gz_plugins
+ENV GZ_SIM_RESOURCE_PATH=/opt/greenhouse_sim/worlds/maize_field:/opt/greenhouse_sim/worlds:/opt/ros/jazzy/share
+ENV GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/jazzy/lib:/opt/px4/build/px4_sitl_default/src/modules/simulation/gz_plugins
+ENV PATH=/opt/xrce-agent/bin:/opt/px4/build/px4_sitl_default/bin:${PATH}
+
+# Fixed message generation is cached separately from the Python mission.
+# Both own this SIM-only prefix; the production prefix is not extended.
+COPY --from=simulation_assets px4_msgs /build/messages_ws/src/px4_msgs
+RUN source /opt/ros/jazzy/setup.bash \
+    && source /opt/greenhouse/local_setup.bash \
+    && cd /build/messages_ws \
+    && MAKEFLAGS=-j${BUILD_JOBS} CMAKE_BUILD_PARALLEL_LEVEL=${BUILD_JOBS} \
+         colcon build --executor sequential --merge-install --install-base /opt/greenhouse_air \
+         --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF \
+    && rm -rf /build
+COPY --from=air_source . /build/mission_ws/src/greenhouse_sim_air
+RUN source /opt/ros/jazzy/setup.bash \
+    && source /opt/greenhouse/local_setup.bash \
+    && source /opt/greenhouse_air/local_setup.bash \
+    && cd /build/mission_ws \
+    && MAKEFLAGS=-j${BUILD_JOBS} CMAKE_BUILD_PARALLEL_LEVEL=${BUILD_JOBS} \
+         colcon build --executor sequential --merge-install --install-base /opt/greenhouse_air \
+    && rm -rf /build
+ENV AMENT_PREFIX_PATH=/opt/greenhouse_air:${AMENT_PREFIX_PATH}
+ENV PYTHONPATH=/opt/greenhouse_air/lib/python3.12/site-packages:${PYTHONPATH}
+ENV PATH=/opt/greenhouse_air/bin:${PATH}
+ENV LD_LIBRARY_PATH=/opt/greenhouse_air/lib:${LD_LIBRARY_PATH}
+
+# Refuse an image whose fixed flight route lacks measured asset clearance.
+COPY --from=simulation_tools inspect-simulation-geometry.py /opt/greenhouse_sim/tools/
+RUN python3 /opt/greenhouse_sim/tools/inspect-simulation-geometry.py \
+      --air-config /opt/greenhouse_air/share/greenhouse_sim_air/config/x500_sites.yaml \
+      --output /opt/greenhouse_sim/geometry.json
+
+# Clearpath platform descriptions for both ground vehicles.
+RUN mkdir -p /opt/greenhouse_sim/robot/jackal_j100 /opt/greenhouse_sim/robot/husky_a200 \
+    && cp /opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robots/jackal_j100.yaml \
+          /opt/greenhouse_sim/robot/jackal_j100/robot.yaml \
+    && cp /opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robots/husky_a200.yaml \
+          /opt/greenhouse_sim/robot/husky_a200/robot.yaml \
+    && source /opt/ros/jazzy/setup.bash \
+    && for vehicle in jackal_j100 husky_a200; do \
+         setup=/opt/greenhouse_sim/robot/$vehicle; \
+         ros2 run clearpath_generator_common generate_description -s $setup; \
+         ros2 run clearpath_generator_common generate_semantic_description -s $setup; \
+         ros2 run clearpath_generator_gz generate_launch -s $setup; \
+         ros2 run clearpath_generator_gz generate_param -s $setup; \
+         sed -i 's/enable_odom_tf: True/enable_odom_tf: False/' $setup/platform/config/control.yaml; \
+       done
+COPY --chmod=755 scripts/ros-sim-entrypoint.sh /ros_sim_entrypoint.sh
+# Keep SIM scripts/configuration owned by this layer. The pinned production
+# image supplies compiled navigation libraries; these copies also let a
+# current SIM-only fix reuse that image without rebuilding those libraries.
+COPY --from=simulation_bringup launch/simulation*.launch.py /opt/greenhouse/share/greenhouse_nav2_bringup/launch/
+COPY --from=simulation_bringup --chmod=755 scripts/run_matrix.py scripts/run_simulation_run.py scripts/capture_simulation_image.py scripts/capture_simulation_rviz.py scripts/simulation_lidar_filter.py scripts/simulation_ground_startup.py /opt/greenhouse/lib/greenhouse_nav2_bringup/
+COPY --from=simulation_bringup config/simulation /opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation
+COPY --from=simulation_bringup worlds /opt/greenhouse/share/greenhouse_nav2_bringup/worlds
+# ros_gz_sim also assembles resources from the original process environment.
+# Include all delivered assets there as well as in the launch context.
+ENV GZ_SIM_RESOURCE_PATH=/opt/greenhouse_sim/worlds/maize_field:/opt/greenhouse_sim/worlds:/opt/maize_field/share/virtual_maize_field/models:/opt/px4/Tools/simulation/gz/models:/opt/ros/jazzy/share/clearpath_gz/meshes:/opt/ros/jazzy/share
+ENTRYPOINT ["/ros_sim_entrypoint.sh"]
+CMD ["ros2", "launch", "greenhouse_nav2_bringup", "simulation_matrix.launch.py"]

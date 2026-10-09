@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>greenhouse_mppi_navigation</name><version>0.1.0</version>
+  <description>FAR missions with CMU or MPPI control, terrain processing and guarded tracked-platform commands.</description>
+  <maintainer email="maintainers@greenhouse.invalid">Greenhouse Navigation Maintainers</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend><buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>rclcpp</depend><depend>nav2_costmap_2d</depend><depend>nav2_util</depend>
+  <depend>pluginlib</depend><depend>nav_msgs</depend><depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend><depend>std_msgs</depend><depend>tf2_ros</depend>
+  <depend>tf2_sensor_msgs</depend><depend>pcl_conversions</depend>
+  <depend>greenhouse_cloud_normalizer</depend>
+  <exec_depend>rclpy</exec_depend><exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>nav2_controller</exec_depend><exec_depend>nav2_mppi_controller</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend><exec_depend>python3-yaml</exec_depend>
+  <exec_depend>nav2_common</exec_depend><exec_depend>action_msgs</exec_depend>
+  <exec_depend>launch_ros</exec_depend><exec_depend>ament_index_python</exec_depend>
+  <exec_depend>fast_lio</exec_depend><exec_depend>fast_lio_super_ros2</exec_depend>
+  <exec_depend>far_planner</exec_depend><exec_depend>graph_decoder</exec_depend>
+  <exec_depend>terrain_analysis</exec_depend><exec_depend>terrain_analysis_ext</exec_depend>
+  <exec_depend>greenhouse_cmd_gate</exec_depend><exec_depend>livox_ros_driver2</exec_depend>
+  <exec_depend>dlrobot_robot</exec_depend>
+  <exec_depend>cmu_local_planner</exec_depend><exec_depend>cmu_path_follower_generic</exec_depend>
+  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>sensor_msgs_py</test_depend><test_depend>lifecycle_msgs</test_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

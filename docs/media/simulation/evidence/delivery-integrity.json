@@ -1,0 +1,12 @@
+{
+  "result": "pass",
+  "runs": 27,
+  "results": {
+    "fail": 19,
+    "pass": 8
+  },
+  "reviewed_images": 15,
+  "source_hashes": 29,
+  "delivery_links": 114,
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d"
+}

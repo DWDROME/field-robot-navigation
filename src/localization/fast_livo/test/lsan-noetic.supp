@@ -1,0 +1,7 @@
+# Reproduced by memory_lifecycle --dependency-baseline, without project managers.
+# Same 13,321 bytes / 19 allocations as the unsuppressed integrated fixture.
+# Fixed Noetic image only; never suppress FAST-LIVO2, cv::Mat or generic new/malloc.
+leak:libtbb.so.2
+leak:vtkCellArray::New
+leak:registerPlugin<image_transport::RawPublisher
+leak:registerPlugin<image_transport::RawSubscriber

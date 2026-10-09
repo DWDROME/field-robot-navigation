@@ -1,0 +1,36 @@
+{
+  "clock": 34.896,
+  "phase": "camera-removed-bridge",
+  "phases": {
+    "shared-camera-bridge": {
+      "samples": 328,
+      "age_min": 0.0,
+      "age_max": 3.8100000000000005,
+      "last_age": 3.8100000000000005
+    },
+    "camera-removed-bridge": {
+      "samples": 1167,
+      "age_min": -0.0030000000000001137,
+      "age_max": 0.012000000000000455,
+      "last_age": 0.0
+    }
+  },
+  "stopped_shared_bridge_pid": 1092,
+  "controllers": "",
+  "cleanup": {
+    "tracked_pids": [
+      1070,
+      1086,
+      1087,
+      1088,
+      1089,
+      1093,
+      1095,
+      1096
+    ],
+    "sigkill_pids": [
+      1089
+    ],
+    "remaining_pids": []
+  }
+}

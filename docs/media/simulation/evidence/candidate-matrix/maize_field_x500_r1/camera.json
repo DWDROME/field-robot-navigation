@@ -1,0 +1,15 @@
+{
+  "world": "maize_field",
+  "robot": "x500",
+  "view": "task",
+  "pose": [
+    -14.0,
+    -14.0,
+    6.0,
+    0.0,
+    0.3,
+    0.785
+  ],
+  "resolution": "1920x1080",
+  "topic": "/sim_camera/image"
+}

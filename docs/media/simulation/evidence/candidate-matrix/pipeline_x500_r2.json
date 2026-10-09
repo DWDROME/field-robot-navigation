@@ -1,0 +1,116 @@
+{
+  "run_id": "pipeline_x500_r2",
+  "world": "pipeline",
+  "robot": "x500",
+  "seed": "20261006",
+  "localization": "px4_simulated_sensors",
+  "started_at": "2026-10-07T12:18:41",
+  "result": "fail",
+  "reason": "takeoff or landing leaves the checked home column",
+  "observations": {
+    "mission_log": "/evidence/candidate-matrix/pipeline_x500_r2/pipeline_x500_r2_air.log",
+    "mission_output_tail": "[INFO] [1791375544.707362677] [air_mission]: ready: nav_state=4\n[INFO] [1791375544.893728559] [air_mission]: armed: \n[INFO] [1791375545.093716547] [air_mission]: offboard: \n[INFO] [1791375551.797595613] [air_mission]: mission fail: takeoff or landing leaves the checked home column\n[ros2run]: Process exited with failure 1\n",
+    "air_mission": {
+      "site": "pipeline",
+      "waypoints": [],
+      "steps": [
+        {
+          "step": "ready",
+          "note": "nav_state=4",
+          "wall_elapsed_s": 4.71
+        },
+        {
+          "step": "armed",
+          "note": "",
+          "wall_elapsed_s": 0.19
+        },
+        {
+          "step": "offboard",
+          "note": "",
+          "wall_elapsed_s": 0.2
+        }
+      ],
+      "result": "fail",
+      "reason": "takeoff or landing leaves the checked home column",
+      "thresholds": {
+        "waypoint_radius_m": 1.5,
+        "altitude_tolerance_m": 0.6,
+        "hover_speed_mps": 0.5,
+        "hover_stable_sim_s": 3.0,
+        "return_radius_m": 0.3,
+        "return_speed_mps": 0.3,
+        "return_stable_sim_s": 2.0,
+        "roll_pitch_limit_rad": 0.7853981633974483,
+        "telemetry_timeout_wall_s": 2.0
+      },
+      "max_abs_roll_rad": 0.2200711307446406,
+      "max_abs_pitch_rad": 0.1391826045982303,
+      "position_samples": 567,
+      "minimum_cruise_altitude_m": null,
+      "hover_samples": 0,
+      "hover_max_xy_error_m": 0.0,
+      "hover_max_altitude_error_m": 0.0,
+      "max_cruise_height_loss_m": 0.0,
+      "path_length_m": 9.246047731897727,
+      "landed": false,
+      "trace": "/evidence/candidate-matrix/pipeline_x500_r2/pipeline_x500_r2_air.jsonl",
+      "telemetry_age_wall_s": {
+        "position": 0.0034072700000251643,
+        "status": 0.22556376099964837,
+        "attitude": 0.003325607998704072,
+        "clock": 0.0010508779996598605,
+        "land": 0.9696488689987746
+      },
+      "clock_publishers": 1,
+      "mission_elapsed_s": 11.802114407000772,
+      "sim_elapsed_s": 11.745,
+      "real_time_factor": 0.9951606631632978,
+      "unstable": false
+    }
+  },
+  "thresholds": {
+    "waypoint_radius_m": 1.5,
+    "altitude_tolerance_m": 0.6,
+    "hover_speed_mps": 0.5,
+    "return_radius_m": 0.3,
+    "return_speed_mps": 0.3,
+    "return_stable_sim_s": 2.0,
+    "hover_stable_sim_s": 3.0,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "telemetry_timeout_wall_s": 2.0
+  },
+  "task": "site_offboard_inspection",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-pipeline_x500_r2",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/pipeline_x500_r2/simulation.log",
+  "process_cleanup": {
+    "tracked_pids": [
+      16139,
+      16152,
+      16153,
+      16154,
+      16155,
+      16156,
+      16157,
+      16184
+    ],
+    "sigkill_pids": [
+      16154
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/pipeline_x500_r2",
+  "ulog_files": [
+    "/evidence/candidate-matrix/pipeline_x500_r2/px4-rootfs/log/2026-10-07/12_18_52.ulg"
+  ],
+  "finished_at": "2026-10-07T12:19:20"
+}

@@ -1,0 +1,6 @@
+<library path="terrain_layer">
+  <class name="greenhouse_mppi_navigation::TerrainLayer" type="greenhouse_mppi_navigation::TerrainLayer"
+         base_class_type="nav2_costmap_2d::Layer">
+    <description>Fresh relative-height occupancy grid, replacing old cells and failing closed on stale data.</description>
+  </class>
+</library>

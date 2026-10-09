@@ -1,0 +1,24 @@
+# Load after the upstream sensor/camera configuration, in its root parameter namespace.
+# Startup-only limits; online reconfiguration is not supported.
+memory:
+  lio_voxels: 100000
+  vio_voxels: 20000
+  visual_points: 100000
+  points_per_voxel: 32
+  observations_per_point: 30
+  visual_radius: 100.0
+  hot_bytes: 268435456
+  cold_bytes: 8589934592
+  cold_files: 10000
+  image_records: 10000
+  write_jobs: 8
+  write_bytes: 67108864
+  image_bytes: 33554432
+  cold_parent: /tmp
+  input_messages: 8
+  imu_messages: 2000
+  input_points: 200000
+  input_bytes: 33554432
+  accumulation_points: 400000
+  path_poses: 10000
+  max_imu_gap: 0.1

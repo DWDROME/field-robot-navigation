@@ -1,0 +1,53 @@
+# Local workflow and developer state
+/.tmp/
+/.cache/
+/.worktrees/
+/.comet/
+/.agents/
+/.claude/
+/.codex/
+/.cursor/
+/.ace-tool/
+AGENTS.md
+CLAUDE.md
+**/.git-upstream-ref/
+.obsidian/
+.vscode/
+.idea/
+
+# Generated workspaces, runtime output and datasets
+/build/
+/build_*/
+/devel/
+/install/
+/log/
+/logs/
+/docker/.cache/
+/docker/results/
+/docker/dist/
+/src/localization/fast_livo/Log/
+.catkin_workspace
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pcd
+*.bag
+*.db3
+*.mcap
+*.log
+*.o
+*.so
+*.a
+
+# Local configuration and editor files
+.env
+.env.local
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+# >>> Comet managed project state >>>
+!/.comet/
+/.comet/*
+!/.comet/config.yaml
+# <<< Comet managed project state <<<

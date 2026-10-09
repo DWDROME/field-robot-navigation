@@ -1,0 +1,8 @@
+- direction: GZ_TO_ROS
+  gz_topic_name: /sensors/lidar3d_0/scan/points
+  gz_type_name: gz.msgs.PointCloudPacked
+  publisher_queue: 5
+  qos_profile: SENSOR_DATA
+  ros_topic_name: /simulation/lidar/unfiltered
+  ros_type_name: sensor_msgs/msg/PointCloud2
+  subscriber_queue: 5

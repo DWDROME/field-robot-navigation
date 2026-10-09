@@ -1,0 +1,113 @@
+schema_version: 1
+status: production-contract
+note: >-
+  Depth changes require measured backlog and latency evidence. A Fast DDS
+  endpoint may report unknown history/depth for an external writer; that
+  introspection limitation must be recorded rather than replaced with a
+  fabricated value.
+
+topics:
+  /clock:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /sensors/lidar/raw:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /sensors/imu/data:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 10
+  /wheel/odometry:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 10
+  /localization/registered_cloud:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 3
+  /localization/odometry:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 10
+  /localization/global_pose:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /perception/terrain_map:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 2
+  /perception/terrain_map_ext:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 2
+  /planning/local_path:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /planning/way_point:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /robot_vgraph:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /decoded_vgraph:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 5
+  /cmd_vel/nav:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /cmd_vel/teleop:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /cmd_vel/test:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /cmd_vel:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /platform/cmd_vel:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  /diagnostics:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 10
+  /system/bringup_health:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 10
+  /tf:
+    durability: volatile
+  /tf_static:
+    durability: transient_local

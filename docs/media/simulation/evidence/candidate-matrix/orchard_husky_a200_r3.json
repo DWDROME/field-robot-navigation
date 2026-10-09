@@ -1,0 +1,241 @@
+{
+  "run_id": "orchard_husky_a200_r3",
+  "world": "orchard",
+  "robot": "husky_a200",
+  "seed": "20261006",
+  "localization": "simulation_sensors",
+  "started_at": "2026-10-07T12:09:40",
+  "result": "fail",
+  "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ",
+  "observations": {
+    "path_length_m": 0.004838498160924281,
+    "max_abs_roll_rad": 7.418594102138412e-05,
+    "max_abs_pitch_rad": 2.2395216032138137e-05,
+    "odometry_samples": 50,
+    "unexpected_collisions": 0,
+    "collision_measurement": "contact-sensors",
+    "contact_messages": 9535,
+    "normal_wheel_contacts": 9535,
+    "collision_pairs": [],
+    "stall_events": 0,
+    "stalled": false,
+    "trace": "/evidence/candidate-matrix/orchard_husky_a200_r3/orchard_husky_a200_r3_trace.jsonl",
+    "clock_publishers": 1,
+    "cases": [
+      {
+        "name": "normal_lane",
+        "expectation": "reach",
+        "geometry": "Central lane, away from the nearest measured trunk surface at (2.715, -0.216) m",
+        "waypoints": [
+          [
+            0.0,
+            2.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 1.2790097960023559,
+          "final_position": [
+            0.004444058292341189,
+            -0.003628069393002763,
+            -0.29742920607315576
+          ],
+          "mission_status": "{\"mission_id\": 1, \"waypoint\": 0, \"goal_stamp_ns\": 8430000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.00010601236638706386,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 7.418594102138412e-05,
+          "max_abs_pitch_rad": 2.2395216032138137e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 1.2420000000000009,
+          "real_time_factor": 0.9710637118511274,
+          "goal_error_m": 4.003630535861875,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle centered at (-0.403, -1.477) m, measured slope 10.707 degrees",
+        "waypoints": [
+          [
+            -0.403,
+            -1.477
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.17891661100293277,
+          "final_position": [
+            0.004444737380126588,
+            -0.0036306616075228826,
+            -0.2974308698644511
+          ],
+          "mission_status": "{\"mission_id\": 2, \"waypoint\": 0, \"goal_stamp_ns\": 9678000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 3.6404669761860853e-06,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 7.418594102138412e-05,
+          "max_abs_pitch_rad": 2.2395216032138137e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.1769999999999996,
+          "real_time_factor": 0.9892876855190279,
+          "goal_error_m": 1.5286688396555503,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "dangerous_trunk",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target lies on the measured trunk collision surface",
+        "waypoints": [
+          [
+            2.715,
+            -0.216
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.24647480299972813,
+          "final_position": [
+            0.004444447911025556,
+            -0.0036291807658332315,
+            -0.2974300819869194
+          ],
+          "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 9852000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 1.0628256735275773e-05,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 7.418594102138412e-05,
+          "max_abs_pitch_rad": 2.2395216032138137e-05,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.2370000000000001,
+          "real_time_factor": 0.9615587358853129,
+          "goal_error_m": 2.7188624028851764,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      }
+    ],
+    "mission_elapsed_s": 19.103457966997667,
+    "sim_elapsed_s": 10.074,
+    "real_time_factor": 0.8113235934287798,
+    "tipped": false
+  },
+  "thresholds": {
+    "goal_xy_m": 0.3,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "stall_window_wall_s": 10.0,
+    "stall_distance_m": 0.05,
+    "stall_rotation_rad": 0.1
+  },
+  "task": "site_ground_cases",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-orchard_husky_a200_r3",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/orchard_husky_a200_r3/simulation.log",
+  "task_configuration": {
+    "spawn_world_xy": [
+      0.0,
+      0.0
+    ],
+    "cases": [
+      {
+        "name": "normal_lane",
+        "expectation": "reach",
+        "geometry": "Central lane, away from the nearest measured trunk surface at (2.715, -0.216) m",
+        "waypoints": [
+          [
+            0.0,
+            2.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ]
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Ground triangle centered at (-0.403, -1.477) m, measured slope 10.707 degrees",
+        "waypoints": [
+          [
+            -0.403,
+            -1.477
+          ]
+        ]
+      },
+      {
+        "name": "dangerous_trunk",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target lies on the measured trunk collision surface",
+        "waypoints": [
+          [
+            2.715,
+            -0.216
+          ]
+        ]
+      }
+    ]
+  },
+  "process_cleanup": {
+    "tracked_pids": [
+      9561,
+      9577,
+      9578,
+      9579,
+      9580,
+      9583,
+      9584,
+      9585,
+      9586,
+      9588,
+      9589,
+      9889,
+      9890,
+      9891,
+      9892,
+      9904,
+      9905,
+      9906,
+      9907,
+      9908,
+      9909,
+      9910,
+      9913,
+      9914,
+      9915
+    ],
+    "sigkill_pids": [
+      9579
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/orchard_husky_a200_r3",
+  "ulog_files": [],
+  "finished_at": "2026-10-07T12:10:15"
+}

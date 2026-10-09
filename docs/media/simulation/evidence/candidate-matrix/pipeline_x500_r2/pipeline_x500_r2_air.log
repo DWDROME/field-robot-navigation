@@ -1,0 +1,5 @@
+[INFO] [1791375544.707362677] [air_mission]: ready: nav_state=4
+[INFO] [1791375544.893728559] [air_mission]: armed: 
+[INFO] [1791375545.093716547] [air_mission]: offboard: 
+[INFO] [1791375551.797595613] [air_mission]: mission fail: takeoff or landing leaves the checked home column
+[ros2run]: Process exited with failure 1

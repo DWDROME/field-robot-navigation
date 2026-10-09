@@ -1,0 +1,6 @@
+# Runtime overlay: do not resolve or rebuild named build contexts on run.
+# Build images using compose.sim.yaml, then add this file when running them.
+services:
+  simulation:
+    build: !reset null
+    pull_policy: never

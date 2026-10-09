@@ -1,0 +1,78 @@
+diff --git a/src/route_planner/graph_decoder/include/graph_decoder/decoder_node.h b/src/route_planner/graph_decoder/include/graph_decoder/decoder_node.h
+index 6f3428e..0d51f8a 100644
+--- a/src/route_planner/graph_decoder/include/graph_decoder/decoder_node.h
++++ b/src/route_planner/graph_decoder/include/graph_decoder/decoder_node.h
+@@ -6,6 +6,7 @@
+ #include <fstream>
+ #include <vector>
+ #include <unordered_map>
++#include <std_msgs/msg/header.hpp>
+ #include <std_msgs/msg/string.hpp>
+ #include <visibility_graph_msg/msg/graph.hpp>
+ #include <visibility_graph_msg/msg/node.hpp>
+@@ -91,6 +92,8 @@ private:
+ 
+     GraphDecoderParams gd_params_;
+     NodePtrStack received_graph_;
++    std_msgs::msg::Header received_graph_header_;
++    bool has_received_graph_header_ = false;
+     MarkerArray graph_marker_array_;
+     std::size_t robot_id_;
+ 
+@@ -154,9 +157,15 @@ private:
+         graphOut.clear();
+     }
+ 
+-    inline void ConvertGraphToMsg(const NodePtrStack& graph, visibility_graph_msg::msg::Graph& graph_msg) {
+-        graph_msg.header.frame_id = gd_params_.frame_id;
+-        graph_msg.header.stamp = nh_->now();
++    inline void ConvertGraphToMsg(const NodePtrStack& graph,
++                                  visibility_graph_msg::msg::Graph& graph_msg,
++                                  const std_msgs::msg::Header* source_header = nullptr) {
++        if (source_header != nullptr) {
++            graph_msg.header = *source_header;
++        } else {
++            graph_msg.header.frame_id = gd_params_.frame_id;
++            graph_msg.header.stamp = nh_->now();
++        }
+         graph_msg.robot_id = robot_id_;
+         EncodeGraph(graph, graph_msg);
+     }
+diff --git a/src/route_planner/graph_decoder/src/decoder_node.cpp b/src/route_planner/graph_decoder/src/decoder_node.cpp
+index 7cb99bd..297c734 100644
+--- a/src/route_planner/graph_decoder/src/decoder_node.cpp
++++ b/src/route_planner/graph_decoder/src/decoder_node.cpp
+@@ -60,6 +60,8 @@ void GraphDecoder::GraphCallBack(const visibility_graph_msg::msg::Graph::SharedP
+     this->ResetGraph(received_graph_);
+     NavNodePtr temp_node_ptr = nullptr;  // Use nullptr in C++ instead of NULL
+     robot_id_ = msg->robot_id;
++    received_graph_header_ = msg->header;
++    has_received_graph_header_ = true;
+     std::unordered_map<std::size_t, std::size_t> nodeIdx_idx_map;
+     for (std::size_t i=0; i<msg->nodes.size(); i++) {
+         const auto& node = msg->nodes[i];  // Use a reference here to avoid unnecessary copying
+@@ -383,7 +385,11 @@ bool GraphDecoder::RequestGraphService(const std::shared_ptr<std_srvs::srv::Trig
+     
+     res->success = false;
+     visibility_graph_msg::msg::Graph graph_msg; 
+-    ConvertGraphToMsg(received_graph_, graph_msg);
++    ConvertGraphToMsg(
++        received_graph_,
++        graph_msg,
++        has_received_graph_header_ ? &received_graph_header_ : nullptr
++    );
+     graph_pub_->publish(graph_msg);
+     res->message = "Decoded graph published; Total graph size: " + std::to_string(graph_msg.size);
+     res->success = true;
+diff --git a/src/route_planner/far_planner/src/graph_msger.cpp b/src/route_planner/far_planner/src/graph_msger.cpp
+index 48db482..079b7f2 100644
+--- a/src/route_planner/far_planner/src/graph_msger.cpp
++++ b/src/route_planner/far_planner/src/graph_msger.cpp
+@@ -87,6 +87,7 @@ void GraphMsger::UpdateGlobalGraph(const NodePtrStack& graphIn) {
+ void GraphMsger::PublishGlobalGraph(const NodePtrStack& graphIn) {
+     auto graph_msg = std::make_shared<visibility_graph_msg::msg::Graph>();
+     graph_msg->header.frame_id = gm_params_.frame_id;
++    graph_msg->header.stamp = nh_->now();
+     graph_msg->robot_id = gm_params_.robot_id;
+     this->EncodeGraph(graphIn, *graph_msg);
+     graph_pub_->publish(*graph_msg);

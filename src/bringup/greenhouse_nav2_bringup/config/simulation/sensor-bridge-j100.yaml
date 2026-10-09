@@ -1,0 +1,34 @@
+# Sensor bridge for the Jackal J100 simulation: gz sensor topics to the ROS
+# names the navigation stack consumes. J100 has a built-in IMU (data_raw)
+# plus the shared Velodyne VLP16 and RGB-D camera.
+- ros_topic_name: /simulation/lidar/unfiltered
+  gz_topic_name: /sensors/lidar3d_0/scan/points
+  ros_type_name: sensor_msgs/msg/PointCloud2
+  gz_type_name: gz.msgs.PointCloudPacked
+  direction: GZ_TO_ROS
+  qos_profile: SENSOR_DATA
+  publisher_queue: 5
+  subscriber_queue: 5
+
+- ros_topic_name: /sensors/imu/data
+  gz_topic_name: /sensors/imu_0/data_raw
+  ros_type_name: sensor_msgs/msg/Imu
+  gz_type_name: gz.msgs.IMU
+  direction: GZ_TO_ROS
+  qos_profile: SENSOR_DATA
+  publisher_queue: 10
+  subscriber_queue: 10
+
+- ros_topic_name: /sensors/camera/color/image
+  gz_topic_name: /sensors/camera_0/image
+  ros_type_name: sensor_msgs/msg/Image
+  gz_type_name: gz.msgs.Image
+  direction: GZ_TO_ROS
+  qos_profile: SENSOR_DATA
+
+- ros_topic_name: /sensors/camera/points
+  gz_topic_name: /sensors/camera_0/points
+  ros_type_name: sensor_msgs/msg/PointCloud2
+  gz_type_name: gz.msgs.PointCloudPacked
+  direction: GZ_TO_ROS
+  qos_profile: SENSOR_DATA

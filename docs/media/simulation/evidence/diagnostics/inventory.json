@@ -1,0 +1,4121 @@
+{
+  "scope": "Diagnostic only; excluded from final 27-run statistics",
+  "files": [
+    {
+      "file": "candidate-matrix-exit-code.txt",
+      "size": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "file": "candidate-matrix.log",
+      "size": 6719,
+      "sha256": "c6968f66e6a3fc60e1d63df10dddc6b12c9c6a3fcc22f7f0a0517fae2e554c5d"
+    },
+    {
+      "file": "final-ground-command-ownership.json",
+      "size": 1845,
+      "sha256": "c2429c906532dc9320b715cd54902530c3a1d27a35ce402fb8cc43f4672363b2"
+    },
+    {
+      "file": "matrix-before-empty-param-fix.log",
+      "size": 2357,
+      "sha256": "93e8c001bf2a22055d770cdccef6a4299e5a72769f4b17789af072b25c722509"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait.log",
+      "size": 3386,
+      "sha256": "a019b3e5be7c624fef5799c1b0ad7c1dcdf5e452d2a57ac761b4c8d6effd2732"
+    },
+    {
+      "file": "matrix-before-process-cleanup.log",
+      "size": 1912,
+      "sha256": "c2ff2a05fdf4e4f5a61aec29e26c4cedf0f3009302f43948225faf460d5a7c1f"
+    },
+    {
+      "file": "matrix-before-rviz.log",
+      "size": 908,
+      "sha256": "5fa226a822961352e9a33a1f78ca228b319b15c064522243bf8b33e24a9ff51a"
+    },
+    {
+      "file": "pipeline-rviz-retry.log",
+      "size": 313,
+      "sha256": "64285abb05cfdb931356201689e2a5a652deccc64c264a1eaada4c9057ab1a2b"
+    },
+    {
+      "file": "pipeline-spawn-old-geometry.json",
+      "size": 8516,
+      "sha256": "abf270f0404f38e9cbd08b62bb5aa3ec784742f6f5266ba359ec79b819952adc"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1.json",
+      "size": 3844,
+      "sha256": "7445f3e5831126247d462f8eca271a2182d47a0c4570c7a8e2b357d7ff3dfc36"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2.json",
+      "size": 6870,
+      "sha256": "572ca55fc9e8d6f60fd3d0af0ecc328a5ba0db8c2725b15eae5e55f20a494402"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3.json",
+      "size": 6961,
+      "sha256": "efd710312ca48720c17fb33e3682ad517bc80403a312844d0c4688929909971b"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4.json",
+      "size": 6969,
+      "sha256": "799827ee5642e020c712d67a10a5026e7b00a07b92ec9c56b098fbfedadaa1fb"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa.json",
+      "size": 6833,
+      "sha256": "dbf20bc1c1607b00c58693fd7ed4abfb3214163f47a5abb8b3c47b76a46bc089"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa.json",
+      "size": 6598,
+      "sha256": "7042e77f468139de2fe96becd52c2e64bca38325f03ad58e3852c4ab38c175a8"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1.json",
+      "size": 2991,
+      "sha256": "7bff1565ca0dd5807d90e72a711b17379237eeea3d61f71e5d81af408cfe46a4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2.json",
+      "size": 5959,
+      "sha256": "bfd51996ce6954e2c3c20105f7cf600316994fa7e0e6e59c545a8bbfbd5c5a47"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3.json",
+      "size": 6609,
+      "sha256": "ff95ea104ec88e57627c6be9ddbb27939f7d6b303351aa36ec4faeca683452b8"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa.json",
+      "size": 7394,
+      "sha256": "0e02a56fd4e0c94e8c47c3284794abef5fbc9cdcaf3cb217118eb279a96b43d5"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa.json",
+      "size": 4028,
+      "sha256": "ca7c00d8a91e302eb65cd1bc748c135ab671e627903cf6b17c46eca568864604"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa.json",
+      "size": 6844,
+      "sha256": "cf32f2ff525952ace481079708aebc44a3a05e7ca08b5bbc07db106d6c4f72f3"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa.json",
+      "size": 7462,
+      "sha256": "a45ac470853e07cc387691f3e1ed53d37e0bfbd7cbb90d3cbed9324a48b57351"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa.json",
+      "size": 3315,
+      "sha256": "36c4dcfd02f6414164748587a2411312eaf970b660d2866ef0536d0dc0ecfff0"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa.json",
+      "size": 6885,
+      "sha256": "55e1a7144e60c47b30638568734494e531da7dc2cadbb47caff7edd120c41c75"
+    },
+    {
+      "file": "ground-startup-probe/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "ground-startup-probe/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "ground-startup-probe/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "ground-startup-probe/navigation.log",
+      "size": 16669,
+      "sha256": "1d3262e71d20e78d4e26b2603e4ca606209dc81fb70dbf8b7f9187381314266f"
+    },
+    {
+      "file": "ground-startup-probe/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "ground-startup-probe/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "ground-startup-probe/sensors.json",
+      "size": 3363,
+      "sha256": "0b2c25fcda726289122971e742acbf7312b546a1bf685c5e62459e26ec388d75"
+    },
+    {
+      "file": "ground-startup-probe/simulation.log",
+      "size": 22630,
+      "sha256": "d08de263879a8212b72fcc04a58807ceaf788c81bd78d09d82977b15b9aa9b31"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1.json",
+      "size": 6949,
+      "sha256": "4c30e8681344f7e86f2f342cbbe27560e6f576030525588b68ba75977ffd38d5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2.json",
+      "size": 6785,
+      "sha256": "9be23ee5dcb644d5d4f0edfc885d0071d677d744297898090b117bd913614744"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3.json",
+      "size": 6803,
+      "sha256": "acb4e30feb9ee11c836afea946fe09691ed1c9cf622d71ab47bc0941cfd3ef8c"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1.json",
+      "size": 6954,
+      "sha256": "cd07bbcd5302caf6537f9876038381a6c4607d1f7fd4a86182ad49880efa4087"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2.json",
+      "size": 6939,
+      "sha256": "f9391400edf8ab63c435bdfffc110464e7a54f7cb6e4362853a1b427ecb2dbf4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3.json",
+      "size": 6817,
+      "sha256": "1d2d8a246a4815c298b702acc3eeff000d28943ef54030868410135c1d916327"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1.json",
+      "size": 6621,
+      "sha256": "88259c04f0f5442d8a270f2b29ecf17768e866e49c3ff233d02394ae8a58e430"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r2.json",
+      "size": 2444,
+      "sha256": "72877989f2a31aa334aa25202016758cd9f351fbc6237f07a8519c76b8d8da20"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r3.json",
+      "size": 2444,
+      "sha256": "5d88c5633186517a8674a850f3331fa2670cef2b56868ac63308f696fc2557b6"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/matrix_results.csv",
+      "size": 4477,
+      "sha256": "1f209f315d1da9bcf72e70e6a67a91e32fc0f7e96dd4f917316b7d90b3025e43"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/matrix_results.json",
+      "size": 55822,
+      "sha256": "44fd20bfa479733ecad765cc2bf24f0c90c14384eb3194cacf0e357d52cab2ae"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_husky_a200_r1_task.jpg",
+      "size": 430026,
+      "sha256": "2c82379fce1a5ffd5dfdea530fa498a07269ce35b2d30f63332ac7851f7c8b74"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_husky_a200_r1_task.json",
+      "size": 1012,
+      "sha256": "9ea819862943e8450090456931c39b708f75c55c3803e263224ee1c6e37a9334"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_husky_a200_r1_task.png",
+      "size": 2582453,
+      "sha256": "bf042f3ae340dcac41c87697b83c9f2a618ac8f229a2d5c677e7abb65fa090f2"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_panorama.jpg",
+      "size": 258358,
+      "sha256": "2454eb4b557315dd0bb9671555295fe31540db89c1cc9d52257f17d3b6748a44"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_panorama.json",
+      "size": 805,
+      "sha256": "a78e76216517adc65a2abc8c6a8fc7dce679de59ae47dfdb720be51d8074dc6a"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_panorama.png",
+      "size": 1744594,
+      "sha256": "86f61ee5dfc89b703c5f43a4d1ee92ed812279f68cb404e10cfba4c0fc55a4c1"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_rviz.jpg",
+      "size": 265414,
+      "sha256": "baac0aee73dac7d436f40c0af82260883214b68daf2bae14b48784a637047585"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_rviz.json",
+      "size": 1791,
+      "sha256": "2e1d095ce4e029362f2f394557af20c3fd44bba4e4abda87f05a1c39e1e28d39"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_rviz.log",
+      "size": 2855,
+      "sha256": "9af3b1f6fe4b1326621e84242090dfe7004d5177b9d921c1cd243c340b17fd5a"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_rviz.png",
+      "size": 219599,
+      "sha256": "5fc6a87452bcbd5973f7388c658e75f98ba888cd12089d5b86d0e946d229b784"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_task.jpg",
+      "size": 434285,
+      "sha256": "3519660b8c63b502878bcf05e26ef47e4c5128b02fc2d06ce739d55010f6270f"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_task.json",
+      "size": 1054,
+      "sha256": "a9788e88b82ba702a98ce8d0a96da912993482ff1a92c945e1943c52a73dc1b8"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_jackal_j100_r1_task.png",
+      "size": 2607230,
+      "sha256": "9492ded276e3704ecad012a55a1995ef97038506db34427189ce0c48723a14af"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_x500_r1_task.jpg",
+      "size": 441714,
+      "sha256": "9735897fb12c2b11eb7288fccc40cd97755242c2d897e427452cf57bd7e1b44c"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_x500_r1_task.json",
+      "size": 850,
+      "sha256": "4112ca978d2ee7c94788e046c567a5fb8a21b5ec13c1608e8fc85f3a539e4193"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/maize_field_x500_r1_task.png",
+      "size": 2627243,
+      "sha256": "4f6aa306cea305096cd7bbccf3475b8a459460e638a3df87747ce2fc6e98c620"
+    },
+    {
+      "file": "matrix-before-empty-param-fix-media/orchard_jackal_j100_r1_rviz.log",
+      "size": 1610,
+      "sha256": "fdaa1063309ddf178bbe21d7d9eb11e0bd5e6bd5eef76502b7c7b15357f87bec"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1.json",
+      "size": 7326,
+      "sha256": "637c1a2db824ec37b5cbd56fffda53c5eaa08eb7ac5dd787eaf43443dad4c0d6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2.json",
+      "size": 7232,
+      "sha256": "9418ee16dce3d7cf27e0a57e2cd1a59f52c16682ee40860cc7f0687ba2ce0ec6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3.json",
+      "size": 7240,
+      "sha256": "620fb6bf53183fc77ba2fe5be15cac49dad6c93dc6ac1c710e58f046d888b9ee"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1.json",
+      "size": 7403,
+      "sha256": "4660f5e9ab212d334380d15baf16d1402d9383c2666f0a602a26363e35d9590b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2.json",
+      "size": 7251,
+      "sha256": "8bf1a5af2bf84be977a3bb216aae13b344673d217e8b355ceb81e07a41d602e8"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3.json",
+      "size": 7243,
+      "sha256": "5fb9c732af9b317406dbe51b11e02621686f7e2fa3f7d473d9fc9ac806debb3a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1.json",
+      "size": 6819,
+      "sha256": "8f9ad4bd8d5ed0b829aeef95cdbc93fef6954b3a5661551888faafcdf200e057"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2.json",
+      "size": 3174,
+      "sha256": "1b5c4cc3f3bf52fc7511d4903ac0eb4e0e5dbc8f8a95f7da4018b07cce7e265c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3.json",
+      "size": 6747,
+      "sha256": "a1585e2f93aba3710029a1e529a1111f4b7176214e82af34456034438d1d8b60"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/matrix_results.csv",
+      "size": 6617,
+      "sha256": "77ec100e2c0e3c16dc1fece6388897d1019a1e2615aa1fdd48b59bdc420f67aa"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/matrix_results.json",
+      "size": 95443,
+      "sha256": "affb272ae0c42687114ab5708d594225c950c814778a00866aae56cbb8720215"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1.json",
+      "size": 7293,
+      "sha256": "e229abedaa459828477a7322d7d933ee2568b1d80ddd42e00341ac7b521d80ce"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1.json",
+      "size": 7399,
+      "sha256": "79f480754daf84b64aea9634d68c92357ae47ced5a0ce2b5f64ba2f948717b8a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2.json",
+      "size": 7217,
+      "sha256": "b7f9d0801eb01c0605d2204eea81e271aa38f2e24d60e065b8372c47661f584d"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3.json",
+      "size": 7209,
+      "sha256": "867be46afd8a8def4bfeaec76b98abc6dc70086ec05d1f3e4a479b78815de906"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_husky_a200_r1_task.jpg",
+      "size": 430026,
+      "sha256": "2c82379fce1a5ffd5dfdea530fa498a07269ce35b2d30f63332ac7851f7c8b74"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_husky_a200_r1_task.json",
+      "size": 1003,
+      "sha256": "af80aa233f72698b9aec7b9b72a54ede6e69c744bae996e16032a141f3e25d7b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_husky_a200_r1_task.png",
+      "size": 2582453,
+      "sha256": "bf042f3ae340dcac41c87697b83c9f2a618ac8f229a2d5c677e7abb65fa090f2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_panorama.jpg",
+      "size": 258285,
+      "sha256": "e7d2e90fc49408b9037e69577f049438b0e734fe976a558594ec2e692a0f4368"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_panorama.json",
+      "size": 781,
+      "sha256": "cd7b87b1d2cd83dd1cc576d08ae7edda6e3df81d118534003e2f8b9cbc1cbc0b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_panorama.png",
+      "size": 1744582,
+      "sha256": "d3ee4e6fd251ebba56a99fdb695a568442314a2f1fc223ac53cba09920d14afa"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_rviz.jpg",
+      "size": 264425,
+      "sha256": "e00dd521128a5432c3b7318c44e5cb1ef6ef43deb5172c28f0bb2a9abe650d6b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_rviz.json",
+      "size": 1796,
+      "sha256": "2f63c3f9d85165e71f0078c0a04b19e3143ab46a48d08e312b8bb9485522a8c0"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_rviz.png",
+      "size": 218649,
+      "sha256": "6bda1f2d9a529deee4dac164d362c234f146359f81bdfb22117dea5b8a42a0a6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_task.jpg",
+      "size": 434285,
+      "sha256": "3519660b8c63b502878bcf05e26ef47e4c5128b02fc2d06ce739d55010f6270f"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_task.json",
+      "size": 1009,
+      "sha256": "71daf1da86f139a06cb58a3d17b86ddc97bfd662db7322dfb69140040b7a9e9a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_jackal_j100_r1_task.png",
+      "size": 2607230,
+      "sha256": "9492ded276e3704ecad012a55a1995ef97038506db34427189ce0c48723a14af"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_x500_r1_task.jpg",
+      "size": 441591,
+      "sha256": "752e2530538cdbc0dc9ace0738dc0787dc64c9b087ecf614ca8749575927c4a9"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_x500_r1_task.json",
+      "size": 850,
+      "sha256": "8cee73ab4c0c61adac33b3be694fb75e383d9d1e1a2312dab089ad9169309091"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/maize_field_x500_r1_task.png",
+      "size": 2626720,
+      "sha256": "922968f6e0d66626dbaa0a4f0d3ee4487252292e8da6800b54fc198aa9fa66f4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_husky_a200_r1_task.jpg",
+      "size": 351862,
+      "sha256": "a8840ab3f95314cd828cdf2cfb70551065dbef53784fe2e7b7063885e2add7e5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_husky_a200_r1_task.json",
+      "size": 892,
+      "sha256": "136aaaaa14ed11dfba020f1a410063c9386b87be8263e10a5924a3c24f567353"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_husky_a200_r1_task.png",
+      "size": 2625778,
+      "sha256": "703e5f3c6c3a8d42ac8c45ee86f497e8958166506dcf8d2e9f4792591dfc5718"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_panorama.jpg",
+      "size": 186943,
+      "sha256": "ac01ba4b080290f4fc73a81ffa2b6ea4bd4f4d5bb5a96380ef490e55371249bb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_panorama.json",
+      "size": 670,
+      "sha256": "12b64480d6354e360bd83690ecd9468fca37a4aa7f7fa630a331159f2373a50b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_panorama.png",
+      "size": 1416897,
+      "sha256": "ec76eb722ed40f444382e2b8ceeaae1b4dfc9c7a85b33496586e2e2b254519db"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_rviz.jpg",
+      "size": 375975,
+      "sha256": "70dd1306e8f980679c4bd58efc50a88a1d522a7d80b41b76f8d622ec0ec78b16"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_rviz.json",
+      "size": 1674,
+      "sha256": "2f202089fa9e7d2e2fd26eb435693f81024b079b5209da42bc630b8b9db0147a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_rviz.png",
+      "size": 309027,
+      "sha256": "f4e5f6f0894611b9547a53830e75c8be07ad914aca84270023e78f78c1b03800"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_task.jpg",
+      "size": 352085,
+      "sha256": "592ed74222805ca80ff5242a4fc7ec53bad7c2d81f5f913fc75af47b570bf630"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_task.json",
+      "size": 897,
+      "sha256": "750be76b591f359fc8dff0a729cdffaec46df7c16cd7fe48d6136459726824ee"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait-media/orchard_jackal_j100_r1_task.png",
+      "size": 2632298,
+      "sha256": "7a64b51fa8c7944f6c1d3f4f17f55fc99f414303447799896e4ceb59dd35c660"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1.json",
+      "size": 6907,
+      "sha256": "11511d7643166ec90d6ada4d56012c317ab63663869a1833de86e4cce798c006"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2.json",
+      "size": 6822,
+      "sha256": "699e71a68efad263074a2cbecde46c5f117b5074056d4d8e3d2d4b6a3b12faf4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3.json",
+      "size": 3854,
+      "sha256": "a3b60138ca7e29ac50c7d3ed834457cbde7b15e4f67c8bc45f62481ec01b7f4f"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1.json",
+      "size": 6991,
+      "sha256": "e4c55fc5bfc7f90d46b51586c030c0f6f6f0ef3678cf589d06f994417951740e"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2.json",
+      "size": 6804,
+      "sha256": "f7f0d810daa8cdbf2b86c48b77c8bceb432e2163c74c43db0100e7587e7c3d2d"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3.json",
+      "size": 6933,
+      "sha256": "89f74522a50ea865b3f565de3d6c1138f1471d8717245282524265d8eb71fed9"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1.json",
+      "size": 6617,
+      "sha256": "bdc266fea52269c7773f7d9461596dbb4f7f216aaa6782c211ecbcfe58281bd2"
+    },
+    {
+      "file": "matrix-before-process-cleanup/matrix_results.csv",
+      "size": 3783,
+      "sha256": "6a1faf87121706d1026fda8b1807198a0170df3af0e9f9db7332976c86fa1b1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/matrix_results.json",
+      "size": 47686,
+      "sha256": "452219092a0bf1acaa4001beb456e50b6933f145da36f8a4dfb8698e6fa955bd"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_husky_a200_r1_task.jpg",
+      "size": 430026,
+      "sha256": "2c82379fce1a5ffd5dfdea530fa498a07269ce35b2d30f63332ac7851f7c8b74"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_husky_a200_r1_task.json",
+      "size": 913,
+      "sha256": "2904390840e89e1ede3d7cbeaa8c2c0bf2919ad9ac2325a2b104739f5d1377fa"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_husky_a200_r1_task.png",
+      "size": 2582453,
+      "sha256": "bf042f3ae340dcac41c87697b83c9f2a618ac8f229a2d5c677e7abb65fa090f2"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_panorama.jpg",
+      "size": 258330,
+      "sha256": "33b4d966eba5aa17d734320aa76f14c7135192c8f1bf2990847ff2f22ff4b6cb"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_panorama.json",
+      "size": 681,
+      "sha256": "d24fe80c7f61b8af274ffcaaf0626af492c096406532f7601520410a2f20cd0c"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_panorama.png",
+      "size": 1744580,
+      "sha256": "e4b2c82013eef0edc43144a5665c3cf00da6ce2b85434b245f7c1a1116840728"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_rviz.jpg",
+      "size": 268039,
+      "sha256": "4caa72daf0be86f9fec2efd1d34a8ebecac96f456847004f1bb0846e2e6596cf"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_rviz.json",
+      "size": 1688,
+      "sha256": "bf25ba932251a9d9d96ba0fdd13c7276769d17ed4b6021ce45833fe1c0f8c083"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_rviz.log",
+      "size": 2855,
+      "sha256": "e28ca30494b91a8c43995eee98b406545b3a3d1828111e8e4bc645450787c933"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_rviz.png",
+      "size": 227131,
+      "sha256": "6cbed7768043457548988422de3c369bb4026cf2ede56df2d723c95ec1e2a843"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_task.jpg",
+      "size": 434112,
+      "sha256": "4ba1bef9060bf89ec9f23ac12a8c3830a0318ad175c92ad8b7d27b2b7d117adc"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_task.json",
+      "size": 918,
+      "sha256": "4b968f75238b44d0f3ba9cf4a14248aa4a9e29de1ae5ae32f5a47482ba8c61b2"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_jackal_j100_r1_task.png",
+      "size": 2607198,
+      "sha256": "04ce761f6cc40c9035b04252c1eb2a2551b17c6c1a17bc4eeedbebeab9eacbe4"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_x500_r1_task.jpg",
+      "size": 441812,
+      "sha256": "c6152be2fc0eff6663babc46131953ac7f8c9a891e8fed74f7b62ddd3e0c6941"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_x500_r1_task.json",
+      "size": 852,
+      "sha256": "b9790cb8d7dac02251aca24fcf92e4c05e4712de27f606189baf284208e953cd"
+    },
+    {
+      "file": "matrix-before-process-cleanup-media/maize_field_x500_r1_task.png",
+      "size": 2627095,
+      "sha256": "3d439d848d7f01d2992d7396a1a3d80042c1bdd786375fba093a2f827b706bc1"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1.json",
+      "size": 7001,
+      "sha256": "6a8d8fca2b51b10f96ef73ca834d80c77c1b67f55abbca160d5fda6e7b1350de"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2.json",
+      "size": 6809,
+      "sha256": "3b2819bfbf41cc881a89e9559a0a937847278ad1b2dc3e1fbaefb02dea535aba"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3.json",
+      "size": 6809,
+      "sha256": "ec075ad19f9e2850031be8050ef5f40e1c52f43e7ea400f1be7cc00ef343cacb"
+    },
+    {
+      "file": "matrix-before-rviz/matrix_results.csv",
+      "size": 1881,
+      "sha256": "4e8c75dbc4616161a9d701413652f6c6f97efa671d4126d46db6dec5ac7b5cb7"
+    },
+    {
+      "file": "matrix-before-rviz/matrix_results.json",
+      "size": 21883,
+      "sha256": "3b3b33f2645caf1dae1b0176e45547d750ae664e8549d154309ffb97d183097d"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_panorama.jpg",
+      "size": 258346,
+      "sha256": "d7d664e4447006a46b932cb318e1c6828db0b13a051a03c782aaeab8c8eaa887"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_panorama.json",
+      "size": 681,
+      "sha256": "82d874913a619dda5caa6eef46729c7fe6b3421c8b652af497f2236d8025a836"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_panorama.png",
+      "size": 1744674,
+      "sha256": "bc41afd7a59f1aeb0402465903744450a5d169415d5a37d3e3415eea3ec56988"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_rviz.jpg",
+      "size": 265463,
+      "sha256": "4e02f3cb15248239872ee75fd076552c39b01cf449f12c80f218f92b3b149e23"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_rviz.json",
+      "size": 1231,
+      "sha256": "9bd1027af9d08580d2f38bbc7985bcd08ee0dfbfcfe3bbff2045797f799ea574"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_rviz.log",
+      "size": 2855,
+      "sha256": "12342ad3855fefecd3db93f0d7a6c10e72fedb20367d63e2a0a7de7fb7a67993"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_rviz.png",
+      "size": 225085,
+      "sha256": "488815b62712f82cb739b346e04840668942edb28248861660f0da88a4c86a28"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_task.jpg",
+      "size": 434127,
+      "sha256": "35b89ac92573fa322800a35ad75cd281b63f579500d9856b376ca791e180727f"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_task.json",
+      "size": 918,
+      "sha256": "539f34d6324eafcfddc3d43524b9b73169b4d55a2446754e18242a86832e3f90"
+    },
+    {
+      "file": "matrix-before-rviz-media/maize_field_jackal_j100_r1_task.png",
+      "size": 2607220,
+      "sha256": "0a261f1a9b6ea7a31df84cbf98abeea1fcfa7c75b6bc2446b9e7ab7b4cbb05c4"
+    },
+    {
+      "file": "orchard-bridge-probe/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "orchard-bridge-probe/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "orchard-bridge-probe/critical-sensor-bridge.yaml",
+      "size": 511,
+      "sha256": "4383fdf17a57ec1a106dccc2461aa08a7868c103ee07501353089cc5887026d1"
+    },
+    {
+      "file": "orchard-bridge-probe/diagnostic.json",
+      "size": 660,
+      "sha256": "b0f7371dc496ef55ed24c319de64cbe1171df27d968528d69ec8c9895ef13c49"
+    },
+    {
+      "file": "orchard-bridge-probe/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "orchard-bridge-probe/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "orchard-bridge-probe/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "orchard-bridge-probe/simulation.log",
+      "size": 20956,
+      "sha256": "52d21ae8b17d8dc0c7ad9e03a5df7bfc653c53520aa45458835c88fce7c6b683"
+    },
+    {
+      "file": "orchard-clock-probe/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "orchard-clock-probe/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "orchard-clock-probe/diagnostic.json",
+      "size": 2015,
+      "sha256": "9c8aeaf3e7f0c3f2d08d4fa5c3d64e81fbb4698e3d1f959a22ee09cd58fc6bce"
+    },
+    {
+      "file": "orchard-clock-probe/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "orchard-clock-probe/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "orchard-clock-probe/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "orchard-clock-probe/simulation.log",
+      "size": 15478,
+      "sha256": "84038abcabf95d90abbfc642cd7bd795e8f5fd56452a886ada0c5fb0860d9695"
+    },
+    {
+      "file": "orchard-isolated-probe/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "orchard-isolated-probe/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "orchard-isolated-probe/diagnostic.json",
+      "size": 1087,
+      "sha256": "fc4504e2ce35487d3ece80c80d294f6ccc61a24a5b89f104328d06799fdaa6c5"
+    },
+    {
+      "file": "orchard-isolated-probe/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "orchard-isolated-probe/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "orchard-isolated-probe/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "orchard-isolated-probe/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "orchard-isolated-probe/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "orchard-isolated-probe/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "orchard-isolated-probe/simulation.log",
+      "size": 22708,
+      "sha256": "e84fed484a7a6d37c5277e0673585919d4ee362a6a64091083b5332dcbf272be"
+    },
+    {
+      "file": "pipeline-spawn-probe/diagnostic.json",
+      "size": 5197,
+      "sha256": "e37d3950219e51084e8fbece71997cc0e579d94513eab19b082fbc591d9a4f36"
+    },
+    {
+      "file": "pipeline-spawn-probe/pipeline-runtime.sdf",
+      "size": 3939,
+      "sha256": "aad23770e24ec23f25a1cf2cf3cbb5e4342a3ca43761d5edaa7c2c0c94f60995"
+    },
+    {
+      "file": "pipeline-spawn-probe/simulation.log",
+      "size": 58788,
+      "sha256": "9dcdc0a86b9df41d7b8adebf89de71af590dc18d4743c9a2ce65bb06513d37ea"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa1_rviz.log",
+      "size": 2855,
+      "sha256": "e2501d9b954526884ff83170092b3b64c33fe8ec4b471098a8fa02ff9cdd19ae"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_panorama.jpg",
+      "size": 258299,
+      "sha256": "d0ab239022c876b0db105cde0da7de053bcf020548802090d4a49b7a2b8bdc03"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_panorama.json",
+      "size": 692,
+      "sha256": "6abd3f2307b6fe1eef5f4f00eee2dd77da0bdbc751b3d721a5993e523fea8016"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_panorama.png",
+      "size": 1744507,
+      "sha256": "db7ae150c6d357c03d87c115adc1ef0f5ab15915013497467e5245051b954382"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_rviz.log",
+      "size": 2855,
+      "sha256": "2ef833a8613864c47292dbaaa2c825edcc5308acce8f1538caf3d26e6adacff6"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_task.jpg",
+      "size": 434126,
+      "sha256": "7d6c7460e57f9c4451841994163f995e28473099ff2d4967e883ceeb44a4317c"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_task.json",
+      "size": 932,
+      "sha256": "c2a06708bebfa823cebee44cff1078c7424cd61c801c948d41a4499b6df03164"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa2_task.png",
+      "size": 2607069,
+      "sha256": "68674ff756489ce09d71fac1a8493d4860fce9ed654bcd9094f70cc350e6c219"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_panorama.jpg",
+      "size": 258374,
+      "sha256": "a2090229b6fafeedbabb30ce588ce40782f7707557d424534ed47f7dff28edb0"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_panorama.json",
+      "size": 684,
+      "sha256": "2f7504393e2918635760013c8a4d528361a4553970448a478443d8524579d8c8"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_panorama.png",
+      "size": 1744627,
+      "sha256": "382db099921000a77d131c19992feb29747c4b5b28c84317f18925b99f2a4fe0"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_rviz.log",
+      "size": 3109,
+      "sha256": "e175a51637a05f0d676832623505c95c6b9ac44b0383ccfc2789cc081394450a"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_task.jpg",
+      "size": 434148,
+      "sha256": "9d300efdb1e96720cbeb570f49bce09fdff90b2c87ea7cb59da86678be73e9e1"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_task.json",
+      "size": 925,
+      "sha256": "bc647c263e6107fc66858653b91d15433c8fe01eba6033dbae9cbf49cd3d4b37"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa3_task.png",
+      "size": 2607213,
+      "sha256": "9e765ce8d0c2107beb5c7d2e538b4b8e1835ab764f61ebf3007cf4870b75c26f"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_panorama.jpg",
+      "size": 258285,
+      "sha256": "e7d2e90fc49408b9037e69577f049438b0e734fe976a558594ec2e692a0f4368"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_panorama.json",
+      "size": 683,
+      "sha256": "22e3b3008a974f189d4da21641d2799ade9a15b3d88ab9fcc5dec7bed30bea10"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_panorama.png",
+      "size": 1744582,
+      "sha256": "d3ee4e6fd251ebba56a99fdb695a568442314a2f1fc223ac53cba09920d14afa"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_rviz.jpg",
+      "size": 265952,
+      "sha256": "9df58dc0ecd82be14241f87564a127f251a2fcbb51d853b192eee08afb5e3275"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_rviz.json",
+      "size": 1235,
+      "sha256": "bbf8a098a63467e83e087d1b93f33373692eaa397e5b58736f91df7359f3b99d"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_rviz.log",
+      "size": 2855,
+      "sha256": "d9e53a6fdacecbe623dcd7578c87332af6ecffdb923016fba05d29d6c28cb2d0"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_rviz.png",
+      "size": 226234,
+      "sha256": "b37c433241496642853cc6b7e8b5be89ac69305db1026431b4f1bb2c218cac4c"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_task.jpg",
+      "size": 434285,
+      "sha256": "3519660b8c63b502878bcf05e26ef47e4c5128b02fc2d06ce739d55010f6270f"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_task.json",
+      "size": 922,
+      "sha256": "827076ba14adf1375d1446ecce0acc4137e02993a7c95906949876927b5ee90a"
+    },
+    {
+      "file": "qa-media/maize_field_jackal_j100_qa4_task.png",
+      "size": 2607230,
+      "sha256": "9492ded276e3704ecad012a55a1995ef97038506db34427189ce0c48723a14af"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa2_task.jpg",
+      "size": 441673,
+      "sha256": "8dc2042c3ec7e8c9aae3618c72aaaad3b70e61b36a5fcb52a293dcffdbd6418e"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa2_task.json",
+      "size": 856,
+      "sha256": "5881dc30b9f603562f19dfebdabe2e7ff1b47fa6c28327f3ebf89c99032d991d"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa2_task.png",
+      "size": 2626945,
+      "sha256": "7b474c7ec77085a959a093b33a8d615062665342126294dbafa6aeb2a839aaa3"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa3_task.jpg",
+      "size": 441657,
+      "sha256": "7d82b32d66c26dc56a5373512d77c092bdfd3cfa6dc36cd8d2a423230d59ca16"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa3_task.json",
+      "size": 857,
+      "sha256": "e94047b97c69b3a1e6c870063588d455a3f1e5fde71b57add307fbd89c66c197"
+    },
+    {
+      "file": "qa-media/maize_field_x500_qa3_task.png",
+      "size": 2626889,
+      "sha256": "51e0a4f2ddcc65bc4cb9b65e48b5ad832d1f24c945e6534d735f62f7840e7ea0"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_panorama.jpg",
+      "size": 186943,
+      "sha256": "ac01ba4b080290f4fc73a81ffa2b6ea4bd4f4d5bb5a96380ef490e55371249bb"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_panorama.json",
+      "size": 691,
+      "sha256": "8ae6c6138e8e1e3213eae68fda987a35203a0ecb2c8709e53728599d0bc10493"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_panorama.png",
+      "size": 1416897,
+      "sha256": "ec76eb722ed40f444382e2b8ceeaae1b4dfc9c7a85b33496586e2e2b254519db"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_rviz.jpg",
+      "size": 374287,
+      "sha256": "04d1263953c67ed3020766123b80af659cacac9c5f871412543938677336764d"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_rviz.json",
+      "size": 1705,
+      "sha256": "39a6e90d28a2f328e20641cf0cd48af9743417eabfb2d839e4da1210360402a1"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_rviz.log",
+      "size": 2855,
+      "sha256": "c29227e1fe86e328674a3494e5b1aa8a9813d0f5087c3468b558f7e16f671db7"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_rviz.png",
+      "size": 305777,
+      "sha256": "399025cc80b21ad5832435908c0ece4703b2dd48d86291fda3b85745c91aa2ee"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_task.jpg",
+      "size": 352085,
+      "sha256": "592ed74222805ca80ff5242a4fc7ec53bad7c2d81f5f913fc75af47b570bf630"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_task.json",
+      "size": 921,
+      "sha256": "04713a151f9894dd102050886955c51049004bf38b8d2e2b9e275e3ea3ce7250"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_bridge_qa_task.png",
+      "size": 2632298,
+      "sha256": "7a64b51fa8c7944f6c1d3f4f17f55fc99f414303447799896e4ceb59dd35c660"
+    },
+    {
+      "file": "qa-media/orchard_jackal_j100_cleanup_qa_rviz.log",
+      "size": 3942,
+      "sha256": "ef75fd66c1b03d80516a6df7e97f92c80bb9a3dd95cab3545c20e8d36a331cb4"
+    },
+    {
+      "file": "qa-media/orchard_x500_bridge_qa_task.jpg",
+      "size": 288098,
+      "sha256": "f6506d8ed0dccb3480fb329db237f70f4eeb818a00be96d42401a9d1302fc44e"
+    },
+    {
+      "file": "qa-media/orchard_x500_bridge_qa_task.json",
+      "size": 867,
+      "sha256": "a5061d7c610a8043e3a3dfd6f2517c50f0eae0f04215c016396b33b432270997"
+    },
+    {
+      "file": "qa-media/orchard_x500_bridge_qa_task.png",
+      "size": 1955271,
+      "sha256": "cd2514121264c71a9b7d75f063c32fe6d8643b115a3c6dcc9764b301a46f79f6"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_panorama.jpg",
+      "size": 133442,
+      "sha256": "362fd73c0072b28f18bf099a890cdcebbfb270939dc3e820f4a9cb580c4a407c"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_panorama.json",
+      "size": 699,
+      "sha256": "0e2c1641500a4dd237a060712c39eedaad1233537120a5a347375142a9dd7c9d"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_panorama.png",
+      "size": 1059964,
+      "sha256": "20f56bbcd526b8e84f4a812b0466ea24c18dd013315f9bffff0bc0f93731cb1e"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_rviz.jpg",
+      "size": 293131,
+      "sha256": "32386ee40df31699f82b9f530e4293942c96a4b975d7b8873629cf105b92468f"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_rviz.json",
+      "size": 1711,
+      "sha256": "77f86f6f080c8aa2c2844713d10689d64e24ff4d929118753632bae964052162"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_rviz.log",
+      "size": 2906,
+      "sha256": "959ff595917143e3012e17c66cb32c75accf3c27dc3fb259132553e527e74b30"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_rviz.png",
+      "size": 232052,
+      "sha256": "c2b8f87c8ff0427eecf692829c6930a4a6e33d1df1d87db6a808748c4d52f4ba"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_task.jpg",
+      "size": 382647,
+      "sha256": "e53eb4eae98b03a37d68ea757a3fbf08b3f1a51fcbb82d2fb0b60e5fe2ba3aae"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_task.json",
+      "size": 931,
+      "sha256": "f6948b7abfa6c243a1cec63fa922e0bf8a2c2a8aa7e0e4be304420aef5fa0960"
+    },
+    {
+      "file": "qa-media/pipeline_jackal_j100_bridge_qa_task.png",
+      "size": 2753020,
+      "sha256": "9de05a8a403323866992e33add7473e3f47dc73f2ab32eebbc3a75b3cc8ceea3"
+    },
+    {
+      "file": "qa-media/pipeline_x500_flat_spawn_qa_task.jpg",
+      "size": 376133,
+      "sha256": "7d165690b2acb0be71fea3c383379313834d9d561c9850314019da4091e12353"
+    },
+    {
+      "file": "qa-media/pipeline_x500_flat_spawn_qa_task.json",
+      "size": 881,
+      "sha256": "d04450316cc08b0d4a5a6e7290130570f0ead404914ec74d68296f946a9cf753"
+    },
+    {
+      "file": "qa-media/pipeline_x500_flat_spawn_qa_task.png",
+      "size": 2619533,
+      "sha256": "90968c9aec255594059d65eade352ac31e0091ede249eb44e9611b43583a880a"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/maize_field_jackal_j100_qa1_trace.jsonl",
+      "size": 300,
+      "sha256": "b346b59c2f90f523dbaff80d8817d463323c5ee7d57c758032f667177be6167d"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/rviz-capture.log",
+      "size": 1436,
+      "sha256": "bfa777e771007636798c1ce4c1287f6b0f84cd73f8f43ee3190b68c0264add8a"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa1/simulation.log",
+      "size": 163564,
+      "sha256": "cdc605948c32b5853cb57a5ef391373732198d43182881d2220a5e37b0870473"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/capture-ready.json",
+      "size": 163,
+      "sha256": "b84c2866f1b201e9a2dae27df9ef3dc8c93136f89aeae63ef8115782e3658650"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/capture.log",
+      "size": 129,
+      "sha256": "ab9cb218f53f7385b03edf3bdc00146757975fffe166f352565019b5b49f6785"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/maize_field_jackal_j100_qa2_trace.jsonl",
+      "size": 41987,
+      "sha256": "5f03a8d2a396332f5b77d654fc90d079494707b71889010d9aa4133b8bdc5ade"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/panorama-capture.log",
+      "size": 133,
+      "sha256": "c13576edc0fe4c101c1cc4f67ee4feec86643ff8ca44251b13d0ed1dec4a2fd8"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/rviz-capture.log",
+      "size": 1436,
+      "sha256": "bfa777e771007636798c1ce4c1287f6b0f84cd73f8f43ee3190b68c0264add8a"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa2/simulation.log",
+      "size": 39451,
+      "sha256": "6e69678f23f336c68ab0d6de9c9f77a3ed30603b335f04ffdd670d516b0c2f13"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/capture-ready.json",
+      "size": 164,
+      "sha256": "9bd65ace94510bd829d6f67754605c120e3df22eeddeb17890d718363ac88dac"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/capture.log",
+      "size": 129,
+      "sha256": "055042b77e991776d5cbb10bea39ffd47d0bdc7751d70cccec2e84789b6c34fc"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/maize_field_jackal_j100_qa3_trace.jsonl",
+      "size": 59917,
+      "sha256": "eb6406ca0ed49434dd01406e062462a9d09bfd21364f2d87bf3511fb914f0b40"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/panorama-capture.log",
+      "size": 133,
+      "sha256": "fc5fa8371b0514a5b8d4762efc8b15047ab8c0b257ede0d321fcf0368547233a"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/rviz-capture.log",
+      "size": 1436,
+      "sha256": "bfa777e771007636798c1ce4c1287f6b0f84cd73f8f43ee3190b68c0264add8a"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa3/simulation.log",
+      "size": 42578,
+      "sha256": "0e721004b5ee8deab81842e2d4c12643e0af2c1e5e71ad7d03639ca4a5cb1a40"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/capture-ready.json",
+      "size": 161,
+      "sha256": "1c5870b78942709ac32af58fe52e1154ea3a23796e45213af8e87015b2a04a57"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/capture.log",
+      "size": 129,
+      "sha256": "12a6f3b4d7b73e0ff8a3e57e71aade73881706047d6e944af800ca1c43aa1241"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/maize_field_jackal_j100_qa4_trace.jsonl",
+      "size": 5796,
+      "sha256": "24c8093eefe69f70370d4be0d620b70af9b67d245387cac2b82f918227721a45"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/panorama-capture.log",
+      "size": 133,
+      "sha256": "c6c793a4ab1f5d5a444677c2ef093d21d81071e834b6ed3189f87d656d57a595"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/rviz-capture.log",
+      "size": 88,
+      "sha256": "a39bbf22a5274a9b041e4c2ab7f5490217cebace12ae3764c96e60156376c808"
+    },
+    {
+      "file": "candidate-qa/maize_field_jackal_j100_qa4/simulation.log",
+      "size": 51987,
+      "sha256": "bee2ced5a9d7ed4bde002573f7c06fbfc3821c2e634d8b25a98eb35687c17d14"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/maize_field_x500_live_telemetry_qa_air.json",
+      "size": 3533,
+      "sha256": "2d58ee7430a685525cf78bae5301573ad31891b8fca620048231db89d8aadce6"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/maize_field_x500_live_telemetry_qa_air.jsonl",
+      "size": 464043,
+      "sha256": "f2a3ef5005cf680c7bb1c92cc64adcb5b9a2b678be341b7409e016b68be0b1f2"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/maize_field_x500_live_telemetry_qa_air.log",
+      "size": 923,
+      "sha256": "1c1c9e43e496eb4ca0e1bd554f82f1bff403ccda9661e648a6fcdd40d28bb340"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/simulation.log",
+      "size": 59128,
+      "sha256": "7860b4193838752c5b610d022be6ed3d2b1c719a1390e85288207502f7188115"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/maize_field_x500_no_capture_qa_air.json",
+      "size": 3534,
+      "sha256": "c34929efee23278f6a992b16dd4fd52141465be8c0870830052ca502adec2982"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/maize_field_x500_no_capture_qa_air.jsonl",
+      "size": 466325,
+      "sha256": "2818dc27a207899c562a0b4051c8c36e1b051a7f22f76cd5c4f60654de572cc0"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/maize_field_x500_no_capture_qa_air.log",
+      "size": 923,
+      "sha256": "3a8d1b0a03f016b395223e4772bba7ed98661dc02cc0ea0805f2d907eb352c54"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/simulation.log",
+      "size": 59068,
+      "sha256": "8ba6db7a78deace4d220a956ee3ee247aad32f4be1501511781a09c0b3519a5c"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/maize_field_x500_qa1_air.json",
+      "size": 1209,
+      "sha256": "6628d910b74e73c2553525cd9b409f99a96f58671d17bf308173a8f715b598a5"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/maize_field_x500_qa1_air.jsonl",
+      "size": 16612,
+      "sha256": "c86531001b70dc7eb034a038e9a9088ae29eca78a5c702a14ad3de3fd3c5c28d"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/maize_field_x500_qa1_air.log",
+      "size": 295,
+      "sha256": "f1dd3341de9e2d05899236974880751187a1ed943b9cecd94bf28ef0456eeba2"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/simulation.log",
+      "size": 60449,
+      "sha256": "24e46f2c9da77eaefb1f79f749e74562c353caaaebb7919403a204f1aa2df283"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/capture-ready.json",
+      "size": 132,
+      "sha256": "7861d46cd9b3ec546131dcbf0ba939c31a4ae1f86053be863eaf9bd41b88f20c"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/capture.log",
+      "size": 115,
+      "sha256": "634415ab865edf02e573b4d403729289430d096f2974ad50354abe0fe611bd00"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/maize_field_x500_qa2_air.json",
+      "size": 3083,
+      "sha256": "5f4384ecf0d0c7ba9b15dc896b33404be8680c4bf04db0a0b59eeae7a5b32e85"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/maize_field_x500_qa2_air.jsonl",
+      "size": 293754,
+      "sha256": "14b658e02201be618bd3486b3e8eaf2637f7eef6fa5bdb937acce8b66b4fbc3a"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/maize_field_x500_qa2_air.log",
+      "size": 811,
+      "sha256": "f2f8a9464ffabbefaef2d2cca9c8f501d371e108416fff43c961a91fcba3ac86"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/simulation.log",
+      "size": 60036,
+      "sha256": "8374fce0d8b8adddcbf25eaec9f0af9c7c7c1a39edc56f123656a170a74991f2"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/capture-ready.json",
+      "size": 133,
+      "sha256": "d0ad6f4b46abaa3750321ea36b0da1d596a2a445c81d0fa09062132aea69bfa3"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/capture.log",
+      "size": 115,
+      "sha256": "127d037c1ebc88715879fb669f281850cb3a9bf3232ed8d3c1f88d52360990f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/maize_field_x500_qa3_air.json",
+      "size": 3514,
+      "sha256": "405f06f19218635da08e5f10ca52f86205861aa2f491f79813bfc388502c41da"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/maize_field_x500_qa3_air.jsonl",
+      "size": 498813,
+      "sha256": "1aab24af2c862778a4c1d317513dd9d1024c35402c9ed898727026f4bf9568cc"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/maize_field_x500_qa3_air.log",
+      "size": 923,
+      "sha256": "030425d8186d4c124711094eaf76d51eac97d6a7265ae97078c8804b64d31af4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/simulation.log",
+      "size": 60090,
+      "sha256": "7995b71f05b525f86f0fcc51b91e76368076d56f8c48217b70b54dbc30de33f9"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/camera-panorama.json",
+      "size": 168,
+      "sha256": "37ed05b31086a942813ea5295a93c55861a27330217ce222ddfd948dbb5ee00b"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/camera.json",
+      "size": 202,
+      "sha256": "6c8702fae2dbf9d6505e875842fa882d3dc379a3ef9ba4fb1c8d8e18f227f943"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/capture-ready.json",
+      "size": 159,
+      "sha256": "246baf9bbab6942643b4c9735a4968527a41a0e3e7caea20c32500e6e2f87119"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/capture.log",
+      "size": 133,
+      "sha256": "65d700273a7c8631542c157d2e36d418266fae6e2b151b5a74ebd50a218ad2d9"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/ground-startup.json",
+      "size": 192,
+      "sha256": "4318d59a96168ed8b4b2850aa2367308e60c378b2634ff14af3ab56ccc3d62a8"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/orchard_jackal_j100_bridge_qa_trace.jsonl",
+      "size": 8445,
+      "sha256": "40e9f83568afd12cbbea90fbe76c4fe72182907f4636e5b43cf56bcb84c68343"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/panorama-capture.log",
+      "size": 137,
+      "sha256": "bece2d72cf4ac4402d76997ed082b6ba6f9ca240a6107bc56977b048f03d5bf0"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/rviz-capture.log",
+      "size": 90,
+      "sha256": "b2ef4c591dab4ccfe77a6a448cddecc785498fb93b1f1122df12559f959fe9be"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_bridge_qa/simulation.log",
+      "size": 56058,
+      "sha256": "e77933198efcde656e9740fac7cdbd7fc49093d50299225f2e1a90880a2bfd85"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/camera-panorama.json",
+      "size": 168,
+      "sha256": "37ed05b31086a942813ea5295a93c55861a27330217ce222ddfd948dbb5ee00b"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/camera.json",
+      "size": 202,
+      "sha256": "6c8702fae2dbf9d6505e875842fa882d3dc379a3ef9ba4fb1c8d8e18f227f943"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/orchard_jackal_j100_cleanup_qa_trace.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/panorama-capture.log",
+      "size": 73,
+      "sha256": "d04a57b8e7ffc8d2683815740fb0430e57c6b2808b1048fcd371b3418bb28a04"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/rviz-capture.log",
+      "size": 1437,
+      "sha256": "09569b8f98f8bcf677bc01ffe36c7ad2dd1e259e3d219b9ad66a0ddc60b7d099"
+    },
+    {
+      "file": "candidate-qa/orchard_jackal_j100_cleanup_qa/simulation.log",
+      "size": 15355,
+      "sha256": "1fa579b6535ff90ce1a4e3d6fbe772b9515c493f89b0fa07d58758fb14822330"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/camera.json",
+      "size": 200,
+      "sha256": "d42435194f145bac501cc80b53c10316b923d13e81da4fef27b6740833b5aeb0"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/capture-ready.json",
+      "size": 131,
+      "sha256": "9b40af500ad257b0262d2d38bafb3e4f7a872c7eff998444a8c6504d3938de3a"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/capture.log",
+      "size": 119,
+      "sha256": "1778373fa24de3c1adb41cbb2cef2ab7c74892b0d4a1eab25e16ff3d75f3feb0"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/orchard_x500_bridge_qa_air.json",
+      "size": 3508,
+      "sha256": "8824dad2f7f3ed8974e78ca62823f965663f1747e5b6c3d30e38366dee995dbf"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/orchard_x500_bridge_qa_air.jsonl",
+      "size": 629495,
+      "sha256": "291674bea57e32665f866cd89c9a3f73db960e96e3573f3083986b8ad895a476"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/orchard_x500_bridge_qa_air.log",
+      "size": 923,
+      "sha256": "76c3adad8c1d1e60de8fb03a469e70752d5d2f738350132dabfe73b43850af40"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/simulation.log",
+      "size": 60234,
+      "sha256": "8ccea8d7ad112df6e476dc8a4467869af88752f00f5e193d3c388e579fd2714e"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/camera-panorama.json",
+      "size": 173,
+      "sha256": "5b2b625d0798cd9161949da601d4e41182c9255b94013e3a16867a16465fc58d"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/camera.json",
+      "size": 202,
+      "sha256": "7b2b754a6faa8f075ba7a64dd173e23fa5f79763135f84ecc11530f8a9b84f61"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/capture-ready.json",
+      "size": 165,
+      "sha256": "3c65f962f350477f851bfeb856d4bfc981ff460fa3c857c28a092646d665e74e"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/capture.log",
+      "size": 135,
+      "sha256": "8cbeeda5e3ac6b06714a07157a7fafc94fa4896dfa05d6ebe7f55c1f770aa56a"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/contact-bridge.yaml",
+      "size": 1721,
+      "sha256": "4d317e96e30d6e9c6cf7633413182e12554007c28be278f038691bd26ef33155"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/ground-startup.json",
+      "size": 193,
+      "sha256": "9e288a07b37fbc1a5beb3c86accbecce0a970c3450c2a0b199beea8a793ff9ae"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/panorama-capture.log",
+      "size": 139,
+      "sha256": "75a08f797fd4a389d9de88e93295c76800b695162c418bece0370343a02a439a"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/pipeline-runtime.sdf",
+      "size": 3939,
+      "sha256": "aad23770e24ec23f25a1cf2cf3cbb5e4342a3ca43761d5edaa7c2c0c94f60995"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/pipeline_jackal_j100_bridge_qa_trace.jsonl",
+      "size": 8831,
+      "sha256": "6fccc8d5fb524ef0fa3ee9eaf69f0edb254ec6d4a15bb546a0883c8d550f5e91"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/robot-instrumented.sdf",
+      "size": 24623,
+      "sha256": "780305fc63c76957dae0b05ac588db8038f054f5b0e1da1490a3f8afb7b84c67"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/rviz-capture.log",
+      "size": 91,
+      "sha256": "0c1e899acdec23b05744fbb8a65e0345debefc0c9a8d781d1ebf327f4ea2b271"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "candidate-qa/pipeline_jackal_j100_bridge_qa/simulation.log",
+      "size": 57481,
+      "sha256": "9d8ab85028466fd7d8656069a9440618214158fdf5aa343081ebfa377654473c"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/camera.json",
+      "size": 199,
+      "sha256": "223050071fd6aaac08db731427348acd6f3a54f28dbd6223270551a458e72637"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/pipeline-runtime.sdf",
+      "size": 3939,
+      "sha256": "aad23770e24ec23f25a1cf2cf3cbb5e4342a3ca43761d5edaa7c2c0c94f60995"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/pipeline_x500_bridge_qa_air.json",
+      "size": 1222,
+      "sha256": "227821753069ba699c76063478d6f48476d0d530313244b4693489a8113a20bd"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/pipeline_x500_bridge_qa_air.jsonl",
+      "size": 262353,
+      "sha256": "ef0f9caa35d839121a5a0c72fb83a806c72fa9054a95c3d64dfb3dbc1ed149b4"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/pipeline_x500_bridge_qa_air.log",
+      "size": 133,
+      "sha256": "c2f063805b6c154977e2d18e5a84885843de5c2cb64c1dfa6b36fe7cfca96b3c"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/simulation.log",
+      "size": 59413,
+      "sha256": "11918dc8119033dc2ac0051203cdd73993ec24b07cf83b71668adf996d8e51c8"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/camera.json",
+      "size": 199,
+      "sha256": "223050071fd6aaac08db731427348acd6f3a54f28dbd6223270551a458e72637"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/capture-ready.json",
+      "size": 126,
+      "sha256": "656f355ad3bfd237514086dc0cb36e160032bcfebad7a1bb12e1f2f035c7c418"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/capture.log",
+      "size": 129,
+      "sha256": "aa0d0c5da0ef9f19d3c133852aaa4e3bd2d821cb38f1dcf62790831a5191a3df"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/pipeline-runtime.sdf",
+      "size": 3939,
+      "sha256": "aad23770e24ec23f25a1cf2cf3cbb5e4342a3ca43761d5edaa7c2c0c94f60995"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/pipeline_x500_flat_spawn_qa_air.json",
+      "size": 3519,
+      "sha256": "117dfbf2443099c2dd04822d6b7b7863605135a638c1111b28e75cc6f84187f5"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/pipeline_x500_flat_spawn_qa_air.jsonl",
+      "size": 710240,
+      "sha256": "234ba5b0fdd89ef4ecb0df8bc9e89548f7a25de004363d32a620da5cf439ec8f"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/pipeline_x500_flat_spawn_qa_air.log",
+      "size": 923,
+      "sha256": "392ccb93e3db099bb59df2d4cf88eab3ff88342b734ea5871ea9b0442cffac93"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/simulation.log",
+      "size": 60123,
+      "sha256": "4f22d09315add41fb534e468a66c3910514a75a3042f86254a5129950bbcc74f"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/px4-rootfs/parameters.bson",
+      "size": 399,
+      "sha256": "049781e9355655d389bc3b067100d1b6c1e6e5d232a1a5e0868c1ba26a3f4ac7"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "48065e05ef4b08df0d676736e33ca3d9964f4b55bce9abc5a19a2e98c6fe3234"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_live_telemetry_qa/px4-rootfs/log/2026-10-07/11_51_48.ulg",
+      "size": 8111641,
+      "sha256": "913d271277bfcc0c9cadbf0b83de8d032747bc8569597c27a12c4e94143d0e29"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/px4-rootfs/parameters.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/px4-rootfs/parameters_backup.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_no_capture_qa/px4-rootfs/log/2026-10-07/10_35_18.ulg",
+      "size": 8282557,
+      "sha256": "77e69eae7f7a9af3307b59e19faeb1a935b918d76687215c90d54ce8e5ab1e64"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/px4-rootfs/parameters.bson",
+      "size": 378,
+      "sha256": "2070812d99e39703ee2e1d4f9193640fa4f167f04a6d621315e12573ec46a05e"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/px4-rootfs/parameters_backup.bson",
+      "size": 378,
+      "sha256": "2070812d99e39703ee2e1d4f9193640fa4f167f04a6d621315e12573ec46a05e"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa1/px4-rootfs/log/2026-10-07/09_45_31.ulg",
+      "size": 4046231,
+      "sha256": "40e76d6433c05ce380bd7cbaef31e05b689725edf7a498272057562f48e7c398"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/px4-rootfs/parameters.bson",
+      "size": 357,
+      "sha256": "48065e05ef4b08df0d676736e33ca3d9964f4b55bce9abc5a19a2e98c6fe3234"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "48065e05ef4b08df0d676736e33ca3d9964f4b55bce9abc5a19a2e98c6fe3234"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa2/px4-rootfs/log/2026-10-07/09_51_39.ulg",
+      "size": 5695689,
+      "sha256": "bd94e731496f0f47424173ac9447810d820de0c7f54c8339f8e68342991ced46"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/px4-rootfs/parameters.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/px4-rootfs/parameters_backup.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "candidate-qa/maize_field_x500_qa3/px4-rootfs/log/2026-10-07/10_13_53.ulg",
+      "size": 8565054,
+      "sha256": "89f2286a9459e79c1f273e09c06ab65e17c9fcfa234ec406cf27b68427ee11f3"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/px4-rootfs/parameters.bson",
+      "size": 399,
+      "sha256": "2e34dc17b230ca17e5bb6951801a6d694d7417aba7fb8541c2db5309ec35e837"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/px4-rootfs/parameters_backup.bson",
+      "size": 399,
+      "sha256": "2e34dc17b230ca17e5bb6951801a6d694d7417aba7fb8541c2db5309ec35e837"
+    },
+    {
+      "file": "candidate-qa/orchard_x500_bridge_qa/px4-rootfs/log/2026-10-07/11_22_36.ulg",
+      "size": 13187667,
+      "sha256": "0832c0ace7aa78d041c15c7424662a0b85b9fa387ab6b295b9fc39086f6f246a"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/px4-rootfs/parameters.bson",
+      "size": 357,
+      "sha256": "cc3c9235e704093b6e1d016256de50da7dff35afcf0a158ebfd63bf730c04b59"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "cc3c9235e704093b6e1d016256de50da7dff35afcf0a158ebfd63bf730c04b59"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_bridge_qa/px4-rootfs/log/2026-10-07/11_23_45.ulg",
+      "size": 13752116,
+      "sha256": "96188c4b366d04c222dddf4999cc9abca6b1b0ce69332ce3cb03bf782ace9f56"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/px4-rootfs/parameters.bson",
+      "size": 399,
+      "sha256": "3d8022d431ecc9d1b976064aa49e9b7f42aebbb7f06ba0c7df166d5b66be49fe"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/px4-rootfs/parameters_backup.bson",
+      "size": 399,
+      "sha256": "3d8022d431ecc9d1b976064aa49e9b7f42aebbb7f06ba0c7df166d5b66be49fe"
+    },
+    {
+      "file": "candidate-qa/pipeline_x500_flat_spawn_qa/px4-rootfs/log/2026-10-07/11_33_24.ulg",
+      "size": 14756520,
+      "sha256": "b647378db51a19e0136556a623489a89084d8de0f1039eeca0465c864c1245f5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/camera.json",
+      "size": 209,
+      "sha256": "b6bd687acd43cdc8a199ff010e214b056deb58cc262c13b7748d8ebce1636fb6"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/capture-ready.json",
+      "size": 160,
+      "sha256": "823fae560bfb4c4c9fa9d70afe713ec9a513b86de3d62c2fe6cc80acad45105d"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/capture.log",
+      "size": 113,
+      "sha256": "c6ce6f85748d67aedf1386d3eec47668c53f3c74a0b7f5b9964b92a1c365344b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/maize_field_husky_a200_r1_trace.jsonl",
+      "size": 4892,
+      "sha256": "d0a1b06bf0ab9dde9625dcac6bba84eee1fcc80d8c74107e36328df215c67660"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r1/simulation.log",
+      "size": 50996,
+      "sha256": "7719a6918db582be42c6d2c553a33fb597fd81bd31ce995b42d27b5e495649e6"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/maize_field_husky_a200_r2_trace.jsonl",
+      "size": 4288,
+      "sha256": "cae468a9ecc750ab8a19a89c3245702537822f934cc25d8238ea2cc872b6b2e3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r2/simulation.log",
+      "size": 45997,
+      "sha256": "47aa24144f8ca14ceddd8c8eeaeef915a949c72a1268f9be53badf4ca5e5739c"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/maize_field_husky_a200_r3_trace.jsonl",
+      "size": 4895,
+      "sha256": "2c913c75975793b3ef5839a95dcd062759030ee8f4e8c68b4cff19ec8f08a981"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_husky_a200_r3/simulation.log",
+      "size": 47452,
+      "sha256": "cf2558027a08dc35697f8cfb254b295722bd3617d37b0a16c72182d4aa6b847b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/capture-ready.json",
+      "size": 162,
+      "sha256": "9b3cf9c5987beab73ec1efa88943797812af1eb6c7fac6810b21bd944c4e6ee9"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/capture.log",
+      "size": 115,
+      "sha256": "f39d30d230c7ad774fe9bdc9691484ca50262f38023a854cd0be173eeaa420dc"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/maize_field_jackal_j100_r1_trace.jsonl",
+      "size": 4592,
+      "sha256": "36ffc96f8cc19cc3835c377e19b28d0b7a0a86f0a23780c2a68a953ef674d551"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/panorama-capture.log",
+      "size": 119,
+      "sha256": "05846a552c75a51aeeb31d250cbd5a29fafbe36837ed7e953b55334637a0e4f9"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/rviz-capture.log",
+      "size": 75,
+      "sha256": "337f25610ea66c1229426f3a2c01669149e9c44b08e76a3bf5a0d520342877a0"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r1/simulation.log",
+      "size": 56147,
+      "sha256": "79f7b6b515ab9d7fb2b2c7e669c60e01bf94ac6fe0695f72fbe3e6a200c10d5c"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/ground-startup.json",
+      "size": 190,
+      "sha256": "e61fb6165dbc53a5be7e1553f436e1a0eda9ee51911dbf016c756df04944244a"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/maize_field_jackal_j100_r2_trace.jsonl",
+      "size": 9465,
+      "sha256": "cd5a37b61f868032b319de8c4a44d96060617436af51e957bb736ea8b554b001"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r2/simulation.log",
+      "size": 47016,
+      "sha256": "8a0d8849dafafe21c431a379d90755fde8eaf89bf67bcedb6d52b790cdd5ec4f"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/ground-startup.json",
+      "size": 203,
+      "sha256": "e2a9b82d81b26436d551fa517a1dfc2194f470ab6a710643511f7f40826ada79"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/maize_field_jackal_j100_r3_trace.jsonl",
+      "size": 7071,
+      "sha256": "c064cef39eda5fb5a81f9c7969f4224c50e1a43dfc877bd109033b69286c24a5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_jackal_j100_r3/simulation.log",
+      "size": 44744,
+      "sha256": "aedeb1a3fc4cc4e193380e3967a4046d05f0b54e13884209c69b485a703aadcb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/capture-ready.json",
+      "size": 130,
+      "sha256": "bc7916bf1ec5cd3aced57641e722416a459e7619d38c45ce53401a193a589b59"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/capture.log",
+      "size": 101,
+      "sha256": "273b9e3b91a48e4887b986285739075bf56c169e97c01c56f2e2b58d65d1f4b0"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/maize_field_x500_r1_air.json",
+      "size": 3530,
+      "sha256": "9a22a4b5b57e5e98ca5a33e3d965ccb3dbe1fcd22d7a2c0b40341719a09bfcb3"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/maize_field_x500_r1_air.jsonl",
+      "size": 455795,
+      "sha256": "8fc223b2297ce6d39f02e02255f10143e56ba5537c792fb055706cb77d01d876"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/maize_field_x500_r1_air.log",
+      "size": 923,
+      "sha256": "2ed4da965087112d64207b0fd01dcad567a950e27ca5250975106d32498e1b74"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/simulation.log",
+      "size": 60581,
+      "sha256": "3b6c1e43ec75c1c6081fcbb3be29a1a619633882e636487d05ece27cbf62561e"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r2/maize_field_x500_r2_air.log",
+      "size": 1019,
+      "sha256": "ef5422f6565ccbe5d3e2d0fe75ea0870d537294fa10e1adf1a8c6a782a569ec6"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r2/simulation.log",
+      "size": 6394,
+      "sha256": "30d8fd84014fbd07fbae83aea0c1a548c06b72f0ebf68dfe832d67aa8ce8e1bb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r3/maize_field_x500_r3_air.log",
+      "size": 1019,
+      "sha256": "f0c016a1fe0c4288d2657d5287b3101df4d6271ef3ba9715c3a8d8b1896a19e5"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r3/simulation.log",
+      "size": 6165,
+      "sha256": "8fc4dbcc093d73b06d2ee5c071d53ded4a9c1b5f6a962a9cacd16316db4e6dad"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/camera.json",
+      "size": 202,
+      "sha256": "6c8702fae2dbf9d6505e875842fa882d3dc379a3ef9ba4fb1c8d8e18f227f943"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/orchard_jackal_j100_r1_trace.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/rviz-capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/orchard_jackal_j100_r1/simulation.log",
+      "size": 21795,
+      "sha256": "d3f0804b631371a4ada03013c3c6879d3bcc451e5929013cd7a02b2380d5a7ef"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/px4-rootfs/parameters.bson",
+      "size": 357,
+      "sha256": "037f622a1228a3ac50d5772a5f9bd4867a33bcfd9e81c9cca7b23335d46e9e96"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "037f622a1228a3ac50d5772a5f9bd4867a33bcfd9e81c9cca7b23335d46e9e96"
+    },
+    {
+      "file": "matrix-before-empty-param-fix/maize_field_x500_r1/px4-rootfs/log/2026-10-07/10_29_19.ulg",
+      "size": 8206546,
+      "sha256": "a5da7dd0578a7982c2624256c4bf5a731b8b8805d94bf58ad6a97a2e77f56934"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/camera.json",
+      "size": 209,
+      "sha256": "b6bd687acd43cdc8a199ff010e214b056deb58cc262c13b7748d8ebce1636fb6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/capture-ready.json",
+      "size": 162,
+      "sha256": "d9b04cc9afaa48800cc100b01b1bc0ba3b59840fef1a663bfdfa0fe2ea1d75d4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/capture.log",
+      "size": 113,
+      "sha256": "c6ce6f85748d67aedf1386d3eec47668c53f3c74a0b7f5b9964b92a1c365344b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/maize_field_husky_a200_r1_trace.jsonl",
+      "size": 5165,
+      "sha256": "9cc63c527b77fed44e83e6453296b3a0704e8d7e05d00d7152a01f13c0441694"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/sensor-bridge-imu.yaml",
+      "size": 233,
+      "sha256": "3e37619d598d53e144995bb4f32ee5f44e15a11a43ae28fd9fbcb5ea98ab5441"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r1/simulation.log",
+      "size": 48286,
+      "sha256": "7f48106c79532e0fac7f317c48f387899ea8c9103f42f512a9f40781b1c0cbe5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/maize_field_husky_a200_r2_trace.jsonl",
+      "size": 5739,
+      "sha256": "84b06af3553c26d078ec68ac77553f0230a29cb25bf2ed0672bf19743882ff4a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/sensor-bridge-imu.yaml",
+      "size": 233,
+      "sha256": "3e37619d598d53e144995bb4f32ee5f44e15a11a43ae28fd9fbcb5ea98ab5441"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r2/simulation.log",
+      "size": 46245,
+      "sha256": "a97b81ecdd35374b96a95c4c90a90b1765041936f487590f3c0a76d09350921a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/maize_field_husky_a200_r3_trace.jsonl",
+      "size": 4885,
+      "sha256": "e8e5adf0ca9208335127375efef248fe917eae10d87bb3a3b933bebf4f0415c7"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/sensor-bridge-imu.yaml",
+      "size": 233,
+      "sha256": "3e37619d598d53e144995bb4f32ee5f44e15a11a43ae28fd9fbcb5ea98ab5441"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_husky_a200_r3/simulation.log",
+      "size": 45691,
+      "sha256": "d727558fc2421cd8682f9ba49ff9da6a35030f6b9d4a270013a42d4436c2bc2c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/capture-ready.json",
+      "size": 162,
+      "sha256": "028af79baead62f76047646bedb6c6d805665f21361b5285d0dcf248db9a3a3d"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/capture.log",
+      "size": 115,
+      "sha256": "f39d30d230c7ad774fe9bdc9691484ca50262f38023a854cd0be173eeaa420dc"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/maize_field_jackal_j100_r1_trace.jsonl",
+      "size": 3965,
+      "sha256": "f5573b6812b8908d81b6c8d304518ea0483f1d42b8a7c238fae6822dbb9e61c2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/panorama-capture.log",
+      "size": 119,
+      "sha256": "05846a552c75a51aeeb31d250cbd5a29fafbe36837ed7e953b55334637a0e4f9"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/rviz-capture.log",
+      "size": 75,
+      "sha256": "337f25610ea66c1229426f3a2c01669149e9c44b08e76a3bf5a0d520342877a0"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r1/simulation.log",
+      "size": 52466,
+      "sha256": "02f473657be068b7efe19e82b36ebfe4ee8bc1137c2a2bb32bd6ad613ac6c2db"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/maize_field_jackal_j100_r2_trace.jsonl",
+      "size": 4578,
+      "sha256": "9b104b0030bdb524778264112e98683c552bb3c5aac497d4f418680f55001038"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r2/simulation.log",
+      "size": 45649,
+      "sha256": "27cd735de07fb0407085dd0b88e5077dcd186f372d20cc397021c9566f0f8ce1"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/maize_field_jackal_j100_r3_trace.jsonl",
+      "size": 5787,
+      "sha256": "7b95f0223088f39304974bd87a7fea8a446d4462203256e9a947ab0e4a68447b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_jackal_j100_r3/simulation.log",
+      "size": 45026,
+      "sha256": "1501c0d7eba92681eb0cd8a05820267318eb16bd0436459e4a329e61e92f63f8"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/capture-ready.json",
+      "size": 131,
+      "sha256": "be851d8ccd4b40e63d184d00282b6559f21a6bc417abd006cc0515333879845e"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/capture.log",
+      "size": 101,
+      "sha256": "273b9e3b91a48e4887b986285739075bf56c169e97c01c56f2e2b58d65d1f4b0"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/maize_field_x500_r1_air.json",
+      "size": 3499,
+      "sha256": "040429049a2e6cb7141515182e8a616039859624c663288e0c0c2efdb4069def"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/maize_field_x500_r1_air.jsonl",
+      "size": 460869,
+      "sha256": "1524ed42a949c6c77ca70cfa6ea01c2d68115328b50e70360ac4f4d23af36e93"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/maize_field_x500_r1_air.log",
+      "size": 923,
+      "sha256": "d0bda1836f628b2d3a7486d0f3c9e66682758d925e7f919b944fd8ae177a30a6"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/simulation.log",
+      "size": 60365,
+      "sha256": "e7d7d53ea1065e8b7d2e32cb076e08f2f4cce603eb7cdd9c59b4f5771bb6ed01"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/maize_field_x500_r2_air.json",
+      "size": 1129,
+      "sha256": "44d0e48429d9815999c6d04382c8a700cefcf61a377d8d7dc70e70fb53889e1d"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/maize_field_x500_r2_air.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/maize_field_x500_r2_air.log",
+      "size": 133,
+      "sha256": "82ab989c7b9d33431494953ab812c13d4244090d90dfed883ad5f03c7da98b79"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/simulation.log",
+      "size": 10526,
+      "sha256": "5e48da9e5d8f1825131d47e856838caa9760427cdadaf5fe9043d70f937d557f"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/maize_field_x500_r3_air.json",
+      "size": 3527,
+      "sha256": "189d71ed98104c966e4bba7d69001a87da287bc959ab41d6d9b0c1f4741681a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/maize_field_x500_r3_air.jsonl",
+      "size": 461127,
+      "sha256": "f0b79117446e3b54f10ef5109be59ee213ba8abd28ba38adc8b1079f79d73895"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/maize_field_x500_r3_air.log",
+      "size": 923,
+      "sha256": "1f523c47cd4f590aa169b87234f25e3960e776285cf2e232cc282db539947537"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/simulation.log",
+      "size": 59127,
+      "sha256": "3e383240cc625397b4a4ccb27414d579518ac94066ebbdf7644a7c26a118e0c2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/camera.json",
+      "size": 201,
+      "sha256": "6ed034d7e28a9a4003f4321143de7ec2eab1cc34d157c508369328e057f23c47"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/capture-ready.json",
+      "size": 157,
+      "sha256": "834628c02a1aff4f3e130e1a03c18f3c567b1db82ae70a93ab9d715a63f49c1f"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/capture.log",
+      "size": 105,
+      "sha256": "99d78f5cd3e38a59041bf03a04c28a50cc1d55dd7b5706db85a15fdaf28ca012"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/contact-bridge.yaml",
+      "size": 2190,
+      "sha256": "3161199cda9070d8fd87bfb567e4b4771b94cce820312f419cc2e4bc6068ebcb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/ground-startup.json",
+      "size": 191,
+      "sha256": "9cc306cd48cf70fb595726d7f9cf0dbb7c33a2144ed97919f3eeb1f292bc63d4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/orchard_husky_a200_r1_trace.jsonl",
+      "size": 8455,
+      "sha256": "578f4e765f9a4b5c2363a910f3755f4141b35ae34fa09949d9d7be7b1e2b9f2c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/robot-instrumented.sdf",
+      "size": 24988,
+      "sha256": "b8d58f2581edfc5c2b8b6b3a03ffa8a65357155c5f4663a5766aab8513417074"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/sensor-bridge-imu.yaml",
+      "size": 233,
+      "sha256": "3e37619d598d53e144995bb4f32ee5f44e15a11a43ae28fd9fbcb5ea98ab5441"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r1/simulation.log",
+      "size": 47011,
+      "sha256": "cbbbdbaf5d80daf298c76a01553a3b1c09adf6f640ea6e02a46e43ee81c61e6a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/contact-bridge.yaml",
+      "size": 2190,
+      "sha256": "3161199cda9070d8fd87bfb567e4b4771b94cce820312f419cc2e4bc6068ebcb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/orchard_husky_a200_r2_trace.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/robot-instrumented.sdf",
+      "size": 24988,
+      "sha256": "b8d58f2581edfc5c2b8b6b3a03ffa8a65357155c5f4663a5766aab8513417074"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/sensor-bridge-imu.yaml",
+      "size": 233,
+      "sha256": "3e37619d598d53e144995bb4f32ee5f44e15a11a43ae28fd9fbcb5ea98ab5441"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_husky_a200_r2/simulation.log",
+      "size": 8864,
+      "sha256": "21c08021d30d5176277d32af70978ab56595441e5dd71be9ba4f31a7b329e25a"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/camera-panorama.json",
+      "size": 168,
+      "sha256": "37ed05b31086a942813ea5295a93c55861a27330217ce222ddfd948dbb5ee00b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/camera.json",
+      "size": 202,
+      "sha256": "6c8702fae2dbf9d6505e875842fa882d3dc379a3ef9ba4fb1c8d8e18f227f943"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/capture-ready.json",
+      "size": 163,
+      "sha256": "e91cbc06f3f4dfed947cee55bcf17df35d6baebaf8a54e7ddb7ca93ffd022548"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/capture.log",
+      "size": 107,
+      "sha256": "663f42723b4aa7f761555e6b2f9b38bc532ba1ef614d66b42118c69b903bbc89"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/ground-startup.json",
+      "size": 192,
+      "sha256": "4318d59a96168ed8b4b2850aa2367308e60c378b2634ff14af3ab56ccc3d62a8"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/orchard_jackal_j100_r1_trace.jsonl",
+      "size": 6681,
+      "sha256": "ea0541e10e235313db7720dc853ea08a98f29504785194f7853dbb2ffb1f39db"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/panorama-capture.log",
+      "size": 111,
+      "sha256": "53abe9011579a9a7e1c161ffdee53dbf523e9977e65688bd4a259d423ddb6b45"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/rviz-capture.log",
+      "size": 71,
+      "sha256": "909a1a9c915d1d99aaaa3e51267897e6b1211f21d3c90363ddebef61701f9c53"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r1/simulation.log",
+      "size": 60014,
+      "sha256": "d42cf184859fb76bf0e99c932dda027f8d79d313e27462d5b04d5499b4325f69"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/ground-startup.json",
+      "size": 193,
+      "sha256": "de00522eea3eb7b7804bfb92de2b482b29771e0b972a0279525dcabeb086c194"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/orchard_jackal_j100_r2_trace.jsonl",
+      "size": 9719,
+      "sha256": "d18d8a2d862e171da9a20df717a430d1e3c0c10704886cee9cfdbbd10bb7ee9f"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r2/simulation.log",
+      "size": 38655,
+      "sha256": "2ee57a62d08e187ba841c4a9be9fdcbbbd0a2907f0508cebc520f81d20ccc049"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/contact-bridge.yaml",
+      "size": 1714,
+      "sha256": "4ee147fc6a9937c989e7f479a7b561e4a3243d52b0da34e11fb6be2963c58bab"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/ground-startup.json",
+      "size": 193,
+      "sha256": "de00522eea3eb7b7804bfb92de2b482b29771e0b972a0279525dcabeb086c194"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/orchard-runtime.sdf",
+      "size": 4745,
+      "sha256": "612fda707b5b395fdb16bdcac024584a09d8a2170b933e2030e211a3f6ea1e35"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/orchard_jackal_j100_r3_trace.jsonl",
+      "size": 8665,
+      "sha256": "6ca535bc000f572b1e66065d2b2cdd4a7728dee732bf8c44b58ca150b2a4c029"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/robot-instrumented.sdf",
+      "size": 24616,
+      "sha256": "74b407845bd0b36d94caafa98f37e8f87ba446d8ddc2186b366346d897d3eb3c"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/sensor-bridge-camera.yaml",
+      "size": 451,
+      "sha256": "504e75ecaf1e5feb853fabcb3f8bc95a7721b31ee7309d0a70d78d46199045b2"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/sensor-bridge-imu.yaml",
+      "size": 237,
+      "sha256": "d175e43cf4028935e0a1aa3eb1b2e9635c5c30566ffbe37c2b0742a54e28f543"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/sensor-bridge-lidar.yaml",
+      "size": 274,
+      "sha256": "b22eef1831dbecf3e8497b9bb8d64a6fbe4d64e6dc5086a5c88af5203371eeb5"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/orchard_jackal_j100_r3/simulation.log",
+      "size": 40180,
+      "sha256": "798763261775b4354f992ac4ffc69903a3e01ef2c71f42235df0998b86f96f9b"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/px4-rootfs/parameters.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/px4-rootfs/parameters_backup.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r1/px4-rootfs/log/2026-10-07/11_41_22.ulg",
+      "size": 8145640,
+      "sha256": "868dba244a76351cabe6cbea6d3b012a92997c23a0fc9cfe8529724bb1128583"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/px4-rootfs/parameters.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/px4-rootfs/parameters_backup.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r2/px4-rootfs/log/2026-10-07/11_43_44.ulg",
+      "size": 381449,
+      "sha256": "40ec406d02da41333ea421f36c914f55334b41865bdc71ba3adf487f61b87c81"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/px4-rootfs/parameters.bson",
+      "size": 357,
+      "sha256": "b4315b9cd633073a972440d478d255299ead07774ef177b518c4388f9dfa9ac7"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "b4315b9cd633073a972440d478d255299ead07774ef177b518c4388f9dfa9ac7"
+    },
+    {
+      "file": "matrix-before-live-telemetry-wait/maize_field_x500_r3/px4-rootfs/log/2026-10-07/11_44_25.ulg",
+      "size": 8161083,
+      "sha256": "0e0a80eb3b82601cc49fef451f0e8b83fa7e9a8b71741b477abed315827d4f1e"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/camera.json",
+      "size": 209,
+      "sha256": "b6bd687acd43cdc8a199ff010e214b056deb58cc262c13b7748d8ebce1636fb6"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/capture-ready.json",
+      "size": 162,
+      "sha256": "fd0521e9ec6a87b63a443e7ff90052ac28944154fcaef7541eed1b64eab89ac2"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/capture.log",
+      "size": 113,
+      "sha256": "c6ce6f85748d67aedf1386d3eec47668c53f3c74a0b7f5b9964b92a1c365344b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/maize_field_husky_a200_r1_trace.jsonl",
+      "size": 4896,
+      "sha256": "de969784c652ae9edd192d1834b450df44c7bc04b7d3dd87ce3e0449c89aa7df"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r1/simulation.log",
+      "size": 57146,
+      "sha256": "26471ff53394616c1b83ae4576dd2bf7fac9ae8f70e62e3f724057cc820946fa"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/maize_field_husky_a200_r2_trace.jsonl",
+      "size": 4587,
+      "sha256": "6647e79341dc67083eb1211eacf338f80ca62d99a8869089cf59cc4a6cd65b7d"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r2/simulation.log",
+      "size": 47833,
+      "sha256": "1f7903f5875d58f65ccb1fb503f2c5ce16b7faf48ba5e7998b0fa50f2cb508c5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/ground-startup.json",
+      "size": 220,
+      "sha256": "dd9391e66babdf90adc5f4d6eac66ece91351fb38abb4743c0e72836113cc1fb"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/maize_field_husky_a200_r3_trace.jsonl",
+      "size": 7037,
+      "sha256": "58951a36c8cbdcb9fe629755577cd94673c425f13da616deadefb5aa019fcc5e"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_husky_a200_r3/simulation.log",
+      "size": 46135,
+      "sha256": "f1aaa95881fea17001f4732a8775d763f1c25660a61464a0cbac372ede9577b8"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/capture-ready.json",
+      "size": 161,
+      "sha256": "b7010b05d2af66bdb97f54e6350c33391c55ccc8570799abf144121d1d4a5a23"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/capture.log",
+      "size": 115,
+      "sha256": "f39d30d230c7ad774fe9bdc9691484ca50262f38023a854cd0be173eeaa420dc"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/maize_field_jackal_j100_r1_trace.jsonl",
+      "size": 5493,
+      "sha256": "9bf657a13a7311db412a73f59f946d947d146b78aa388ba730ca78c99214d881"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/panorama-capture.log",
+      "size": 119,
+      "sha256": "05846a552c75a51aeeb31d250cbd5a29fafbe36837ed7e953b55334637a0e4f9"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/rviz-capture.log",
+      "size": 75,
+      "sha256": "337f25610ea66c1229426f3a2c01669149e9c44b08e76a3bf5a0d520342877a0"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r1/simulation.log",
+      "size": 59231,
+      "sha256": "0840ecb3bd42faf14e6479b72e1158bfa7a8eb59d0cb3e8c32a4243068169720"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/ground-startup.json",
+      "size": 219,
+      "sha256": "fb31edabd471821a1916cc12819c76f48febd975ced15347079d37c1678b945b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/maize_field_jackal_j100_r2_trace.jsonl",
+      "size": 17576,
+      "sha256": "e9f5364f4d38ce3eb5582f8485ddc9fa3a2d54e9877b38cec06c19ea0c9d3041"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r2/simulation.log",
+      "size": 48804,
+      "sha256": "289714875a16b3d523829ed09580017522f3e48f4df019cbe3b66edf131e13f1"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/maize_field_jackal_j100_r3_trace.jsonl",
+      "size": 8016,
+      "sha256": "ed312c3e6e59ab480d60efe27e2543e2b6d38f586242aef8e3d4b5f07d18c610"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_jackal_j100_r3/simulation.log",
+      "size": 43422,
+      "sha256": "cff60011c3247fa1450b958198b916c08815f5dab925b53c5d68ab5f0535ed3e"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/camera.json",
+      "size": 202,
+      "sha256": "def8d6e6de54480f1eaa470ae22ef378fa84722e887a0d9fc44c0312f41cd6b6"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/capture-ready.json",
+      "size": 132,
+      "sha256": "57e035817472e952dc8d879784d45350752a9fb30643779231de4d17e3929ab6"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/capture.log",
+      "size": 101,
+      "sha256": "273b9e3b91a48e4887b986285739075bf56c169e97c01c56f2e2b58d65d1f4b0"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/maize_field_x500_r1_air.json",
+      "size": 3526,
+      "sha256": "05e538ff4a08b10262cf3df50cdc9628fc4f1f9ca2de95637b68ee900119a70f"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/maize_field_x500_r1_air.jsonl",
+      "size": 461229,
+      "sha256": "911e3b27f0c7547a58f62b50dc1e8b1fd22b13b8284dfb579c01b8b33b0a838f"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/maize_field_x500_r1_air.log",
+      "size": 923,
+      "sha256": "c5249391bd482ac0705613bd4a0234c3d10e7350b527c94777d6a4747837e17a"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/simulation.log",
+      "size": 60528,
+      "sha256": "ea97f6cc0ff2d02bb68df7d8c4716ea7b91aae9d48cc746fc2f8237409fef2c8"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/maize_field_x500_r2_air.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/maize_field_x500_r2_air.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/simulation.log",
+      "size": 7147,
+      "sha256": "6db562c57a17de672b403e0a8cf2f6415b2d8d6ae4dce2542e500441481735e3"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/px4-rootfs/parameters.bson",
+      "size": 399,
+      "sha256": "fe550b613f2101b53f77b2a236245592d540499252027a691e9f40e1c06d07fa"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "48065e05ef4b08df0d676736e33ca3d9964f4b55bce9abc5a19a2e98c6fe3234"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r1/px4-rootfs/log/2026-10-07/10_46_09.ulg",
+      "size": 8408215,
+      "sha256": "93f54d1b33a2ed4065458f4c5e7b1ed07f08f5cbdeb60ae181e7cb28283d7584"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/px4-rootfs/parameters.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/px4-rootfs/parameters_backup.bson",
+      "size": 334,
+      "sha256": "de48b7f1cfadc77617b4133642bab9cbace56ffa6f4cb3973366a5e698f2a1ef"
+    },
+    {
+      "file": "matrix-before-process-cleanup/maize_field_x500_r2/px4-rootfs/log/2026-10-07/10_48_13.ulg",
+      "size": 333146,
+      "sha256": "c0b52c11c480f5a492abcca19e68ed040e6ccd7bb353d9aa497184b7b13cee1b"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/camera.json",
+      "size": 209,
+      "sha256": "b6bd687acd43cdc8a199ff010e214b056deb58cc262c13b7748d8ebce1636fb6"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/capture.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/contact-bridge.yaml",
+      "size": 2298,
+      "sha256": "364f029699264250e93da6e4f88d22b85758a591293b714eb0036fb08f19e601"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "7da095162c0b68f2c34a73164fb688ec8c9d789bb578914f48f0aa44bf929d07"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/deployment-husky_a200-mppi.yaml",
+      "size": 602,
+      "sha256": "70c85674434add2a2eeb0bf8785cd9a07f1e18575cee5540e9836776e31329a3"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "c70fd00b2d0c46e026131029be8f0c03416d02452dca74b7b33ca69ba8e54552"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/maize_field_husky_a200_r1_trace.jsonl",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/robot-instrumented.sdf",
+      "size": 25096,
+      "sha256": "a8d6493ace19b444ee38f5805c06d3cad1cda037000792a74bf7256e3d7cb4c2"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/robot.urdf",
+      "size": 19956,
+      "sha256": "2f7cd036b1542861b61862b75b2bd011dd2dc540377c22d026b31dabc42249f5"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_husky_a200_r1/simulation.log",
+      "size": 26407,
+      "sha256": "ba3ba8c8a954cfc99dd3c3fb97921f0db5ee636d918d960ba39f629bd6a443c0"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/camera-panorama.json",
+      "size": 173,
+      "sha256": "54a2944c3b4dfdfe8b06099785e78306ba1dd29598e579cb37707b46d7a86aa3"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/camera.json",
+      "size": 210,
+      "sha256": "a50e2681c92d9c3ac56503601ccc044e1b52801320906df67018572590b6efa3"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/capture-ready.json",
+      "size": 162,
+      "sha256": "7beb84e35dc62cd2e944d08b4153e6c088bec864b902105387ba9f7f9de1e45f"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/capture.log",
+      "size": 115,
+      "sha256": "f39d30d230c7ad774fe9bdc9691484ca50262f38023a854cd0be173eeaa420dc"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/maize_field_jackal_j100_r1_trace.jsonl",
+      "size": 5201,
+      "sha256": "2ee99cf24030578509c332f7c639fed3e6a2dd7d179b9e24e13ee1e745dbf968"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/panorama-capture.log",
+      "size": 119,
+      "sha256": "05846a552c75a51aeeb31d250cbd5a29fafbe36837ed7e953b55334637a0e4f9"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/rviz-capture.log",
+      "size": 75,
+      "sha256": "337f25610ea66c1229426f3a2c01669149e9c44b08e76a3bf5a0d520342877a0"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r1/simulation.log",
+      "size": 60706,
+      "sha256": "50eabf7876cac83d61ca2189e5b97643c3bbfc7003a6b21e87fe895fc3b0ae4a"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/ground-startup.json",
+      "size": 189,
+      "sha256": "2aa88d608e6bb74c610c87d5ff284f287b275ab67ff9fbf2685ae964ca11d8e5"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/maize_field_jackal_j100_r2_trace.jsonl",
+      "size": 6080,
+      "sha256": "5a9cd28b515335e75989efe9c6066c38124c6dfc70b0715d491cc0e9a46af75c"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r2/simulation.log",
+      "size": 44334,
+      "sha256": "c647a6d467cdd46197d78e7e4d8e2e317dc2a52ec640a478fcd7cb6e3eae1c39"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/contact-bridge.yaml",
+      "size": 1798,
+      "sha256": "4a4208d8014d3c9b9aef10f3d32b36b57a2b0f7cbafacbe7621121422d24c170"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/contact-instrumentation.json",
+      "size": 212,
+      "sha256": "9b92a9af6711fa6b432136f948cd8db7b069471b0f56bf37f01dfb1ff70eeef4"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/deployment-jackal_j100-mppi.yaml",
+      "size": 602,
+      "sha256": "ea95b8a07071c59cad9692d0187445f0a59af1a14559438ac8519fbab8fca9eb"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/ground-startup.json",
+      "size": 189,
+      "sha256": "5aa74e3e6410b286830318e32853d2312a2d0b4ca894cc33e84dc6c3b60679ea"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/maize_field-runtime.sdf",
+      "size": 248334,
+      "sha256": "0c0154d6734f80f8bf0c8c805f22420bcf6aaab6cccded95a80ae02b07894d1b"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/maize_field_jackal_j100_r3_trace.jsonl",
+      "size": 4874,
+      "sha256": "6972978a463e85a0615f5dbbf96062788e2fb665e61802fe4c513282dec42b82"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/robot-instrumented.sdf",
+      "size": 24700,
+      "sha256": "9c1e3219ab3bf84a30182dcedfc1dac42e552488e7f2c69b76dfa1d942e82abd"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/robot.urdf",
+      "size": 17996,
+      "sha256": "d0d735c46a531df8f11b3bb4d63244516bf1d6bd7ebba0591226dfca362c3608"
+    },
+    {
+      "file": "matrix-before-rviz/maize_field_jackal_j100_r3/simulation.log",
+      "size": 45025,
+      "sha256": "bbe037889b747e30c491549215535850919a758a2eb5068c33fa95dca728160f"
+    },
+    {
+      "file": "pipeline-spawn-probe/px4-rootfs/dataman",
+      "size": 1208528,
+      "sha256": "b35ba4dd70cb30f36e77cd435dadde55ab8ba2a64aea81bf169144a376a968f4"
+    },
+    {
+      "file": "pipeline-spawn-probe/px4-rootfs/parameters.bson",
+      "size": 357,
+      "sha256": "3db07ed7ab1c8b7ecd25fc9cb2fecd0cdb0383917b7af5ef1d942771b60d9db8"
+    },
+    {
+      "file": "pipeline-spawn-probe/px4-rootfs/parameters_backup.bson",
+      "size": 357,
+      "sha256": "3db07ed7ab1c8b7ecd25fc9cb2fecd0cdb0383917b7af5ef1d942771b60d9db8"
+    },
+    {
+      "file": "pipeline-spawn-probe/px4-rootfs/log/2026-10-07/11_27_40.ulg",
+      "size": 3718890,
+      "sha256": "418135513b36b7cf6ab27d6f6257d1a178cdc373c4722dacb294c094677d7920"
+    }
+  ],
+  "total_bytes": 238250984
+}

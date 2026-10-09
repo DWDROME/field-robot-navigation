@@ -1,0 +1,142 @@
+{
+  "site": "orchard",
+  "waypoints": [
+    {
+      "index": 0,
+      "x": 6.0315538719296455,
+      "y": 0.010012584738433361,
+      "z": 6.0,
+      "horizontal_error": 1.4312612137333622,
+      "altitude_error": 0.01690673828125,
+      "elapsed_s": 1.8
+    },
+    {
+      "index": 1,
+      "x": 12.031553871929646,
+      "y": 0.010012584738433361,
+      "z": 6.0,
+      "horizontal_error": 1.4333940654085204,
+      "altitude_error": 0.01080322265625,
+      "elapsed_s": 1.6
+    },
+    {
+      "index": 2,
+      "x": 12.031553871929646,
+      "y": 6.010012584738433,
+      "z": 6.0,
+      "horizontal_error": 1.181832115162743,
+      "altitude_error": 0.020843505859375,
+      "elapsed_s": 1.7
+    },
+    {
+      "index": 3,
+      "x": 6.0315538719296455,
+      "y": 6.010012584738433,
+      "z": 6.0,
+      "horizontal_error": 1.4978380889560967,
+      "altitude_error": 0.02642822265625,
+      "elapsed_s": 1.7
+    }
+  ],
+  "steps": [
+    {
+      "step": "ready",
+      "note": "nav_state=4",
+      "wall_elapsed_s": 4.72
+    },
+    {
+      "step": "armed",
+      "note": "",
+      "wall_elapsed_s": 0.18
+    },
+    {
+      "step": "offboard",
+      "note": "",
+      "wall_elapsed_s": 0.2
+    },
+    {
+      "step": "takeoff",
+      "note": "altitude=5.42",
+      "wall_elapsed_s": 6.63
+    },
+    {
+      "step": "hover",
+      "note": "position and velocity stable for 3 simulation seconds",
+      "wall_elapsed_s": 3.1
+    },
+    {
+      "step": "waypoint",
+      "note": "0 reached",
+      "wall_elapsed_s": 1.8
+    },
+    {
+      "step": "waypoint",
+      "note": "1 reached",
+      "wall_elapsed_s": 1.6
+    },
+    {
+      "step": "waypoint",
+      "note": "2 reached",
+      "wall_elapsed_s": 1.7
+    },
+    {
+      "step": "waypoint",
+      "note": "3 reached",
+      "wall_elapsed_s": 1.7
+    },
+    {
+      "step": "return",
+      "note": "centered and stationary for 2 simulation seconds",
+      "wall_elapsed_s": 7.9
+    },
+    {
+      "step": "land",
+      "note": "landing detector confirms touchdown and disarm",
+      "wall_elapsed_s": 13.0
+    },
+    {
+      "step": "disarm",
+      "note": "",
+      "wall_elapsed_s": 13.1
+    }
+  ],
+  "result": "pass",
+  "reason": null,
+  "thresholds": {
+    "waypoint_radius_m": 1.5,
+    "altitude_tolerance_m": 0.6,
+    "hover_speed_mps": 0.5,
+    "hover_stable_sim_s": 3.0,
+    "return_radius_m": 0.3,
+    "return_speed_mps": 0.3,
+    "return_stable_sim_s": 2.0,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "telemetry_timeout_wall_s": 2.0
+  },
+  "max_abs_roll_rad": 0.619636767473134,
+  "max_abs_pitch_rad": 0.6158201382119802,
+  "position_samples": 2096,
+  "minimum_cruise_altitude_m": 5.423980712890625,
+  "hover_samples": 31,
+  "hover_max_xy_error_m": 0.200522967563595,
+  "hover_max_altitude_error_m": 0.536590576171875,
+  "max_cruise_height_loss_m": 0.054290771484375,
+  "path_length_m": 46.761260797804184,
+  "landed": true,
+  "trace": "/evidence/candidate-matrix/orchard_x500_r3/orchard_x500_r3_air.jsonl",
+  "return_horizontal_error_m": 0.1207241659708009,
+  "return_speed_mps": 0.02402954585530602,
+  "return_stable_sim_s": 2.0009999999999977,
+  "telemetry_age_wall_s": {
+    "position": 0.02149977699809824,
+    "status": 0.18398486300065997,
+    "attitude": 0.012563505999423796,
+    "clock": 0.0011405969999032095,
+    "land": 0.03659277299811947
+  },
+  "clock_publishers": 1,
+  "mission_elapsed_s": 42.631840193000244,
+  "sim_elapsed_s": 42.573,
+  "real_time_factor": 0.9986198063997739,
+  "unstable": false
+}

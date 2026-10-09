@@ -1,0 +1,16 @@
+# Extrinsics verified against the generated Clearpath URDF:
+# base -> lidar = 0.224 + 0.021 + 0.10 + 0.0377 = 0.3827 m;
+# base -> IMU = 0.224 + 0.021 + 0.05 + 0.0025 = 0.2975 m.
+mode: simulation
+simulation_fixture: true
+localization: fast_lio_super
+controllers: [mppi]
+loop_enabled: true
+sensor:
+  imu_from_lidar_T: [0.0, 0.0, 0.0852]
+  imu_from_lidar_R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  base_from_lidar_xyzrpy: [0.0, 0.0, 0.3827, 0.0, 0.0, 0.0]
+chassis:
+  motion_model: DiffDrive
+  footprint: [[0.495, 0.335], [0.495, -0.335], [-0.495, -0.335], [-0.495, 0.335]]
+  limits: {linear_velocity: 0.5, angular_velocity: 0.8, linear_acceleration: 0.4, angular_acceleration: 0.8}

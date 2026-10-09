@@ -1,0 +1,29 @@
+{
+  "run_id": "maize_field_jackal_j100_r1",
+  "kind": "panorama",
+  "world": "maize_field",
+  "robot": "jackal_j100",
+  "camera_pose": [
+    -20.0,
+    -20.0,
+    22.0,
+    0.0,
+    0.66,
+    0.785
+  ],
+  "view": "panorama",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 7,
+    "nanosec": 0
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 86.73,
+  "variance": 541.98,
+  "status": "fail",
+  "mission_state_at_capture_start": null,
+  "image": "maize_field_jackal_j100_r1_panorama.png",
+  "compressed_image": "maize_field_jackal_j100_r1_panorama.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete maize field, terrain relief, headland and robot are visible; no missing asset or black frame",
+  "result_record": "evidence/candidate-matrix/maize_field_jackal_j100_r1.json"
+}

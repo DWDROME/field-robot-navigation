@@ -1,0 +1,603 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-07-12-06-43-230601-DW-6418
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [6521]
+[INFO] [parameter_bridge-2]: process started with pid [6522]
+[INFO] [robot_state_publisher-3]: process started with pid [6523]
+[INFO] [spawner-4]: process started with pid [6525]
+[INFO] [spawner-5]: process started with pid [6526]
+[INFO] [parameter_bridge-6]: process started with pid [6527]
+[INFO] [parameter_bridge-7]: process started with pid [6528]
+[INFO] [parameter_bridge-8]: process started with pid [6529]
+[INFO] [greenhouse_cmd_sink-9]: process started with pid [6530]
+[INFO] [create-10]: process started with pid [6531]
+[INFO] [parameter_bridge-11]: process started with pid [6532]
+[INFO] [simulation_lidar_filter.py-12]: process started with pid [6533]
+[INFO] [simulation_ground_startup.py-13]: process started with pid [6534]
+[INFO] [create-14]: process started with pid [6558]
+[INFO] [parameter_bridge-15]: process started with pid [6559]
+[robot_state_publisher-3] [INFO] [1791374806.074483651] [robot_state_publisher]: Robot initialized
+[create-10] [INFO] [1791374807.569428536] [create_jackal_j100]: Entity creation successful.
+[INFO] [create-10]: process has finished cleanly [pid 6531]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="j100-0000"]/link[@name="base_link"]/sensor[@name="camera_0"]/camera/gz_frame_id:///evidence/candidate-matrix/orchard_jackal_j100_r1/robot-instrumented.sdf:L163]: XML Element[gz_frame_id], child of element[camera], not defined in SDF. Copying[gz_frame_id] as children of [camera].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="j100-0000"]/link[@name="base_link"]/sensor[@name="camera_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_jackal_j100_r1/robot-instrumented.sdf:L170]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="j100-0000"]/link[@name="base_link"]/sensor[@name="lidar3d_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_jackal_j100_r1/robot-instrumented.sdf:L199]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="j100-0000"]/link[@name="base_link"]/sensor[@name="imu_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_jackal_j100_r1/robot-instrumented.sdf:L207]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="j100-0000"]/link[@name="base_link"]/sensor[@name="gps_0"]/gz_frame_id:///evidence/candidate-matrix/orchard_jackal_j100_r1/robot-instrumented.sdf:L215]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[parameter_bridge-2] [INFO] [1791374807.999387034] [simulation_clock_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[spawner-4] [INFO] [1791374808.465870925] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[parameter_bridge-15] [INFO] [1791374808.467058010] [sim_camera_bridge]: Creating GZ->ROS Bridge: [/sim_camera/image (gz.msgs.Image) -> /sim_camera/image (sensor_msgs/msg/Image)] (Lazy 0)
+[create-14] [INFO] [1791374808.606654576] [create_simulation_camera]: Entity creation successful.
+[parameter_bridge-6] [INFO] [1791374808.652898341] [simulation_sensor_bridge]: Creating GZ->ROS Bridge: [/sensors/imu_0/data_raw (gz.msgs.IMU) -> /sensors/imu/data (sensor_msgs/msg/Imu)] (Lazy 0)
+[gazebo-1] [INFO] [1791374808.665404776] [gz_ros_control]: Loading controller_manager
+[gazebo-1] [INFO] [1791374808.683178047] [controller_manager]: Using ROS clock for triggering controller manager cycles.
+[gazebo-1] [WARN] [1791374808.683254901] [controller_manager]: The resource manager is not yet initialized, will wait for the robot description to initialize it..
+[gazebo-1] [INFO] [1791374808.692002118] [controller_manager]: Subscribing to '/robot_description' topic for robot description.
+[gazebo-1] [WARN] [1791374808.692101234] [gz_ros_control]: Waiting RM to load and initialize hardware...
+[INFO] [create-14]: process has finished cleanly [pid 6558]
+[parameter_bridge-7] [INFO] [1791374808.845388827] [simulation_lidar_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar3d_0/scan/points (gz.msgs.PointCloudPacked) -> /simulation/lidar/unfiltered (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-8] [INFO] [1791374809.161652022] [simulation_camera_bridge]: Creating GZ->ROS Bridge: [/sensors/camera_0/image (gz.msgs.Image) -> /sensors/camera/color/image (sensor_msgs/msg/Image)] (Lazy 1)
+[parameter_bridge-8] [INFO] [1791374809.164596112] [simulation_camera_bridge]: Creating GZ->ROS Bridge: [/sensors/camera_0/points (gz.msgs.PointCloudPacked) -> /sensors/camera/points (sensor_msgs/msg/PointCloud2)] (Lazy 1)
+[parameter_bridge-11] [INFO] [1791374809.300665492] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_0/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.304487769] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_1/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.305344956] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/base_link/sensor/simulation_contact_2/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.306153689] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/front_left_wheel_link/sensor/simulation_contact_3/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.306923132] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/front_right_wheel_link/sensor/simulation_contact_4/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.307493735] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/rear_left_wheel_link/sensor/simulation_contact_5/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-11] [INFO] [1791374809.308122833] [simulation_contact_bridge]: Creating GZ->ROS Bridge: [/world/orchard/model/robot/link/rear_right_wheel_link/sensor/simulation_contact_6/contact (gz.msgs.Contacts) -> /simulation/contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[gazebo-1] [WARN] [1791374809.692224604] [controller_manager]: Waiting for data on 'robot_description' topic to finish initialization
+[gazebo-1] [INFO] [1791374809.714716955] [controller_manager]: Received robot description from topic.
+[gazebo-1] [INFO] [1791374809.714794165] [controller_manager]: Enforcing command limits is disabled. Command limits from URDF will be ignored.
+[gazebo-1] [INFO] [1791374809.717902436] [gz_ros_control]: The position_proportional_gain has been set to: 0.1
+[gazebo-1] [INFO] [1791374809.717990947] [gz_ros_control]: Loading joint: front_left_wheel_joint
+[gazebo-1] [INFO] [1791374809.717996736] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374809.718000565] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374809.718003190] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718008886] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374809.718010836] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718027593] [gz_ros_control]: Loading joint: front_right_wheel_joint
+[gazebo-1] [INFO] [1791374809.718029797] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374809.718031707] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374809.718035681] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718037551] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374809.718039164] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718051324] [gz_ros_control]: Loading joint: rear_left_wheel_joint
+[gazebo-1] [INFO] [1791374809.718053347] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374809.718055067] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374809.718057245] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718058959] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374809.718060600] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718071806] [gz_ros_control]: Loading joint: rear_right_wheel_joint
+[gazebo-1] [INFO] [1791374809.718073924] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1791374809.718075790] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1791374809.718077704] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718079417] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1791374809.718081027] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1791374809.718111648] [gz_ros_control]: Loading sensor: imu_0
+[gazebo-1] [INFO] [1791374809.718119579] [gz_ros_control]: 	State:
+[gazebo-1] [WARN] [1791374809.718122043] [gz_ros_control]: IMU sensor 'imu_0' not found in hardware_info, skipping.
+[gazebo-1] [INFO] [1791374809.718207953] [controller_manager]: Initialize hardware 'j100_hardware' 
+[gazebo-1] [WARN] [1791374809.718235981] [controller_manager.hardware_component.system.j100_hardware]: Executor is not available during hardware component initialization for 'j100_hardware'. Skipping node creation!
+[gazebo-1] [INFO] [1791374809.718325804] [controller_manager]: Successful initialization of hardware 'j100_hardware'
+[gazebo-1] [INFO] [1791374809.718433239] [controller_manager]: Activating component 'j100_hardware'.
+[gazebo-1] [INFO] [1791374809.718442789] [resource_manager]: 'configure' hardware 'j100_hardware' 
+[gazebo-1] [INFO] [1791374809.718446375] [gz_ros_control]: System Successfully configured!
+[gazebo-1] [INFO] [1791374809.718450024] [resource_manager]: Successful 'configure' of hardware 'j100_hardware'
+[gazebo-1] [INFO] [1791374809.718454969] [resource_manager]: 'activate' hardware 'j100_hardware' 
+[gazebo-1] [INFO] [1791374809.718465515] [resource_manager]: Successful 'activate' of hardware 'j100_hardware'
+[gazebo-1] [WARN] [1791374809.718510996] [controller_manager]: Component 'j100_hardware' does not have read or write statistics initialized, skipping registration.
+[gazebo-1] [INFO] [1791374809.718515189] [controller_manager]: Resource Manager has been successfully initialized. Starting Controller Manager services...
+[gazebo-1] [INFO] [1791374809.969723540] [controller_manager]: Loading controller : 'joint_state_broadcaster' of type 'joint_state_broadcaster/JointStateBroadcaster'
+[gazebo-1] [INFO] [1791374809.969837029] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[gazebo-1] [WARN] [1791374809.974133664] [controller_manager]: The use of remapping arguments to the controller_manager node is deprecated. Please use the '--controller-ros-args' argument of the spawner to pass remapping arguments to the controller node.
+[gazebo-1] [INFO] [1791374809.974191168] [controller_manager]: Controller 'joint_state_broadcaster' node arguments: --ros-args --params-file /opt/greenhouse_sim/robot/jackal_j100/platform/config/control.yaml --ros-args --remap ~/odom:=platform/odom --remap ~/cmd_vel:=platform/cmd_vel --remap /tf:=tf --remap /tf_static:=tf_static --remap /diagnostics:=diagnostics --remap /dynamic_joint_states:=platform/dynamic_joint_states --remap joint_states:=platform/joint_states --remap ~/reference:=platform/cmd_vel --remap ~/odometry:=platform/odom -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-4] [INFO] [1791374809.997412477] [spawner_joint_state_broadcaster]: Loaded joint_state_broadcaster
+[gazebo-1] [INFO] [1791374809.999009836] [controller_manager]: Configuring controller: 'joint_state_broadcaster'
+[gazebo-1] [INFO] [1791374809.999248882] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[gazebo-1] [INFO] [1791374810.011930647] [controller_manager]: Activating controllers: [ joint_state_broadcaster ]
+[gazebo-1] [WARN] [1791374812.138273469] [gz_ros_control]:  Desired controller update period (0.02 s) is slower than the gazebo simulation period (0.003 s).
+[gazebo-1] [INFO] [1791374815.455301370] [controller_manager]: Successfully switched controllers!
+[spawner-4] [INFO] [1791374815.477490183] [spawner_joint_state_broadcaster]: Configured and activated joint_state_broadcaster
+[INFO] [spawner-4]: process has finished cleanly [pid 6525]
+[gazebo-1] [INFO] [1791374815.969781086] [controller_manager]: Loading controller : 'platform_velocity_controller' of type 'diff_drive_controller/DiffDriveController'
+[gazebo-1] [INFO] [1791374815.969855075] [controller_manager]: Loading controller 'platform_velocity_controller'
+[gazebo-1] [WARN] [1791374815.977289263] [controller_manager]: The use of remapping arguments to the controller_manager node is deprecated. Please use the '--controller-ros-args' argument of the spawner to pass remapping arguments to the controller node.
+[gazebo-1] [INFO] [1791374815.977365798] [controller_manager]: Controller 'platform_velocity_controller' node arguments: --ros-args --params-file /opt/greenhouse_sim/robot/jackal_j100/platform/config/control.yaml --ros-args --remap ~/odom:=platform/odom --remap ~/cmd_vel:=platform/cmd_vel --remap /tf:=tf --remap /tf_static:=tf_static --remap /diagnostics:=diagnostics --remap /dynamic_joint_states:=platform/dynamic_joint_states --remap joint_states:=platform/joint_states --remap ~/reference:=platform/cmd_vel --remap ~/odometry:=platform/odom -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-5] [INFO] [1791374816.065911808] [spawner_platform_velocity_controller]: Loaded platform_velocity_controller
+[gazebo-1] [INFO] [1791374816.067498415] [controller_manager]: Configuring controller: 'platform_velocity_controller'
+[gazebo-1] [INFO] [1791374816.091558405] [controller_manager]: Activating controllers: [ platform_velocity_controller ]
+[gazebo-1] [INFO] [1791374816.109606180] [controller_manager]: Successfully switched controllers!
+[spawner-5] [INFO] [1791374816.132083880] [spawner_platform_velocity_controller]: Configured and activated platform_velocity_controller
+[INFO] [spawner-5]: process has finished cleanly [pid 6526]
+[gazebo-1] [WARN] [1791374816.579478734] [platform_velocity_controller]: Velocity command timed out. Braking.
+[simulation_ground_startup.py-13] {"result": "settled", "sim_time_s": 1.344, "stable_sim_s": 1.002, "acceleration_norm_mps2": 9.79992869207971, "angular_speed_radps": 0.0029814354513729184, "clock_publishers": 1}
+[INFO] [simulation_ground_startup.py-13]: process has finished cleanly [pid 6534]
+[INFO] [launch.user]: closed-loop runtime_ready=true hardware_qualified=false mode=simulation
+[INFO] [fastlio_mapping-16]: process started with pid [6872]
+[INFO] [greenhouse_cloud_normalizer-17]: process started with pid [6873]
+[INFO] [greenhouse_cmd_gate-18]: process started with pid [6874]
+[INFO] [fast_lio_super_backend-19]: process started with pid [6875]
+[INFO] [static_transform_publisher-20]: process started with pid [6876]
+[INFO] [terrainAnalysis-21]: process started with pid [6877]
+[INFO] [terrainAnalysisExt-22]: process started with pid [6878]
+[INFO] [far_planner-23]: process started with pid [6879]
+[INFO] [graph_decoder-24]: process started with pid [6880]
+[INFO] [controller_server-25]: process started with pid [6881]
+[INFO] [lifecycle_manager-26]: process started with pid [6882]
+[INFO] [terrain_grid-27]: process started with pid [6883]
+[INFO] [command_adapter-28]: process started with pid [6884]
+[INFO] [mission-29]: process started with pid [6885]
+[gazebo-1] [WARN] [1791374817.647645818] [platform_velocity_controller]: Velocity command timed out. Braking.
+[gazebo-1] [WARN] [1791374818.655539394] [platform_velocity_controller]: Velocity command timed out. Braking.
+[gazebo-1] [WARN] [1791374819.663491660] [platform_velocity_controller]: Velocity command timed out. Braking.
+[greenhouse_cloud_normalizer-17] [INFO] [1791374820.408429976] [slam_cloud_to_map]: Transforming /localization/registered_cloud_odom into frame map on /localization/registered_cloud
+[gazebo-1] [WARN] [1791374820.703259060] [platform_velocity_controller]: Velocity command timed out. Braking.
+[gazebo-1] [WARN] [1791374821.739936345] [platform_velocity_controller]: Velocity command timed out. Braking.
+[static_transform_publisher-20] [INFO] [1791374822.051115863] [static_sensor_tf]: Spinning until stopped - publishing transform
+[static_transform_publisher-20] translation: ('0.000000', '0.000000', '0.321700')
+[static_transform_publisher-20] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-20] from 'base_link' to 'livox_frame'
+[greenhouse_cmd_gate-18] [INFO] [1791374822.569681898] [greenhouse_cmd_gate]: gate source=/cmd_vel/nav output=/cmd_vel scope=simulation_fixture auto_recover_after_watchdog=true
+[graph_decoder-24] [INFO] [1791374822.844643422] [graph_decoder]: Graph Decoder Node Initialized
+[lifecycle_manager-26] [INFO] [1791374823.390484965] [mppi_lifecycle_manager]: Creating
+[lifecycle_manager-26] [INFO] [1791374823.396943245] [mppi_lifecycle_manager]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[terrainAnalysis-21] [INFO] [1791374823.579183172] [terrainAnalysis]: terrain analysis: odometry=/localization/global_odometry cloud=/localization/registered_cloud output=/perception/terrain_map frame=map
+[lifecycle_manager-26] [INFO] [1791374823.878394625] [mppi_lifecycle_manager]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-26] [INFO] [1791374823.878528017] [mppi_lifecycle_manager]: [34m[1mConfiguring controller_server[0m[0m
+[controller_server-25] [INFO] [1791374823.882456966] [controller_server]: 
+[controller_server-25] 	controller_server lifecycle node launched. 
+[controller_server-25] 	Waiting on external lifecycle transitions to activate
+[controller_server-25] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-25] [INFO] [1791374823.883613979] [controller_server]: Creating controller server
+[controller_server-25] [INFO] [1791374823.951886367] [local_costmap.local_costmap]: 
+[controller_server-25] 	local_costmap lifecycle node launched. 
+[controller_server-25] 	Waiting on external lifecycle transitions to activate
+[controller_server-25] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-25] [INFO] [1791374823.952823498] [local_costmap.local_costmap]: Creating Costmap
+[controller_server-25] [INFO] [1791374823.957554914] [controller_server]: Configuring controller interface
+[controller_server-25] [INFO] [1791374823.957620224] [controller_server]: getting progress checker plugins..
+[controller_server-25] [INFO] [1791374823.957900586] [controller_server]: getting goal checker plugins..
+[controller_server-25] [INFO] [1791374823.958246012] [controller_server]: Controller frequency set to 20.0000Hz
+[controller_server-25] [INFO] [1791374823.958317647] [local_costmap.local_costmap]: Configuring
+[controller_server-25] [INFO] [1791374823.969624083] [local_costmap.local_costmap]: Using plugin "terrain"
+[controller_server-25] [INFO] [1791374823.975529940] [local_costmap.local_costmap]: Initialized plugin "terrain"
+[controller_server-25] [INFO] [1791374823.975590634] [local_costmap.local_costmap]: Using plugin "inflation"
+[controller_server-25] [INFO] [1791374823.979604081] [local_costmap.local_costmap]: Initialized plugin "inflation"
+[controller_server-25] [INFO] [1791374824.056120248] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[controller_server-25] [INFO] [1791374824.056465989] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[controller_server-25] [INFO] [1791374824.056978481] [controller_server]: Created goal checker : goal_checker of type nav2_controller::SimpleGoalChecker
+[controller_server-25] [INFO] [1791374824.057501292] [controller_server]: Controller Server has goal_checker  goal checkers available.
+[controller_server-25] [INFO] [1791374824.059653389] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[controller_server-25] [INFO] [1791374824.067617781] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[controller_server-25] [INFO] [1791374824.072641349] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[controller_server-25] [INFO] [1791374824.072768610] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[controller_server-25] [INFO] [1791374824.075285848] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on footprint cost.
+[controller_server-25] [INFO] [1791374824.075341036] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[controller_server-25] [INFO] [1791374824.076259277] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-25] [INFO] [1791374824.076287863] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[controller_server-25] [INFO] [1791374824.077038388] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[controller_server-25] [INFO] [1791374824.077067566] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[controller_server-25] [INFO] [1791374824.079996397] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[controller_server-25] [INFO] [1791374824.080072720] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[controller_server-25] [INFO] [1791374824.081601683] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[fast_lio_super_backend-19] [INFO] [1791374824.081677970] [fast_lio_super_backend]: SLAM frames: map -> odom -> base_link
+[controller_server-25] [INFO] [1791374824.083716007] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[controller_server-25] [INFO] [1791374824.083758941] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[controller_server-25] [INFO] [1791374824.084323851] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-25] [INFO] [1791374824.084350632] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[controller_server-25] [INFO] [1791374824.089322778] [controller_server]: Optimizer reset
+[controller_server-25] [INFO] [1791374824.146194065] [MPPIController]: Configured MPPI Controller: FollowPath
+[controller_server-25] [INFO] [1791374824.146241904] [controller_server]: Controller Server has FollowPath  controllers available.
+[lifecycle_manager-26] [INFO] [1791374824.168951273] [mppi_lifecycle_manager]: [34m[1mActivating controller_server[0m[0m
+[controller_server-25] [INFO] [1791374824.169741528] [controller_server]: Activating
+[controller_server-25] [INFO] [1791374824.169790746] [local_costmap.local_costmap]: Activating
+[controller_server-25] [INFO] [1791374824.169803408] [local_costmap.local_costmap]: Checking transform
+[controller_server-25] [INFO] [1791374824.169868310] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[fastlio_mapping-16] [INFO] [1791374824.242828836] [laser_mapping]: p_pre->lidar_type 5
+[fastlio_mapping-16] ~~~~/build/robot/external/fast_lio/ doesn't exist
+[fastlio_mapping-16] [INFO] [1791374824.268795348] [laser_mapping]: Node init finished.
+[far_planner-23] [INFO] [1791374824.273414004] [far_planner]: FAR Planner Node Initiated
+[far_planner-23] [INFO] [1791374824.363454123] [far_planner]: voxel_dim: 0.100000
+[far_planner-23] [INFO] [1791374824.367783283] [far_planner]: FAR Planner ROS Params Initiated
+[far_planner-23] [INFO] [1791374824.367841777] [far_planner]: FAR Planner Callback Initiated
+[fastlio_mapping-16] [WARN] [1791374824.453318129] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-16] 
+[far_planner-23] [INFO] [1791374824.465893062] [far_planner]: FAR Planner Processing Objects Initiated
+[fastlio_mapping-16] [WARN] [1791374824.559379848] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-16] 
+[fastlio_mapping-16] [WARN] [1791374824.598227670] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-16] 
+[fastlio_mapping-16] [WARN] [1791374824.643882323] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-16] 
+[controller_server-25] [INFO] [1791374824.669899453] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[fastlio_mapping-16] IMU Initial Done
+[fastlio_mapping-16] [WARN] [1791374824.685544364] [laser_mapping]: No point, skip this scan!
+[fastlio_mapping-16] 
+[fastlio_mapping-16] [INFO] [1791374824.734517611] [laser_mapping]: Initialize the map kdtree
+[controller_server-25] [INFO] [1791374825.170083177] [local_costmap.local_costmap]: start
+[controller_server-25] [WARN] [1791374825.320331181] [controller_server]: Parameter controller_server.verbose not found
+[controller_server-25] [INFO] [1791374825.322300814] [controller_server]: Optimizer reset
+[controller_server-25] [INFO] [1791374825.322599783] [MPPIController]: Activated MPPI Controller: FollowPath
+[controller_server-25] [INFO] [1791374825.322625957] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[lifecycle_manager-26] [INFO] [1791374825.442514518] [mppi_lifecycle_manager]: Server controller_server connected with bond.
+[lifecycle_manager-26] [INFO] [1791374825.442721953] [mppi_lifecycle_manager]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-26] [INFO] [1791374825.442762007] [mppi_lifecycle_manager]: [34m[1mCreating bond timer...[0m[0m
+[far_planner-23] [2J[0;0H
+[far_planner-23] [1;33m **************** DYNAMIC ENV PLANNING **************** [0m
+[far_planner-23] 
+[far_planner-23] 
+[far_planner-23] 
+[far_planner-23] [INFO] [1791374825.466137780] [far_planner]: FAR Planner Initiated Complete
+[far_planner-23] [A[A[2K[1;32m V-Graph Initialized [0m
+[far_planner-23] 
+[far_planner-23] [2K    Adding Goal to V-Graph Time: 0.01ms
+[far_planner-23] [2K    Path Search Time: 0.357ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.671ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 2
+[controller_server-25] [INFO] [1791374826.112836848] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-25] [INFO] [1791374826.116995330] [controller_server]: Optimizer reset
+[controller_server-25] [INFO] [1791374826.120287664] [controller_server]: Optimizer reset
+[controller_server-25] [ERROR] [1791374826.120442219] [controller_server]: Optimizer fail to compute path
+[controller_server-25] [INFO] [1791374826.122427751] [controller_server]: Optimizer reset
+[controller_server-25] [WARN] [1791374826.122515707] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0.011ms
+[far_planner-23] [2K    Path Search Time: 0.16ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.779ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 2
+[controller_server-25] [INFO] [1791374826.398090468] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-25] [INFO] [1791374826.401185499] [controller_server]: Optimizer reset
+[controller_server-25] [INFO] [1791374826.404332392] [controller_server]: Optimizer reset
+[controller_server-25] [ERROR] [1791374826.404433572] [controller_server]: Optimizer fail to compute path
+[controller_server-25] [INFO] [1791374826.405657837] [controller_server]: Optimizer reset
+[controller_server-25] [WARN] [1791374826.405700563] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0.014ms
+[far_planner-23] [2K    Path Search Time: 0.243ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.176ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 2
+[controller_server-25] [INFO] [1791374826.668734421] [controller_server]: Received a goal, begin computing control effort.
+[controller_server-25] [INFO] [1791374826.684355005] [controller_server]: Optimizer reset
+[controller_server-25] [INFO] [1791374826.688284799] [controller_server]: Optimizer reset
+[controller_server-25] [ERROR] [1791374826.688386302] [controller_server]: Optimizer fail to compute path
+[controller_server-25] [INFO] [1791374826.689752338] [controller_server]: Optimizer reset
+[controller_server-25] [WARN] [1791374826.689836478] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.899ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.474ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.151ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.788ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.912ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.846ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.789ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.271ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.866ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.569ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.702ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.082ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.658ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.569ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.584ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.834ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.617ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 3.744ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.673ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.677ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.68ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.893ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.74ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.245ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.784ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.79ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.895ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.709ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.788ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.68ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.971ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.993ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.807ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.647ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.851ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.87ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.957ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.889ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.221ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.73ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.857ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 1.008ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[far_planner-23] [A[A[A[A[A[A[2K    Adding Goal to V-Graph Time: 0ms
+[far_planner-23] [2K    Path Search Time: 0ms
+[far_planner-23] [2K    Local V-Graph Updated. Number of local vertices: 0
+[far_planner-23] [2K    Number of new vertices adding to global V-Graph: 0
+[far_planner-23]     Total V-Graph Update Time: 0.914ms
+[far_planner-23] [2K    Global V-Graph Updated. Number of global vertices: 1
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[controller_server-25] [INFO] [1791374836.438201676] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[controller_server-25] [INFO] [1791374836.438285786] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[controller_server-25] [INFO] [1791374836.438345274] [controller_server]: Deactivating
+[controller_server-25] [INFO] [1791374836.438373511] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[controller_server-25] [INFO] [1791374836.438387859] [local_costmap.local_costmap]: Deactivating
+[terrain_grid-27] [INFO] [1791374836.438196382] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[fastlio_mapping-16] catch sig %d2
+[terrainAnalysisExt-22] [INFO] [1791374836.438240136] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-26] [INFO] [1791374836.438223512] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-26] [INFO] [1791374836.438339003] [mppi_lifecycle_manager]: Running Nav2 LifecycleManager rcl preshutdown (mppi_lifecycle_manager)
+[lifecycle_manager-26] [INFO] [1791374836.438396846] [mppi_lifecycle_manager]: [34m[1mTerminating bond timer...[0m[0m
+[far_planner-23] [INFO] [1791374836.438262554] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[graph_decoder-24] [INFO] [1791374836.438292174] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[fast_lio_super_backend-19] [INFO] [1791374836.438308828] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[static_transform_publisher-20] [INFO] [1791374836.438318073] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-15] [INFO] [1791374836.438341586] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[greenhouse_cloud_normalizer-17] [INFO] [1791374836.438380764] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [mission-29]: sending signal 'SIGINT' to process[mission-29]
+[INFO] [command_adapter-28]: sending signal 'SIGINT' to process[command_adapter-28]
+[INFO] [terrain_grid-27]: sending signal 'SIGINT' to process[terrain_grid-27]
+[INFO] [parameter_bridge-7]: process has finished cleanly [pid 6528]
+[INFO] [lifecycle_manager-26]: sending signal 'SIGINT' to process[lifecycle_manager-26]
+[ERROR] [mission-29]: process has died [pid 6885, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/mission --ros-args -r __node:=tracked_mission --params-file /tmp/launch_params_tk23mnvg'].
+[INFO] [parameter_bridge-6]: process has finished cleanly [pid 6527]
+[ERROR] [command_adapter-28]: process has died [pid 6884, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/command_adapter --ros-args -r __node:=mppi_command_adapter --params-file /tmp/launch_params_z70o2qra'].
+[ERROR] [terrain_grid-27]: process has died [pid 6883, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_mppi_navigation/terrain_grid --ros-args -r __node:=terrain_grid --params-file /tmp/launch_params_zq900683'].
+[INFO] [parameter_bridge-15]: process has finished cleanly [pid 6559]
+[INFO] [controller_server-25]: sending signal 'SIGINT' to process[controller_server-25]
+[INFO] [static_transform_publisher-20]: process has finished cleanly [pid 6876]
+[INFO] [parameter_bridge-8]: process has finished cleanly [pid 6529]
+[ERROR] [lifecycle_manager-26]: process has died [pid 6882, exit code -2, cmd '/opt/ros/jazzy/lib/nav2_lifecycle_manager/lifecycle_manager --ros-args -r __node:=mppi_lifecycle_manager --params-file /tmp/launch_params_yqd65nyt'].
+[INFO] [greenhouse_cmd_sink-9]: process has finished cleanly [pid 6530]
+[INFO] [graph_decoder-24]: sending signal 'SIGINT' to process[graph_decoder-24]
+[INFO] [parameter_bridge-11]: process has finished cleanly [pid 6532]
+[INFO] [terrainAnalysisExt-22]: process has finished cleanly [pid 6878]
+[ERROR] [controller_server-25]: process has died [pid 6881, exit code -2, cmd '/opt/ros/jazzy/lib/nav2_controller/controller_server --ros-args -r __node:=controller_server --params-file /tmp/tmpf4lpyhmq --params-file /tmp/launch_params_jc5dps8r -r cmd_vel:=/navigation/mppi_cmd'].
+[INFO] [far_planner-23]: sending signal 'SIGINT' to process[far_planner-23]
+[ERROR] [graph_decoder-24]: process has died [pid 6880, exit code -2, cmd '/opt/greenhouse_far/lib/graph_decoder/graph_decoder --ros-args -r __node:=graph_decoder --params-file /tmp/launch_params_mzgtk3m2'].
+[INFO] [terrainAnalysis-21]: sending signal 'SIGINT' to process[terrainAnalysis-21]
+[ERROR] [far_planner-23]: process has died [pid 6879, exit code -2, cmd '/opt/greenhouse_far/lib/far_planner/far_planner --ros-args -r __node:=far_planner --params-file /opt/greenhouse_far/share/far_planner/config/default.yaml --params-file /tmp/launch_params_g8il9tcf -r /odom_world:=/localization/global_odometry -r /terrain_cloud:=/perception/terrain_map_ext -r /scan_cloud:=/localization/registered_cloud -r /goal_point:=/planning/global_goal -r /terrain_local_cloud:=/perception/terrain_map -r /way_point:=/planning/way_point'].
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 6522]
+[INFO] [greenhouse_cloud_normalizer-17]: process has finished cleanly [pid 6873]
+[INFO] [fast_lio_super_backend-19]: sending signal 'SIGINT' to process[fast_lio_super_backend-19]
+[INFO] [greenhouse_cmd_gate-18]: process has finished cleanly [pid 6874]
+[INFO] [terrainAnalysis-21]: process has finished cleanly [pid 6877]
+[ERROR] [fast_lio_super_backend-19]: process has died [pid 6875, exit code -2, cmd '/opt/greenhouse/lib/fast_lio_super_ros2/fast_lio_super_backend --ros-args -r __node:=fast_lio_super_backend --params-file /opt/greenhouse/share/fast_lio_super_ros2/config/backend.yaml --params-file /tmp/launch_params_20b7m5kf -r odometry:=/localization/odometry -r registered_cloud:=/localization/registered_cloud_odom -r global_odometry:=/localization/global_odometry -r global_pose:=/localization/global_pose -r corrected_path:=/localization/corrected_path -r corrected_map:=/localization/corrected_map -r diagnostics:=/diagnostics'].
+[INFO] [fastlio_mapping-16]: sending signal 'SIGINT' to process[fastlio_mapping-16]
+[INFO] [simulation_lidar_filter.py-12]: sending signal 'SIGINT' to process[simulation_lidar_filter.py-12]
+[ERROR] [simulation_lidar_filter.py-12]: process has died [pid 6533, exit code -2, cmd '/opt/greenhouse/lib/greenhouse_nav2_bringup/simulation_lidar_filter.py --ros-args --params-file /tmp/launch_params_kqc0j124'].
+[INFO] [robot_state_publisher-3]: sending signal 'SIGINT' to process[robot_state_publisher-3]
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[ERROR] [robot_state_publisher-3]: process has died [pid 6523, exit code -2, cmd '/opt/ros/jazzy/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_enxnlvdh -r /tf:=tf -r /tf_static:=tf_static -r joint_states:=platform/joint_states'].
+[robot_state_publisher-3] [INFO] [1791374836.438657047] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-8] [INFO] [1791374836.438738012] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-7] [INFO] [1791374836.438413420] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1791374836.440116981] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[greenhouse_cmd_sink-9] [INFO] [1791374836.442531827] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-6] [INFO] [1791374836.443149183] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-11] [INFO] [1791374836.451873498] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[controller_server-25] [INFO] [1791374836.471126391] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[controller_server-25] [INFO] [1791374836.481348063] [controller_server]: Cleaning up
+[controller_server-25] [INFO] [1791374836.481448442] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[controller_server-25] [INFO] [1791374836.481614930] [local_costmap.local_costmap]: Cleaning up
+[lifecycle_manager-26] [INFO] [1791374836.550535541] [mppi_lifecycle_manager]: Destroying mppi_lifecycle_manager
+[controller_server-25] [INFO] [1791374836.647947322] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[controller_server-25] [INFO] [1791374836.652605934] [local_costmap.local_costmap]: Destroying
+[controller_server-25] [INFO] [1791374836.660005695] [controller_server]: Destroying
+[fastlio_mapping-16] catch sig %d2
+[ERROR] [fastlio_mapping-16]: process[fastlio_mapping-16] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [gazebo-1]: process[gazebo-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [fastlio_mapping-16]: sending signal 'SIGTERM' to process[fastlio_mapping-16]
+[INFO] [gazebo-1]: sending signal 'SIGTERM' to process[gazebo-1]
+[fastlio_mapping-16] [INFO] [1791374841.554457751] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ERROR] [gazebo-1]: process has died [pid 6521, exit code -15, cmd 'ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r -s --headless-rendering /evidence/candidate-matrix/orchard_jackal_j100_r1/orchard-runtime.sdf --force-version 8'].
+[ERROR] [fastlio_mapping-16]: process[fastlio_mapping-16] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+[INFO] [fastlio_mapping-16]: sending signal 'SIGKILL' to process[fastlio_mapping-16]
+[ERROR] [fastlio_mapping-16]: process has died [pid 6872, exit code -9, cmd '/opt/greenhouse/lib/fast_lio/fastlio_mapping --ros-args -r __node:=laser_mapping --params-file /opt/greenhouse/share/greenhouse_mppi_navigation/config/fastlio.yaml --params-file /tmp/launch_params_531yaay7'].

@@ -1,0 +1,83 @@
+== maize_field_jackal_j100_r1 ==
+{"run_id": "maize_field_jackal_j100_r1", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_jackal_j100_r1.json"}
+
+== maize_field_jackal_j100_r2 ==
+{"run_id": "maize_field_jackal_j100_r2", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_jackal_j100_r2.json"}
+
+== maize_field_jackal_j100_r3 ==
+{"run_id": "maize_field_jackal_j100_r3", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_jackal_j100_r3.json"}
+
+== maize_field_husky_a200_r1 ==
+{"run_id": "maize_field_husky_a200_r1", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_husky_a200_r1.json"}
+
+== maize_field_husky_a200_r2 ==
+{"run_id": "maize_field_husky_a200_r2", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_husky_a200_r2.json"}
+
+== maize_field_husky_a200_r3 ==
+{"run_id": "maize_field_husky_a200_r3", "result": "fail", "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ", "record": "/evidence/candidate-matrix/maize_field_husky_a200_r3.json"}
+
+== maize_field_x500_r1 ==
+{"run_id": "maize_field_x500_r1", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/maize_field_x500_r1.json"}
+
+== maize_field_x500_r2 ==
+{"run_id": "maize_field_x500_r2", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/maize_field_x500_r2.json"}
+
+== maize_field_x500_r3 ==
+{"run_id": "maize_field_x500_r3", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/maize_field_x500_r3.json"}
+
+== orchard_jackal_j100_r1 ==
+{"run_id": "orchard_jackal_j100_r1", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_jackal_j100_r1.json"}
+
+== orchard_jackal_j100_r2 ==
+{"run_id": "orchard_jackal_j100_r2", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_jackal_j100_r2.json"}
+
+== orchard_jackal_j100_r3 ==
+{"run_id": "orchard_jackal_j100_r3", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_jackal_j100_r3.json"}
+
+== orchard_husky_a200_r1 ==
+{"run_id": "orchard_husky_a200_r1", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_husky_a200_r1.json"}
+
+== orchard_husky_a200_r2 ==
+{"run_id": "orchard_husky_a200_r2", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_husky_a200_r2.json"}
+
+== orchard_husky_a200_r3 ==
+{"run_id": "orchard_husky_a200_r3", "result": "fail", "reason": "normal_lane: controller failed: ; terrain_challenge: controller failed: ; dangerous_trunk: controller failed: ", "record": "/evidence/candidate-matrix/orchard_husky_a200_r3.json"}
+
+== orchard_x500_r1 ==
+{"run_id": "orchard_x500_r1", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/orchard_x500_r1.json"}
+
+== orchard_x500_r2 ==
+{"run_id": "orchard_x500_r2", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/orchard_x500_r2.json"}
+
+== orchard_x500_r3 ==
+{"run_id": "orchard_x500_r3", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/orchard_x500_r3.json"}
+
+== pipeline_jackal_j100_r1 ==
+{"run_id": "pipeline_jackal_j100_r1", "result": "fail", "reason": "normal_staging: global odometry unavailable or expired; terrain_challenge: global odometry unavailable or expired; dangerous_station: global odometry unavailable or expired", "record": "/evidence/candidate-matrix/pipeline_jackal_j100_r1.json"}
+
+== pipeline_jackal_j100_r2 ==
+{"run_id": "pipeline_jackal_j100_r2", "result": "fail", "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ", "record": "/evidence/candidate-matrix/pipeline_jackal_j100_r2.json"}
+
+== pipeline_jackal_j100_r3 ==
+{"run_id": "pipeline_jackal_j100_r3", "result": "fail", "reason": "normal_staging: global odometry unavailable or expired; terrain_challenge: global odometry unavailable or expired; dangerous_station: global odometry unavailable or expired", "record": "/evidence/candidate-matrix/pipeline_jackal_j100_r3.json"}
+
+== pipeline_husky_a200_r1 ==
+{"run_id": "pipeline_husky_a200_r1", "result": "fail", "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ", "record": "/evidence/candidate-matrix/pipeline_husky_a200_r1.json"}
+
+== pipeline_husky_a200_r2 ==
+{"run_id": "pipeline_husky_a200_r2", "result": "fail", "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ", "record": "/evidence/candidate-matrix/pipeline_husky_a200_r2.json"}
+
+== pipeline_husky_a200_r3 ==
+{"run_id": "pipeline_husky_a200_r3", "result": "fail", "reason": "normal_staging: controller failed: ; terrain_challenge: controller failed: ; dangerous_station: controller failed: ", "record": "/evidence/candidate-matrix/pipeline_husky_a200_r3.json"}
+
+== pipeline_x500_r1 ==
+{"run_id": "pipeline_x500_r1", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/pipeline_x500_r1.json"}
+
+== pipeline_x500_r2 ==
+{"run_id": "pipeline_x500_r2", "result": "fail", "reason": "takeoff or landing leaves the checked home column", "record": "/evidence/candidate-matrix/pipeline_x500_r2.json"}
+
+== pipeline_x500_r3 ==
+{"run_id": "pipeline_x500_r3", "result": "pass", "reason": null, "record": "/evidence/candidate-matrix/pipeline_x500_r3.json"}
+
+== matrix done: {'fail': 19, 'pass': 8} ==
+[ros2run]: Process exited with failure 1

@@ -1,0 +1,29 @@
+repositories:
+  fast_lio:
+    type: git
+    url: https://github.com/Ericsii/FAST_LIO_ROS2.git
+    version: 2fffc570a25d0df172720bac034fbdb6a13d2162
+  autonomy_stack_go2:
+    type: git
+    url: https://github.com/jizhang-cmu/autonomy_stack_go2.git
+    version: 43d5f54b389b251713f0097893c30fa76c870d54
+  lidar_localization_ros2:
+    type: git
+    url: https://github.com/rsasaki0109/lidar_localization_ros2.git
+    version: e5428017ad5afaa52e13721d5a86a3acdfafe2d2
+  ndt_omp_ros2:
+    type: git
+    url: https://github.com/rsasaki0109/ndt_omp_ros2.git
+    version: 8b77fa5a6cdcad45bf35918361c892b6d94a287e
+  serial:
+    type: git
+    url: https://github.com/RoverRobotics-forks/serial-ros2.git
+    version: ae46504ae7d4a199ea9bba0e73a6f083bf172f80
+  virtual_maize_field:
+    type: git
+    url: https://github.com/FieldRobotEvent/virtual_maize_field.git
+    version: e525d70c3c73fcdfae9c77bb8e4ca03bf3377ac3  # ros2-gz 分支
+  px4_msgs:
+    type: git
+    url: https://github.com/PX4/px4_msgs.git
+    version: 86d8239e962f6939e05c3737784f60c02fa884db  # release/1.17

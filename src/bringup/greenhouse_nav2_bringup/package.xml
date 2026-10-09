@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>greenhouse_nav2_bringup</name>
+  <version>0.1.0</version>
+  <description>
+    Profile validation, runtime assembly, and health contracts for the
+    greenhouse ROS 2 Jazzy deployment.
+  </description>
+
+  <maintainer email="maintainers@greenhouse.invalid">
+    Greenhouse Navigation Maintainers
+  </maintainer>
+  <license file="LICENSE">Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>diagnostic_msgs</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <!-- Runtime components started by bringup.launch.py. -->
+  <exec_depend>fast_lio</exec_depend>
+  <exec_depend>terrain_analysis</exec_depend>
+  <exec_depend>cmu_local_planner</exec_depend>
+  <exec_depend>cmu_path_follower_generic</exec_depend>
+  <exec_depend>greenhouse_cmd_gate</exec_depend>
+  <exec_depend>terrain_analysis_ext</exec_depend>
+  <exec_depend>far_planner</exec_depend>
+  <exec_depend>graph_decoder</exec_depend>
+  <exec_depend>greenhouse_mppi_navigation</exec_depend>
+  <exec_depend>fast_lio_super_ros2</exec_depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>rclcpp</test_depend>
+  <test_depend>tf2_msgs</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,13 @@
+[INFO] [1791369335.351178197] [air_mission]: ready: nav_state=4
+[INFO] [1791369335.536702902] [air_mission]: armed: 
+[INFO] [1791369336.236460971] [air_mission]: offboard: 
+[INFO] [1791369353.136760870] [air_mission]: takeoff: altitude=2.40
+[INFO] [1791369361.036678358] [air_mission]: hover: position and velocity stable for 3 simulation seconds
+[INFO] [1791369363.936754823] [air_mission]: waypoint: 0 reached
+[INFO] [1791369367.736746041] [air_mission]: waypoint: 1 reached
+[INFO] [1791369371.436875245] [air_mission]: waypoint: 2 reached
+[INFO] [1791369375.236809610] [air_mission]: waypoint: 3 reached
+[INFO] [1791369389.036670796] [air_mission]: return: centered and stationary for 2 simulation seconds
+[INFO] [1791369406.736568508] [air_mission]: land: landing detector confirms touchdown and disarm
+[INFO] [1791369406.836684543] [air_mission]: disarm: 
+[INFO] [1791369406.844511486] [air_mission]: mission pass: ok

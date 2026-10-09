@@ -1,0 +1,82 @@
+{
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "clock": 4.03,
+  "commands": {
+    "/platform/cmd_vel": {
+      "count": 19,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frames": [
+        "base_link"
+      ],
+      "last_clock_minus_stamp_s": 0.0
+    },
+    "/cmd_vel/nav": {
+      "count": 60,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frames": [
+        "base_link"
+      ],
+      "last_clock_minus_stamp_s": 0.0
+    },
+    "/cmd_vel": {
+      "count": 9,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frames": [
+        "base_link"
+      ],
+      "last_clock_minus_stamp_s": 0.0
+    },
+    "/navigation/mppi_cmd": {
+      "count": 4,
+      "max_abs_linear_x": 0.0,
+      "max_abs_angular_z": 0.0,
+      "frames": [
+        "base_link"
+      ],
+      "last_clock_minus_stamp_s": 0.0
+    }
+  },
+  "publishers": {
+    "/platform/cmd_vel": [
+      {
+        "node": "greenhouse_sim_cmd_sink",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/navigation/mppi_cmd": [
+      {
+        "node": "controller_server",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/clock": [
+      {
+        "node": "simulation_clock_bridge",
+        "type": "rosgraph_msgs/msg/Clock",
+        "reliability": "1"
+      }
+    ],
+    "/cmd_vel/nav": [
+      {
+        "node": "mppi_command_adapter",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ],
+    "/cmd_vel": [
+      {
+        "node": "_NODE_NAME_UNKNOWN_",
+        "type": "geometry_msgs/msg/TwistStamped",
+        "reliability": "1"
+      }
+    ]
+  },
+  "run_outputs_seen_at_end": [
+    "/evidence/candidate-matrix/maize_field_jackal_j100_r3"
+  ]
+}

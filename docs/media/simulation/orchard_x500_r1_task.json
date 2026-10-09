@@ -1,0 +1,37 @@
+{
+  "run_id": "orchard_x500_r1",
+  "kind": "task",
+  "world": "orchard",
+  "robot": "x500",
+  "camera_pose": [
+    -12.0,
+    -12.0,
+    10.0,
+    0.0,
+    0.23,
+    0.785
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 22,
+    "nanosec": 2000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 135.27,
+  "variance": 3806.76,
+  "status": "pass",
+  "mission_state_at_capture_start": {
+    "phase": "takeoff-reached",
+    "sim_time_s": 20.943,
+    "ned_position": [
+      -0.16782784461975098,
+      0.12473506480455399,
+      -5.22808837890625
+    ]
+  },
+  "image": "orchard_x500_r1_task.png",
+  "compressed_image": "orchard_x500_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete airborne X500 and orchard rows/terrain are visible and not cropped",
+  "result_record": "evidence/candidate-matrix/orchard_x500_r1.json"
+}

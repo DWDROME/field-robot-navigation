@@ -1,0 +1,17 @@
+fast_lio_super_backend:
+  ros__parameters:
+    enabled: true
+    map_frame: map
+    odom_frame: odom
+    body_frame: base_link
+    keyframe_translation: 1.0
+    keyframe_rotation: 0.2
+    min_loop_seconds: 30.0
+    min_loop_keyframes: 30
+    max_keyframes: 2000
+    max_cloud_points: 10000000
+    queue_capacity: 8
+    correspondence_distance: 2.0
+    min_inliers: 30
+    min_inlier_ratio: 0.3
+    max_mean_square_error: 0.25

@@ -1,0 +1,38 @@
+{
+  "run_id": "orchard_husky_a200_r1",
+  "kind": "task",
+  "world": "orchard",
+  "robot": "husky_a200",
+  "camera_pose": [
+    -6.0,
+    -4.0,
+    3.0,
+    0.0,
+    0.4,
+    0.59
+  ],
+  "view": "task",
+  "capture_source": "Gazebo OGRE2/EGL scene sensor",
+  "sim_time": {
+    "sec": 14,
+    "nanosec": 1000000
+  },
+  "resolution": "1920x1080",
+  "mean_brightness": 85.17,
+  "variance": 268.65,
+  "status": "fail",
+  "mission_state_at_capture_start": {
+    "phase": "ground-mission-active",
+    "case": "normal_lane",
+    "sim_time_s": 8.742,
+    "position": [
+      0.004274291314705511,
+      -0.003909843350739152,
+      -0.29749249838315217
+    ]
+  },
+  "image": "orchard_husky_a200_r1_task.png",
+  "compressed_image": "orchard_husky_a200_r1_task.jpg",
+  "visual_review": "passed: main-agent visual inspection; complete ground robot and orchard rows/terrain visible, not cropped or obscured",
+  "result_record": "evidence/candidate-matrix/orchard_husky_a200_r1.json"
+}

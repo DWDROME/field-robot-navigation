@@ -1,0 +1,61 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+    feature_extract_enable: false
+    point_filter_num: 1
+    max_iteration: 3
+    filter_size_surf: 0.5
+    filter_size_map: 0.5
+    cube_side_length: 200.0
+    runtime_pos_log_enable: false
+    map_file_path: ""
+
+    common:
+      lid_topic: /sensors/lidar/raw
+      imu_topic: /sensors/imu/data
+      world_frame: odom
+      body_frame: base_link
+      lidar_qos_depth: 5
+      imu_qos_depth: 10
+      time_sync_en: false
+      time_offset_lidar_to_imu: 0.0
+
+    preprocess:
+      # Value 5 deliberately selects the generic PointXYZI handler. This file
+      # is a simulation protocol fixture and is not a Mid360 configuration.
+      lidar_type: 5
+      scan_line: 16
+      blind: 0.1
+      timestamp_unit: 3
+      scan_rate: 10
+
+    mapping:
+      acc_cov: 0.1
+      gyr_cov: 0.1
+      b_acc_cov: 0.0001
+      b_gyr_cov: 0.0001
+      fov_degree: 360.0
+      det_range: 50.0
+      extrinsic_est_en: false
+      extrinsic_T: [0.0, 0.0, 0.0]
+      extrinsic_R: [1.0, 0.0, 0.0,
+                    0.0, 1.0, 0.0,
+                    0.0, 0.0, 1.0]
+
+    publish:
+      path_en: true
+      effect_map_en: false
+      map_en: false
+      scan_publish_en: true
+      dense_publish_en: false
+      scan_bodyframe_pub_en: true
+      registered_cloud_topic: /localization/registered_cloud
+      registered_body_cloud_topic: /localization/registered_cloud_body
+      effected_cloud_topic: /localization/effected_cloud
+      map_cloud_topic: /localization/map_cloud
+      odometry_topic: /localization/odometry
+      path_topic: /localization/path
+
+    pcd_save:
+      pcd_save_en: false
+      interval: -1

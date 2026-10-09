@@ -1,0 +1,15 @@
+{
+  "world": "pipeline",
+  "robot": "jackal_j100",
+  "view": "task",
+  "pose": [
+    -8.0,
+    3.0,
+    5.0,
+    0.0,
+    0.5,
+    0.56
+  ],
+  "resolution": "1920x1080",
+  "topic": "/sim_camera/image"
+}

@@ -1,0 +1,78 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Greenhouse Jazzy Migration <noreply@example.invalid>
+Date: Fri, 31 Jul 2026 00:00:00 +0800
+Subject: [PATCH] Scope PCL components and make the demo app optional
+
+The core library only needs PCL's common, filter, kdtree, registration, and
+search components. Keep the visualization-heavy sample application available
+by default, but allow production and simulation runtime builds to omit it.
+---
+ CMakeLists.txt | 40 ++++++++++++++++++++++++++--------------
+ 1 file changed, 26 insertions(+), 14 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 05f5bb8..5f9a263 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,7 +7,12 @@ endif()
+ 
+ find_package(ament_cmake REQUIRED)
+ find_package(rclcpp REQUIRED)
+-find_package(PCL 1.12 REQUIRED)
++find_package(PCL 1.12 REQUIRED COMPONENTS
++  common
++  filters
++  kdtree
++  registration
++  search)
+ find_package(OpenMP REQUIRED COMPONENTS CXX)
+ 
+ ###########
+@@ -30,15 +35,20 @@ target_link_libraries(ndt_omp
+     OpenMP::OpenMP_CXX
+ )
+ 
+-add_executable(align
+-  apps/align.cpp
+-)
+-target_link_libraries(align
+-  ndt_omp
+-)
+-ament_target_dependencies(align
+-  rclcpp
+-)
++option(NDT_OMP_BUILD_APPS "Build the visualization-heavy alignment demo" ON)
++if(NDT_OMP_BUILD_APPS)
++  find_package(PCL 1.12 REQUIRED COMPONENTS io visualization)
++  add_executable(align
++    apps/align.cpp
++  )
++  target_link_libraries(align
++    ndt_omp
++    ${PCL_LIBRARIES}
++  )
++  ament_target_dependencies(align
++    rclcpp
++  )
++endif()
+ 
+ #############
+ ## Install ##
+@@ -51,9 +61,11 @@ install(
+     INCLUDES DESTINATION include
+ )
+-install(
+-  TARGETS align
+-  RUNTIME DESTINATION lib/${PROJECT_NAME}
+-)
++if(NDT_OMP_BUILD_APPS)
++  install(
++    TARGETS align
++    RUNTIME DESTINATION lib/${PROJECT_NAME}
++  )
++endif()
+ 
+ install(
+   DIRECTORY "include/"
+-- 
+2.43.0

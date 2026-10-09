@@ -1,0 +1,58 @@
+{
+  "clock": 37.698,
+  "phase": "camera-subscribed",
+  "phases": {
+    "camera-unsubscribed": {
+      "samples": 816,
+      "age_min": -0.006000000000000227,
+      "age_max": 0.0030000000000001137,
+      "last_age": 0.0
+    },
+    "camera-subscribed": {
+      "samples": 1069,
+      "age_min": -0.011999999999996902,
+      "age_max": 0.015000000000000568,
+      "last_age": 0.006000000000000227
+    }
+  },
+  "lidar_samples": 749,
+  "image_samples": 49,
+  "camera_points_samples": 52,
+  "lidar_last": {
+    "frame": "lidar3d_0_laser",
+    "bytes": 432000,
+    "width": 900,
+    "height": 15
+  },
+  "image_last": {
+    "frame": "camera_0_color_optical_frame",
+    "bytes": 921600,
+    "width": 640,
+    "height": 480
+  },
+  "camera_points_last": {
+    "frame": "camera_0_color_optical_frame",
+    "bytes": 7372800,
+    "width": 640,
+    "height": 480
+  },
+  "cleanup": {
+    "tracked_pids": [
+      113,
+      129,
+      130,
+      131,
+      132,
+      135,
+      136,
+      137,
+      138,
+      140,
+      141
+    ],
+    "sigkill_pids": [
+      132
+    ],
+    "remaining_pids": []
+  }
+}

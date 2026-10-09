@@ -1,0 +1,241 @@
+{
+  "run_id": "maize_field_husky_a200_r3",
+  "world": "maize_field",
+  "robot": "husky_a200",
+  "seed": "20261006",
+  "localization": "simulation_sensors",
+  "started_at": "2026-10-07T11:59:11",
+  "result": "fail",
+  "reason": "normal_headland: controller failed: ; terrain_challenge: controller failed: ; dangerous_crop: controller failed: ",
+  "observations": {
+    "path_length_m": 0.05257867932172067,
+    "max_abs_roll_rad": 0.0005767604791922136,
+    "max_abs_pitch_rad": 0.0003082265458690634,
+    "odometry_samples": 18,
+    "unexpected_collisions": 0,
+    "collision_measurement": "contact-sensors",
+    "contact_messages": 1188,
+    "normal_wheel_contacts": 1188,
+    "collision_pairs": [],
+    "stall_events": 0,
+    "stalled": false,
+    "trace": "/evidence/candidate-matrix/maize_field_husky_a200_r3/maize_field_husky_a200_r3_trace.jsonl",
+    "clock_publishers": 1,
+    "cases": [
+      {
+        "name": "normal_headland",
+        "expectation": "reach",
+        "geometry": "Southern headland outside the measured crop y range [-6.793, 6.773] m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            5.0,
+            0.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 1.748306985002273,
+          "final_position": [
+            -0.01786851715681639,
+            -0.001847087910016087,
+            -0.29752678380805125
+          ],
+          "mission_status": "{\"mission_id\": 1, \"waypoint\": 0, \"goal_stamp_ns\": 3380000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.043380618325994165,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 0.0005767604791922136,
+          "max_abs_pitch_rad": 0.0003082265458690634,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.43999999999999995,
+          "real_time_factor": 0.25167204831560397,
+          "goal_error_m": 5.0178688571152685,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Western headland and generated heightmap relief; original heightmap retained",
+        "waypoints": [
+          [
+            0.0,
+            3.0
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.8076520120011992,
+          "final_position": [
+            -0.0193837972571156,
+            -0.00015057346474115808,
+            -0.29728041243557407
+          ],
+          "mission_status": "{\"mission_id\": 2, \"waypoint\": 0, \"goal_stamp_ns\": 3820000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.006586025227043442,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 0.0005767604791922136,
+          "max_abs_pitch_rad": 0.0003082265458690634,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.20999999999999952,
+          "real_time_factor": 0.2600129720220244,
+          "goal_error_m": 3.0002131916010435,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      },
+      {
+        "name": "dangerous_crop",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the generated crop layout; no plants are removed",
+        "waypoints": [
+          [
+            4.934,
+            6.891
+          ]
+        ],
+        "result": "fail",
+        "reason": "controller failed: ",
+        "observations": {
+          "mission_elapsed_s": 0.7365052159984771,
+          "final_position": [
+            -0.019128964830999462,
+            2.334820838399319e-05,
+            -0.29733530846664
+          ],
+          "mission_status": "{\"mission_id\": 3, \"waypoint\": 0, \"goal_stamp_ns\": 4020000000, \"state\": \"failed\", \"reason\": \"controller failed: \"}",
+          "path_length_m": 0.0026120357686830603,
+          "unexpected_collisions": 0,
+          "max_abs_roll_rad": 0.0005767604791922136,
+          "max_abs_pitch_rad": 0.0003082265458690634,
+          "stalled": false,
+          "tipped": false,
+          "sim_elapsed_s": 0.1900000000000004,
+          "real_time_factor": 0.2579750908381798,
+          "goal_error_m": 8.486403582070853,
+          "action_status": 6,
+          "mission_error_code": 601,
+          "mission_error_msg": "controller failed: ",
+          "outcome": "failed"
+        }
+      }
+    ],
+    "mission_elapsed_s": 43.320034309999755,
+    "sim_elapsed_s": 4.19,
+    "real_time_factor": 0.21830387139982124,
+    "tipped": false
+  },
+  "thresholds": {
+    "goal_xy_m": 0.3,
+    "roll_pitch_limit_rad": 0.7853981633974483,
+    "stall_window_wall_s": 10.0,
+    "stall_distance_m": 0.05,
+    "stall_rotation_rad": 0.1
+  },
+  "task": "site_ground_cases",
+  "implementation_sha256": "465c8b52c3ab4c055176b7be0fbb1f4c4fabde854d6ffe6647284985e02d2277",
+  "image_id": "sha256:dea19f601f3e14ace38fd3da54b20d3b1104ed70fc37b4e29be4e7f3caa9c09d",
+  "ros_domain_id": "67",
+  "gz_partition": "matrix-maize_field_husky_a200_r3",
+  "camera_enabled": false,
+  "runtime_resources": {
+    "cpu_max": "800000 100000",
+    "memory_max": "6442450944",
+    "gpu_adapter": "NVIDIA",
+    "gallium_driver": "d3d12"
+  },
+  "simulation_log": "/evidence/candidate-matrix/maize_field_husky_a200_r3/simulation.log",
+  "task_configuration": {
+    "spawn_world_xy": [
+      -9.0,
+      -8.5
+    ],
+    "cases": [
+      {
+        "name": "normal_headland",
+        "expectation": "reach",
+        "geometry": "Southern headland outside the measured crop y range [-6.793, 6.773] m",
+        "waypoints": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            5.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "name": "terrain_challenge",
+        "expectation": "reach",
+        "geometry": "Western headland and generated heightmap relief; original heightmap retained",
+        "waypoints": [
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "name": "dangerous_crop",
+        "expectation": "reach_or_refuse",
+        "geometry": "Target intersects the generated crop layout; no plants are removed",
+        "waypoints": [
+          [
+            4.934,
+            6.891
+          ]
+        ]
+      }
+    ]
+  },
+  "process_cleanup": {
+    "tracked_pids": [
+      3967,
+      3983,
+      3984,
+      3985,
+      3986,
+      3989,
+      3990,
+      3991,
+      3992,
+      3994,
+      3995,
+      4295,
+      4296,
+      4297,
+      4298,
+      4312,
+      4313,
+      4314,
+      4315,
+      4316,
+      4317,
+      4318,
+      4319,
+      4320,
+      4321
+    ],
+    "sigkill_pids": [
+      3985
+    ],
+    "remaining_pids": []
+  },
+  "runtime_directory": "/evidence/candidate-matrix/maize_field_husky_a200_r3",
+  "ulog_files": [],
+  "finished_at": "2026-10-07T12:00:05"
+}

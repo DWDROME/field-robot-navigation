@@ -1,0 +1,55 @@
+# Clearpath Jackal J100 simulation configuration.
+# Derived from clearpath_config 2.9.x j100_default.yaml with a shared
+# simulation sensor suite: 3D lidar, IMU, wheel odometry (platform
+# controller) and a front RGB-D camera. The root namespace keeps ROS
+# interfaces at /cmd_vel, /platform/odom, odom and base_link.
+serial_number: j100-0000
+version: 0
+system:
+  hosts:
+    - hostname: cpr-j100-0000
+      ip: 192.168.131.1
+  ros2:
+    namespace: "/"
+platform:
+  attachments:
+    - name: front_fender
+      type: j100.fender
+    - name: rear_fender
+      type: j100.fender
+      rpy: [0.0, 0.0, 3.1415]
+    - name: top_plate
+      type: j100.top_plate
+sensors:
+  lidar3d:
+    - model: velodyne_lidar
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_link
+      xyz: [0.0, 0.0, 0.10]
+      rpy: [0.0, 0.0, 0.0]
+      ros_parameters:
+        velodyne_driver_node:
+          frame_id: lidar3d_0_laser
+          device_ip: 192.168.131.25
+          port: 2368
+          model: VLP16
+        velodyne_transform_node:
+          model: VLP16
+          fixed_frame: lidar3d_0_laser
+          target_frame: lidar3d_0_laser
+  camera:
+    - model: intel_realsense
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_link
+      xyz: [0.10, 0.0, 0.05]
+      rpy: [0.0, 0.0, 0.0]
+      ros_parameters:
+        intel_realsense:
+          camera_name: camera_0
+          device_type: d435
+          enable_depth: true
+          enable_color: true
+          pointcloud:
+            enable: true

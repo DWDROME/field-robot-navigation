@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+FROM production AS sim-runtime
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+COPY config/simulation.packages /build/packages/
+RUN mapfile -t packages < <(grep -Ev '^[[:space:]]*(#|$)' /build/packages/simulation.packages) \
+    && apt-get update && apt-get install -y --no-install-recommends "${packages[@]}" \
+    && rm -rf /var/lib/apt/lists/* /build
+ENV GZ_SIM_RESOURCE_PATH=/opt/greenhouse/share/greenhouse_nav2_bringup/worlds:/opt/ros/jazzy/share
+ENV GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/jazzy/lib
+RUN mkdir -p /opt/greenhouse_sim/robot \
+    && cp /opt/greenhouse/share/greenhouse_nav2_bringup/config/simulation/robot.yaml /opt/greenhouse_sim/robot/ \
+    && source /opt/ros/jazzy/setup.bash \
+    && ros2 run clearpath_generator_common generate_description -s /opt/greenhouse_sim/robot \
+    && ros2 run clearpath_generator_common generate_semantic_description -s /opt/greenhouse_sim/robot \
+    && ros2 run clearpath_generator_gz generate_launch -s /opt/greenhouse_sim/robot \
+    && ros2 run clearpath_generator_gz generate_param -s /opt/greenhouse_sim/robot \
+    && sed -i 's/enable_odom_tf: False/enable_odom_tf: True/' /opt/greenhouse_sim/robot/platform/config/control.yaml
+CMD ["ros2", "launch", "greenhouse_nav2_bringup", "simulation.launch.py"]

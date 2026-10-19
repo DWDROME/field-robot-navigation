@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Greenhouse Jazzy Migration <noreply@example.invalid>
+Date: Fri, 31 Jul 2026 00:00:00 +0800
+Subject: [PATCH] Link g2_ndt_score to the exported NDT target
+
+The ament package exports ndt_omp as ndt_omp_ros2::ndt_omp. It does not
+populate the legacy ndt_omp_ros2_INCLUDE_DIRS and ndt_omp_ros2_LIBRARIES
+variables used by this optional pybind module. Link the imported target so
+its include and link interfaces are inherited.
+---
+ CMakeLists.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2b959cf..8a8a3fb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -281,11 +281,10 @@ if(pybind11_FOUND AND Python3_Development.Module_FOUND)
+   pybind11_add_module(g2_ndt_score src/g2_ndt_score_pybind.cpp)
+   target_include_directories(g2_ndt_score PRIVATE
+     include
+-    ${PCL_INCLUDE_DIRS}
+-    ${ndt_omp_ros2_INCLUDE_DIRS})
++    ${PCL_INCLUDE_DIRS})
+   target_compile_features(g2_ndt_score PRIVATE cxx_std_17)
+   target_link_libraries(g2_ndt_score PRIVATE
+-    ${ndt_omp_ros2_LIBRARIES}
++    ndt_omp_ros2::ndt_omp
+     ${PCL_LIBRARIES})
+   install(TARGETS g2_ndt_score
+     LIBRARY DESTINATION lib/${PROJECT_NAME})
+-- 
+2.43.0

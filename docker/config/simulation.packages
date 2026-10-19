@@ -1,0 +1,27 @@
+# Gazebo and Clearpath dependencies for the amd64 simulation image.
+python3-yaml
+ros-jazzy-clearpath-bt-joy
+ros-jazzy-clearpath-common
+ros-jazzy-clearpath-config
+ros-jazzy-clearpath-control
+ros-jazzy-clearpath-description
+ros-jazzy-clearpath-diagnostics
+ros-jazzy-clearpath-generator-common
+ros-jazzy-clearpath-generator-gz
+ros-jazzy-clearpath-gz
+ros-jazzy-clearpath-manipulators
+ros-jazzy-clearpath-manipulators-description
+ros-jazzy-clearpath-mounts-description
+ros-jazzy-clearpath-platform-description
+ros-jazzy-clearpath-platform-msgs
+ros-jazzy-clearpath-sensors-description
+ros-jazzy-clearpath-simulator
+ros-jazzy-clearpath-viz
+ros-jazzy-controller-manager
+ros-jazzy-diff-drive-controller
+ros-jazzy-gz-ros2-control
+ros-jazzy-joint-state-broadcaster
+ros-jazzy-rmw-fastrtps-cpp
+ros-jazzy-robot-state-publisher
+ros-jazzy-ros-gz-bridge
+ros-jazzy-ros-gz-sim

@@ -1,0 +1,9 @@
+*
+!Dockerfile
+!Dockerfile.sim
+!config/
+!config/**
+!fastdds/
+!fastdds/**
+!scripts/
+!scripts/ros-entrypoint.sh

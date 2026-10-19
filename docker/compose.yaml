@@ -1,0 +1,33 @@
+name: greenhouse
+
+services:
+  closed-loop:
+    image: greenhouse-jazzy:local
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production-runtime
+      network: host
+      args:
+        BUILD_JOBS: "${BUILD_JOBS:-2}"
+        HTTP_PROXY: "${HTTP_PROXY:-}"
+        HTTPS_PROXY: "${HTTPS_PROXY:-}"
+        NO_PROXY: "${NO_PROXY:-}"
+      additional_contexts:
+        robot_source: ../src
+        dependencies: ../third_party
+        build_tools: ../tools
+    network_mode: host
+    environment:
+      ROS_DOMAIN_ID: "${ROS_DOMAIN_ID:-21}"
+    command: [ros2, launch, greenhouse_nav2_bringup, closed_loop.launch.py, "deployment:=/config/deployment.yaml"]
+
+  discovery:
+    profiles: [discovery]
+    image: greenhouse-discovery:local
+    platform: linux/amd64
+    build:
+      context: .
+      target: discovery-runtime
+    network_mode: host

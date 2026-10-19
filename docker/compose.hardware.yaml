@@ -1,0 +1,11 @@
+# Explicit hardware override. The path must match chassis.device in deployment.yaml.
+services:
+  closed-loop:
+    volumes:
+      - type: bind
+        source: "${DEPLOYMENT_DIRECTORY:?Provide a directory containing deployment.yaml and sensor configuration}"
+        target: /config
+        read_only: true
+        bind: {create_host_path: false}
+    devices:
+      - "${CHASSIS_DEVICE:?Provide the calibrated platform stable /dev/serial/by-id device}:${CHASSIS_DEVICE:?Provide the stable device}:rw"

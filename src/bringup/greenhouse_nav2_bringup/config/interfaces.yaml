@@ -1,0 +1,134 @@
+schema_version: 1
+
+topics:
+  /clock:
+    types: rosgraph_msgs/msg/Clock
+    owners: {}
+  /sensors/lidar/raw:
+    types:
+      - livox_ros_driver2/msg/CustomMsg
+      - sensor_msgs/msg/PointCloud2
+    owners:
+      mapping-fastlio: livox_driver
+      localization-pcd: livox_driver
+  /sensors/imu/data:
+    types: sensor_msgs/msg/Imu
+    owners:
+      mapping-fastlio: livox_driver
+      localization-pcd: livox_driver
+  /wheel/odometry:
+    types: nav_msgs/msg/Odometry
+    owners:
+      mapping-fastlio: chassis
+      localization-pcd: chassis
+  /localization/registered_cloud:
+    types: sensor_msgs/msg/PointCloud2
+    owners:
+      mapping-fastlio: fast_lio
+      localization-pcd: pcd_cloud_normalizer
+  /localization/registered_cloud_body:
+    types: sensor_msgs/msg/PointCloud2
+    owners:
+      mapping-fastlio: fast_lio
+  /localization/odometry:
+    types: nav_msgs/msg/Odometry
+    owners:
+      mapping-fastlio: fast_lio
+      localization-pcd: chassis_state_estimator
+  /localization/global_pose:
+    types: geometry_msgs/msg/PoseWithCovarianceStamped
+    owners:
+      localization-pcd: pcd_localizer
+  /localization/path:
+    types: nav_msgs/msg/Path
+    owners:
+      mapping-fastlio: fast_lio
+  /perception/terrain_map:
+    types: sensor_msgs/msg/PointCloud2
+    owners:
+      mapping-fastlio: terrain_analysis
+      localization-pcd: terrain_analysis
+  /perception/terrain_map_ext:
+    types: sensor_msgs/msg/PointCloud2
+    owners:
+      navigation-far: terrain_analysis_ext
+  /planning/local_path:
+    types: nav_msgs/msg/Path
+    owners:
+      mapping-fastlio: local_planner
+      localization-pcd: local_planner
+  /planning/way_point:
+    types: geometry_msgs/msg/PointStamped
+    owners:
+      mapping-fastlio: waypoint_input
+      localization-pcd: waypoint_input
+      navigation-far: far_planner
+  /robot_vgraph:
+    types: visibility_graph_msg/msg/Graph
+    owners:
+      navigation-far: far_planner
+  /decoded_vgraph:
+    types: visibility_graph_msg/msg/Graph
+    owners:
+      navigation-far: graph_decoder
+  /cmd_vel/nav:
+    types: geometry_msgs/msg/TwistStamped
+    owners:
+      mapping-fastlio: path_follower
+      localization-pcd: path_follower
+  /cmd_vel/teleop:
+    types: geometry_msgs/msg/TwistStamped
+    owners: {}
+  /cmd_vel/test:
+    types: geometry_msgs/msg/TwistStamped
+    owners: {}
+  /cmd_vel:
+    types: geometry_msgs/msg/TwistStamped
+    owners:
+      mapping-fastlio: command_gate
+      localization-pcd: command_gate
+  /platform/cmd_vel:
+    types: geometry_msgs/msg/TwistStamped
+    owners: {}
+  /diagnostics:
+    types: diagnostic_msgs/msg/DiagnosticArray
+    owners: {}
+  /system/bringup_health:
+    types: diagnostic_msgs/msg/DiagnosticArray
+    owners: {}
+  /tf:
+    types: tf2_msgs/msg/TFMessage
+    owners: {}
+  /tf_static:
+    types: tf2_msgs/msg/TFMessage
+    owners: {}
+
+command_contract:
+  final_topic: /cmd_vel
+  single_owner: command_gate
+  allowed_sources:
+    - /cmd_vel/nav
+    - /cmd_vel/teleop
+    - /cmd_vel/test
+
+tf:
+  mapping-fastlio:
+    - parent: map
+      child: odom
+      owner: map_odom_identity
+    - parent: odom
+      child: base_link
+      owner: fast_lio
+    - parent: base_link
+      child: livox_frame
+      owner: static_sensor_tf
+  localization-pcd:
+    - parent: map
+      child: odom
+      owner: pcd_localizer
+    - parent: odom
+      child: base_link
+      owner: chassis_state_estimator
+    - parent: base_link
+      child: livox_frame
+      owner: static_sensor_tf

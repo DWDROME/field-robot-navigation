@@ -1,0 +1,175 @@
+schema_version: 1
+
+components:
+  livox_driver:
+    owner: compose
+    role: sensor
+  fast_lio:
+    owner: bringup
+    role: localization
+  pcd_localizer:
+    owner: bringup
+    role: localization
+  pcd_cloud_normalizer:
+    owner: bringup
+    role: interface
+  chassis_state_estimator:
+    owner: compose
+    role: localization
+  map_odom_identity:
+    owner: bringup
+    role: tf
+  static_sensor_tf:
+    owner: bringup
+    role: tf
+  terrain_analysis:
+    owner: bringup
+    role: perception
+  terrain_analysis_ext:
+    owner: bringup
+    role: perception
+  far_planner:
+    owner: bringup
+    role: planning
+  graph_decoder:
+    owner: bringup
+    role: planning
+  boundary_handler:
+    owner: tools
+    role: offline-map-preparation
+  waypoint_input:
+    owner: external
+    role: planning
+  local_planner:
+    owner: bringup
+    role: planning
+  path_follower:
+    owner: bringup
+    role: control
+  command_gate:
+    owner: bringup
+    role: control
+  chassis:
+    owner: compose
+    role: hardware
+  tools:
+    owner: compose
+    role: tools
+  fast_lio_super:
+    owner: experiment
+    role: localization
+  movebase3d:
+    owner: experiment
+    role: planning
+
+profiles:
+  mapping-fastlio:
+    role: production-primary
+    available: true
+    runtime_ready: true
+    runtime_ready_hosts:
+      - simulation
+      - dev-ci
+    runtime_blocker: ""
+    components:
+      - livox_driver
+      - fast_lio
+      - map_odom_identity
+      - static_sensor_tf
+      - terrain_analysis
+      - waypoint_input
+      - local_planner
+      - path_follower
+      - command_gate
+      - chassis
+    conflicts:
+      - localization-pcd
+      - experiment-fast-lio-super
+
+  localization-pcd:
+    role: production-primary
+    available: true
+    runtime_ready: false
+    runtime_ready_hosts: []
+    runtime_blocker: >-
+      The production registered-cloud normalizer and odom/base_link ownership
+      boundary still require the Phase 5 implementation and map fixture.
+    components:
+      - livox_driver
+      - pcd_localizer
+      - pcd_cloud_normalizer
+      - chassis_state_estimator
+      - static_sensor_tf
+      - terrain_analysis
+      - waypoint_input
+      - local_planner
+      - path_follower
+      - command_gate
+      - chassis
+    conflicts:
+      - mapping-fastlio
+      - experiment-fast-lio-super
+
+  navigation-far:
+    role: production-addon
+    available: true
+    runtime_ready: true
+    runtime_ready_hosts:
+      - simulation
+      - dev-ci
+    runtime_blocker: ""
+    components:
+      - terrain_analysis_ext
+      - far_planner
+      - graph_decoder
+    conflicts:
+      - experiment-movebase3d
+
+  experiment-fast-lio-super:
+    role: experiment
+    available: true
+    runtime_ready: false
+    runtime_ready_hosts: []
+    runtime_blocker: >-
+      No reproducible Jazzy FAST-LIO-SUPER remote commit is locked.
+    components:
+      - fast_lio_super
+    conflicts:
+      - mapping-fastlio
+      - localization-pcd
+
+  experiment-movebase3d:
+    role: experiment
+    available: true
+    runtime_ready: false
+    runtime_ready_hosts: []
+    runtime_blocker: >-
+      The MoveBase3D chain is not a qualified Jazzy runtime.
+    components:
+      - movebase3d
+    conflicts:
+      - navigation-far
+
+  tools:
+    role: tools
+    available: true
+    runtime_ready: true
+    runtime_ready_hosts:
+      - simulation
+      - dev-ci
+      - nuc-amd64
+    runtime_blocker: ""
+    components:
+      - tools
+    conflicts: []
+
+rules:
+  production_primary_profiles:
+    - mapping-fastlio
+    - localization-pcd
+  production_addon_profiles:
+    - navigation-far
+  experiment_profiles:
+    - experiment-fast-lio-super
+    - experiment-movebase3d
+  tools_profile: tools

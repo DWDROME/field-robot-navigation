@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>cmu_path_follower_generic</name>
+  <version>0.1.0</version>
+  <description>Vendor-neutral ROS 2 path follower derived from the CMU local planner stack.</description>
+
+  <maintainer email="maintainers@greenhouse.invalid">Greenhouse Navigation Maintainers</maintainer>
+  <license>BSD-3-Clause</license>
+  <url type="repository">https://github.com/HongbiaoZ/autonomous_exploration_development_environment</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2</depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

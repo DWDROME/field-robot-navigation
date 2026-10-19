@@ -1,0 +1,21 @@
+# Required deployment input. Null values intentionally reject hardware activation.
+mode: hardware
+localization: fast_lio_super
+controllers: [cmu]
+loop_enabled: true
+# Optional software defaults; validate them against the platform's task requirements.
+mission: {xy_tolerance: 0.3, yaw_tolerance: 3.141592653589793, waypoint_timeout: 120.0, planning_timeout: 15.0, path_timeout: 1.0}
+sensor:
+  network: {interface: null, host_ip: null, lidar_ip: null}
+  driver_config: null
+  imu_from_lidar_T: null
+  imu_from_lidar_R: null
+  base_from_lidar_xyzrpy: null
+chassis:
+  motion_model: DiffDrive
+  device: null
+  baud: null
+  footprint: null
+  limits: {linear_velocity: null, angular_velocity: null, linear_acceleration: null, angular_acceleration: null}
+  estop_topic: null
+  enable_topic: null

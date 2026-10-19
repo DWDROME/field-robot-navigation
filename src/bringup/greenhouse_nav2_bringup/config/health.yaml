@@ -1,0 +1,205 @@
+schema_version: 1
+
+profiles:
+  mapping-fastlio:
+    topics:
+      - name: /sensors/lidar/raw
+        owner_nodes_by_host:
+          simulation: [/greenhouse_sensor_bridge]
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: livox_ros_driver2/msg/CustomMsg
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /sensors/imu/data
+        owner_nodes_by_host:
+          simulation: [/greenhouse_sensor_bridge]
+        type_by_host:
+          simulation: sensor_msgs/msg/Imu
+          dev-ci: sensor_msgs/msg/Imu
+          nuc-amd64: sensor_msgs/msg/Imu
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /localization/registered_cloud
+        owner_nodes_by_host:
+          simulation: [/laser_mapping]
+          dev-ci: [/laser_mapping]
+          nuc-amd64: [/laser_mapping]
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /localization/odometry
+        owner_nodes_by_host:
+          simulation: [/laser_mapping]
+          dev-ci: [/laser_mapping]
+          nuc-amd64: [/laser_mapping]
+        type_by_host:
+          simulation: nav_msgs/msg/Odometry
+          dev-ci: nav_msgs/msg/Odometry
+          nuc-amd64: nav_msgs/msg/Odometry
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /perception/terrain_map
+        owner_nodes_by_host:
+          simulation: [/terrainAnalysis]
+          dev-ci: [/terrainAnalysis]
+          nuc-amd64: [/terrainAnalysis]
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /planning/local_path
+        owner_nodes_by_host:
+          simulation: [/local_planner]
+          dev-ci: [/local_planner]
+          nuc-amd64: [/local_planner]
+        type_by_host:
+          simulation: nav_msgs/msg/Path
+          dev-ci: nav_msgs/msg/Path
+          nuc-amd64: nav_msgs/msg/Path
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /cmd_vel
+        owner_nodes_by_host:
+          simulation: [/greenhouse_cmd_gate]
+          dev-ci: [/greenhouse_cmd_gate]
+          nuc-amd64: [/greenhouse_cmd_gate]
+        type_by_host:
+          simulation: geometry_msgs/msg/TwistStamped
+          dev-ci: geometry_msgs/msg/TwistStamped
+          nuc-amd64: geometry_msgs/msg/TwistStamped
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /system/bringup_health
+        owner_nodes_by_host:
+          simulation: [/greenhouse_bringup_health]
+          dev-ci: [/greenhouse_bringup_health]
+          nuc-amd64: [/greenhouse_bringup_health]
+        type_by_host:
+          simulation: diagnostic_msgs/msg/DiagnosticArray
+          dev-ci: diagnostic_msgs/msg/DiagnosticArray
+          nuc-amd64: diagnostic_msgs/msg/DiagnosticArray
+        minimum_publishers: 1
+        maximum_publishers: 1
+    services: []
+
+  localization-pcd:
+    topics:
+      - name: /sensors/lidar/raw
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /localization/global_pose
+        type_by_host:
+          simulation: geometry_msgs/msg/PoseWithCovarianceStamped
+          dev-ci: geometry_msgs/msg/PoseWithCovarianceStamped
+          nuc-amd64: geometry_msgs/msg/PoseWithCovarianceStamped
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /localization/odometry
+        type_by_host:
+          simulation: nav_msgs/msg/Odometry
+          dev-ci: nav_msgs/msg/Odometry
+          nuc-amd64: nav_msgs/msg/Odometry
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /localization/registered_cloud
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /perception/terrain_map
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /planning/local_path
+        type_by_host:
+          simulation: nav_msgs/msg/Path
+          dev-ci: nav_msgs/msg/Path
+          nuc-amd64: nav_msgs/msg/Path
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /cmd_vel
+        type_by_host:
+          simulation: geometry_msgs/msg/TwistStamped
+          dev-ci: geometry_msgs/msg/TwistStamped
+          nuc-amd64: geometry_msgs/msg/TwistStamped
+        minimum_publishers: 1
+        maximum_publishers: 1
+    services:
+      - /lidar_localization/get_state
+      - /lidar_localization/change_state
+
+  navigation-far:
+    topics:
+      - name: /perception/terrain_map_ext
+        owner_nodes_by_host:
+          simulation: [/terrain_analysis_ext]
+          dev-ci: [/terrain_analysis_ext]
+          nuc-amd64: [/terrain_analysis_ext]
+        type_by_host:
+          simulation: sensor_msgs/msg/PointCloud2
+          dev-ci: sensor_msgs/msg/PointCloud2
+          nuc-amd64: sensor_msgs/msg/PointCloud2
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /planning/way_point
+        owner_nodes_by_host:
+          simulation: [/far_planner]
+          dev-ci: [/far_planner]
+          nuc-amd64: [/far_planner]
+        type_by_host:
+          simulation: geometry_msgs/msg/PointStamped
+          dev-ci: geometry_msgs/msg/PointStamped
+          nuc-amd64: geometry_msgs/msg/PointStamped
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /robot_vgraph
+        owner_nodes_by_host:
+          simulation: [/far_planner]
+          dev-ci: [/far_planner]
+          nuc-amd64: [/far_planner]
+        type_by_host:
+          simulation: visibility_graph_msg/msg/Graph
+          dev-ci: visibility_graph_msg/msg/Graph
+          nuc-amd64: visibility_graph_msg/msg/Graph
+        minimum_publishers: 1
+        maximum_publishers: 1
+      - name: /decoded_vgraph
+        owner_nodes_by_host:
+          simulation: [/graph_decoder]
+          dev-ci: [/graph_decoder]
+          nuc-amd64: [/graph_decoder]
+        type_by_host:
+          simulation: visibility_graph_msg/msg/Graph
+          dev-ci: visibility_graph_msg/msg/Graph
+          nuc-amd64: visibility_graph_msg/msg/Graph
+        minimum_publishers: 1
+        maximum_publishers: 1
+    services: []
+
+  experiment-fast-lio-super:
+    topics: []
+    services: []
+
+  experiment-movebase3d:
+    topics: []
+    services: []
+
+  tools:
+    topics: []
+    services: []

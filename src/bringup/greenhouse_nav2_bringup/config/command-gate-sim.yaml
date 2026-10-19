@@ -1,0 +1,17 @@
+# Deterministic simulation-only command limits. These values must not be used
+# as tracked-chassis safety thresholds.
+greenhouse_cmd_gate:
+  ros__parameters:
+    source_topic: /cmd_vel/nav
+    output_topic: /cmd_vel
+    output_frame: base_link
+    qualification_scope: greenhouse_bringup_generic_simulation_only
+    publish_rate_hz: 50.0
+    max_linear_velocity: 1.0
+    max_angular_velocity: 1.0
+    max_linear_acceleration: 2.0
+    max_angular_acceleration: 2.0
+    watchdog_timeout_sec: 0.5
+    max_command_age_sec: 0.2
+    future_tolerance_sec: 0.05
+    auto_recover_after_watchdog: true

@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from greenhouse_mppi_navigation.command_adapter import main
+main()

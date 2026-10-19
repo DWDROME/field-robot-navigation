@@ -1,0 +1,31 @@
+schema_version: 1
+
+host_profiles:
+  simulation:
+    use_sim_time: true
+    network_mode: bridge
+    required_devices: []
+    sensor_mode: generic_pointcloud
+    qualification_boundary: >-
+      No physical device, Mid360 packet/timing, chassis dynamics, or hardware
+      emergency-stop claim.
+
+  dev-ci:
+    use_sim_time: true
+    network_mode: bridge
+    required_devices: []
+    sensor_mode: recorded_fixture
+    qualification_boundary: >-
+      Deterministic replay only; no live NIC, serial, actuator, or arm64 claim.
+
+  nuc-amd64:
+    use_sim_time: false
+    network_mode: host
+    required_devices:
+      - /dev/dlrobot
+    sensor_mode: mid360
+    required_settings:
+      - MID360_CONFIG_PATH
+      - ROS_DOMAIN_ID
+      - ROS_DISCOVERY_SERVER
+      - FASTDDS_DEFAULT_PROFILES_FILE

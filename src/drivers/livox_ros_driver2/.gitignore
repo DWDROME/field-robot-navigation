@@ -1,0 +1,4 @@
+.vscode
+build
+# The maintained ROS 1 manifest is required by tools/build-ros1.sh.
+__pycache__

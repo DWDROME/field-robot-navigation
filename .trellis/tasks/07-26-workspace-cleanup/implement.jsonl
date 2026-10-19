@@ -1,3 +1,0 @@
-{"file": ".trellis/spec/backend/directory-structure.md", "reason": "目录结构规范 — 清理后需与其保持/同步一致"}
-{"file": ".trellis/spec/backend/runtime-artifacts.md", "reason": "构建/运行产物规范 — build/ 删除与 gitignore 边界的依据"}
-{"file": ".trellis/spec/backend/documentation-evidence.md", "reason": "文档与证据规范 — CLAUDE.md 纳管与 changelog 更新的依据"}

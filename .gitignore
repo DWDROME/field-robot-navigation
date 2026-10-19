@@ -1,58 +1,51 @@
-.ace-tool/
-
-# === catkin build / devel artifacts ===
-/build/
-/build_*/
-/devel/
-/install/
-/logs/
-.catkin_workspace
-
-# === 上游仓库的 .git 目录（被我们重命名保留，但不纳入本仓库历史） ===
-**/.git-upstream-ref/
-
-# === 上游包大体积媒体/数据目录（上游历史保留在各包 .git-upstream-ref 中） ===
-/src/FAST_LIO/PCD/
-/src/FAST_LIO/doc/
-/src/FAST_LIO/Log/
-/src/FAST_LIO_LOCALIZATION/doc/
-
-# === binary / generated ===
-*.pcd
-*.bag
-*.log
-*.o
-*.so
-*.a
-*.pyc
-__pycache__/
-
-# === workspace-local scratch ===
-other.zip
-other/
-!other/
-other/*
-!other/COLCON_IGNORE
-!other/历史归档/
-other/历史归档/*
-!other/历史归档/ros1/
-other/历史归档/ros1/*
-!other/历史归档/ros1/dlrobot_robot/
-!other/历史归档/ros1/dlrobot_robot/**
-.agentdocs/runtime/
-
-# === AI 平台配置（Trellis 步骤 1.3 生成，跨平台字节重复，可再生；源头 .trellis/ 已追踪） ===
+# Local workflow and developer state
+/.tmp/
+/.cache/
+/.worktrees/
+/.comet/
 /.agents/
 /.claude/
 /.codex/
 /.cursor/
-
-# === editor/IDE ===
+/.ace-tool/
+**/.git-upstream-ref/
+.obsidian/
 .vscode/
 .idea/
+
+# Generated workspaces, runtime output and datasets
+/build/
+/build_*/
+/devel/
+/install/
+/log/
+/logs/
+/docker/.cache/
+/docker/results/
+/docker/dist/
+/src/localization/fast_livo/Log/
+.catkin_workspace
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pcd
+*.bag
+*.db3
+*.mcap
+*.log
+*.o
+*.so
+*.a
+
+# Local configuration and editor files
+.env
+.env.local
 *.swp
 *.swo
 .DS_Store
-
-# === OS ===
 Thumbs.db
+# >>> Comet managed project state >>>
+!/.comet/
+/.comet/*
+!/.comet/config.yaml
+# <<< Comet managed project state <<<

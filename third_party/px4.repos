@@ -1,0 +1,18 @@
+# PX4 SITL 空中仿真依赖的固定来源。
+# 由 tools/prepare-px4.sh 消费（PX4-Autopilot 含 29 个 submodule，
+# 不适合通用 prepare-dependencies.py 的递归 submodule 语义）。
+repositories:
+  px4_autopilot:
+    type: git
+    url: https://github.com/PX4/PX4-Autopilot.git
+    version: d6f12ad1c4f70ad3230afd7d86e971421e02fef4  # v1.17.0 稳定发布（附注 tag 解引用）
+    submodules:
+      - src/modules/mavlink/mavlink
+      - Tools/simulation/gz  # PX4-gazebo-models，父仓固定 b6127f4ec20de867e215fb5f78ae88b80f371909
+      - src/modules/uxrce_dds_client/Micro-XRCE-DDS-Client
+      - src/lib/events/libevents
+      - src/drivers/gps/devices
+  micro_xrce_dds_agent:
+    type: git
+    url: https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+    version: 73622810d984349b80bbac0ef55fc0b694d62222  # v2.4.3；PX4 v1.17 文档明确与 v3.x 不兼容

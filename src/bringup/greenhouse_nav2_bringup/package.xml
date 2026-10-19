@@ -26,6 +26,8 @@
   <exec_depend>tf2_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
 
   <!-- Runtime components started by bringup.launch.py. -->
   <exec_depend>fast_lio</exec_depend>

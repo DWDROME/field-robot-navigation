@@ -57,7 +57,7 @@ RUN cp /build/robot/src/drivers/livox_ros_driver2/package_ROS2.xml /build/robot/
     && source /opt/ros/jazzy/setup.bash && source /opt/greenhouse_far/local_setup.bash \
     && cd /build/robot \
     && MAKEFLAGS=-j${BUILD_JOBS} colcon build --executor sequential --merge-install \
-        --base-paths src external --packages-ignore fast_lio_super slam_octvox \
+        --base-paths src external --packages-ignore fast_lio_super slam_octvox greenhouse_sim_air \
         --install-base /opt/greenhouse \
         --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF \
           -DEigen3_DIR=/usr/share/eigen3/cmake -DROS_EDITION=ROS2 -DDISTRO_ROS=jazzy

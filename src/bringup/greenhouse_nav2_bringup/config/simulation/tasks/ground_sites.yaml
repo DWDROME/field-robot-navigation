@@ -1,0 +1,48 @@
+# Goals use the sensor-localized map origin at the settled spawn, yaw 0.
+# Each independent run attempts all three cases. A generic controller error
+# does not count as correct hazard refusal.
+maize_field:
+  spawn_world_xy: [-9.0, -8.5]
+  cases:
+    - name: normal_headland
+      expectation: reach
+      geometry: "Southern headland outside the measured crop y range [-6.793, 6.773] m"
+      waypoints: [[2.0, 0.0], [5.0, 0.0]]
+    - name: terrain_challenge
+      expectation: reach
+      geometry: "Western headland and generated heightmap relief; original heightmap retained"
+      waypoints: [[0.0, 3.0]]
+    - name: dangerous_crop
+      expectation: reach_or_refuse
+      geometry: "Target intersects the generated crop layout; no plants are removed"
+      waypoints: [[4.934, 6.891]]
+orchard:
+  spawn_world_xy: [0.0, 0.0]
+  cases:
+    - name: normal_lane
+      expectation: reach
+      geometry: "Central lane, away from the nearest measured trunk surface at (2.715, -0.216) m"
+      waypoints: [[0.0, 2.0], [0.0, 4.0]]
+    - name: terrain_challenge
+      expectation: reach
+      geometry: "Ground triangle centered at (-0.403, -1.477) m, measured slope 10.707 degrees"
+      waypoints: [[-0.403, -1.477]]
+    - name: dangerous_trunk
+      expectation: reach_or_refuse
+      geometry: "Target lies on the measured trunk collision surface"
+      waypoints: [[2.715, -0.216]]
+pipeline:
+  spawn_world_xy: [-2.0, 8.0]
+  cases:
+    - name: normal_staging
+      expectation: reach
+      geometry: "Staging terrain west of the base station; original collision mesh retained"
+      waypoints: [[-2.0, 0.0], [-4.0, 0.0]]
+    - name: terrain_challenge
+      expectation: reach
+      geometry: "Ground triangle at world (-1.271, 6.429) m, measured slope 10.384 degrees"
+      waypoints: [[0.729, -1.571]]
+    - name: dangerous_station
+      expectation: reach_or_refuse
+      geometry: "Target intersects the original base_station collision model at world (0, 8) m"
+      waypoints: [[2.0, 0.0]]

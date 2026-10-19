@@ -24,4 +24,26 @@ ros-jazzy-joint-state-broadcaster
 ros-jazzy-rmw-fastrtps-cpp
 ros-jazzy-robot-state-publisher
 ros-jazzy-ros-gz-bridge
+ros-jazzy-ros-gz-image
 ros-jazzy-ros-gz-sim
+ros-jazzy-cv-bridge
+ros-jazzy-rviz2
+ros-jazzy-tf2-ros
+
+# Virtual maize field generator runtime dependencies.
+python3-jinja2
+python3-matplotlib
+python3-numpy
+python3-opencv
+python3-pil
+python3-rospkg
+python3-shapely
+python3-venv
+
+# Mission, capture and screenshot pipeline.
+imagemagick
+xauth
+xvfb
+
+# Micro-XRCE-DDS agent runtime (fastrtps 2.x needs the shared foonathan lib).
+libfoonathan-memory0.7.3t64

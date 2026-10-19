@@ -10,6 +10,12 @@ install(
   PROGRAMS
     scripts/greenhouse_bringup_health
     scripts/greenhouse_validate_bringup
+    scripts/run_matrix.py
+    scripts/run_simulation_run.py
+    scripts/capture_simulation_image.py
+    scripts/capture_simulation_rviz.py
+    scripts/simulation_lidar_filter.py
+    scripts/simulation_ground_startup.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -49,6 +55,21 @@ if(BUILD_TESTING)
   ament_add_pytest_test(
     test_launch_contract
     test/test_launch_contract.py
+    TIMEOUT 30
+  )
+  ament_add_pytest_test(
+    test_simulation_process_cleanup
+    test/test_simulation_process_cleanup.py
+    TIMEOUT 30
+  )
+  ament_add_pytest_test(
+    test_simulation_px4_startup
+    test/test_simulation_px4_startup.py
+    TIMEOUT 30
+  )
+  ament_add_pytest_test(
+    test_simulation_lidar_filter
+    test/test_simulation_lidar_filter.py
     TIMEOUT 30
   )
 endif()

@@ -35,6 +35,9 @@ def setup(context):
         'mapping.extrinsic_T':sensor['imu_from_lidar_T'],'mapping.extrinsic_R':sensor['imu_from_lidar_R'],
         'mapping.extrinsic_est_en':False,'publish.path_en':False,
         'publish.registered_cloud_topic':'/localization/registered_cloud_odom',
+        # Preserve observed terrain density in simulation. The map backend
+        # still downsamples its own map; terrain must receive actual returns.
+        'publish.dense_publish_en':sim,
         'slam_core.map_backend':backend,'slam_core.local_crop_radius':100.0}
     if not sim: fast.update({'preprocess.lidar_type':1,'preprocess.scan_line':4,'preprocess.blind':.5})
     limits=chassis['limits']

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!-- Third-person simulation camera injected at run time into any world.
+     Used by the screenshot pipeline: gz renders offscreen and the capture
+     script saves frames from the sim_camera/image topic. The model is
+     static; the launch entry sets its pose per scene. -->
+<sdf version="1.9">
+  <model name="sim_camera">
+    <static>true</static>
+    <link name="link">
+      <sensor name="camera" type="camera">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <!-- This camera serves still captures; robot sensor rates are unchanged. -->
+        <update_rate>1</update_rate>
+        <topic>sim_camera/image</topic>
+        <camera>
+          <horizontal_fov>1.0472</horizontal_fov>
+          <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>2000</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>

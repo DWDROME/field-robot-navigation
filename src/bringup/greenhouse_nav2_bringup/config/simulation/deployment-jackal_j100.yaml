@@ -1,0 +1,16 @@
+# Extrinsics verified against the generated Clearpath URDF:
+# base -> lidar3d_0_laser = 0.184 + 0.10 + 0.0377 m;
+# base -> imu_0_link = identity. This is simulated sensor localization.
+mode: simulation
+simulation_fixture: true
+localization: fast_lio_super
+controllers: [mppi]
+loop_enabled: true
+sensor:
+  imu_from_lidar_T: [0.0, 0.0, 0.3217]
+  imu_from_lidar_R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  base_from_lidar_xyzrpy: [0.0, 0.0, 0.3217, 0.0, 0.0, 0.0]
+chassis:
+  motion_model: DiffDrive
+  footprint: [[0.254, 0.215], [0.254, -0.215], [-0.254, -0.215], [-0.254, 0.215]]
+  limits: {linear_velocity: 0.6, angular_velocity: 1.0, linear_acceleration: 0.5, angular_acceleration: 1.0}

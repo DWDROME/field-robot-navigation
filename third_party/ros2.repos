@@ -19,3 +19,11 @@ repositories:
     type: git
     url: https://github.com/RoverRobotics-forks/serial-ros2.git
     version: ae46504ae7d4a199ea9bba0e73a6f083bf172f80
+  virtual_maize_field:
+    type: git
+    url: https://github.com/FieldRobotEvent/virtual_maize_field.git
+    version: e525d70c3c73fcdfae9c77bb8e4ca03bf3377ac3  # ros2-gz 分支
+  px4_msgs:
+    type: git
+    url: https://github.com/PX4/px4_msgs.git
+    version: 86d8239e962f6939e05c3737784f60c02fa884db  # release/1.17

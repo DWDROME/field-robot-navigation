@@ -31,11 +31,20 @@ docker compose -f docker/compose.yaml -f docker/compose.hardware.yaml up closed-
 
 ## 仿真
 
+仿真镜像在 production 之上加入 Gazebo、Clearpath 平台、虚拟玉米田与 PX4 SITL，构建分四步（准备固定源码、production 镜像、PX4 构建、仿真镜像）：
+
 ```bash
+bash tools/prepare-simulation.sh
+docker compose -f docker/compose.sim.yaml build production
+bash tools/build-px4.sh
 docker compose -f docker/compose.sim.yaml build simulation
-docker compose -f docker/compose.sim.yaml up simulation
 ```
 
-默认启动空世界与 ROS 时钟桥。`SIM_WORLD=generic-sensors.sdf` 选择固定点云/IMU 场景；该场景用于传感器接口检查。`SIM_VEHICLE=true` 在空世界中装入 A200，并启用命令门控，输入为 `/cmd_vel/test`。车辆与固定传感器场景独立使用。静态传感器模型不提供 Livox 点内时序，完整 FAST-LIO 闭环仿真需要适配的传感器数据。
+运行三场地 × 三机器人矩阵的单场景入口：
 
-仿真世界、桥接配置与 launch 均在 `src/bringup/greenhouse_nav2_bringup/`。
+```bash
+docker compose -f docker/compose.sim.yaml up simulation
+SIM_WORLD=pipeline SIM_ROBOT=jackal_j100 docker compose -f docker/compose.sim.yaml up simulation
+```
+
+`SIM_WORLD` 选择 maize_field / orchard / pipeline，`SIM_ROBOT` 选择 jackal_j100 / husky_a200 / x500；一个入口管理 world、实体生成与 `/clock`。批量九组合测试与截图见[仿真说明](../docs/simulation.md)。仿真世界、桥接配置与 launch 均在 `src/bringup/greenhouse_nav2_bringup/`，空中任务在 `src/bringup/greenhouse_sim_air/`。

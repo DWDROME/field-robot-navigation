@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
 project(greenhouse_mppi_navigation)
 set(CMAKE_CXX_STANDARD 17)
+
+# ROS Jazzy's ortools_vendor ships an Eigen3 config that exports
+# EIGEN_MPL2_ONLY without the -D prefix, which the compiler then reads as an
+# input file name. Prefer the system Eigen3 configuration when it exists.
+if(NOT DEFINED Eigen3_DIR AND EXISTS "/usr/share/eigen3/cmake/Eigen3Config.cmake")
+  set(Eigen3_DIR "/usr/share/eigen3/cmake" CACHE PATH "System Eigen3, avoiding the ortools_vendor export")
+endif()
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 foreach(dep rclcpp nav2_costmap_2d nav2_util pluginlib nav_msgs sensor_msgs geometry_msgs std_msgs

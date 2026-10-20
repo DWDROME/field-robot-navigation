@@ -19,6 +19,7 @@ src/
   control/       速度命令门控
   bringup/       系统启动和配置校验
 docker/          构建环境、镜像和容器运行
+firmware/        底盘固件（STM32F407 + FreeRTOS）
 tools/           构建入口
 third_party/     外部源码版本和补丁
 docs/            当前架构与构建说明

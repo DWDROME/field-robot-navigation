@@ -15,6 +15,13 @@
 
 # Generated workspaces, runtime output and datasets
 /build/
+firmware/**/build/
+firmware/**/OBJ/
+firmware/**/*.obj
+firmware/**/*.elf
+firmware/**/*.hex
+firmware/**/*.bin
+firmware/**/*.map
 /build_*/
 /devel/
 /install/

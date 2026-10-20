@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "tr800-st",
+      "displayName": "TR800 STM32F407 (Windows ST tools)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/tr800-st-preset-win",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/tr800_stm32f407.cmake",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "tr800-st",
+      "configurePreset": "tr800-st"
+    }
+  ]
+}

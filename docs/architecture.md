@@ -4,7 +4,7 @@
 
 整车采用 ROS 2 Jazzy。Mid-360 的 LiDAR/IMU 数据进入 FAST-LIO 前端，连续里程计驱动局部控制；共享地图核心提供 ikd-Tree 和 OctVox。后台回环通过 Scan Context、GICP 和 iSAM2 计算全局校正。
 
-注册点云经坐标规范化与地形分析进入 FAR。默认由 CMU local planner 根据 FAR 航点生成局部路径，通用 follower 产生速度；可选 MPPI 使用 Nav2 FollowPath 与地形代价地图。两种模式共享航点任务、部署校验、命令适配与门控，底盘驱动负责串口协议。
+注册点云经坐标规范化与地形分析进入 FAR。默认由 CMU local planner 根据 FAR 航点生成局部路径，通用 follower 产生速度；可选 MPPI 使用 Nav2 FollowPath 与地形代价地图。两种模式共享航点任务、部署校验、命令适配与门控，底盘驱动负责串口协议，帧的固件一端在 `firmware/tr800_f407`。
 
 | 职责 | ROS 包 |
 | --- | --- |
@@ -14,6 +14,8 @@
 | 导航 | `greenhouse_mppi_navigation` 装配任务与两种控制模式；默认使用 `cmu_local_planner`、`cmu_path_follower_generic` |
 | 控制 | `greenhouse_cmd_gate` |
 | 系统装配 | `greenhouse_nav2_bringup` |
+
+底盘固件在 `firmware/tr800_f407` 维护（STM32F407 + FreeRTOS），负责电机速度闭环、编码器与 IMU 采集、帧收发，以及 `SERIAL` 与 `RC` 两个入口的选择和超时归零。ROS 侧只下发速度指令并解析遥测；两侧共用 0x7B/0x7D 帧格式、11 字节命令和 24 字节遥测，协议常量与绑定关系见[固件说明](../firmware/tr800_f407/README.md#与-ros-2-驱动的协议绑定)。
 
 ## 坐标与控制权
 

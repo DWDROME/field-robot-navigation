@@ -10,11 +10,11 @@
 #define DATA_STK_SIZE   512 
 #define DATA_TASK_PRIO  4
 
-#define RC_TASK_PRIO		4     //ÈÎÎñÓÅÏÈ¼¶
-#define RC_STK_SIZE 		256   //ÈÎÎñ¶ÑÕ»´óÐ¡
+#define RC_TASK_PRIO		4     //任务优先级
+#define RC_STK_SIZE 		256   //任务堆栈大小
 
-#define FRAME_HEADER 0X7B //·¢ËÍÊý¾ÝµÄÖ¡Í·
-#define FRAME_TAIL 0X7D //·¢ËÍÊý¾ÝµÄÖ¡Í·
+#define FRAME_HEADER 0X7B //发送数据的帧头
+#define FRAME_TAIL 0X7D //发送数据的帧头
 #if PROTOCOL_25
 #define SEND_DATA_SIZE 25
 #else
@@ -61,31 +61,31 @@
 #define SERIAL_BUFFER_SIZE      125
 
 //#pragma pack(1)
-/*****ÓÃÓÚ´æ·ÅÍÓÂÝÒÇ¼ÓËÙ¶È¼ÆÈýÖáÊý¾Ý½á¹¹Ìå*****/
+/*****用于存放陀螺仪加速度计三轴数据结构体*****/
 typedef struct __Mpu6050_Data_ 
 {
-	short X_data;//2¸ö×Ö½Ú
-	short Y_data;//2¸ö×Ö½Ú
-	short Z_data;//2¸ö×Ö½Ú
+	short X_data;//2个字节
+	short Y_data;//2个字节
+	short Z_data;//2个字节
 }Mpu6050_Data;
-/*******´®¿Ú·¢ËÍÊý¾ÝµÄ½á¹¹Ìå************/
+/*******串口发送数据的结构体************/
 typedef struct _SEND_DATA_  
 {
 	unsigned char buffer[SEND_DATA_SIZE];
 	struct _Sensor_Str_
 	{
-		unsigned char Frame_Header;//1¸ö×Ö½Ú
-		short X_speed;	           //4¸ö×Ö½Ú
-		short Y_speed;             //4¸ö×Ö½Ú
-		short Z_speed;             //4¸ö×Ö½Ú
-		short Power_Voltage;       //4¸ö×Ö½Ú
+		unsigned char Frame_Header;//1个字节
+		short X_speed;	           //4个字节
+		short Y_speed;             //4个字节
+		short Z_speed;             //4个字节
+		short Power_Voltage;       //4个字节
 		
-		Mpu6050_Data Accelerometer;//6¸ö×Ö½Ú
-		Mpu6050_Data Gyroscope;    //6¸ö×Ö½Ú
+		Mpu6050_Data Accelerometer;//6个字节
+		Mpu6050_Data Gyroscope;    //6个字节
 		#if PROTOCOL_25
-			unsigned char Serialcmd;   //1¸ö×Ö½Ú
+			unsigned char Serialcmd;   //1个字节
 		#endif
-		unsigned char Frame_Tail;  //1¸ö×Ö½Ú
+		unsigned char Frame_Tail;  //1个字节
 	}Sensor_Str;
 
 }SEND_DATA;
@@ -103,10 +103,10 @@ typedef struct _RECEIVE_DATA_
 	struct _Control_Str_
 	{
 		unsigned char Frame_Header;// 1
-		float X_speed;	          //4¸ö×Ö½Ú
-		float Y_speed;            //4¸ö×Ö½Ú
-		float Z_speed;            //4¸ö×Ö½Ú
-		unsigned char Frame_Tail;     //1¸ö×Ö½Ú
+		float X_speed;	          //4个字节
+		float Y_speed;            //4个字节
+		float Z_speed;            //4个字节
+		unsigned char Frame_Tail;     //1个字节
 	}Control_Str;
 
 }RECEIVE_DATA;

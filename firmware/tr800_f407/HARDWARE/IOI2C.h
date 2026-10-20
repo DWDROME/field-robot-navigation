@@ -6,13 +6,13 @@
  @ SCL  PB8
  @ SDA  PB9
 **/ 	   		   
-#define SDA_IN()  {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=0<<9*2;}	//PB9输入模式
-#define SDA_OUT() {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=1<<9*2;} //PB9输出模式
+#define SDA_IN()  {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=0<<9*2;}	//PB9杈撳叆妯″紡
+#define SDA_OUT() {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=1<<9*2;} //PB9杈撳嚭妯″紡
 
 
 #define IIC_SCL    	PBout(8) 		//SCL
 #define IIC_SDA    	PBout(9) //SDA
-#define READ_SDA   PBin(9)  //输入SDA 
+#define READ_SDA   PBin(9)  //杈撳叆SDA 
 
 void IIC_Init(void);                			 
 void IIC_Start(void);				

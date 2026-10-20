@@ -1,69 +1,69 @@
 #include "led.h"
 
-int Led_Count=500; //LED flicker time control //LEDÉÁË¸Ê±¼ä¿ØÖÆ
+int Led_Count=500; //LED flicker time control //LEDé—ªçƒæ—¶é—´æ§åˆ¶
 extern int rc_alive;
 
 /**************************************************************************
 Function: LED interface initialization
 Input   : none
 Output  : none
-º¯Êı¹¦ÄÜ£ºLED½Ó¿Ú³õÊ¼»¯
-Èë¿Ú²ÎÊı£ºÎŞ 
-·µ»Ø  Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šLEDæ¥å£åˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šæ—  
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 void LED_Init(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//Ê¹ÄÜGPIOBÊ±ÖÓ
-  GPIO_InitStructure.GPIO_Pin =  LED_PIN;//LED¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//ä½¿èƒ½GPIOBæ—¶é’Ÿ
+  GPIO_InitStructure.GPIO_Pin =  LED_PIN;//LEDå¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOE, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOE, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
   GPIO_SetBits(GPIOE,GPIO_Pin_10);
 }
 /**************************************************************************
 Function: Buzzer interface initialized
 Input   : none
 Output  : none
-º¯Êı¹¦ÄÜ£º·äÃùÆ÷½Ó¿Ú³õÊ¼»¯
-Èë¿Ú²ÎÊı£ºÎŞ 
-·µ»Ø  Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šèœ‚é¸£å™¨æ¥å£åˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šæ—  
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 void Buzzer_Init(void)
 {	
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//Ê¹ÄÜGPIOBÊ±ÖÓ
-  GPIO_InitStructure.GPIO_Pin =  Buzzer_PIN;//LED¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//ä½¿èƒ½GPIOBæ—¶é’Ÿ
+  GPIO_InitStructure.GPIO_Pin =  Buzzer_PIN;//LEDå¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOB, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOB, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 }
 /**************************************************************************
 Function: LED light flashing task
 Input   : none
 Output  : none
-º¯Êı¹¦ÄÜ£ºLEDµÆÉÁË¸ÈÎÎñ
-Èë¿Ú²ÎÊı£ºÎŞ 
-·µ»Ø  Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šLEDç¯é—ªçƒä»»åŠ¡
+å…¥å£å‚æ•°ï¼šæ—  
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 void led_task(void *pvParameters)
 {
     while(1)
     {
 	//The status of the LED is reversed. 0 is on and 1 is off
-	//LED×´Ì¬È¡·´£¬0ÊÇµãÁÁ£¬1ÊÇÏ¨Ãğ    
+	//LEDçŠ¶æ€å–åï¼Œ0æ˜¯ç‚¹äº®ï¼Œ1æ˜¯ç†„ç­    
       LED=~LED;   
   //  if(RC_power > RC_MID - RC_ACT)  hand_stop = 1;
   //  else  hand_stop = 0;     
 	  rc_alive = 0;
       //The LED flicker task is very simple, requires low frequency accuracy, and uses the relative delay function	
-      //LEDÉÁË¸ÈÎÎñ·Ç³£¼òµ¥£¬¶ÔÆµÂÊ¾«¶ÈÒªÇóµÍ£¬Ê¹ÓÃÏà¶ÔÑÓÊ±º¯Êı			
+      //LEDé—ªçƒä»»åŠ¡éå¸¸ç®€å•ï¼Œå¯¹é¢‘ç‡ç²¾åº¦è¦æ±‚ä½ï¼Œä½¿ç”¨ç›¸å¯¹å»¶æ—¶å‡½æ•°			
       vTaskDelay(Led_Count); 
     }
 }  
@@ -72,9 +72,9 @@ void led_task(void *pvParameters)
 Function: The LED flashing
 Input   : none
 Output  : blink time
-º¯Êı¹¦ÄÜ£ºLEDÉÁË¸
-Èë¿Ú²ÎÊı£ºÉÁË¸Ê±¼ä
-·µ »Ø Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šLEDé—ªçƒ
+å…¥å£å‚æ•°ï¼šé—ªçƒæ—¶é—´
+è¿” å› å€¼ï¼šæ— 
 **************************************************************************/
 void Led_Flash(u16 time)
 {

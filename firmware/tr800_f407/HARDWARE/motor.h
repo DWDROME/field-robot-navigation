@@ -62,7 +62,7 @@
 #define EN     PEin(0)  
 
 #define Servo_PWM  TIM1->CCR4
-#define SERVO_INIT 1500  //Servo zero point //¶æ»úÁãµã
+#define SERVO_INIT 1500  //Servo zero point //èˆµæœºé›¶ç‚¹
 
 void Enable_Pin(void);
 void Dlrobot_PWM_Init(u16 arr,u16 psc);

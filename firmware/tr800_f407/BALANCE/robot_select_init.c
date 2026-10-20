@@ -1,14 +1,14 @@
 #include "robot_select_init.h"
 
 //Initialize the robot parameter structure
-//³õÊ¼»¯»úÆ÷ÈË²ÎÊı½á¹¹Ìå
+//åˆå§‹åŒ–æœºå™¨äººå‚æ•°ç»“æ„ä½“
 Robot_Parament_InitTypeDef  Robot_Parament; 
 /**************************************************************************
 Function: According to the potentiometer switch needs to control the car type
 Input   : none
 Output  : none
-Èë¿Ú²ÎÊı£ºÎŞ
-·µ»Ø  Öµ£ºÎŞ
+å…¥å£å‚æ•°ï¼šæ— 
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 void Robot_params(void)
 {   
@@ -27,44 +27,44 @@ void Robot_params(void)
 Function: Initialize cart parameters
 Input   : wheelspacing, axlespacing, omni_rotation_radiaus, motor_gear_ratio, Number_of_encoder_lines, tyre_diameter
 Output  : none
-º¯Êı¹¦ÄÜ£º³õÊ¼»¯Ğ¡³µ²ÎÊı
-Èë¿Ú²ÎÊı£ºÂÖ¾à Öá¾à ×Ô×ª°ë¾¶ µç»ú¼õËÙ±È µç»ú±àÂëÆ÷¾«¶È ÂÖÌ¥Ö±¾¶
-·µ»Ø  Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šåˆå§‹åŒ–å°è½¦å‚æ•°
+å…¥å£å‚æ•°ï¼šè½®è· è½´è· è‡ªè½¬åŠå¾„ ç”µæœºå‡é€Ÿæ¯” ç”µæœºç¼–ç å™¨ç²¾åº¦ è½®èƒç›´å¾„
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 void Robot_Init(double wheelspacing, float axlespacing, float omni_turn_radiaus, float gearratio,float Accuracy,float tyre_diameter) // 
 {
 	//wheelspacing, Mec_Car is half wheelspacing
-	//ÂÖ¾à 
+	//è½®è· 
   Robot_Parament.WheelSpacing=wheelspacing; 
 	//axlespacing, Mec_Car is half axlespacing
-  //Öá¾à 
+  //è½´è· 
   Robot_Parament.AxleSpacing=axlespacing;   
 	//Rotation radius of omnidirectional trolley
   Robot_Parament.OmniTurnRadiaus=omni_turn_radiaus; 
 	//motor_gear_ratio
-	//µç»ú¼õËÙ±È
+	//ç”µæœºå‡é€Ÿæ¯”
   Robot_Parament.GearRatio=gearratio; 
 	//Number_of_encoder_lines
-  //±àÂëÆ÷¾«¶È(±àÂëÆ÷ÏßÊı)	
+  //ç¼–ç å™¨ç²¾åº¦(ç¼–ç å™¨çº¿æ•°)	
   Robot_Parament.EncoderAccuracy=Accuracy;
 	//Diameter of driving wheel
-  //Ö÷¶¯ÂÖÖ±¾¶	
+  //ä¸»åŠ¨è½®ç›´å¾„	
   Robot_Parament.WheelDiameter=tyre_diameter;       
 	
 	//Encoder value corresponding to 1 turn of motor (wheel)
-	//µç»ú(³µÂÖ)×ª1È¦¶ÔÓ¦µÄ±àÂëÆ÷ÊıÖµ
+	//ç”µæœº(è½¦è½®)è½¬1åœˆå¯¹åº”çš„ç¼–ç å™¨æ•°å€¼
 	Encoder_precision=EncoderMultiples*Robot_Parament.EncoderAccuracy*Robot_Parament.GearRatio;
 	//Driving wheel circumference
-  //Ö÷¶¯ÂÖÖÜ³¤	
+  //ä¸»åŠ¨è½®å‘¨é•¿	
 	Wheel_perimeter=Robot_Parament.WheelDiameter*PI;
 	//wheelspacing, Mec_Car is half wheelspacing
-  //ÂÖ¾à 
+  //è½®è· 
   Wheel_spacing=Robot_Parament.WheelSpacing; 
   //axlespacing, Mec_Car is half axlespacing	
-  //Öá¾à 
+  //è½´è· 
 	Axle_spacing=Robot_Parament.AxleSpacing; 
 	//Rotation radius of omnidirectional trolley
-  //È«ÏòÂÖĞ¡³µĞı×ª°ë¾¶	
+  //å…¨å‘è½®å°è½¦æ—‹è½¬åŠå¾„	
 	Omni_turn_radiaus=Robot_Parament.OmniTurnRadiaus; 
 }
 

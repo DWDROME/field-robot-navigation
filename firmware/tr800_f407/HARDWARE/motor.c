@@ -4,45 +4,45 @@
 Function: Motor orientation pin initialization
 Input   : none
 Output  : none
-º¯Êý¹¦ÄÜ£ºµç»ú·½ÏòÒý½Å³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºÎÞ
-·µ»Ø  Öµ£ºÎÞ
+å‡½æ•°åŠŸèƒ½ï¼šç”µæœºæ–¹å‘å¼•è„šåˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šæ— 
+è¿”å›ž  å€¼ï¼šæ— 
 **************************************************************************/
 void Dlrobot_Motor_Init(void)
 {
   GPIO_InitTypeDef  GPIO_InitStructure;
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOC|RCC_AHB1Periph_GPIOE, ENABLE);//Ê¹ÄÜGPIOB C DÊ±ÖÓ
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOC|RCC_AHB1Periph_GPIOE, ENABLE);//ä½¿èƒ½GPIOB C Dæ—¶é’Ÿ
 	
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;//¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;//å¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æŽ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//50MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOA, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOA, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 	
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_11|GPIO_Pin_15;//¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_11|GPIO_Pin_15;//å¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æŽ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//50MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOB, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOB, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 	
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;//¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;//å¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æŽ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//50MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOC, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOC, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 	
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_12;//¶ÔÓ¦IO¿Ú
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_12;//å¯¹åº”IOå£
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æŽ¨æŒ½è¾“å‡º
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//50MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOE, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOE, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 
   //IO output 0to prevent motor transfer
-  //IOÊä³ö0£¬·ÀÖ¹µç»úÂÒ×ª
+  //IOè¾“å‡º0ï¼Œé˜²æ­¢ç”µæœºä¹±è½¬
 
     #if MOTOR_DRIVER_1 || MOTOR_DRIVER_3
     GPIO_SetBits(IN2_PORTA,IN2_PIN_A);
@@ -68,9 +68,9 @@ void Dlrobot_Motor_Init(void)
 Function: The motor PWM initialization
 Input   : arr: Automatic reload value, psc: clock preset frequency
 Output  : none
-º¯Êý¹¦ÄÜ£ºµç»úPWMÒý½Å³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºarr£º×Ô¶¯ÖØ×°Öµ  psc£ºÊ±ÖÓÔ¤·ÖÆµÊý 
-·µ»Ø  Öµ£ºÎÞ
+å‡½æ•°åŠŸèƒ½ï¼šç”µæœºPWMå¼•è„šåˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šarrï¼šè‡ªåŠ¨é‡è£…å€¼  pscï¼šæ—¶é’Ÿé¢„åˆ†é¢‘æ•° 
+è¿”å›ž  å€¼ï¼šæ— 
 **************************************************************************/
 void Dlrobot_PWM_Init(u16 arr,u16 psc)
 {		 					 
@@ -78,8 +78,8 @@ void Dlrobot_PWM_Init(u16 arr,u16 psc)
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
 	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM8,ENABLE);  	  //TIM8Ê±ÖÓÊ¹ÄÜ    
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE); 	//Ê¹ÄÜPORTCÊ±ÖÓ	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM8,ENABLE);  	  //TIM8æ—¶é’Ÿä½¿èƒ½    
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE); 	//ä½¿èƒ½PORTCæ—¶é’Ÿ	
 	
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource6,GPIO_AF_TIM8); 
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource7,GPIO_AF_TIM8); 
@@ -87,61 +87,61 @@ void Dlrobot_PWM_Init(u16 arr,u16 psc)
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource9,GPIO_AF_TIM8); 
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_8|GPIO_Pin_9;   //GPIO
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;        //¸´ÓÃ¹¦ÄÜ
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//ËÙ¶È100MHz
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;      //ÍÆÍì¸´ÓÃÊä³ö
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;        //ÉÏÀ­
-	GPIO_Init(GPIOC,&GPIO_InitStructure);              //³õÊ¼»¯PC¿Ú
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;        //å¤ç”¨åŠŸèƒ½
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//é€Ÿåº¦100MHz
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;      //æŽ¨æŒ½å¤ç”¨è¾“å‡º
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;        //ä¸Šæ‹‰
+	GPIO_Init(GPIOC,&GPIO_InitStructure);              //åˆå§‹åŒ–PCå£
 	
 	//Sets the value of the auto-reload register cycle for the next update event load activity
-	//ÉèÖÃÔÚÏÂÒ»¸ö¸üÐÂÊÂ¼þ×°Èë»î¶¯µÄ×Ô¶¯ÖØ×°ÔØ¼Ä´æÆ÷ÖÜÆÚµÄÖµ	 
+	//è®¾ç½®åœ¨ä¸‹ä¸€ä¸ªæ›´æ–°äº‹ä»¶è£…å…¥æ´»åŠ¨çš„è‡ªåŠ¨é‡è£…è½½å¯„å­˜å™¨å‘¨æœŸçš„å€¼	 
 	TIM_TimeBaseStructure.TIM_Period = arr; 
 	//Sets the pre-divider value used as the TIMX clock frequency divisor
-	//ÉèÖÃÓÃÀ´×÷ÎªTIMxÊ±ÖÓÆµÂÊ³ýÊýµÄÔ¤·ÖÆµÖµ
+	//è®¾ç½®ç”¨æ¥ä½œä¸ºTIMxæ—¶é’Ÿé¢‘çŽ‡é™¤æ•°çš„é¢„åˆ†é¢‘å€¼
 	TIM_TimeBaseStructure.TIM_Prescaler =psc; 
 	//Set the clock split :TDTS = Tck_tim
-	//ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
+	//è®¾ç½®æ—¶é’Ÿåˆ†å‰²:TDTS = Tck_tim
 	TIM_TimeBaseStructure.TIM_ClockDivision = 1; 
 	//Up counting mode 
-	//ÏòÉÏ¼ÆÊýÄ£Ê½  
+	//å‘ä¸Šè®¡æ•°æ¨¡å¼  
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  
 	//Initializes the timebase unit for TIMX based on the parameter specified in TIM_TIMEBASEINITSTRUCT
-	//¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
+	//æ ¹æ®TIM_TimeBaseInitStructä¸­æŒ‡å®šçš„å‚æ•°åˆå§‹åŒ–TIMxçš„æ—¶é—´åŸºæ•°å•ä½
 	TIM_TimeBaseInit(TIM8, &TIM_TimeBaseStructure); 
 
   //Select Timer mode :TIM Pulse Width Modulation mode 1
-  //Ñ¡Ôñ¶¨Ê±Æ÷Ä£Ê½:TIMÂö³å¿í¶Èµ÷ÖÆÄ£Ê½1
+  //é€‰æ‹©å®šæ—¶å™¨æ¨¡å¼:TIMè„‰å†²å®½åº¦è°ƒåˆ¶æ¨¡å¼1
  	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; 
 	//Compare output enablement
-	//±È½ÏÊä³öÊ¹ÄÜ
+	//æ¯”è¾ƒè¾“å‡ºä½¿èƒ½
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; 
   //Output polarity :TIM output polarity is higher	
-  //Êä³ö¼«ÐÔ:TIMÊä³ö±È½Ï¼«ÐÔ¸ß	
+  //è¾“å‡ºæžæ€§:TIMè¾“å‡ºæ¯”è¾ƒæžæ€§é«˜	
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     
 	//Initialize the peripheral TIMX based on the parameter specified in TIM_OCINITSTRUCT
-  //¸ù¾ÝTIM_OCInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯ÍâÉèTIMx	
+  //æ ¹æ®TIM_OCInitStructä¸­æŒ‡å®šçš„å‚æ•°åˆå§‹åŒ–å¤–è®¾TIMx	
 	TIM_OC1Init(TIM8, &TIM_OCInitStructure); 
 	TIM_OC2Init(TIM8, &TIM_OCInitStructure); 
 	TIM_OC3Init(TIM8, &TIM_OCInitStructure); 
 	TIM_OC4Init(TIM8, &TIM_OCInitStructure); 
 	
 	// Advanced timer output must be enabled
-	//¸ß¼¶¶¨Ê±Æ÷Êä³ö±ØÐëÊ¹ÄÜÕâ¾ä		
+	//é«˜çº§å®šæ—¶å™¨è¾“å‡ºå¿…é¡»ä½¿èƒ½è¿™å¥		
 	TIM_CtrlPWMOutputs(TIM8,ENABLE);
 	
 	//CH1 is pre-loaded and enabled
-	//CH1Ô¤×°ÔØÊ¹ÄÜ	 
+	//CH1é¢„è£…è½½ä½¿èƒ½	 
 	TIM_OC1PreloadConfig(TIM8, TIM_OCPreload_Enable); 
 	TIM_OC2PreloadConfig(TIM8, TIM_OCPreload_Enable);  
 	TIM_OC3PreloadConfig(TIM8, TIM_OCPreload_Enable);  
 	TIM_OC4PreloadConfig(TIM8, TIM_OCPreload_Enable);  
 
   // Enable the TIMX preloaded register on the ARR
-  //Ê¹ÄÜTIMxÔÚARRÉÏµÄÔ¤×°ÔØ¼Ä´æÆ÷	
+  //ä½¿èƒ½TIMxåœ¨ARRä¸Šçš„é¢„è£…è½½å¯„å­˜å™¨	
 	TIM_ARRPreloadConfig(TIM8, ENABLE); 
 	
 	//Enable TIM8
-	//Ê¹ÄÜTIM8
+	//ä½¿èƒ½TIM8
 	TIM_Cmd(TIM8, ENABLE);  
 } 
 
@@ -149,37 +149,37 @@ void Dlrobot_PWM_Init(u16 arr,u16 psc)
 Function: Enable switch pin initialization
 Input   : none
 Output  : none
-º¯Êý¹¦ÄÜ£ºÊ¹ÄÜ¿ª¹ØÒý½Å³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºÎÞ
-·µ»Ø  Öµ£ºÎÞ 
+å‡½æ•°åŠŸèƒ½ï¼šä½¿èƒ½å¼€å…³å¼•è„šåˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šæ— 
+è¿”å›ž  å€¼ï¼šæ—  
 **************************************************************************/
 void Enable_Pin(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//Ê¹ÄÜGPIOBÊ±ÖÓ
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0; //KEY¶ÔÓ¦Òý½Å
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//ÆÕÍ¨ÊäÈëÄ£Ê½
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//ä½¿èƒ½GPIOBæ—¶é’Ÿ
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0; //KEYå¯¹åº”å¼•è„š
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//æ™®é€šè¾“å…¥æ¨¡å¼
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100M
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-  GPIO_Init(GPIOE, &GPIO_InitStructure);//³õÊ¼»¯GPIOB14
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+  GPIO_Init(GPIOE, &GPIO_InitStructure);//åˆå§‹åŒ–GPIOB14
 } 
 
 /**************************************************************************
 Function: Model aircraft three channel remote control pin and steering gear PWM pin initialization
 Input   : ARR: Automatic reload value  PSC: clock preset frequency
 Output  : none
-º¯Êý¹¦ÄÜ£ºº½Ä£ÈýÍ¨µÀÒ£¿ØÒý½ÅÓë¶æ»úPWMÒý½Å³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºarr£º×Ô¶¯ÖØ×°Öµ  psc£ºÊ±ÖÓÔ¤·ÖÆµÊý 
-·µ»Ø  Öµ£ºÎÞ
+å‡½æ•°åŠŸèƒ½ï¼šèˆªæ¨¡ä¸‰é€šé“é¥æŽ§å¼•è„šä¸ŽèˆµæœºPWMå¼•è„šåˆå§‹åŒ–
+å…¥å£å‚æ•°ï¼šarrï¼šè‡ªåŠ¨é‡è£…å€¼  pscï¼šæ—¶é’Ÿé¢„åˆ†é¢‘æ•° 
+è¿”å›ž  å€¼ï¼šæ— 
 **************************************************************************/
 void Servo_PWM_Init(u16 arr,u16 psc)	
 {
 		GPIO_InitTypeDef GPIO_InitStructure;		   //IO
-		TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //¶¨Ê±Æ÷
-		TIM_OCInitTypeDef  TIM_OCInitStructure; 	   //PWMÊä³ö
+		TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //å®šæ—¶å™¨
+		TIM_OCInitTypeDef  TIM_OCInitStructure; 	   //PWMè¾“å‡º
 		
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1,ENABLE); 	//TIM1Ê±ÖÓÊ¹ÄÜ	  
-		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);	//Ê¹ÄÜPORTEÊ±ÖÓ 
+		RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1,ENABLE); 	//TIM1æ—¶é’Ÿä½¿èƒ½	  
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);	//ä½¿èƒ½PORTEæ—¶é’Ÿ 
 			
 		GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF; 
 		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9|GPIO_Pin_11;
@@ -191,51 +191,51 @@ void Servo_PWM_Init(u16 arr,u16 psc)
 		GPIO_PinAFConfig(GPIOE,GPIO_PinSource9,GPIO_AF_TIM1); 
 		GPIO_PinAFConfig(GPIOE,GPIO_PinSource11,GPIO_AF_TIM1); 
 		
-		/*** Initialize timer 1 || ³õÊ¼»¯¶¨Ê±Æ÷1 ***/
-		//Set the counter to automatically reload //Éè¶¨¼ÆÊýÆ÷×Ô¶¯ÖØ×°Öµ 
+		/*** Initialize timer 1 || åˆå§‹åŒ–å®šæ—¶å™¨1 ***/
+		//Set the counter to automatically reload //è®¾å®šè®¡æ•°å™¨è‡ªåŠ¨é‡è£…å€¼ 
 		TIM_TimeBaseStructure.TIM_Period = arr; 
-		//Pre-divider //Ô¤·ÖÆµÆ÷ 
+		//Pre-divider //é¢„åˆ†é¢‘å™¨ 
 		TIM_TimeBaseStructure.TIM_Prescaler = psc;	
-		//Set the clock split: TDTS = Tck_tim //ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
+		//Set the clock split: TDTS = Tck_tim //è®¾ç½®æ—¶é’Ÿåˆ†å‰²:TDTS = Tck_tim
 		TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; 
-		//TIM up count mode //TIMÏòÉÏ¼ÆÊýÄ£Ê½	
+		//TIM up count mode //TIMå‘ä¸Šè®¡æ•°æ¨¡å¼	
 		TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; 
 		//Initializes the timebase unit for TIMX based on the parameter specified in TIM_TimeBaseInitStruct
-		//¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
+		//æ ¹æ®TIM_TimeBaseInitStructä¸­æŒ‡å®šçš„å‚æ•°åˆå§‹åŒ–TIMxçš„æ—¶é—´åŸºæ•°å•ä½
 		TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure); 
 	
 	
-		//-----------¶æ»ú³õÊ¼»¯-----------//
+		//-----------èˆµæœºåˆå§‹åŒ–-----------//
 		//Select Timer mode :TIM Pulse Width Modulation mode 1
-	  //Ñ¡Ôñ¶¨Ê±Æ÷Ä£Ê½:TIMÂö³å¿í¶Èµ÷ÖÆÄ£Ê½1
+	  //é€‰æ‹©å®šæ—¶å™¨æ¨¡å¼:TIMè„‰å†²å®½åº¦è°ƒåˆ¶æ¨¡å¼1
 		TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; 
 		//Compare output enablement
-		//±È½ÏÊä³öÊ¹ÄÜ
+		//æ¯”è¾ƒè¾“å‡ºä½¿èƒ½
 		TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; 
 		//Set the pulse value of the capture comparison register to be loaded
-		//ÉèÖÃ´ý×°Èë²¶»ñ±È½Ï¼Ä´æÆ÷µÄÂö³åÖµ
+		//è®¾ç½®å¾…è£…å…¥æ•èŽ·æ¯”è¾ƒå¯„å­˜å™¨çš„è„‰å†²å€¼
 		TIM_OCInitStructure.TIM_Pulse = 0; 
 	  //Output polarity :TIM output polarity is higher	
-	  //Êä³ö¼«ÐÔ:TIMÊä³ö±È½Ï¼«ÐÔ¸ß	
+	  //è¾“å‡ºæžæ€§:TIMè¾“å‡ºæ¯”è¾ƒæžæ€§é«˜	
 		TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;	
 		TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;   
 		
 		//Initialize the peripheral TIMX based on the parameter specified in TIM_OCINITSTRUCT
-	  //¸ù¾ÝTIM_OCInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯ÍâÉèTIMx	
+	  //æ ¹æ®TIM_OCInitStructä¸­æŒ‡å®šçš„å‚æ•°åˆå§‹åŒ–å¤–è®¾TIMx	
 		TIM_OC1Init(TIM1, &TIM_OCInitStructure); 
 		TIM_OC2Init(TIM1, &TIM_OCInitStructure); 
 		
 		//Channel preload enable
-		//Í¨µÀÔ¤×°ÔØÊ¹ÄÜ	 
+		//é€šé“é¢„è£…è½½ä½¿èƒ½	 
 		TIM_OC1PreloadConfig(TIM1, TIM_OCPreload_Enable);
 		TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);
 		
-		//-----------¶æ»ú³õÊ¼»¯-----------//
+		//-----------èˆµæœºåˆå§‹åŒ–-----------//
 		TIM_CtrlPWMOutputs(TIM1,ENABLE);	
-		//Enable timer //Ê¹ÄÜ¶¨Ê±Æ÷
+		//Enable timer //ä½¿èƒ½å®šæ—¶å™¨
 		TIM_Cmd(TIM1, ENABLE);		 
 	  //The channel value is initialized to 1500, corresponding to the steering gear zero
-		//Í¨µÀÖµ³õÊ¼»¯Îª1500£¬¶æ»úÁãµã¶ÔÓ¦Öµ
+		//é€šé“å€¼åˆå§‹åŒ–ä¸º1500ï¼Œèˆµæœºé›¶ç‚¹å¯¹åº”å€¼
 		TIM1->CCR1=1500;
 		TIM1->CCR2=1500;
 		

@@ -1,24 +1,24 @@
 #include "sys.h"  
 
 
-//THUMBÖ¸Áî²»Ö§³Ö»ã±àÄÚÁª
-//²ÉÓÃÈçÏÂ·½·¨ÊµÏÖÖ´ÐÐ»ã±àÖ¸ÁîWFI  
+//THUMB指令不支持汇编内联
+//采用如下方法实现执行汇编指令WFI  
 void WFI_SET(void)
 {
 	__asm volatile ("wfi");
 }
-//¹Ø±ÕËùÓÐÖÐ¶Ï(µ«ÊÇ²»°üÀ¨faultºÍNMIÖÐ¶Ï)
+//关闭所有中断(但是不包括fault和NMI中断)
 void INTX_DISABLE(void)
 {
 	__asm volatile ("cpsid i" ::: "memory");
 }
-//¿ªÆôËùÓÐÖÐ¶Ï
+//开启所有中断
 void INTX_ENABLE(void)
 {
 	__asm volatile ("cpsie i" ::: "memory");
 }
-//ÉèÖÃÕ»¶¥µØÖ·
-//addr:Õ»¶¥µØÖ·
+//设置栈顶地址
+//addr:栈顶地址
 void MSR_MSP(u32 addr)
 {
 	__asm volatile ("msr msp, %0" :: "r"(addr) : "memory");

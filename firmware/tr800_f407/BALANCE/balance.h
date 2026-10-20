@@ -3,11 +3,11 @@
 #include "sys.h"
 #include "system.h"
 
-#define BALANCE_TASK_PRIO		5     //Task priority //ÈÎÎñÓÅÏÈ¼¶
-#define BALANCE_STK_SIZE 		512   //Task stack size //ÈÎÎñ¶ÑÕ»´óÐ¡
+#define BALANCE_TASK_PRIO		5     //Task priority //任务优先级
+#define BALANCE_STK_SIZE 		512   //Task stack size //任务堆栈大小
 
 //Parameter of kinematics analysis of omnidirectional trolley
-//È«ÏòÂÖÐ¡³µÔË¶¯Ñ§·ÖÎö²ÎÊý
+//全向轮小车运动学分析参数
 #define X_PARAMETER    (sqrt(3)/2.f)               
 #define Y_PARAMETER    (0.5f)    
 #define L_PARAMETER    (1.0f)

@@ -13,7 +13,7 @@ u16  DataAddress[2] = {0};
 #define WRITE_BACK_ADDR  0x08040000
 //#define SIZE sizeof(DataAddress)
 
-#define TEXT_LENTH sizeof(DataAddress)	 		  	//数组长度	
+#define TEXT_LENTH sizeof(DataAddress)	 		  	//鏁扮粍闀垮害	
 #define SIZE TEXT_LENTH/4+((TEXT_LENTH%4)?1:0)
 
 

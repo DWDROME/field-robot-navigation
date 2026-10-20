@@ -4,7 +4,7 @@
 #include "system.h"
  
 //CAN1 receives RX0 interrupt enablement
-//CAN1½ÓÊÕRX0ÖÐ¶ÏÊ¹ÄÜ
+//CAN1接收RX0中断使能
 #define CAN1_RX0_INT_ENABLE	0	//Disable CAN RX interrupt for first-stage TR800 runtime
 
 u8 CAN1_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1,u16 brp,u8 mode);

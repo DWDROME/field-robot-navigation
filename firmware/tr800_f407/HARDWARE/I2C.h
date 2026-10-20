@@ -9,12 +9,12 @@
 #include "string.h"
 
 
-#define SDA_IN()  {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=0<<9*2;}	//PB9¨º?¨¨??¡ê¨º?
-#define SDA_OUT() {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=1<<9*2;} //PB9¨º?3??¡ê¨º?
+#define SDA_IN()  {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=0<<9*2;}	//PB9Ãª?Ã¨??ï¿¡Ãª?
+#define SDA_OUT() {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=1<<9*2;} //PB9Ãª?3??ï¿¡Ãª?
 
 #define IIC_SCL    PBout(8) //SCL
 #define IIC_SDA    PBout(9) //SDA	 
-#define READ_SDA   PBin(9)  //¨º?¨¨?SDA 
+#define READ_SDA   PBin(9)  //Ãª?Ã¨?SDA 
 
 
 #ifndef I2C_Direction_Transmitter

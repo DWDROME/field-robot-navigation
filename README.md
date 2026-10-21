@@ -109,6 +109,7 @@ docs/            架构、构建、仿真与路线图
 | [docs/architecture.md](docs/architecture.md) | 数据流、TF、控制权与坐标约定 |
 | [docs/build.md](docs/build.md) | Jazzy / Noetic / FAST-LIVO2 三种构建 |
 | [docs/simulation.md](docs/simulation.md) | 仿真矩阵、场景、已知失败与证据 |
+| [docs/data-formats.md](docs/data-formats.md) | 接口合同、QoS、profile、部署与仿真数据格式 |
 | [docs/roadmap.md](docs/roadmap.md) | 当前状态、待办与风险 |
 | [docker/README.md](docker/README.md) | 镜像与容器运行 |
 | [third_party/README.md](third_party/README.md) | 来源、版本锁与补丁 |

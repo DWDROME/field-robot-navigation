@@ -1,7 +1,7 @@
 #include "dlrobot_robot.h"
 #include "Quaternion_Solution.h"
 
-sensor_msgs::Imu Mpu6050;//Instantiate an IMU object //实例化IMU对象 
+sensor_msgs::Imu Mpu6050; // 保留旧姿态辅助代码的链接符号；串口节点不再使用该解算路径。
 
 /**************************************
 Date: January 28, 2021
@@ -83,35 +83,6 @@ void turn_on_robot::Cmd_Vel_Callback(const geometry_msgs::Twist &twist_aux)
   {
     ROS_ERROR_STREAM("Unable to send data through serial port"); //If sending data fails, an error message is printed //如果发送数据失败，打印错误信息
   }
-}
-/**************************************
-Date: January 28, 2021
-Function: Publish the IMU data topic
-功能: 发布IMU数据话题
-***************************************/
-void turn_on_robot::Publish_ImuSensor()
-{
-  sensor_msgs::Imu Imu_Data_Pub; //Instantiate IMU topic data //实例化IMU话题数据
-  Imu_Data_Pub.header.stamp = ros::Time::now(); 
-  Imu_Data_Pub.header.frame_id = gyro_frame_id; //IMU corresponds to TF coordinates, which is required to use the robot_pose_ekf feature pack 
-                                                //IMU对应TF坐标，使用robot_pose_ekf功能包需要设置此项
-  Imu_Data_Pub.orientation.x = Mpu6050.orientation.x; //A quaternion represents a three-axis attitude //四元数表达三轴姿态
-  Imu_Data_Pub.orientation.y = Mpu6050.orientation.y; 
-  Imu_Data_Pub.orientation.z = Mpu6050.orientation.z;
-  Imu_Data_Pub.orientation.w = Mpu6050.orientation.w;
-  Imu_Data_Pub.orientation_covariance[0] = 1e6; //Three-axis attitude covariance matrix //三轴姿态协方差矩阵
-  Imu_Data_Pub.orientation_covariance[4] = 1e6;
-  Imu_Data_Pub.orientation_covariance[8] = 1e-6;
-  Imu_Data_Pub.angular_velocity.x = Mpu6050.angular_velocity.x; //Triaxial angular velocity //三轴角速度
-  Imu_Data_Pub.angular_velocity.y = Mpu6050.angular_velocity.y;
-  Imu_Data_Pub.angular_velocity.z = Mpu6050.angular_velocity.z;
-  Imu_Data_Pub.angular_velocity_covariance[0] = 1e6; //Triaxial angular velocity covariance matrix //三轴角速度协方差矩阵
-  Imu_Data_Pub.angular_velocity_covariance[4] = 1e6;
-  Imu_Data_Pub.angular_velocity_covariance[8] = 1e-6;
-  Imu_Data_Pub.linear_acceleration.x = Mpu6050.linear_acceleration.x; //Triaxial acceleration //三轴线性加速度
-  Imu_Data_Pub.linear_acceleration.y = Mpu6050.linear_acceleration.y; 
-  Imu_Data_Pub.linear_acceleration.z = Mpu6050.linear_acceleration.z;  
-  imu_publisher.publish(Imu_Data_Pub); //Pub IMU topic //发布IMU话题
 }
 /**************************************
 Date: January 28, 2021
@@ -282,30 +253,7 @@ bool turn_on_robot::Get_Sensor_Data()
                                                                          //获取运动底盘Y方向速度，Y速度仅在全向移动机器人底盘有效
         Robot_Vel.Z = Odom_Trans(Receive_Data.rx[6],Receive_Data.rx[7]); //Get the speed of the moving chassis in the Z direction //获取运动底盘Z方向速度   
         
-        //MPU6050 stands for IMU only and does not refer to a specific model. It can be either MPU6050 or MPU9250
-        //Mpu6050仅代表IMU，不指代特定型号，既可以是MPU6050也可以是MPU9250
-        Mpu6050_Data.accele_x_data = IMU_Trans(Receive_Data.rx[8],Receive_Data.rx[9]);   //Get the X-axis acceleration of the IMU     //获取IMU的X轴加速度  
-        Mpu6050_Data.accele_y_data = IMU_Trans(Receive_Data.rx[10],Receive_Data.rx[11]); //Get the Y-axis acceleration of the IMU     //获取IMU的Y轴加速度
-        Mpu6050_Data.accele_z_data = IMU_Trans(Receive_Data.rx[12],Receive_Data.rx[13]); //Get the Z-axis acceleration of the IMU     //获取IMU的Z轴加速度
-        Mpu6050_Data.gyros_x_data = IMU_Trans(Receive_Data.rx[14],Receive_Data.rx[15]);  //Get the X-axis angular velocity of the IMU //获取IMU的X轴角速度  
-        Mpu6050_Data.gyros_y_data = IMU_Trans(Receive_Data.rx[16],Receive_Data.rx[17]);  //Get the Y-axis angular velocity of the IMU //获取IMU的Y轴角速度  
-        Mpu6050_Data.gyros_z_data = IMU_Trans(Receive_Data.rx[18],Receive_Data.rx[19]);  //Get the Z-axis angular velocity of the IMU //获取IMU的Z轴角速度  
-        //Linear acceleration unit conversion is related to the range of IMU initialization of STM32, where the range is ±2g=19.6m/s^2
-        //线性加速度单位转化，和STM32的IMU初始化的时候的量程有关,这里量程±2g=19.6m/s^2
-		
-        Mpu6050.linear_acceleration.x = Mpu6050_Data.accele_x_data / ACCEl_RATIO;
-        Mpu6050.linear_acceleration.y = Mpu6050_Data.accele_y_data / ACCEl_RATIO;
-        Mpu6050.linear_acceleration.z = Mpu6050_Data.accele_z_data / ACCEl_RATIO;
-		
-		
-        //The gyroscope unit conversion is related to the range of STM32's IMU when initialized. Here, the range of IMU's gyroscope is ±500°/s
-        //Because the robot generally has a slow Z-axis speed, reducing the range can improve the accuracy
-        //陀螺仪单位转化，和STM32的IMU初始化的时候的量程有关，这里IMU的陀螺仪的量程是±500°/s
-        //因为机器人一般Z轴速度不快，降低量程可以提高精度
-        Mpu6050.angular_velocity.x =  Mpu6050_Data.gyros_x_data * GYROSCOPE_RATIO;
-        Mpu6050.angular_velocity.y =  Mpu6050_Data.gyros_y_data * GYROSCOPE_RATIO;
-        Mpu6050.angular_velocity.z =  Mpu6050_Data.gyros_z_data * GYROSCOPE_RATIO;
-
+        // 8..19 字节为固件诊断数据，不转换为 IMU；诊断由串口工具读取。
         //Get the battery voltage
         //获取电池电压
         transition_16 = 0;
@@ -374,33 +322,7 @@ bool turn_on_robot::Get_Sensor_Data_New()
                                                                           //获取运动底盘Y方向速度，Y速度仅在全向移动机器人底盘有效
         Robot_Vel.Z = Odom_Trans(Receive_Data.rx[6],Receive_Data.rx[7]); //Get the speed of the moving chassis in the Z direction //获取运动底盘Z方向速度   
           
-        //MPU6050 stands for IMU only and does not refer to a specific model. It can be either MPU6050 or MPU9250
-        //Mpu6050仅代表IMU，不指代特定型号，既可以是MPU6050也可以是MPU9250
-        Mpu6050_Data.accele_x_data = IMU_Trans(Receive_Data.rx[8],Receive_Data.rx[9]);   //Get the X-axis acceleration of the IMU     //获取IMU的X轴加速度  
-        Mpu6050_Data.accele_y_data = IMU_Trans(Receive_Data.rx[10],Receive_Data.rx[11]); //Get the Y-axis acceleration of the IMU     //获取IMU的Y轴加速度
-        Mpu6050_Data.accele_z_data = IMU_Trans(Receive_Data.rx[12],Receive_Data.rx[13]); //Get the Z-axis acceleration of the IMU     //获取IMU的Z轴加速度
-        Mpu6050_Data.gyros_x_data = IMU_Trans(Receive_Data.rx[14],Receive_Data.rx[15]);  //Get the X-axis angular velocity of the IMU //获取IMU的X轴角速度  
-        Mpu6050_Data.gyros_y_data = IMU_Trans(Receive_Data.rx[16],Receive_Data.rx[17]);  //Get the Y-axis angular velocity of the IMU //获取IMU的Y轴角速度  
-        Mpu6050_Data.gyros_z_data = IMU_Trans(Receive_Data.rx[18],Receive_Data.rx[19]);  //Get the Z-axis angular velocity of the IMU //获取IMU的Z轴角速度  
-        //Linear acceleration unit conversion is related to the range of IMU initialization of STM32, where the range is ±2g=19.6m/s^2
-        //线性加速度单位转化，和STM32的IMU初始化的时候的量程有关,这里量程±2g=19.6m/s^2
-		#if 1
-        Mpu6050.linear_acceleration.x = Mpu6050_Data.accele_x_data / ACCEl_RATIO;
-        Mpu6050.linear_acceleration.y = Mpu6050_Data.accele_y_data / ACCEl_RATIO;
-        Mpu6050.linear_acceleration.z = Mpu6050_Data.accele_z_data / ACCEl_RATIO;
-		#else
-		Mpu6050.linear_acceleration.x = 0;
-        Mpu6050.linear_acceleration.y = 0;
-        Mpu6050.linear_acceleration.z = 9.8;	
-		#endif
-        //The gyroscope unit conversion is related to the range of STM32's IMU when initialized. Here, the range of IMU's gyroscope is ±500°/s
-        //Because the robot generally has a slow Z-axis speed, reducing the range can improve the accuracy
-        //陀螺仪单位转化，和STM32的IMU初始化的时候的量程有关，这里IMU的陀螺仪的量程是±500°/s
-        //因为机器人一般Z轴速度不快，降低量程可以提高精度
-        Mpu6050.angular_velocity.x =  Mpu6050_Data.gyros_x_data * GYROSCOPE_RATIO;
-        Mpu6050.angular_velocity.y =  Mpu6050_Data.gyros_y_data * GYROSCOPE_RATIO;
-        Mpu6050.angular_velocity.z =  Mpu6050_Data.gyros_z_data * GYROSCOPE_RATIO;
-
+        // 8..19 字节为固件诊断数据，不转换为 IMU；诊断由串口工具读取。
         //Get the battery voltage
         //获取电池电压
         transition_16 = 0;
@@ -439,13 +361,8 @@ void turn_on_robot::Control()
       Robot_Pos.Y+=(Robot_Vel.X * sin(Robot_Pos.Z) + Robot_Vel.Y * cos(Robot_Pos.Z)) * Sampling_Time; //Calculate the displacement in the Y direction, unit: m //计算Y方向的位移，单位：m
       Robot_Pos.Z+=Robot_Vel.Z * Sampling_Time; //The angular displacement about the Z axis, in rad //绕Z轴的角位移，单位：rad 
 
-      //Calculate the three-axis attitude from the IMU with the angular velocity around the three-axis and the three-axis acceleration
-      //通过IMU绕三轴角速度与三轴加速度计算三轴姿态
-      Quaternion_Solution(Mpu6050.angular_velocity.x, Mpu6050.angular_velocity.y, Mpu6050.angular_velocity.z,\
-                Mpu6050.linear_acceleration.x, Mpu6050.linear_acceleration.y, Mpu6050.linear_acceleration.z);
 
       Publish_Odom();      //Pub the speedometer topic //发布里程计话题
-      Publish_ImuSensor(); //Pub the IMU topic //发布IMU话题    
       Publish_Voltage();   //Pub the topic of power supply voltage //发布电源电压话题
 
       _Last_Time = _Now; //Record the time and use it to calculate the time interval //记录时间，用于计算时间间隔
@@ -468,7 +385,6 @@ turn_on_robot::turn_on_robot():Sampling_Time(0),Power_voltage(0)
   memset(&Robot_Vel, 0, sizeof(Robot_Vel));
   memset(&Receive_Data, 0, sizeof(Receive_Data)); 
   memset(&Send_Data, 0, sizeof(Send_Data));
-  memset(&Mpu6050_Data, 0, sizeof(Mpu6050_Data));
 
   ros::NodeHandle private_nh("~"); //Create a node handle //创建节点句柄
   //The private_nh.param() entry parameter corresponds to the initial value of the name of the parameter variable on the parameter server
@@ -477,11 +393,9 @@ turn_on_robot::turn_on_robot():Sampling_Time(0),Power_voltage(0)
   private_nh.param<int>        ("serial_baud_rate", serial_baud_rate, 115200); //Communicate baud rate 115200 to the lower machine //和下位机通信波特率115200
   private_nh.param<std::string>("odom_frame_id",    odom_frame_id,    "odom_combined");      //The odometer topic corresponds to the parent TF coordinate //里程计话题对应父TF坐标
   private_nh.param<std::string>("robot_frame_id",   robot_frame_id,   "base_footprint"); //The odometer topic corresponds to sub-TF coordinates //里程计话题对应子TF坐标
-  private_nh.param<std::string>("gyro_frame_id",    gyro_frame_id,    "imu_link"); //IMU topics correspond to TF coordinates //IMU话题对应TF坐标
 
   voltage_publisher = n.advertise<std_msgs::Float32>("PowerVoltage", 10); //Create a battery-voltage topic publisher //创建电池电压话题发布者
   odom_publisher    = n.advertise<nav_msgs::Odometry>("odom", 50); //Create the odometer topic publisher //创建里程计话题发布者
-  imu_publisher     = n.advertise<sensor_msgs::Imu>("imu", 20); //Create an IMU topic publisher //创建IMU话题发布者
 
   //Set the velocity control command callback function
   //速度控制命令订阅回调函数设置

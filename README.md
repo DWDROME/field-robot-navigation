@@ -56,7 +56,9 @@ bash tools/run.sh navigation hardware map:=/absolute/map.pcd
 
 ### 4. 固件（与 ROS 构建无关）
 
-按 [firmware/tr800_f407/README.md](firmware/tr800_f407/README.md) 使用 CMake preset 生成 `dlrobot.elf/hex/bin`，再用 DAPLink + OpenOCD 烧录。烧录后用 `firmware/tr800_f407/tools/tr800_serial_analyzer.py` 核对 11 字节命令帧与 24 字节遥测帧。
+按 [firmware/tr800_f407/README.md](firmware/tr800_f407/README.md) 使用 CMake preset 生成 `dlrobot.elf/hex/bin`，再用 DAPLink + OpenOCD 烧录。烧录后用 `firmware/tr800_f407/tools/tr800_serial_analyzer.py --port COM4 --diag-control` 核对当前控制诊断分页（设备名按现场修改）；命令帧为 11 字节，遥测帧为 24 字节。
+
+底盘驱动只发布轮速积分里程计 `/odom` 与电压 `/PowerVoltage`，不发布串口 IMU。当前遥测 `8..19` 字节用于控制诊断；FAST-LIO 使用 `/livox/imu`。实际 TF 链及里程计消息的区别见 [docs/data-formats.md](docs/data-formats.md)。
 
 ## 仓库结构
 

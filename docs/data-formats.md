@@ -10,13 +10,12 @@
 
 | 坐标系 | 含义 | 发布者 |
 | --- | --- | --- |
-| `map` | 先验地图坐标系 | 地图点云与 `transform_fusion` |
-| `camera_init` | FAST-LIO 建图起点 | LIO 里程计 |
-| `body` | 雷达/IMU 机体 | LIO 里程计 |
-| `odom_combined` → `base_footprint` | 底盘里程计 | `dlrobot_robot` |
-| `imu_link` | 底盘 IMU | `dlrobot_robot` |
+| `map` | 先验地图坐标系 | `transform_fusion` 广播 `map → camera_init` |
+| `camera_init` | FAST-LIO 建图起点 | FAST-LIO 广播 `camera_init → body` |
+| `body` → `base_link` | 机体到导航基座的安装外参 | `localization_MID360.launch` 中的静态 TF |
+| `odom_combined` / `base_footprint` | `/odom` 的父子坐标声明 | `dlrobot_robot` 只发 Odometry，不广播这对 TF |
 
-`transform_fusion` 把 `map` 与 `camera_init` 连起来，并发布 `map → body` 的 `/localization`；底盘里程计链独立发布。
+定位/导航的实际 TF 链为 `map → camera_init → body → base_link`。`transform_fusion` 同时发布 `map → body` 位姿的 `/localization` 消息；该消息本身不新增 TF。既有 `body → base_link` 静态外参为平移 `0, -0.2, 0` m、旋转零。底盘 `/odom` 独立于此定位链，未接入轮速融合。
 
 ## 2. 地图数据
 
@@ -93,7 +92,7 @@
 | `/localization` | `nav_msgs/Odometry`（`map → body`） | 融合后的全局定位 |
 | `/output_filter` | `PointCloud2` | 实时障碍输入 |
 | `/cmd_vel` | `geometry_msgs/Twist` | 规划 → 底盘 |
-| `/odom`、`/imu`、`/PowerVoltage` | 底盘 | 底盘里程计、IMU、电压 |
+| `/odom`、`/PowerVoltage` | 底盘 | 轮速积分里程计、电压；不发布串口 `/imu` |
 | `/cur_goal`、`/global_path`、`/cur_global_goal_status` | MoveBase3D | 目标、全局路径、状态 |
 
 ### 5.2 消息定义
@@ -117,7 +116,8 @@
 - 命令帧固定 11 字节，遥测帧固定 24 字节；帧头 `0x7B`，帧尾 `0x7D`，校验为前 N 字节异或。
 - 命令帧：`x/y/z_cmd` 为 `int16_be`，发送前乘 1000。
 - 遥测帧：速度、电压与诊断字段；`PROTOCOL_25` 必须为 `0`，否则变成 25 字节，驱动按 24 字节解析会错位。
-- 当前 `TR800_MOTOR_TELEMETRY_DEBUG=1`，遥测第 8–19 字节是编码器/PWM/使能/状态码，不是 IMU；`tr800_serial_analyzer.py` 的字段名仍按 IMU 注释，读数据时以固件文档为准。
+- 当前 `TR800_MOTOR_TELEMETRY_DEBUG=0`、`TR800_CONTROL_TELEMETRY_DEBUG=1`；第 `8..19` 字节为三页控制诊断，首个 `int16_be` 是页号 `1/2/3`，其余字段分别表示遥控输入、目标/模式、编码器/PWM/故障。完整布局见固件协议文档。
+- ROS 驱动不将诊断字段换算为 IMU，不解算姿态或发布 `/imu`；FAST-LIO 继续使用 `/livox/imu`。诊断工具保留原始 `diag_0..diag_5`，传 `--diag-control` 按当前分页显示。
 - 协议改动必须同步：固件 `HARDWARE/usartx.h` ↔ `src/dlrobot_robot/include/dlrobot_robot.h`（以及 upgrade 分支的 ROS 2 驱动）。
 
 完整字节表见 `firmware/tr800_f407/docs/TR800_通信协议.md`。

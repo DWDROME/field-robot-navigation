@@ -6,6 +6,10 @@
 
 Livox MID360 提供点云与 IMU。FAST_LIO 负责建图和连续里程计；FAST_LIO_LOCALIZATION 将里程计与已有 PCD 地图的全局定位结合，输出定位与 TF。MoveBase3D 使用地图、实时点云、目标和 TF，完成全局规划、GPR 地势分析及局部控制。点云过滤包提供实时障碍输入，dlrobot_robot 将速度命令转换为底盘串口帧。
 
+定位/导航默认 TF 链为 `map → camera_init → body → base_link`：`transform_fusion.py` 发布 `map → camera_init`，FAST-LIO 发布 `camera_init → body`，`localization_MID360.launch` 已配置 `body → base_link` 的静态安装外参（平移 `0, -0.2, 0` m，旋转为零）。安装外参须对应实际设备。
+
+底盘 `/odom` 的 `frame_id=odom_combined`、`child_frame_id=base_footprint` 是消息坐标声明，驱动不广播这对 TF，也未将轮速接入定位融合。串口只向 ROS 提供里程计与电压；`8..19` 字节留作诊断，不解算或发布底盘 IMU。导航的惯性输入仍来自 Livox。
+
 | 职责 | 目录或 ROS 包 |
 | --- | --- |
 | 建图 | src/FAST_LIO，包名 fast_lio |

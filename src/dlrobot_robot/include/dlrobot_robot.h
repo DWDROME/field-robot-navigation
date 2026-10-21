@@ -144,27 +144,24 @@ class turn_on_robot
 		//速度话题订阅回调函数
 		void Cmd_Vel_Callback(const geometry_msgs::Twist &twist_aux);              
 
-		ros::Publisher odom_publisher, imu_publisher, voltage_publisher; //Initialize the topic publisher //初始化话题发布者
+		ros::Publisher odom_publisher, voltage_publisher; //初始化里程计与电压发布者
 		void Publish_Odom();      //Pub the speedometer topic //发布里程计话题
-		void Publish_ImuSensor(); //Pub the IMU sensor topic //发布IMU传感器话题
 		void Publish_Voltage();   //Pub the power supply voltage topic //发布电源电压话题
 
-        //从串口(ttyUSB)读取运动底盘速度、IMU、电源电压数据
-        //Read motion chassis speed, IMU, power supply voltage data from serial port (ttyUSB)
+        //读取底盘速度、电压；8..19 字节保留为固件诊断数据，不作为 IMU。
         bool Get_Sensor_Data();   
 		bool Get_Sensor_Data_New();
         unsigned char Check_Sum(unsigned char Count_Number,unsigned char mode); //BBC check function //BBC校验函数
         short IMU_Trans(uint8_t Data_High,uint8_t Data_Low);  //IMU data conversion read //IMU数据转化读取
 		float Odom_Trans(uint8_t Data_High,uint8_t Data_Low); //Odometer data is converted to read //里程计数据转化读取
 
-        string usart_port_name, robot_frame_id, gyro_frame_id, odom_frame_id; //Define the related variables //定义相关变量
+        string usart_port_name, robot_frame_id, odom_frame_id; //Define the related variables //定义相关变量
         int serial_baud_rate;      //Serial communication baud rate //串口通信波特率
         RECEIVE_DATA Receive_Data; //The serial port receives the data structure //串口接收数据结构体
         SEND_DATA Send_Data;       //The serial port sends the data structure //串口发送数据结构体
 
         Vel_Pos_Data Robot_Pos;    //The position of the robot //机器人的位置
         Vel_Pos_Data Robot_Vel;    //The speed of the robot //机器人的速度
-        MPU6050_DATA Mpu6050_Data; //IMU data //IMU数据
         float Power_voltage;       //Power supply voltage //电源电压
 };
 #endif

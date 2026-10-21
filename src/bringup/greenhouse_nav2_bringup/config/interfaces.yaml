@@ -19,8 +19,7 @@ topics:
   /wheel/odometry:
     types: nav_msgs/msg/Odometry
     owners:
-      mapping-fastlio: chassis
-      localization-pcd: chassis
+      navigation-far: chassis
   /localization/registered_cloud:
     types: sensor_msgs/msg/PointCloud2
     owners:
@@ -46,8 +45,7 @@ topics:
   /perception/terrain_map:
     types: sensor_msgs/msg/PointCloud2
     owners:
-      mapping-fastlio: terrain_analysis
-      localization-pcd: terrain_analysis
+      navigation-far: terrain_analysis
   /perception/terrain_map_ext:
     types: sensor_msgs/msg/PointCloud2
     owners:
@@ -55,13 +53,10 @@ topics:
   /planning/local_path:
     types: nav_msgs/msg/Path
     owners:
-      mapping-fastlio: local_planner
-      localization-pcd: local_planner
+      navigation-far: local_planner
   /planning/way_point:
     types: geometry_msgs/msg/PointStamped
     owners:
-      mapping-fastlio: waypoint_input
-      localization-pcd: waypoint_input
       navigation-far: far_planner
   /robot_vgraph:
     types: visibility_graph_msg/msg/Graph
@@ -74,8 +69,7 @@ topics:
   /cmd_vel/nav:
     types: geometry_msgs/msg/TwistStamped
     owners:
-      mapping-fastlio: path_follower
-      localization-pcd: path_follower
+      navigation-far: path_follower
   /cmd_vel/teleop:
     types: geometry_msgs/msg/TwistStamped
     owners: {}
@@ -85,8 +79,7 @@ topics:
   /cmd_vel:
     types: geometry_msgs/msg/TwistStamped
     owners:
-      mapping-fastlio: command_gate
-      localization-pcd: command_gate
+      navigation-far: command_gate
   /platform/cmd_vel:
     types: geometry_msgs/msg/TwistStamped
     owners: {}

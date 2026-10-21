@@ -1,5 +1,7 @@
 # Robot Navigation & SLAM
 
+本分支为 `upgrade/ros2`，保存 ROS 2 整车与算法升级成果。原版 ROS 1、已有地图定位和 MoveBase3D 交付线位于 `main`，可用 `git switch main` 切换。两条分支均保留 `firmware/tr800_f407` 下位机源码。
+
 面向温室与户外履带机器人的定位、建图和自主导航工程。ROS 2 Jazzy 负责整车装配，ROS 1 Noetic 提供独立算法工作区。
 
 | 主线 | 功能 | 入口 |
@@ -26,6 +28,15 @@ docs/            当前架构与构建说明
 ```
 
 ## 使用
+
+统一入口为 `bash tools/run.sh <模式> <环境> [launch 参数...]`。模式为 `mapping`、`localization`、`navigation`，环境为 `hardware`、`simulation`：
+
+- `navigation hardware deployment:=/absolute/deployment.yaml` 使用完整实车装配。
+- `navigation simulation world:=maize_field robot:=husky_a200` 使用已有 Gazebo 环境。
+- `mapping simulation` 只启动建图与 TF，外部提供时钟和传感器；启动 Gazebo 时设置 `navigation:=false`。
+- 升级版 PCD 定位和通用 profile 的实车纯建图尚未接入，入口明确提示，不切换成其他模式。原版三个实车模式见 `main`。
+
+仿真镜像和启动详见 [仿真说明](docs/simulation.md)。FAST-LIVO2 继续使用独立 Noetic 构建入口。
 
 从 [构建说明](docs/build.md) 选择 Jazzy 导航、Noetic SLAM 或 FAST-LIVO2。整车入口为 `greenhouse_nav2_bringup/closed_loop.launch.py`，启动前提供传感器标定、底盘设备、运动限值与急停接口。仿真配置需要外部时钟和传感器输入。
 

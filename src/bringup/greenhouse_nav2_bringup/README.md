@@ -12,6 +12,8 @@ ros2 launch greenhouse_nav2_bringup closed_loop.launch.py deployment:=/absolute/
 
 ## 建图与 CMU 配置
 
+`mapping-fastlio` 仅装配 FAST-LIO 和必要 TF，不启动地形规划、跟随或速度控制。加入 `navigation-far` 后组合原有地形、FAR、CMU、门控和底盘组件。PCD 定位仍是未接入的独立模式。
+
 `bringup.launch.py` 提供独立 profile 入口：
 
 ```bash

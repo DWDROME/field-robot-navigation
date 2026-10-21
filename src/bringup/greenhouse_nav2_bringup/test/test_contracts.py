@@ -26,14 +26,13 @@ def test_mapping_simulation_resolves_complete_contract():
     assert resolved.network_mode == "bridge"
     assert resolved.required_devices == ()
     assert "fast_lio" in resolved.components
-    assert "command_gate" in resolved.components
+    assert not {
+        "local_planner", "path_follower", "command_gate", "chassis"
+    } & set(resolved.components)
     assert {item.name for item in resolved.required_topics} >= {
         "/sensors/lidar/raw",
         "/localization/odometry",
         "/localization/registered_cloud",
-        "/perception/terrain_map",
-        "/planning/local_path",
-        "/cmd_vel",
     }
     assert {(item.parent, item.child) for item in resolved.required_tf} == (
         REQUIRED_TF_EDGES
@@ -99,7 +98,12 @@ def test_mapping_with_far_is_runtime_ready_in_simulation():
     )
     assert plan.runtime_ready
     assert plan.runtime_blockers == ()
-    assert "far_planner" in plan.components
+    assert {
+        "far_planner", "local_planner", "path_follower", "command_gate", "chassis"
+    } <= set(plan.components)
+    assert {"/perception/terrain_map", "/planning/local_path", "/cmd_vel"} <= {
+        item.name for item in plan.required_topics
+    }
     way_point = next(
         item for item in plan.required_topics if item.name == "/planning/way_point"
     )

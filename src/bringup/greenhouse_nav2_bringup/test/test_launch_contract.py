@@ -77,6 +77,30 @@ def test_launch_setup_emits_a_machine_readable_plan(tmp_path):
     assert len(actions) == 1
 
 
+def test_mapping_starts_without_navigation_packages_or_gate_config(monkeypatch):
+    module = _load_launch_module()
+    captured = []
+
+    def no_optional_packages(name):
+        raise AssertionError(f"pure mapping requested optional package {name}")
+
+    def capture_node(**kwargs):
+        captured.append(kwargs)
+        return kwargs
+
+    monkeypatch.setattr(module, "get_package_share_directory", no_optional_packages)
+    monkeypatch.setattr(module, "Node", capture_node)
+    module._launch_setup(_context(
+        profiles="mapping-fastlio",
+        start_runtime_nodes="true",
+        publish_static_tf="true",
+        command_gate_params="/missing/navigation-only.yaml",
+    ))
+    assert [node["package"] for node in captured] == [
+        "fast_lio", "tf2_ros", "tf2_ros",
+    ]
+
+
 def test_launch_setup_rejects_missing_plan_parent(tmp_path):
     module = _load_launch_module()
     output = tmp_path / "missing" / "plan.json"

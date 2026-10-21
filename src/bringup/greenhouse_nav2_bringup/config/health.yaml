@@ -43,39 +43,6 @@ profiles:
           nuc-amd64: nav_msgs/msg/Odometry
         minimum_publishers: 1
         maximum_publishers: 1
-      - name: /perception/terrain_map
-        owner_nodes_by_host:
-          simulation: [/terrainAnalysis]
-          dev-ci: [/terrainAnalysis]
-          nuc-amd64: [/terrainAnalysis]
-        type_by_host:
-          simulation: sensor_msgs/msg/PointCloud2
-          dev-ci: sensor_msgs/msg/PointCloud2
-          nuc-amd64: sensor_msgs/msg/PointCloud2
-        minimum_publishers: 1
-        maximum_publishers: 1
-      - name: /planning/local_path
-        owner_nodes_by_host:
-          simulation: [/local_planner]
-          dev-ci: [/local_planner]
-          nuc-amd64: [/local_planner]
-        type_by_host:
-          simulation: nav_msgs/msg/Path
-          dev-ci: nav_msgs/msg/Path
-          nuc-amd64: nav_msgs/msg/Path
-        minimum_publishers: 1
-        maximum_publishers: 1
-      - name: /cmd_vel
-        owner_nodes_by_host:
-          simulation: [/greenhouse_cmd_gate]
-          dev-ci: [/greenhouse_cmd_gate]
-          nuc-amd64: [/greenhouse_cmd_gate]
-        type_by_host:
-          simulation: geometry_msgs/msg/TwistStamped
-          dev-ci: geometry_msgs/msg/TwistStamped
-          nuc-amd64: geometry_msgs/msg/TwistStamped
-        minimum_publishers: 1
-        maximum_publishers: 1
       - name: /system/bringup_health
         owner_nodes_by_host:
           simulation: [/greenhouse_bringup_health]
@@ -119,7 +86,17 @@ profiles:
           nuc-amd64: sensor_msgs/msg/PointCloud2
         minimum_publishers: 1
         maximum_publishers: 1
+    services:
+      - /lidar_localization/get_state
+      - /lidar_localization/change_state
+
+  navigation-far:
+    topics:
       - name: /perception/terrain_map
+        owner_nodes_by_host:
+          simulation: [/terrainAnalysis]
+          dev-ci: [/terrainAnalysis]
+          nuc-amd64: [/terrainAnalysis]
         type_by_host:
           simulation: sensor_msgs/msg/PointCloud2
           dev-ci: sensor_msgs/msg/PointCloud2
@@ -127,6 +104,10 @@ profiles:
         minimum_publishers: 1
         maximum_publishers: 1
       - name: /planning/local_path
+        owner_nodes_by_host:
+          simulation: [/local_planner]
+          dev-ci: [/local_planner]
+          nuc-amd64: [/local_planner]
         type_by_host:
           simulation: nav_msgs/msg/Path
           dev-ci: nav_msgs/msg/Path
@@ -134,18 +115,16 @@ profiles:
         minimum_publishers: 1
         maximum_publishers: 1
       - name: /cmd_vel
+        owner_nodes_by_host:
+          simulation: [/greenhouse_cmd_gate]
+          dev-ci: [/greenhouse_cmd_gate]
+          nuc-amd64: [/greenhouse_cmd_gate]
         type_by_host:
           simulation: geometry_msgs/msg/TwistStamped
           dev-ci: geometry_msgs/msg/TwistStamped
           nuc-amd64: geometry_msgs/msg/TwistStamped
         minimum_publishers: 1
         maximum_publishers: 1
-    services:
-      - /lidar_localization/get_state
-      - /lidar_localization/change_state
-
-  navigation-far:
-    topics:
       - name: /perception/terrain_map_ext
         owner_nodes_by_host:
           simulation: [/terrain_analysis_ext]

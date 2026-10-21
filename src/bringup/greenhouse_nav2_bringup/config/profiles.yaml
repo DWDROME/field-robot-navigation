@@ -76,12 +76,6 @@ profiles:
       - fast_lio
       - map_odom_identity
       - static_sensor_tf
-      - terrain_analysis
-      - waypoint_input
-      - local_planner
-      - path_follower
-      - command_gate
-      - chassis
     conflicts:
       - localization-pcd
       - experiment-fast-lio-super
@@ -100,12 +94,6 @@ profiles:
       - pcd_cloud_normalizer
       - chassis_state_estimator
       - static_sensor_tf
-      - terrain_analysis
-      - waypoint_input
-      - local_planner
-      - path_follower
-      - command_gate
-      - chassis
     conflicts:
       - mapping-fastlio
       - experiment-fast-lio-super
@@ -119,6 +107,11 @@ profiles:
       - dev-ci
     runtime_blocker: ""
     components:
+      - terrain_analysis
+      - local_planner
+      - path_follower
+      - command_gate
+      - chassis
       - terrain_analysis_ext
       - far_planner
       - graph_decoder

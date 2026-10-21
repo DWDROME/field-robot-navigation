@@ -31,10 +31,8 @@ def _mapping_actions(
     *,
     use_sim_time: bool,
     fast_lio_params: str,
-    command_gate_params: str,
     publish_static_tf: bool,
 ) -> list:
-    local_planner_share = get_package_share_directory("cmu_local_planner")
     actions = [
         Node(
             package="fast_lio",
@@ -43,6 +41,68 @@ def _mapping_actions(
             output="screen",
             parameters=[fast_lio_params, {"use_sim_time": use_sim_time}],
         ),
+    ]
+    if publish_static_tf:
+        actions.extend(
+            [
+                Node(
+                    package="tf2_ros",
+                    executable="static_transform_publisher",
+                    name="greenhouse_map_to_odom_identity",
+                    arguments=[
+                        "--x",
+                        "0",
+                        "--y",
+                        "0",
+                        "--z",
+                        "0",
+                        "--roll",
+                        "0",
+                        "--pitch",
+                        "0",
+                        "--yaw",
+                        "0",
+                        "--frame-id",
+                        "map",
+                        "--child-frame-id",
+                        "odom",
+                    ],
+                    parameters=[{"use_sim_time": use_sim_time}],
+                    output="screen",
+                ),
+                Node(
+                    package="tf2_ros",
+                    executable="static_transform_publisher",
+                    name="greenhouse_livox_identity",
+                    arguments=[
+                        "--x",
+                        "0",
+                        "--y",
+                        "0",
+                        "--z",
+                        "0",
+                        "--roll",
+                        "0",
+                        "--pitch",
+                        "0",
+                        "--yaw",
+                        "0",
+                        "--frame-id",
+                        "base_link",
+                        "--child-frame-id",
+                        "livox_frame",
+                    ],
+                    parameters=[{"use_sim_time": use_sim_time}],
+                    output="screen",
+                ),
+            ]
+        )
+    return actions
+
+
+def _navigation_actions(*, use_sim_time: bool, command_gate_params: str) -> list:
+    local_planner_share = get_package_share_directory("cmu_local_planner")
+    return [
         Node(
             package="terrain_analysis",
             executable="terrainAnalysis",
@@ -136,62 +196,6 @@ def _mapping_actions(
             parameters=[command_gate_params, {"use_sim_time": use_sim_time}],
         ),
     ]
-    if publish_static_tf:
-        actions.extend(
-            [
-                Node(
-                    package="tf2_ros",
-                    executable="static_transform_publisher",
-                    name="greenhouse_map_to_odom_identity",
-                    arguments=[
-                        "--x",
-                        "0",
-                        "--y",
-                        "0",
-                        "--z",
-                        "0",
-                        "--roll",
-                        "0",
-                        "--pitch",
-                        "0",
-                        "--yaw",
-                        "0",
-                        "--frame-id",
-                        "map",
-                        "--child-frame-id",
-                        "odom",
-                    ],
-                    parameters=[{"use_sim_time": use_sim_time}],
-                    output="screen",
-                ),
-                Node(
-                    package="tf2_ros",
-                    executable="static_transform_publisher",
-                    name="greenhouse_livox_identity",
-                    arguments=[
-                        "--x",
-                        "0",
-                        "--y",
-                        "0",
-                        "--z",
-                        "0",
-                        "--roll",
-                        "0",
-                        "--pitch",
-                        "0",
-                        "--yaw",
-                        "0",
-                        "--frame-id",
-                        "base_link",
-                        "--child-frame-id",
-                        "livox_frame",
-                    ],
-                    parameters=[{"use_sim_time": use_sim_time}],
-                    output="screen",
-                ),
-            ]
-        )
-    return actions
 
 
 def _far_actions(*, use_sim_time: bool, far_planner_params: str) -> list:
@@ -304,20 +308,23 @@ def _launch_setup(context):
             LaunchConfiguration("fast_lio_params").perform(context),
             "fast_lio_params",
         )
-        command_gate_params = _require_file(
-            LaunchConfiguration("command_gate_params").perform(context),
-            "command_gate_params",
-        )
         actions.extend(
             _mapping_actions(
                 use_sim_time=resolved.use_sim_time,
                 fast_lio_params=fast_lio_params,
-                command_gate_params=command_gate_params,
                 publish_static_tf=publish_static_tf,
             )
         )
 
     if start_runtime and "navigation-far" in resolved.profiles:
+        command_gate_params = _require_file(
+            LaunchConfiguration("command_gate_params").perform(context),
+            "command_gate_params",
+        )
+        actions.extend(_navigation_actions(
+            use_sim_time=resolved.use_sim_time,
+            command_gate_params=command_gate_params,
+        ))
         far_planner_params_value = LaunchConfiguration(
             "far_planner_params"
         ).perform(context).strip()

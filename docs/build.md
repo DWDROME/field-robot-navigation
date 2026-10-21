@@ -4,6 +4,8 @@
 
 ## ROS 2 Jazzy 导航
 
+当前升级成果位于 `upgrade/ros2`，原版 ROS 1 主线位于 `main`。两条版本线的源码、依赖和构建入口随分支一起切换。
+
 需要 Docker BuildKit 和支持 `additional_contexts` 的 Compose 2.17+。当前交付平台为 amd64。
 
 ```bash
@@ -45,6 +47,8 @@ roslaunch fast_livo mapping_avia.launch
 运行前配置传感器、相机与内存预算，详见 [FAST-LIVO2](../src/localization/fast_livo/README.md)。工作区支持增量构建。
 
 ## 开发检查
+
+直接在 Linux/WSL 运行 colcon 时指定 `--base-paths src`，构建与安装目录可放在自己的 Linux 工作区。Livox 使用 ROS 2 manifest 及 `-DROS_EDITION=ROS2 -DDISTRO_ROS=jazzy`，完成后还原源码中的 `package.xml`。`firmware/tr800_f407` 有独立工具链并通过 `COLCON_IGNORE` 排除，不由 ROS 构建。
 
 测试随所属 ROS 包保存。Jazzy 包构建时启用 `-DBUILD_TESTING=ON`，随后执行对应工作区的 `colcon test` 与 `colcon test-result --verbose`。地图与回环独立检查入口为 `src/localization/fast_lio_super/test/CMakeLists.txt`。
 

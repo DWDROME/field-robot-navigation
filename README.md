@@ -84,6 +84,7 @@ docker/                     说明：main 不使用 ROS 2 容器
 | [docs/architecture.md](docs/architecture.md) | 模块关系、TF 与职责表 |
 | [docs/build.md](docs/build.md) | 依赖、构建、运行输入 |
 | [docs/modes.md](docs/modes.md) | 三种模式的装配与参数 |
+| [docs/data-formats.md](docs/data-formats.md) | 地图、配置、话题、TF 与串口协议的数据格式 |
 | [docs/roadmap.md](docs/roadmap.md) | 当前状态、下一步、风险 |
 | [docs/simulation.md](docs/simulation.md) | 仿真为什么在升级线 |
 | [firmware/tr800_f407/README.md](firmware/tr800_f407/README.md) | 固件构建、烧录、协议 |

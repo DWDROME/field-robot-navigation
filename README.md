@@ -9,6 +9,8 @@
 
 ROS 2 那套怎么跑不在这个分支，切过去看它自己的 README。
 
+车型要说清楚：这套代码对应 **TR800 大履带**，下位机是 `TR800_F407`。仓库里也出现过 TR500 小履带，但只在固件文档的资料表里当参考，没有做引脚、参数或保护逻辑的适配，别拿 TR800 的固件直接刷 TR500。
+
 ## 装环境
 
 Ubuntu 20.04 + ROS Noetic。除了 desktop-full，还要 PCL、Eigen、OpenMP、OMPL、OctoMap 和串口库；MoveBase3D 的局部规划用 CasADi，FAST_LIO_LOCALIZATION 要 Open3D 和 ros_numpy。

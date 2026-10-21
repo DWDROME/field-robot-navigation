@@ -1,59 +1,45 @@
-# Robot Navigation & SLAM（upgrade/ros2）
+# 温室/履带车 ROS 2 导航
 
-本分支是 ROS 2 Jazzy 升级线：整车装配、ikd-Tree/OctVox 地图与回环、FAR 全局规划、CMU/MPPI 局部控制、Gazebo Harmonic/PX4 仿真，以及独立 Noetic FAST-LIVO2。原版 ROS 1 实车线与三模式在 `main`；`firmware/tr800_f407` 两条线共用。
+这是 `upgrade/ros2`：Jazzy 下的整车版本。Mid-360 的点云和 IMU 进 FAST-LIO，地图后端可选 ikd-Tree 或 OctVox，回环用 Scan Context + GICP + iSAM2；导航默认 FAR 出航点、CMU planner + follower 跟踪，也可以切到 Nav2 MPPI。Gazebo Harmonic 里有玉米田、果园、丘陵三个场地，可选 PX4 X500 空中巡检。FAST-LIVO2 单拎出来，还是 Noetic 工作区。
 
-> 状态：装配合同与文档已核对；镜像未重建、仿真矩阵未复跑、未实机。见 [docs/roadmap.md](docs/roadmap.md)。
-> 本文只讲能力、构建入口和运行方式；依赖细节在 [docs/build.md](docs/build.md)，仿真在 [docs/simulation.md](docs/simulation.md)。
+ROS 1 实车那套在 `main`，下位机 `firmware/tr800_f407` 两边共用。这个分支只负责 ROS 2。
 
-## 能力
+## 编译
 
-| 主线 | 功能 | 入口 |
-| --- | --- | --- |
-| FAST-LIO2 SLAM | ikd-Tree / OctVox 后端、Scan Context 检索、GICP 验证、iSAM2 回环 | [定位建图](src/localization/fast_lio_super/README.md) |
-| ROS 2 导航 | Mid-360、地形分析、FAR、默认 CMU、可选 Nav2 MPPI、命令门控与多航点 | [导航操作](src/navigation/greenhouse_mppi_navigation/README.md) |
-| FAST-LIVO2 | 图像与地图预算、冷热存储、输入队列与退出生命周期 | [构建与配置](src/localization/fast_livo/README.md) |
+按目标三选一，命令都在仓库根目录跑：
 
-| 控制模式 | 全局规划 | 局部控制 | 终点朝向 |
-| --- | --- | --- | --- |
-| 默认 CMU | FAR | CMU planner + follower | 只判位置到达，不保证 yaw |
-| 可选 MPPI | FAR 完整图路径 | Nav2 MPPI | 按配置的 yaw 容差判定 |
+```bash
+# Jazzy 镜像，需要 BuildKit 和 Compose 2.17+，amd64
+bash tools/build-ros2.sh
 
-部署配置里 `controllers: [cmu]` 或 `[mppi]` 二选一。CMU local Path 尚无任务身份，陈旧输入边界见[架构文档](docs/architecture.md#坐标与控制权)。
+# Noetic 的 SLAM 工作区（fast_lio_super 等）
+bash tools/build-ros1.sh .tmp/ros1-slam
 
-## 构建
+# FAST-LIVO2，独立 Noetic 工作区
+bash tools/build-fastlivo2.sh .tmp/fastlivo-build
+```
 
-| 目标 | 命令 |
-| --- | --- |
-| Jazzy 导航镜像 | `bash tools/build-ros2.sh` |
-| Noetic SLAM | `bash tools/build-ros1.sh .tmp/ros1-slam` |
-| FAST-LIVO2 | `bash tools/build-fastlivo2.sh .tmp/fastlivo-build` |
-
-Jazzy 需要 Docker BuildKit、Compose 2.17+、amd64。Noetic 依赖可先固定来源：
+Noetic 依赖先用脚本拉固定版本，再按各自 CMake 装：
 
 ```bash
 python3 tools/prepare-dependencies.py ros1 .tmp/slam-deps gtsam livox_sdk2
 ```
 
-三个入口的前置条件与注意事项见 [docs/build.md](docs/build.md)。构建与测试的临时目录统一放 `.tmp/`。
+工作区目录必须不存在，脚本会自己建。构建和测试的临时东西都丢 `.tmp/`，别提交。各入口的前置条件在 [docs/build.md](docs/build.md)。
 
-## 运行
+## 实车
 
 ```bash
-# 实车整车
-bash tools/run.sh navigation hardware deployment:=/absolute/deployment.yaml
-
-# 仿真导航
-bash tools/run.sh navigation simulation world:=maize_field robot:=husky_a200
-
-# 纯建图仿真：只起建图与 TF，时钟和传感器由外部提供；启动 Gazebo 时加 navigation:=false
-bash tools/run.sh mapping simulation
+bash tools/run.sh navigation hardware deployment:=/abs/deployment.yaml
 ```
 
-升级版 PCD 定位与通用 profile 的实车纯建图未接入，入口会拒绝并退出。整车入口为 `greenhouse_nav2_bringup/closed_loop.launch.py`，启动前需要传感器标定、底盘设备、运动限值与急停接口。
+`deployment.yaml` 从 `src/navigation/greenhouse_mppi_navigation/config/deployment-hardware.template.yaml` 复制，里面 `null` 是故意的——没填全就拒绝启动，不会拿默认值凑合。`controllers` 只能 `[cmu]` 或 `[mppi]` 二选一，CMU 只判位置到达，要终点朝向就选 MPPI。
 
-底盘串口只提供轮速里程计与电压，不发布底盘 IMU；遥测 `8..19` 字节是控制诊断，用 `--diag-control` 读取，导航的 `/sensors/imu/data` 来自 Livox。
+整车入口是 `greenhouse_nav2_bringup/closed_loop.launch.py`，起之前把传感器标定、底盘设备、限速和急停接口填好。
 
 ## 仿真
+
+四步，缺一不可：
 
 ```bash
 bash tools/prepare-simulation.sh
@@ -62,44 +48,48 @@ BUILD_JOBS=1 bash tools/build-px4.sh
 BUILD_JOBS=1 docker compose -f docker/compose.sim.yaml build simulation
 ```
 
-运行必须叠加 `docker/compose.sim.runtime.yaml`，WSL2 再加 `docker/compose.sim.wsl.yaml`。矩阵、场景、证据与已知失败见 [docs/simulation.md](docs/simulation.md)。
+运行必须叠加 `docker/compose.sim.runtime.yaml`，WSL2 再加 `docker/compose.sim.wsl.yaml`：
+
+```bash
+docker compose -f docker/compose.sim.yaml -f docker/compose.sim.runtime.yaml run --rm simulation \
+  ros2 launch greenhouse_nav2_bringup simulation_matrix.launch.py \
+  world:=maize_field robot:=husky_a200 headless:=true output:=/evidence/run1
+```
+
+九组合批量测试用 `run_matrix.py --runs 3`，参数、证据格式和已知问题在 [docs/simulation.md](docs/simulation.md)。
 
 ## 目录
 
 ```text
 src/
-  drivers/       传感器和底盘驱动
-  perception/    点云规范化与地形分析
-  localization/  地图、里程计与回环
-  navigation/    路径规划和任务执行
-  control/       速度命令门控
-  bringup/       系统启动、配置校验与仿真入口
-docker/          镜像构建、Compose 与运行配置
-firmware/        底盘固件（STM32F407 + FreeRTOS）
+  drivers/       雷达和底盘串口
+  perception/    点云规范化、地形分析
+  localization/  FAST-LIO、OctVox、FAST-LIVO2
+  navigation/    FAR、CMU、MPPI、任务与航点
+  control/       命令门控
+  bringup/       整车装配、配置校验、仿真入口
+docker/          镜像、Compose、运行配置
+firmware/        下位机（和 main 同一份）
 tools/           构建与运行入口
-third_party/     外部源码版本和补丁
+third_party/     外部源码版本与补丁
 docs/            架构、构建、仿真、数据格式、状态
 ```
 
-## 文档
+接口、QoS、profile、部署字段这些约定在 [docs/data-formats.md](docs/data-formats.md)；数据流和 TF 在 [docs/architecture.md](docs/architecture.md)。
 
-| 文档 | 内容 |
-| --- | --- |
-| [docs/architecture.md](docs/architecture.md) | 数据流、TF、控制权 |
-| [docs/build.md](docs/build.md) | 三种构建入口 |
-| [docs/simulation.md](docs/simulation.md) | 矩阵、场景、失败记录与证据 |
-| [docs/data-formats.md](docs/data-formats.md) | 接口、QoS、profile、部署与仿真数据 |
-| [docs/roadmap.md](docs/roadmap.md) | 状态、待办、风险 |
-| [docker/README.md](docker/README.md) | 镜像与容器 |
-| [third_party/README.md](third_party/README.md) | 来源、版本锁、补丁 |
+## 现在能跑到哪
 
-## 交接
+装配和合同检查做过，24 项 pytest、16 项入口分派都过，但**镜像没重建、矩阵没复跑、没上实车**。仿真有一轮 10-07 的记录：27 次运行 8 次通过，18 次地面任务全失败。原因是 VLP16 近场看不到地面，MPPI 拒绝轨迹，最后零速停机。这不是“仿真可用”，只是“链路能起来并安全停下”。别用放宽 unknown、缩 footprint 的方式把它做成通过。
 
-- 构建产物、镜像 tag、`.tmp/` 都不入库；`third_party/` 固定源码版本，重建前确认网络与代理。
-- 仿真媒体与完整证据在本机归档，仓库只留结论、命令和必要数据。
-- 串口协议改动要同步固件、本线 `src/drivers/dlrobot_robot` 与 main 的 ROS 1 驱动。
-- 仓库没有 CI；改动后至少跑相关包构建、`colcon test` 与入口冒烟。
+## 坑和限制
 
-## 来源与许可
+- 升级版 PCD 定位没接，`localization` 入口会直接拒绝，不是配置错了。
+- 通用 hardware profile 的纯建图也还没接，只支持 simulation/dev-ci。
+- 底盘串口只发里程计和电压；遥测 8–19 是控制诊断分页，不是 IMU，导航的 `/sensors/imu/data` 来自 Livox。
+- CMU 的 local Path 没有任务身份，取消 A 之后晚到的 A 路径理论上还能授权，长期跑之前要补 epoch/UUID。
+- X500 只做航点巡检和感知展示，没有三维避障、没有地形跟随。
+- 仿真容器和构建别并行跑，内存不够会 OOM；WSL 用 D3D12/EGL 配置，软件渲染达不到消息新鲜度要求。
 
-工程集成 FAST-LIO、Super-LIO/OctVox、FAST-LIVO2、Livox SDK/驱动、CMU 导航、FAR Planner、Nav2 与 GTSAM。[第三方登记](third_party/README.md) 汇总来源和版本锁。各包保留原始许可声明，使用与分发遵循对应条款。
+## 许可
+
+集成的 FAST-LIO、Super-LIO/OctVox、FAST-LIVO2、Livox SDK、CMU 导航、FAR、Nav2、GTSAM 都保留原许可声明，来源和版本锁在 [third_party/README.md](third_party/README.md)。

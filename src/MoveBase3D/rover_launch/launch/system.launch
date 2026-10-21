@@ -1,0 +1,42 @@
+<launch>
+  <arg name="mode" default="navigation"/>
+  <arg name="map" default=""/>
+  <arg name="map_2d" default=""/>
+  <arg name="publish_2d_map" default="false"/>
+  <arg name="rviz" default="true"/>
+  <arg name="save_map" default="true"/>
+  <arg name="user_config_path" default="$(find livox_ros_driver2)/config/MID360_config.json"/>
+  <arg name="usart_port_name" default="/dev/ttyUSB0"/>
+  <arg name="serial_baud_rate" default="115200"/>
+
+  <include file="$(find livox_ros_driver2)/launch_ROS1/msg_MID360.launch">
+    <arg name="user_config_path" value="$(arg user_config_path)"/>
+  </include>
+
+  <group if="$(eval arg('mode') == 'mapping')">
+    <include file="$(find fast_lio)/launch/mapping_mid360.launch">
+      <arg name="rviz" value="$(arg rviz)"/>
+      <arg name="save_map" value="$(arg save_map)"/>
+    </include>
+  </group>
+
+  <group if="$(eval arg('mode') in ['localization', 'navigation'])">
+    <include file="$(find fast_lio_localization)/launch/localization_MID360.launch">
+      <arg name="map" value="$(arg map)"/>
+      <arg name="2dmap" value="$(arg map_2d)"/>
+      <arg name="publish_2d_map" value="$(arg publish_2d_map)"/>
+      <arg name="rviz" value="$(eval arg('rviz') and arg('mode') == 'localization')"/>
+    </include>
+  </group>
+
+  <group if="$(eval arg('mode') == 'navigation')">
+    <include file="$(find dlrobot_robot)/launch/base_serial.launch">
+      <arg name="usart_port_name" value="$(arg usart_port_name)"/>
+      <arg name="serial_baud_rate" value="$(arg serial_baud_rate)"/>
+    </include>
+    <include file="$(find rover_launch)/launch/move_base_3d.launch">
+      <arg name="rviz" value="$(arg rviz)"/>
+    </include>
+    <include file="$(find rover_pcl_filter)/launch/pcl_filter_manager.launch"/>
+  </group>
+</launch>

@@ -31,6 +31,12 @@ firmware/**/*.map
 /docker/results/
 /docker/dist/
 /src/localization/fast_livo/Log/
+/src/FAST_LIO/Log/*
+!/src/FAST_LIO/Log/guide.md
+/src/FAST_LIO_LOCALIZATION/Log/*
+!/src/FAST_LIO_LOCALIZATION/Log/guide.md
+/src/FAST_LIO/PCD/*
+!/src/FAST_LIO/PCD/.gitkeep
 .catkin_workspace
 .pytest_cache/
 __pycache__/

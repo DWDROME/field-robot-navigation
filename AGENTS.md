@@ -13,7 +13,7 @@
 - 修改代码前，主代理必须亲自阅读具体代码及必要相邻上下文。理解、取舍、整合和最终判断由主代理负责。
 - 大范围检索可以压缩整理，但关键结论必须附文件路径、行号、符号和必要原文。
 - 保全已有未提交工作，不自动 reset、stash、暂存、提交、推送或部署。
-- 按 src 下的 drivers、perception、localization、navigation、control、bringup 划分职责。构建路径随已确认目录调整；保留 ROS 包名和运行接口。
+- main 保留原版 src 包布局；upgrade/ros2 按 drivers、perception、localization、navigation、control、bringup 划分职责。先确认当前分支，再使用相应构建与运行入口，保留 ROS 包名和接口。
 
 ## 文件管理
 
@@ -23,9 +23,9 @@
 
 ## 当前工程边界
 
-- ROS 2 Jazzy 导航与容器入口：`docker/`、`src/bringup/greenhouse_nav2_bringup/`。源码仍处于 ROS 1/ROS 2 混合迁移状态。
-- FAST-LIO2 地图与 SLAM 扩展：`src/localization/fast_lio_super/`、`src/localization/slam_octvox/`，当前仍是 ROS 1 catkin 支线。
-- FAST-LIVO2 完整源码位于 src/localization/fast_livo；外部 Sophus/vikit 由 third_party/ros1.repos 固定版本。Livox 以 src/drivers/livox_ros_driver2 为 ROS 1/ROS 2 唯一维护源码。
+- main 是 ROS 1 Noetic 原版：FAST_LIO 建图、FAST_LIO_LOCALIZATION 已有图定位、MoveBase3D 导航，统一入口为 tools/run.sh。
+- upgrade/ros2 保存 ROS 2 Jazzy 导航、地图/回环扩展、Gazebo/PX4 和独立 Noetic FAST-LIVO2，容器与运行接口以该分支文档为准。升级版 PCD 定位仍未接入。
+- firmware/tr800_f407 独立构建和烧录，两线保持同一板端实现。main 的 ROS 驱动在 src/dlrobot_robot，升级线在 src/drivers/dlrobot_robot；协议改动须同步对应驱动。
 - 历史包清单和 ROS 1 launch 文档只能证明其所标日期的边界；当前接口、依赖和运行状态以源码、manifest、配置及实际结果核实。
 
 ## 验证与证据

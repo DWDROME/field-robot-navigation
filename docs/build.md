@@ -1,61 +1,24 @@
-# 构建与运行
+# 构建
 
-命令从仓库根目录执行，需要 Linux 或 WSL。`src/` 同时包含 catkin 和 ament 包，按以下入口选择独立工作区。
+main 使用 Ubuntu 20.04 与 ROS 1 Noetic，所有 ROS 包在 src 下，保持原包名与 catkin 构建方式。ROS 2 升级与 Gazebo 构建请先切换到 upgrade/ros2，再读取该分支的本文档。
 
-## ROS 2 Jazzy 导航
+## ROS 1 工作区
 
-当前升级成果位于 `upgrade/ros2`，原版 ROS 1 主线位于 `main`。两条版本线的源码、依赖和构建入口随分支一起切换。
-
-需要 Docker BuildKit 和支持 `additional_contexts` 的 Compose 2.17+。当前交付平台为 amd64。
+准备 Noetic、PCL、Eigen、OpenMP、OMPL、OctoMap、串口依赖和各 package.xml 所列依赖。局部规划和全局定位还需要包内说明列出的 CasADi、Open3D、ros_numpy 等 Python 依赖。Livox-SDK2 独立安装，固定来源见 [third_party](../third_party/README.md)。
 
 ```bash
-bash tools/build-ros2.sh
+source /opt/ros/noetic/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
+bash tools/build-ros1.sh
+source devel/setup.bash
 ```
 
-源码版本和补丁位于 [third_party](../third_party/README.md)，基础镜像 digest 固定在 `docker/Dockerfile`。`docker/config/{build,runtime,simulation}.packages` 按用途列出 APT 包名，安装时解析软件源当前版本。首次构建需要访问镜像、Git 和软件包源。`BUILD_JOBS` 控制编译并行度，默认 2。构建无需部署目录或底盘设备配置。
+`BUILD_JOBS` 默认为 2；额外 CMake 参数可直接追加。Livox 的 package.xml 保持 ROS 1 catkin，构建参数固定 `-DROS_EDITION=ROS1`。此入口只构建 src，根目录 firmware 不参加 catkin 构建。
 
-容器配置、仿真和启动命令见 [容器说明](../docker/README.md)，任务操作见 [导航说明](../src/navigation/greenhouse_mppi_navigation/README.md)。
+## 下位机
 
-## ROS 1 Noetic SLAM
+F407 使用独立 CMake/GCC/Ninja 工具链，编译与烧录命令见 [TR800](../firmware/tr800_f407/README.md)。ROS 构建不生成或烧录固件。
 
-需要 ROS Noetic、PCL、Eigen、OpenMP、GTSAM 4.2、Livox-SDK2 及各包 `package.xml` 中的依赖。自定义依赖前缀通过 `CMAKE_PREFIX_PATH` 提供。固定源码可按需准备：
+## 运行输入
 
-```bash
-python3 tools/prepare-dependencies.py ros1 .tmp/slam-deps gtsam livox_sdk2
-```
-
-脚本需要 Git 和 PyYAML，目标目录须尚不存在。按两个依赖各自的 CMake 安装入口完成安装，再构建本库三个 ROS 1 包：
-
-```bash
-bash tools/build-ros1.sh .tmp/ros1-slam
-source .tmp/ros1-slam/devel/setup.bash
-roslaunch fast_lio_super mapping_mid360.launch map_backend:=octvox loop_enabled:=true rviz:=false
-```
-
-脚本链接本库源码，目标工作区须尚不存在。后续在生成工作区执行 `catkin_make -j2 -DROS_EDITION=ROS1`。传感器配置按实际标定填写。
-
-## FAST-LIVO2
-
-需要 Noetic、GCC 9、Eigen、OpenCV、PCL 和包中列明的 ROS 依赖。以下入口准备固定 Sophus/vikit，并直接编译本库 `fast_livo`：
-
-```bash
-bash tools/build-fastlivo2.sh .tmp/fastlivo-build
-source .tmp/fastlivo-build/devel/setup.bash
-roslaunch fast_livo mapping_avia.launch
-```
-
-运行前配置传感器、相机与内存预算，详见 [FAST-LIVO2](../src/localization/fast_livo/README.md)。工作区支持增量构建。
-
-## 开发检查
-
-直接在 Linux/WSL 运行 colcon 时指定 `--base-paths src`，构建与安装目录可放在自己的 Linux 工作区。Livox 使用 ROS 2 manifest 及 `-DROS_EDITION=ROS2 -DDISTRO_ROS=jazzy`，完成后还原源码中的 `package.xml`。`firmware/tr800_f407` 有独立工具链并通过 `COLCON_IGNORE` 排除，不由 ROS 构建。
-
-测试随所属 ROS 包保存。Jazzy 包构建时启用 `-DBUILD_TESTING=ON`，随后执行对应工作区的 `colcon test` 与 `colcon test-result --verbose`。地图与回环独立检查入口为 `src/localization/fast_lio_super/test/CMakeLists.txt`。
-
-FAST-LIVO2 生命周期检查：
-
-```bash
-FASTLIVO_MEMORY_SANITIZE=ON bash tools/build-fastlivo2.sh .tmp/fastlivo-build check
-```
-
-依赖准备、临时构建和测试日志统一放在 `.tmp/`，使用完成后清理。长期开发可显式指定自己的构建工作区。算法运行输出遵循包内约定，例如 FAST-LIVO2 的 `Log/`；这些生成内容通过 Git ignore 排除。
+PCD 地图和录包保留在运行数据目录，通过 `map:=/absolute/map.pcd` 提供。源码中 PCD 目录只保留建图输出位置；原有大型地图不进入 Git。雷达 JSON、串口设备、传感器外参与运动参数按实际平台配置，操作见[模式说明](modes.md)。

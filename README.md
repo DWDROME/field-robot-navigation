@@ -1,54 +1,55 @@
 # Robot Navigation & SLAM
 
-本分支为 `upgrade/ros2`，保存 ROS 2 整车与算法升级成果。原版 ROS 1、已有地图定位和 MoveBase3D 交付线位于 `main`，可用 `git switch main` 切换。两条分支均保留 `firmware/tr800_f407` 下位机源码。
+本分支 `main` 是原版 ROS 1 交付线：FAST_LIO 建图、FAST_LIO_LOCALIZATION 已有地图定位、MoveBase3D 三维导航，以及 Livox 和底盘驱动。
 
-面向温室与户外履带机器人的定位、建图和自主导航工程。ROS 2 Jazzy 负责整车装配，ROS 1 Noetic 提供独立算法工作区。
+升级成果位于 `upgrade/ros2`：ROS 2 Jazzy 整车、ikd-Tree/OctVox 与回环扩展、FAR、CMU/MPPI、Gazebo Harmonic/PX4，以及独立 Noetic FAST-LIVO2。使用 `git switch upgrade/ros2` 切换；两条分支保留各自完整源码与构建入口。
 
-| 主线 | 功能 | 入口 |
+## 模式
+
+| 模式 | 内容 | 环境 |
 | --- | --- | --- |
-| FAST-LIO2 SLAM | ikd-Tree / OctVox 地图后端、Scan Context 检索、GICP 验证、iSAM2 回环校正 | [定位建图](src/localization/fast_lio_super/README.md) |
-| ROS 2 导航 | Mid-360、地形分析、FAR、默认 CMU 局部规划与跟随、可选 Nav2 MPPI、命令门控与多航点 | [导航操作](src/navigation/greenhouse_mppi_navigation/README.md) |
-| FAST-LIVO2 | 地图与图像预算、冷热图像存储、输入队列与退出生命周期 | [构建与配置](src/localization/fast_livo/README.md) |
+| mapping | 雷达、FAST_LIO、地图保存 | hardware |
+| localization | 已有 PCD 地图定位与 TF | hardware |
+| navigation | 定位、MoveBase3D、点云过滤、底盘 | hardware |
+
+仿真环境在升级分支，入口和当前支持范围见[仿真说明](docs/simulation.md)。各版本中的算法参数与运行模式分别配置。
+
+## 构建与启动
+
+准备 Noetic、Livox-SDK2 及包依赖，详见[构建说明](docs/build.md)。
+
+```bash
+bash tools/build-ros1.sh
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+bash tools/run.sh mapping hardware
+bash tools/run.sh localization hardware map:=/absolute/map.pcd
+bash tools/run.sh navigation hardware map:=/absolute/map.pcd
+```
+
+地图是运行输入，按实际位置提供 PCD 文件；源码不附带原有大型地图和录包。雷达 JSON、串口设备、RViz 与二维辅助地图参数见[模式说明](docs/modes.md)。旧 `start_all.sh` 保留为 navigation/hardware 的入口。
 
 ## 目录
 
 ```text
 src/
-  drivers/       传感器和底盘驱动
-  perception/    点云规范化与地形分析
-  localization/  地图、里程计与回环
-  navigation/    路径规划和任务执行
-  control/       速度命令门控
-  bringup/       系统启动和配置校验
-docker/          构建环境、镜像和容器运行
-firmware/        底盘固件（STM32F407 + FreeRTOS）
-tools/           构建入口
-third_party/     外部源码版本和补丁
-docs/            当前架构与构建说明
+  FAST_LIO/                 建图
+  FAST_LIO_LOCALIZATION/    已有地图定位
+  MoveBase3D/               规划、局部控制与整车启动
+  livox_ros_driver2/        雷达驱动
+  dlrobot_robot/            当前底盘串口入口
+  dlrobot/、dl_msgs/        原有底盘包与消息
+  livox_to_pointcloud2/     点云转换
+  pcd2pgm_package/          PCD 转二维地图
+firmware/tr800_f407/        下位机源码、构建与烧录
+tools/                     构建与模式入口
+third_party/               外部依赖来源
+docker/                    版本对应的环境说明
+docs/                      架构与操作说明
 ```
 
-## 使用
-
-统一入口为 `bash tools/run.sh <模式> <环境> [launch 参数...]`。模式为 `mapping`、`localization`、`navigation`，环境为 `hardware`、`simulation`：
-
-- `navigation hardware deployment:=/absolute/deployment.yaml` 使用完整实车装配。
-- `navigation simulation world:=maize_field robot:=husky_a200` 使用已有 Gazebo 环境。
-- `mapping simulation` 只启动建图与 TF，外部提供时钟和传感器；启动 Gazebo 时设置 `navigation:=false`。
-- 升级版 PCD 定位和通用 profile 的实车纯建图尚未接入，入口明确提示，不切换成其他模式。原版三个实车模式见 `main`。
-
-仿真镜像和启动详见 [仿真说明](docs/simulation.md)。FAST-LIVO2 继续使用独立 Noetic 构建入口。
-
-从 [构建说明](docs/build.md) 选择 Jazzy 导航、Noetic SLAM 或 FAST-LIVO2。整车入口为 `greenhouse_nav2_bringup/closed_loop.launch.py`，启动前提供传感器标定、底盘设备、运动限值与急停接口。仿真配置需要外部时钟和传感器输入。
-
-[系统架构](docs/architecture.md) 描述数据流、TF 和命令所有权；[容器说明](docker/README.md) 提供镜像构建与运行配置。
-
-| 导航模式 | 全局规划 | 局部规划与控制 | 终点朝向 |
-| --- | --- | --- | --- |
-| 默认 CMU | FAR | CMU planner + follower | 仅判断位置到达，不保证终点 yaw |
-| 可选 MPPI | FAR 完整图路径 | Nav2 MPPI | 按配置的 yaw 容差判断到达 |
-
-通过部署配置 `controllers: [cmu]` 或 `[mppi]` 选择一种模式。CMU local Path 尚未携带显式任务身份，当前陈旧输入防护的边界见[系统架构](docs/architecture.md#坐标与控制权)。
+[系统架构](docs/architecture.md) 说明模块关系；[MoveBase3D](src/MoveBase3D/README.md) 保留原始框架图与导航参数。[TR800 固件](firmware/tr800_f407/README.md) 独立编译、烧录，ROS 构建只处理 src。
 
 ## 来源与许可
 
-工程集成 FAST-LIO、Super-LIO/OctVox、FAST-LIVO2、Livox SDK/驱动、CMU 导航、FAR Planner、Nav2 与 GTSAM。[第三方登记](third_party/README.md) 汇总来源和版本锁。各包及源文件保留原始许可声明，使用和分发遵循对应条款。
+原版包的源码、版权头、LICENSE 和 README 使用声明保留。[第三方说明](third_party/README.md) 汇总来源；使用和分发遵循各包原始条款。

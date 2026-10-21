@@ -1,1 +1,0 @@
-"""Tracked navigation integration."""

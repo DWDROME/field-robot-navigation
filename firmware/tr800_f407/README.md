@@ -83,17 +83,17 @@ scripts\windows\openocd_flash.bat
 - 第一阶段遗留说明：`docs/TR800_PHASE1_LEGACY_NOTE.md`
 - 第一阶段 TODO：`docs/TR800_PHASE1_TODO.md`
 
-## 与 ROS 2 驱动的协议绑定
+## 与 ROS 驱动的协议绑定
 
-本固件与仓库内 `src/drivers/dlrobot_robot` 共用同一套串口帧。改动任意一侧都必须同步另一侧，否则车会静默丢帧：
+main 的 ROS 1 驱动位于 `src/dlrobot_robot/include/dlrobot_robot.h`，upgrade/ros2 的 ROS 2 驱动位于 `src/drivers/dlrobot_robot/include/dlrobot_robot/protocol.hpp`。两线保留同一板端实现并使用同一帧格式，协议改动须同步相应 ROS 驱动。
 
-| 常量 | 固件 `HARDWARE/usartx.h` | 驱动 `include/dlrobot_robot/protocol.hpp` |
+| 常量 | 固件 `HARDWARE/usartx.h` | main 驱动 `include/dlrobot_robot.h` |
 | --- | --- | --- |
-| 帧头 | `FRAME_HEADER 0x7B` | `kFrameHeader 0x7B` |
-| 帧尾 | `FRAME_TAIL 0x7D` | `kFrameTail 0x7D` |
-| 命令帧（上位机→车） | `RECEIVE_DATA_SIZE 11` | `kCommandFrameSize 11` |
-| 遥测帧（车→上位机） | `SEND_DATA_SIZE 24` | `kTelemetryFrameSize 24` |
+| 帧头 | `FRAME_HEADER 0x7B` | `FRAME_HEADER 0X7B` |
+| 帧尾 | `FRAME_TAIL 0x7D` | `FRAME_TAIL 0X7D` |
+| 命令帧（上位机→车） | `RECEIVE_DATA_SIZE 11` | `SEND_DATA_SIZE 11` |
+| 遥测帧（车→上位机） | `SEND_DATA_SIZE 24` | `RECEIVE_DATA_SIZE 24` |
 
 `HARDWARE/usartx.h` 里的 `PROTOCOL_25` 会把遥测帧改成 25 字节，该开关在 `robot_select_init.h` 中定义为 `0`，**必须保持关闭**；驱动按 24 字节解析。
 
-IMU 原始量由固件直接透传，比例换算在驱动侧（`kGyroscopeRatio 0.00026644`、`kAccelerometerRatio 1671.84`）。烧录后核对链路可用 `tools/tr800_serial_analyzer.py`。
+IMU 原始量由固件透传，比例换算由对应版本的 ROS 驱动负责。烧录后核对链路可用本固件目录中的 `tools/tr800_serial_analyzer.py`。

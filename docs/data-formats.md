@@ -1,153 +1,83 @@
-# 数据格式与接口规范
+# 数据格式
 
-本文件汇总 main 分支上“会跨进程、跨设备或跨版本传递的数据”分别是什么格式、定义在哪、有什么约束。字段细节以源码和配置文件为准；本文负责给出索引和边界，避免接手时重复翻查。
+> 范围：跨进程、跨设备、跨版本传递的数据。TF 拓扑见 [architecture.md](architecture.md#原版数据流)，串口完整字节表见 [TR800_通信协议.md](../firmware/tr800_f407/docs/TR800_通信协议.md)，本文只记约束与索引。
+> 核对：2026-10-21，按源码与配置静态阅读；未抓包、未解析实测帧。
 
-## 1. 单位与坐标系
+## 单位与坐标
 
-- 长度米（m），角度弧度（rad），时间为 ROS 时间；速度 m/s，角速度 rad/s。
-- 点云统一使用 PCL/ROS 的右手坐标系；地图坐标原点由建图时确定，切换场地后必须重新确认。
-- 主要坐标系：
+长度 m、角度 rad、速度 m/s、角速度 rad/s，时间为 ROS 时间。点云与地图按 PCL 右手系，地图原点由建图时确定，换场地要重新确认。定位链 `map → camera_init → body → base_link`、底盘 `/odom` 的坐标声明见架构文档。
 
-| 坐标系 | 含义 | 发布者 |
+## 地图
+
+**三维 PCD**
+
+- 生成：`save_map:=true` 打开 `pcd_save`，正常 Ctrl+C 后由 `PCDWriter::writeBinary` 写 `src/FAST_LIO/PCD/scans.pcd`，点类型为 `PointXYZINormal`。
+- 使用：`map:=/absolute/map.pcd`；`pcd_to_pointcloud` 以 `frame_id=map` 发布 `/map`，周期 5 s。
+- 约束：绝对路径，坐标系与现场一致；`*.pcd`、`*.bag` 不入库。
+
+**二维辅助图**
+
+`publish_2d_map:=true map_2d:=/absolute/map.yaml`，按 `map_server` 格式（YAML + PGM/PNG）。YAML 与图片必须同源。
+
+## 雷达配置
+
+`src/livox_ros_driver2/config/MID360_config.json`，运行时用 `user_config_path:=` 覆盖。
+
+| 字段 | 说明 |
+| --- | --- |
+| `lidar_summary_info.lidar_type` | MID360 固定 `8` |
+| `MID360.lidar_net_info.*_port` | 雷达侧端口：命令 56100、推送 56200、点云 56300、IMU 56400、日志 56500 |
+| `MID360.host_net_info.*_ip`、`*_port` | 上位机网卡地址；端口默认雷达端口 +1 |
+| `lidar_configs[].ip` | 雷达地址 |
+| `lidar_configs[].pcl_data_type`、`pattern_mode` | 当前 `1`、`0` |
+| `lidar_configs[].extrinsic_parameter` | 安装外参：`roll/pitch/yaw` 为 rad，`x/y/z` 为 m |
+
+## 算法参数
+
+FAST-LIO 与 FAST-LIO_LOCALIZATION 共用结构，文件为各自 `config/mid360.yaml`：
+
+| 分组 | 主要键 |
+| --- | --- |
+| `common` | `lid_topic`、`imu_topic`、`time_sync_en`、`time_offset_lidar_to_imu` |
+| `preprocess` | `lidar_type`（1 Livox / 2 Velodyne / 3 Ouster）、`scan_line`、`blind` |
+| `mapping` | `acc_cov`、`gyr_cov`、`b_acc_cov`、`b_gyr_cov`、`fov_degree`、`det_range`、`extrinsic_T/R`、`extrinsic_est_en` |
+| `publish` | `path_en`、`scan_publish_en`、`dense_publish_en` |
+| `pcd_save` | `pcd_save_en`、`interval`（`-1` 为单文件） |
+
+MoveBase3D 参数在 `global_planner_3d/config/move_base_3d/`：`move_base_global.yaml`（地图范围、分辨率、规划权重）、`move_base_global_obs.yaml`（障碍）、`move_base_local.yaml`（局部控制）；地势参数在 `rover_gpr/config/hyperparam.txt`。字段说明以文件内注释为准，改值同时改注释。
+
+## 话题与消息
+
+跨包契约如下，完整列表以源码的 `advertise`/`subscribe` 为准。
+
+| 话题 | 类型 | 说明 |
 | --- | --- | --- |
-| `map` | 先验地图坐标系 | `transform_fusion` 广播 `map → camera_init` |
-| `camera_init` | FAST-LIO 建图起点 | FAST-LIO 广播 `camera_init → body` |
-| `body` → `base_link` | 机体到导航基座的安装外参 | `localization_MID360.launch` 中的静态 TF |
-| `odom_combined` / `base_footprint` | `/odom` 的父子坐标声明 | `dlrobot_robot` 只发 Odometry，不广播这对 TF |
+| `/livox/lidar`、`/livox/imu` | CustomMsg/PointCloud2、Imu | 驱动 → LIO |
+| `/cloud_registered`、`/cloud_registered_body` | PointCloud2 | LIO 点云（`camera_init` / `body`） |
+| `/Odometry` | Odometry | LIO 里程计（`camera_init → body`） |
+| `/map` | PointCloud2 | 先验地图（`map`） |
+| `/localization` | Odometry | 融合定位（`map → body`） |
+| `/output_filter` | PointCloud2 | 过滤后的实时障碍 |
+| `/cmd_vel` | Twist | 规划 → 底盘 |
+| `/odom`、`/PowerVoltage` | Odometry、Float32 | 底盘轮速积分与电压；无串口 IMU |
 
-定位/导航的实际 TF 链为 `map → camera_init → body → base_link`。`transform_fusion` 同时发布 `map → body` 位姿的 `/localization` 消息；该消息本身不新增 TF。既有 `body → base_link` 静态外参为平移 `0, -0.2, 0` m、旋转零。底盘 `/odom` 独立于此定位链，未接入轮速融合。
+消息包：`dl_msgs`（`Velocities`、`Imu`、底盘外设）、`rover_msgs`（目标与状态）、`livox_ros_driver2`（`CustomMsg`、`CustomPoint`）、FAST_LIO 的 `Pose6D`。
 
-## 2. 地图数据
+## 串口
 
-### 2.1 三维点云地图（PCD）
+11 字节命令、24 字节遥测，帧头 `0x7B`、帧尾 `0x7D`，逐字节异或校验；命令为 `int16_be`，发送前乘 1000。`PROTOCOL_25` 必须为 `0`。遥测 `8..19` 字节当前是控制诊断（`CONTROL_TELEMETRY_DEBUG=1`），驱动原样保留、不换算 IMU、不发布 `/imu`；导航惯性输入来自 Livox。
 
-- 生成：FAST-LIO 的 `pcd_save` 在正常退出时用 `pcl::PCDWriter::writeBinary` 写 `src/FAST_LIO/PCD/scans.pcd`；`pcd_save_en` 默认关闭，建图模式由 `save_map:=true` 打开。
-- 格式：PCL PCD 二进制，字段为 FAST-LIO 内部点类型（`x/y/z/intensity`，附法向与曲率）；读取端是通用 PCL，其他工具导出的 ASCII PCD 只要含 `x/y/z` 也能用。
-- 使用：`map:=/absolute/map.pcd`。`pcd_to_pointcloud` 以 `frame_id=map`、每 5 秒重发一次，话题 `/map`。
-- 约束：PCD 与录包都不入库（`.gitignore` 忽略 `*.pcd`、`*.bag`）；路径必须是绝对路径；坐标系必须与现场一致，否则定位会整体偏移。
+协议字段改动要同步固件 `HARDWARE/usartx.h`、本线 `src/dlrobot_robot/include/dlrobot_robot.h` 与升级线驱动。
 
-### 2.2 二维辅助地图
+## 固件产物与依赖
 
-- 需要旧版二维输出时传 `publish_2d_map:=true map_2d:=/absolute/map.yaml`。
-- 格式为 ROS `map_server` 标准：YAML 描述 `image`、`resolution`、`origin`、`negate`、`occupied_thresh`、`free_thresh`，图片为 PGM/PNG。
-- 约束：YAML 与图片必须来自同一张地图；坐标系与三维地图一致。
+- 固件产物 `dlrobot.elf/hex/bin` 在 `build/tr800-st-preset-win/`，preset 为 `tr800-st`；产物不入库。
+- 依赖固定用 `third_party/common.repos`：`repositories: <name>: {type: git, url, version}`，`version` 写完整 commit；补丁按文件名顺序 `git apply`。
 
-## 3. 雷达配置（JSON）
+## 改动前检查
 
-- 默认路径 `src/livox_ros_driver2/config/MID360_config.json`，运行时可 `user_config_path:=/absolute/xxx.json` 覆盖。
-- 结构：
-
-| 字段 | 类型 | 说明 |
-| --- | --- | --- |
-| `lidar_summary_info.lidar_type` | int | MID360 固定 `8` |
-| `MID360.lidar_net_info.*_port` | int | 雷达侧端口：命令 56100、推送 56200、点云 56300、IMU 56400、日志 56500 |
-| `MID360.host_net_info.*_ip` | string | 上位机网卡 IP，必须与现场一致 |
-| `MID360.host_net_info.*_port` | int | 上位机侧端口，默认雷达端口 +1 |
-| `lidar_configs[].ip` | string | 雷达 IP |
-| `lidar_configs[].pcl_data_type` | int | 点云数据类型，当前 `1` |
-| `lidar_configs[].pattern_mode` | int | 扫描模式，当前 `0` |
-| `lidar_configs[].extrinsic_parameter` | object | 安装外参：`roll/pitch/yaw`（rad）、`x/y/z`（m） |
-
-## 4. 算法参数（YAML）
-
-### 4.1 FAST-LIO / FAST-LIO_LOCALIZATION
-
-两块包使用同一套结构，文件在各自 `config/<雷达>.yaml`（MID360 用 `mid360.yaml`）：
-
-| 分组 | 键 | 说明 |
-| --- | --- | --- |
-| `common` | `lid_topic`、`imu_topic` | 默认 `/livox/lidar`、`/livox/imu` |
-| `common` | `time_sync_en`、`time_offset_lidar_to_imu` | 仅在无外部时间同步时开启 |
-| `preprocess` | `lidar_type`、`scan_line`、`blind` | `1` Livox、`2` Velodyne、`3` Ouster；盲区单位 m |
-| `mapping` | `acc_cov`、`gyr_cov`、`b_acc_cov`、`b_gyr_cov` | 噪声协方差 |
-| `mapping` | `fov_degree`、`det_range` | 视场与探测距离 |
-| `mapping` | `extrinsic_T`、`extrinsic_R`、`extrinsic_est_en` | 雷达到 IMU 外参；`est_en=false` 时使用固定值 |
-| `publish` | `path_en`、`scan_publish_en`、`dense_publish_en` | 发布开关 |
-| `pcd_save` | `pcd_save_en`、`interval` | `-1` 表示所有帧写入一个 PCD |
-
-### 4.2 MoveBase3D
-
-- 全局：`src/MoveBase3D/global_planner_3d/config/move_base_3d/move_base_global.yaml`，分 `map`（分辨率、膨胀系数、x/y 边界）与 `planning`（步长、底盘高度、到达阈值、邻域半径、平面/平坦度/坡度/稀疏度权重、收敛阈值、拟合半径）。
-- 局部：同目录 `move_base_local.yaml`。
-- 障碍：同目录 `move_base_global_obs.yaml`，配合 `/output_filter`。
-- 地势：`rover_gpr/config/hyperparam.txt`。
-- 这些参数带原地注释，改参数时同时改注释，避免语义漂移。
-
-## 5. ROS 接口
-
-### 5.1 主要话题（源码确认）
-
-| 话题 | 类型 | 方向/说明 |
-| --- | --- | --- |
-| `/livox/lidar` | livox `CustomMsg` 或 `PointCloud2` | 驱动 → LIO |
-| `/livox/imu` | `sensor_msgs/Imu` | 驱动 → LIO |
-| `/cloud_registered` | `PointCloud2`（`camera_init`） | LIO 输出，过滤与可视化 |
-| `/cloud_registered_body` | `PointCloud2`（`body`） | LIO 输出 |
-| `/cloud_effected` | `PointCloud2` | LIO 输出 |
-| `/Laser_map` | `PointCloud2` | LIO 输出 |
-| `/Odometry` | `nav_msgs/Odometry`（`camera_init → body`） | LIO 里程计 |
-| `/path` | `nav_msgs/Path` | LIO 轨迹 |
-| `/map` | `PointCloud2`（`map`） | 先验地图，5 s 重发 |
-| `/map_to_odom` | `nav_msgs/Odometry` | 定位模块的修正量 |
-| `/localization` | `nav_msgs/Odometry`（`map → body`） | 融合后的全局定位 |
-| `/output_filter` | `PointCloud2` | 实时障碍输入 |
-| `/cmd_vel` | `geometry_msgs/Twist` | 规划 → 底盘 |
-| `/odom`、`/PowerVoltage` | 底盘 | 轮速积分里程计、电压；不发布串口 `/imu` |
-| `/cur_goal`、`/global_path`、`/cur_global_goal_status` | MoveBase3D | 目标、全局路径、状态 |
-
-### 5.2 消息定义
-
-| 包 | 文件 | 关键字段 |
-| --- | --- | --- |
-| `dl_msgs` | `msg/Velocities.msg` | `linear_x`、`linear_y`、`angular_z`（float32） |
-| `dl_msgs` | `msg/Imu.msg` | 三轴加速度、角速度、磁力计 |
-| `dl_msgs` | 其余 msg/srv | 电池、继电器、舵机、超声等底盘外设 |
-| `rover_msgs` | `roverGoalStatus`、`roverBmsStatus`、`roverRCStatus` | 导航与底盘状态 |
-| `livox_ros_driver2` | `CustomMsg`、`CustomPoint` | 雷达原始点云 |
-| `FAST_LIO*` | `Pose6D.msg` | 6 自由度位姿 |
-
-### 5.3 参数透传
-
-`tools/run.sh` 只做参数校验与透传，常用键：`mode`、`map`、`map_2d`、`publish_2d_map`、`rviz`、`save_map`、`user_config_path`、`usart_port_name`、`serial_baud_rate`。新增参数直接传给 `system.launch`，不要在脚本里硬编码设备路径。
-
-## 6. 串口协议（固件 ↔ 上位机）
-
-- 物理层：`/dev/ttyUSB0`，115200，8N1；可用 `usart_port_name`、`serial_baud_rate` 覆盖。
-- 命令帧固定 11 字节，遥测帧固定 24 字节；帧头 `0x7B`，帧尾 `0x7D`，校验为前 N 字节异或。
-- 命令帧：`x/y/z_cmd` 为 `int16_be`，发送前乘 1000。
-- 遥测帧：速度、电压与诊断字段；`PROTOCOL_25` 必须为 `0`，否则变成 25 字节，驱动按 24 字节解析会错位。
-- 当前 `TR800_MOTOR_TELEMETRY_DEBUG=0`、`TR800_CONTROL_TELEMETRY_DEBUG=1`；第 `8..19` 字节为三页控制诊断，首个 `int16_be` 是页号 `1/2/3`，其余字段分别表示遥控输入、目标/模式、编码器/PWM/故障。完整布局见固件协议文档。
-- ROS 驱动不将诊断字段换算为 IMU，不解算姿态或发布 `/imu`；FAST-LIO 继续使用 `/livox/imu`。诊断工具保留原始 `diag_0..diag_5`，传 `--diag-control` 按当前分页显示。
-- 协议改动必须同步：固件 `HARDWARE/usartx.h` ↔ `src/dlrobot_robot/include/dlrobot_robot.h`（以及 upgrade 分支的 ROS 2 驱动）。
-
-完整字节表见 `firmware/tr800_f407/docs/TR800_通信协议.md`。
-
-## 7. 固件构建产物
-
-- 产物：`dlrobot.elf`、`dlrobot.hex`、`dlrobot.bin`，位于 `build/tr800-st-preset-win/`。
-- 构建入口：`CMakePresets.json` 的 `tr800-st`，工具链 `cmake/toolchains/tr800_stm32f407.cmake`。
-- 烧录：DAPLink + OpenOCD（`openocd/tr800_daplink.cfg`、`scripts/windows/*.bat`）。
-- 产物与 `build/`、`OBJ/` 均被 `.gitignore` 排除，不入库。
-
-## 8. 依赖清单
-
-- 版本固定用 `third_party/common.repos`，格式为 `repositories: <name>: {type: git, url, version}`，`version` 写完整 commit。
-- 补丁为 unified diff，放在 `third_party/patches/<组件>/`，按文件名顺序 `git apply`。
-- 安装顺序：`vcs import` → 应用补丁 → 按组件自己的 CMake 安装 → 构建 ROS 工作区。
-
-## 9. 仓库与命名规范
-
-- 分支：`main` 是 ROS 1 交付线，`upgrade/ros2` 是升级线，固件目录两线共用。
-- ROS 包保持原包名与原目录层级；升级线按 `drivers/perception/localization/navigation/control/bringup` 划分。
-- 文档中文；代码、注释、提交信息用正常散文；提交信息使用 `类型: 摘要`（如 `docs:`、`fix:`、`build:`）。
-- 生成物（`build/`、`devel/`、`Log/`、`PCD/`、`*.pcd`、`*.bag`）不入库；地图与录包作为运行数据单独交付。
-- `tools/` 只放薄封装，不复制算法逻辑。
-
-## 10. 改动前的核对清单
-
-1. 地图是否存在、是否绝对路径、坐标系是否与现场一致。
-2. 雷达 JSON 的上位机 IP 是否为本机网卡地址。
-3. FAST-LIO 外参是否需要重标定；`extrinsic_est_en` 是否应为 false。
-4. 串口设备名、权限（`dialout` 组）、波特率是否与固件一致。
-5. 协议字段是否同时改了固件与两个 ROS 驱动。
-6. 新增话题或参数是否同步更新 `docs/modes.md` 与本文件。
+1. 地图存在、是绝对路径、坐标系正确。
+2. 雷达 JSON 的 host IP 是本机网卡地址。
+3. 外参有改动就重新标定；`extrinsic_est_en` 与固定外参不要混用。
+4. 串口设备名、`dialout` 权限、波特率与固件一致。
+5. 协议字段改动已同步固件与两条线的驱动。

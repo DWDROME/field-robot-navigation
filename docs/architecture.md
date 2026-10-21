@@ -1,6 +1,6 @@
 # 系统架构
 
-`main` 是 ROS 1 原版交付线，保留原有包布局。`upgrade/ros2` 保存 ROS 2 整车、地图与回环、FAR、CMU/MPPI、Gazebo 和独立 Noetic FAST-LIVO2。
+本分支保留原版 ROS 1 包布局，数据从雷达到底盘的路径如下。
 
 ## 原版数据流
 

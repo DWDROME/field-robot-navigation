@@ -21,7 +21,7 @@
 | 话题 | 类型 | 发布者/说明 |
 | --- | --- | --- |
 | `/sensors/lidar/raw` | `livox_ros_driver2/msg/CustomMsg` 或 `sensor_msgs/msg/PointCloud2` | 驱动；硬件为 CustomMsg，仿真为 PointCloud2 |
-| `/sensors/imu/data` | `sensor_msgs/msg/Imu` | 驱动 |
+| `/sensors/imu/data` | `sensor_msgs/msg/Imu` | 硬件由 Livox 提供，仿真由传感器桥接提供；不取自底盘串口 |
 | `/wheel/odometry` | `nav_msgs/msg/Odometry` | 底盘 |
 | `/localization/registered_cloud` | `sensor_msgs/msg/PointCloud2` | FAST-LIO 或 PCD 定位 |
 | `/localization/odometry` | `nav_msgs/msg/Odometry` | 定位 |
@@ -97,7 +97,8 @@
 ## 10. 串口协议（与 main 共用固件）
 
 - 11 字节命令帧、24 字节遥测帧，帧头 `0x7B`、帧尾 `0x7D`、异或校验；命令为 `int16_be` 且发送前乘 1000。
-- `PROTOCOL_25` 必须为 `0`；当前 `TR800_MOTOR_TELEMETRY_DEBUG=1` 时遥测第 8–19 字节是诊断字段，不是 IMU。
+- `PROTOCOL_25` 必须为 `0`；当前 `TR800_MOTOR_TELEMETRY_DEBUG=0`、`TR800_CONTROL_TELEMETRY_DEBUG=1`，遥测 `8..19` 字节是三页控制诊断，不是 IMU。
+- `Telemetry.diagnostics` 原样保存这六个 `int16_be`，不做 IMU 比例换算或姿态解算。底盘节点不发布 `/imu`／`/chassis/imu`；原有里程计、电压与命令帧保留。诊断工具使用 `--diag-control` 解释页号及字段。
 - 改动需同步固件 `HARDWARE/usartx.h`、本线 `src/drivers/dlrobot_robot/include/dlrobot_robot/protocol.hpp` 与 main 的 `src/dlrobot_robot/include/dlrobot_robot.h`。
 - 完整字节表见 `firmware/tr800_f407/docs/TR800_通信协议.md`。
 

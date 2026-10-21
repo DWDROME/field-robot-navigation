@@ -1,4 +1,3 @@
-#include "dlrobot_robot/orientation_filter.hpp"
 #include "dlrobot_robot/protocol.hpp"
 
 #include <serial/serial.h>
@@ -7,7 +6,6 @@
 #include <geometry_msgs/msg/twist_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <rclcpp/rclcpp.hpp>
-#include <sensor_msgs/msg/imu.hpp>
 #include <std_msgs/msg/float32.hpp>
 
 #include <algorithm>
@@ -76,12 +74,10 @@ public:
     serial_port_name_(declare_parameter<std::string>("usart_port_name", "/dev/ttyACM0")),
     serial_baud_rate_(declare_parameter<int>("serial_baud_rate", 115200)),
     odom_frame_id_(declare_parameter<std::string>("odom_frame_id", "odom_combined")),
-    robot_frame_id_(declare_parameter<std::string>("robot_frame_id", "base_footprint")),
-    gyro_frame_id_(declare_parameter<std::string>("gyro_frame_id", "imu_link"))
+    robot_frame_id_(declare_parameter<std::string>("robot_frame_id", "base_footprint"))
   {
     voltage_publisher_ = create_publisher<std_msgs::msg::Float32>("PowerVoltage", 10);
     odom_publisher_ = create_publisher<nav_msgs::msg::Odometry>("odom", 50);
-    imu_publisher_ = create_publisher<sensor_msgs::msg::Imu>("imu", 20);
     command_subscription_ = create_subscription<geometry_msgs::msg::TwistStamped>(
       "cmd_vel", 100,
       [this](const geometry_msgs::msg::TwistStamped::SharedPtr message) {
@@ -186,16 +182,7 @@ private:
       telemetry.velocity_y * std::cos(position_yaw_)) * sampling_time;
     position_yaw_ += telemetry.velocity_z * sampling_time;
 
-    const auto orientation = orientation_filter_.Update(
-      telemetry.angular_velocity_x,
-      telemetry.angular_velocity_y,
-      telemetry.angular_velocity_z,
-      telemetry.acceleration_x,
-      telemetry.acceleration_y,
-      telemetry.acceleration_z);
-
     PublishOdometry(telemetry, stamp);
-    PublishImu(telemetry, orientation, stamp);
     PublishVoltage(telemetry.voltage);
   }
 
@@ -223,33 +210,6 @@ private:
     odom_publisher_->publish(odometry);
   }
 
-  void PublishImu(
-    const Telemetry & telemetry,
-    const Quaternion & orientation,
-    const rclcpp::Time & stamp)
-  {
-    sensor_msgs::msg::Imu imu;
-    imu.header.stamp = stamp;
-    imu.header.frame_id = gyro_frame_id_;
-    imu.orientation.x = orientation.x;
-    imu.orientation.y = orientation.y;
-    imu.orientation.z = orientation.z;
-    imu.orientation.w = orientation.w;
-    imu.orientation_covariance[0] = 1e6;
-    imu.orientation_covariance[4] = 1e6;
-    imu.orientation_covariance[8] = 1e-6;
-    imu.angular_velocity.x = telemetry.angular_velocity_x;
-    imu.angular_velocity.y = telemetry.angular_velocity_y;
-    imu.angular_velocity.z = telemetry.angular_velocity_z;
-    imu.angular_velocity_covariance[0] = 1e6;
-    imu.angular_velocity_covariance[4] = 1e6;
-    imu.angular_velocity_covariance[8] = 1e-6;
-    imu.linear_acceleration.x = telemetry.acceleration_x;
-    imu.linear_acceleration.y = telemetry.acceleration_y;
-    imu.linear_acceleration.z = telemetry.acceleration_z;
-    imu_publisher_->publish(imu);
-  }
-
   void PublishVoltage(float voltage)
   {
     ++voltage_publish_counter_;
@@ -265,17 +225,14 @@ private:
 
   serial::Serial serial_port_;
   TelemetryParser parser_;
-  OrientationFilter orientation_filter_;
 
   const std::string serial_port_name_;
   const int serial_baud_rate_;
   const std::string odom_frame_id_;
   const std::string robot_frame_id_;
-  const std::string gyro_frame_id_;
 
   rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr voltage_publisher_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
-  rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_publisher_;
   rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr command_subscription_;
   rclcpp::TimerBase::SharedPtr serial_timer_;
 

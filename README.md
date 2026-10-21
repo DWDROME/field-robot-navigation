@@ -72,6 +72,8 @@ bash tools/run.sh mapping simulation
 
 整车入口是 `greenhouse_nav2_bringup/closed_loop.launch.py`，启动前需要传感器标定、底盘设备、运动限值与急停接口。
 
+底盘串口驱动只提供轮速里程计与电压，不发布底盘 IMU。固件遥测 `8..19` 字节是控制诊断分页，由串口分析工具配合 `--diag-control` 读取；硬件导航的 `/sensors/imu/data` 仍由 Livox 提供。
+
 ### 3. 仿真
 
 仿真矩阵、镜像构建、九组合批量测试与截图流程见 [docs/simulation.md](docs/simulation.md)。要点：

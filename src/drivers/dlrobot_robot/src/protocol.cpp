@@ -75,18 +75,10 @@ std::optional<Telemetry> DecodeTelemetry(const TelemetryFrame & frame)
   telemetry.velocity_x = static_cast<float>(ReadInt16(frame[2], frame[3])) / 1000.0F;
   telemetry.velocity_y = static_cast<float>(ReadInt16(frame[4], frame[5])) / 1000.0F;
   telemetry.velocity_z = static_cast<float>(ReadInt16(frame[6], frame[7])) / 1000.0F;
-  telemetry.acceleration_x =
-    static_cast<float>(ReadInt16(frame[8], frame[9])) / kAccelerometerRatio;
-  telemetry.acceleration_y =
-    static_cast<float>(ReadInt16(frame[10], frame[11])) / kAccelerometerRatio;
-  telemetry.acceleration_z =
-    static_cast<float>(ReadInt16(frame[12], frame[13])) / kAccelerometerRatio;
-  telemetry.angular_velocity_x =
-    static_cast<float>(ReadInt16(frame[14], frame[15])) * kGyroscopeRatio;
-  telemetry.angular_velocity_y =
-    static_cast<float>(ReadInt16(frame[16], frame[17])) * kGyroscopeRatio;
-  telemetry.angular_velocity_z =
-    static_cast<float>(ReadInt16(frame[18], frame[19])) * kGyroscopeRatio;
+  for (std::size_t index = 0; index < telemetry.diagnostics.size(); ++index) {
+    const auto offset = 8 + index * 2;
+    telemetry.diagnostics[index] = ReadInt16(frame[offset], frame[offset + 1]);
+  }
   telemetry.voltage = static_cast<float>(ReadInt16(frame[20], frame[21])) / 1000.0F;
   return telemetry;
 }

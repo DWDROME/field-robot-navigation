@@ -17,6 +17,8 @@
 
 底盘固件在 `firmware/tr800_f407` 维护（STM32F407 + FreeRTOS），负责电机速度闭环、编码器与 IMU 采集、帧收发，以及 `SERIAL` 与 `RC` 两个入口的选择和超时归零。ROS 侧只下发速度指令并解析遥测；两侧共用 0x7B/0x7D 帧格式、11 字节命令和 24 字节遥测，协议常量与绑定关系见[固件说明](../firmware/tr800_f407/README.md#与-ros-2-驱动的协议绑定)。
 
+当前遥测 `8..19` 字节用于控制诊断分页。底盘驱动保留这些原始诊断值，只发布里程计和电压，不将诊断值转换为 IMU、解算姿态或发布 `/imu`／`/chassis/imu`。硬件整车的 `/sensors/imu/data` 来自 Livox，仿真来自传感器桥接；这两个定位输入不受底盘发布接口调整影响。
+
 ## 坐标与控制权
 
 `map → odom → base_link → livox_frame` 的每条 TF 只有一个发布者。回环启用时拥有 `map → odom`，关闭时由 identity 发布者提供；FAST-LIO 拥有 `odom → base_link`，安装外参提供最后一条静态变换。回环校正保留局部里程计连续性。

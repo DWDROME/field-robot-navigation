@@ -95,8 +95,8 @@ def setup(context):
                 remappings=[('/livox/lidar','/sensors/lidar/raw'),('/livox/imu','/sensors/imu/data')]),
             Node(package='dlrobot_robot',executable='dlrobot_robot_node',name='dlrobot_robot',output='screen',parameters=[{
                 'usart_port_name':chassis['device'],'serial_baud_rate':chassis['baud'],
-                'odom_frame_id':'chassis_odom','robot_frame_id':'base_link','gyro_frame_id':'chassis_imu'}],
-                remappings=[('odom','/chassis/odometry'),('imu','/chassis/imu')])])
+                'odom_frame_id':'chassis_odom','robot_frame_id':'base_link'}],
+                remappings=[('odom','/chassis/odometry')])])
     return actions
 
 

@@ -12,7 +12,6 @@ def generate_launch_description():
             DeclareLaunchArgument("serial_baud_rate", default_value="115200"),
             DeclareLaunchArgument("odom_frame_id", default_value="odom_combined"),
             DeclareLaunchArgument("robot_frame_id", default_value="base_footprint"),
-            DeclareLaunchArgument("gyro_frame_id", default_value="imu_link"),
             Node(
                 package="dlrobot_robot",
                 executable="dlrobot_robot_node",
@@ -27,7 +26,6 @@ def generate_launch_description():
                         ),
                         "odom_frame_id": LaunchConfiguration("odom_frame_id"),
                         "robot_frame_id": LaunchConfiguration("robot_frame_id"),
-                        "gyro_frame_id": LaunchConfiguration("gyro_frame_id"),
                     }
                 ],
             ),

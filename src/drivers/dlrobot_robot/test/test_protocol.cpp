@@ -86,6 +86,9 @@ void TestTelemetryDecoding()
   Require(telemetry.has_value(), "valid telemetry");
   Require(std::abs(telemetry->velocity_x - 1.25F) < 1e-6F, "telemetry velocity x");
   Require(std::abs(telemetry->velocity_y + 0.5F) < 1e-6F, "telemetry velocity y");
+  Require(
+    telemetry->diagnostics == std::array<std::int16_t, 6>{1672, -836, 0, 100, -200, 300},
+    "diagnostic payload keeps raw signed values without IMU scaling");
   Require(std::abs(telemetry->voltage - 24.5F) < 1e-6F, "telemetry voltage");
 }
 

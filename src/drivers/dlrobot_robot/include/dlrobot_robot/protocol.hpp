@@ -13,8 +13,6 @@ constexpr std::uint8_t kFrameHeader = 0x7B;
 constexpr std::uint8_t kFrameTail = 0x7D;
 constexpr std::size_t kCommandFrameSize = 11;
 constexpr std::size_t kTelemetryFrameSize = 24;
-constexpr float kGyroscopeRatio = 0.00026644F;
-constexpr float kAccelerometerRatio = 1671.84F;
 
 using CommandFrame = std::array<std::uint8_t, kCommandFrameSize>;
 using TelemetryFrame = std::array<std::uint8_t, kTelemetryFrameSize>;
@@ -25,12 +23,8 @@ struct Telemetry
   float velocity_x{0.0F};
   float velocity_y{0.0F};
   float velocity_z{0.0F};
-  float acceleration_x{0.0F};
-  float acceleration_y{0.0F};
-  float acceleration_z{0.0F};
-  float angular_velocity_x{0.0F};
-  float angular_velocity_y{0.0F};
-  float angular_velocity_z{0.0F};
+  // 原样保留 8..19 字节的六个诊断值；不换算为 IMU。
+  std::array<std::int16_t, 6> diagnostics{};
   float voltage{0.0F};
 };
 

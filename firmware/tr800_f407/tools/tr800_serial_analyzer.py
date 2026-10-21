@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Analyze TR800 UART4 telemetry frames.
+"""分析 TR800 UART4 诊断遥测。
 
-Current firmware configuration is:
+当前源码配置：
   - PROTOCOL_25 = 0
-  - TR800_MOTOR_TELEMETRY_DEBUG = 1
+  - TR800_MOTOR_TELEMETRY_DEBUG = 0
+  - TR800_CONTROL_TELEMETRY_DEBUG = 1
 
-So UART4 currently sends a 24-byte frame at 40 Hz:
+使用 --diag-control 解释当前三页控制诊断；不传时保留旧电机诊断显示。
+
+UART4 源码配置为 40 Hz、24 字节帧，偏移从 0 计数：
   0: 0x7B
   1: Flag_Stop
-  2..7: int16 X/Y/Z speed, scaled by 1000 in firmware
-  8..19: motor diagnostics, not normal accel/gyro fields
-  20..21: uint16 battery voltage in mV
-  22: XOR checksum over bytes 0..21
+  2..7: int16_be X/Y/Z 速度，固件发送前乘 1000
+  8..19: 控制诊断；diag_0 为页号 1/2/3，不是 accel/gyro
+  20..21: uint16_be 电池电压，单位 mV
+  22: bytes 0..21 的 XOR 校验
   23: 0x7D
 """
 

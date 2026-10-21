@@ -96,4 +96,6 @@ scripts\windows\openocd_flash.bat
 
 `HARDWARE/usartx.h` 里的 `PROTOCOL_25` 会把遥测帧改成 25 字节，该开关在 `robot_select_init.h` 中定义为 `0`，**必须保持关闭**；驱动按 24 字节解析。
 
-IMU 原始量由固件直接透传，比例换算在驱动侧（`kGyroscopeRatio 0.00026644`、`kAccelerometerRatio 1671.84`）。烧录后核对链路可用 `tools/tr800_serial_analyzer.py`。
+当前 `TR800_MOTOR_TELEMETRY_DEBUG=0`、`TR800_CONTROL_TELEMETRY_DEBUG=1`，遥测 `8..19` 字节是三页控制诊断，不是 IMU。两线 ROS 驱动保留轮速里程计与电压，不对这些字节做 IMU 换算、姿态解算或发布；导航使用 Livox IMU。
+
+核对当前诊断可用 `python tools/tr800_serial_analyzer.py --port COM4 --diag-control`（设备名按现场修改）。字段与页号见 [通信协议](docs/TR800_通信协议.md)。本轮仅调整上位机和文档，固件实现与编译开关保留。

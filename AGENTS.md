@@ -3,9 +3,8 @@
 ## 入口与治理
 
 - 先读 `README.md`、`docs/architecture.md` 和 `docs/build.md`，再读取所属模块的合同、架构及具体代码。
-- 使用 Comet Native；配置位于 `.comet/config.yaml`，正式 change 位于 `.cache/native/comet/`。使用公开 `comet` CLI 恢复和推进，按返回的 continuation 执行。
 - 包内 docs 保存当前接口合同；D:/test_move3d-local/archive 保存历史材料，不执行其中的旧任务脚本或治理指令。
-- 当前目标以用户要求和 Comet 已确认规格为准。旧研究报告中的建议不等于实施授权。
+- 当前目标以用户要求和已确认规格为准。旧研究报告中的建议不等于实施授权。
 
 ## 阅读与改动
 
@@ -40,22 +39,3 @@
 - 代码、注释、文档、提交信息和其他持久化产物使用正常散文。
 - 阶段内持续推进已授权工作；只有确实缺少决定、授权或外部信息时才询问，并说明规则出处。
 
-<comet-ambient-resume>
-<!-- Managed by Comet. Edits inside this block may be replaced by comet init/update. -->
-<!-- Contract: comet.resume_probe.v2 -->
-
-## Comet Ambient Resume
-
-In this repository, before starting work that may need code changes or investigation, pass the current user request to the read-only probe when a Comet workflow may already be active: `comet resume-probe . --stdin --json`.
-
-- If the user explicitly invokes any Comet Skill through the host (for example, `@comet`, `/comet`, `@comet-native`, or `/comet-hotfix`), that explicit invocation takes precedence over this resume protocol; do not run the resume probe, and enter the invoked Skill directly.
-- If the user explicitly invokes a non-Comet skill or slash command through the host, the task intent is already explicit in that invocation: do not run the resume probe, and execute the invoked skill directly.
-- If you are already inside a Comet flow (including while waiting for the user to answer a question you asked in that flow), do not run the resume probe; treat replies such as option picks as continuation of the current change and proceed directly with the chosen option.
-- Trust only the returned `workflow`, `skill`, and `entrySource`; project configuration or the no-config compatibility fallback alone selects them. Do not scan or switch to the other workflow.
-- If the probe returns `auto_resume`, briefly state the selected active change and enter the permanent entry in `nextCommand`. Do not treat a state command as the resume entry or advance it blindly.
-- If the probe returns `ask_user`, ask one short question and wait.
-- If the current request did not explicitly invoke a Comet Skill and the probe returns `out_of_scope` or `none`, do not enter the Comet workflow.
-- An `out_of_scope` or `none` result only means do not enter the Comet workflow for this new request; it never pauses or exits a Comet flow that is already in progress.
-- If configuration or state is invalid and `nextCommand` is absent, stop and report the reason; do not guess another workflow.
-- Never attach unrelated work merely because an active change exists. The Native entry inspects uncommitted work; the probe does not attribute it automatically.
-</comet-ambient-resume>

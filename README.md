@@ -1,87 +1,93 @@
-# Robot Navigation & SLAM
+# TR800 履带车 ROS 1 导航
 
-`main` 是 ROS 1 Noetic 实车交付线：Livox MID360 点云经 FAST-LIO 建图，FAST-LIO_LOCALIZATION 在已有 PCD 地图中定位，MoveBase3D 做全局规划、地势分析与局部控制，`dlrobot_robot` 把速度指令写成底盘串口帧。18 个 ROS 包，保留原包名与算法源码。
+车上跑的是 Livox MID360 + FAST-LIO 这套：雷达出点云和 IMU，FAST-LIO 建图并输出里程计；有现成 PCD 地图时换成 FAST-LIO_LOCALIZATION 做全局定位；MoveBase3D 在三维点云上规划，最后 `dlrobot_robot` 把速度打成 11 字节串口帧发给 F407 下位机。
 
-> 状态：2026-10-21 完成仓库整理与静态核对，未编译、未运行、未上车。依据见 [docs/roadmap.md](docs/roadmap.md)。
-> 另一条线是 `upgrade/ros2`（ROS 2 Jazzy、Gazebo/PX4、独立 FAST-LIVO2）；`firmware/tr800_f407` 两条线共用。
+`main` 是 ROS 1 Noetic 版本，18 个包，算法代码保持原样，主要动了启动入口和文档。另外两处：
 
-## 先读哪份
+- `upgrade/ros2`：ROS 2 Jazzy 的升级版，带 Gazebo 仿真、FAR/CMU/MPPI 和独立 FAST-LIVO2。
+- `firmware/tr800_f407`：下位机固件，两条分支共用同一份，单独编译烧录。
 
-| 要知道 | 读 |
-| --- | --- |
-| 环境、依赖、构建 | [docs/build.md](docs/build.md) |
-| 三种模式与参数 | [docs/modes.md](docs/modes.md) |
-| 地图、配置、话题、串口帧 | [docs/data-formats.md](docs/data-formats.md) |
-| 模块关系与 TF | [docs/architecture.md](docs/architecture.md) |
-| 当前状态、待办、风险 | [docs/roadmap.md](docs/roadmap.md) |
-| 固件构建、烧录、协议 | [firmware/tr800_f407/README.md](firmware/tr800_f407/README.md) |
+ROS 2 那套怎么跑不在这个分支，切过去看它自己的 README。
 
-## 构建
+## 装环境
 
-Ubuntu 20.04 + ROS Noetic。系统依赖 PCL、Eigen、OpenMP、OMPL、OctoMap、串口库；定位与规划另需 CasADi、Open3D、`ros_numpy`。Livox-SDK2 单独安装，版本与补丁见 [third_party/README.md](third_party/README.md)。
+Ubuntu 20.04 + ROS Noetic。除了 desktop-full，还要 PCL、Eigen、OpenMP、OMPL、OctoMap 和串口库；MoveBase3D 的局部规划用 CasADi，FAST_LIO_LOCALIZATION 要 Open3D 和 ros_numpy。
+
+Livox-SDK2 得单独装。版本和两个 `<cstdint>` 补丁在 [third_party/README.md](third_party/README.md)，按里面的命令拉下来、打补丁再 cmake 安装。SDK 不要塞进 `src`，driver 只需要它的头文件和库。
+
+## 编译
 
 ```bash
 source /opt/ros/noetic/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
-bash tools/build-ros1.sh          # catkin_make -DROS_EDITION=ROS1；BUILD_JOBS 默认 2
+bash tools/build-ros1.sh          # catkin_make -DROS_EDITION=ROS1，默认 -j2
 source devel/setup.bash
 ```
 
-`build-ros1.sh` 只构建 `src/`，固件不参与 catkin。
+机器核心多可以 `BUILD_JOBS=8 bash tools/build-ros1.sh`。固件不在这个工作区里，catkin 不会碰它。
 
 ## 运行
 
+建图：
+
 ```bash
-# 建图；Ctrl+C 正常退出后写入 src/FAST_LIO/PCD/scans.pcd
 bash tools/run.sh mapping hardware
-
-# 定位；必须给已有 PCD 地图
-bash tools/run.sh localization hardware map:=/absolute/map.pcd
-
-# 导航；定位 + 底盘 + MoveBase3D + 实时点云过滤
-bash tools/run.sh navigation hardware map:=/absolute/map.pcd
 ```
 
-`localization` 与 `navigation` 缺 `map:=` 时脚本直接报错。参数、初始位姿、二维辅助图和旧入口 `start_all.sh` 见 [docs/modes.md](docs/modes.md)。
+默认存到 `src/FAST_LIO/PCD/scans.pcd`。Ctrl+C 走正常退出流程才会写文件，`kill -9` 会丢；不想存就加 `save_map:=false`。
 
-## 仓库结构
+定位和导航必须给地图，而且要绝对路径：
+
+```bash
+bash tools/run.sh localization hardware map:=/home/robot/maps/greenhouse.pcd
+bash tools/run.sh navigation hardware map:=/home/robot/maps/greenhouse.pcd
+```
+
+第一次起来要在 RViz 里给初始位姿，不给定位不会收敛。目标点也用 RViz 发，多点操作看 [MoveBase3D 的 README](src/MoveBase3D/README.md)。
+
+雷达默认读 `src/livox_ros_driver2/config/MID360_config.json`，里面的 `host_net_info` 要改成车上那块网卡的地址；临时换配置用 `user_config_path:=/abs/xxx.json`。底盘串口默认 `/dev/ttyUSB0`、115200，设备不同就加 `usart_port_name:=/dev/serial/by-id/...`。
+
+参数都是透传给 roslaunch 的，`rviz`、`save_map`、`publish_2d_map` 这些在 [docs/modes.md](docs/modes.md) 里有完整说明。旧入口 `start_all.sh` 还留着，等价于 `navigation hardware`。
+
+## 目录
 
 ```text
 src/
-  FAST_LIO/                 建图（FAST-LIO2）
-  FAST_LIO_LOCALIZATION/    已有 PCD 地图定位
-  MoveBase3D/               规划、地势分析、局部控制、整车启动（8 个包）
-  livox_ros_driver2/        MID360 驱动（ROS1/ROS2 双配置）
-  livox_to_pointcloud2/     点云转 PointCloud2
-  pcd2pgm_package/          PCD 转二维栅格地图
-  dlrobot_robot/            当前底盘串口入口
-  dlrobot/、dl_msgs/        旧底盘包与消息定义
+  FAST_LIO/                 FAST-LIO2，建图和里程计
+  FAST_LIO_LOCALIZATION/    在已有 PCD 地图里定位
+  MoveBase3D/               8 个包：全局规划、GPR 地势、局部控制、rviz 工具、整车 launch
+  livox_ros_driver2/        MID360 驱动，ROS1/ROS2 两套 launch
+  livox_to_pointcloud2/     CustomMsg 转 PointCloud2
+  pcd2pgm_package/          PCD 转 2D 栅格，给旧流程用
+  dlrobot_robot/            底盘串口节点
+  dlrobot/、dl_msgs/        旧底盘包和消息定义
 docs/                       架构、构建、模式、数据格式、状态
-tools/                      run.sh 与 build-ros1.sh
-firmware/tr800_f407/        下位机源码、构建与烧录
-third_party/                Livox-SDK2 版本与补丁
+tools/                      run.sh、build-ros1.sh
+firmware/tr800_f407/        下位机
+third_party/                Livox-SDK2 版本和补丁
 ```
 
-## 常见问题
+## 固件
 
-| 现象 | 处理 |
-| --- | --- |
-| 提示 `Provide the existing 3D map` | 补 `map:=/absolute/map.pcd` |
-| `roslaunch: command not found` | 没有 source Noetic 或 `devel/setup.bash` |
-| 串口打不开 | 设备名不对，或用户不在 `dialout` 组 |
-| 雷达没有点云 | `MID360_config.json` 的 IP 与实际网络不符 |
-| 地图没有保存 | 需要 Ctrl+C 正常退出，且 `src/FAST_LIO/PCD` 可写 |
+`firmware/tr800_f407` 用 CMake + arm-none-eabi-gcc + Ninja，preset 是 `tr800-st`，出 `dlrobot.elf/hex/bin`，DAPLink + OpenOCD 烧录，步骤都在[固件 README](firmware/tr800_f407/README.md)。
 
-仿真不在本分支：`run.sh ... simulation` 会提示切换 `upgrade/ros2`。
+协议是固定的：11 字节命令、24 字节遥测，帧头 `0x7B`、帧尾 `0x7D`，异或校验。现在遥测第 8–19 字节是控制诊断分页，不是 IMU，别拿旧工具按加速度解。烧完可以用 `firmware/tr800_f407/tools/tr800_serial_analyzer.py --port COM4 --diag-control` 看页号和数据。
 
-## 交接
+## 踩过的坑
 
-- 两条分支各自完整，`firmware/` 实现相同，只有 README 不同。
-- 地图与录包是运行数据，不入库；用 `map:=` 指向实际文件。
-- `.worktrees/`、`.cache/`、`.tmp/` 是本地审计材料，不属于分支内容；删 `.worktrees` 会丢归档 worktree。
-- 串口协议改动要同时改固件 `HARDWARE/usartx.h`、本线 `src/dlrobot_robot/include/dlrobot_robot.h` 与升级线驱动。
-- 仓库没有 CI，改动后至少跑一次 `bash tools/run.sh --help`、相关包构建和 launch 语法检查。
+- `localization` / `navigation` 不带 `map:=` 会直接报错退出，不是找不到节点。
+- 串口打不开，先看用户在不在 `dialout` 组，再看设备名，最后才怀疑固件。
+- 雷达没点云，九成是 JSON 里的 host IP 和车上网卡对不上。
+- `main` 没有 ROS 1 仿真，`run.sh ... simulation` 会提示切分支，这是故意的，不是坏了。
+- 遥测 8–19 是诊断字段；真的想要底盘 IMU，得先改固件配置，不是改驱动。
+- 编码器第 2 路的闭环还没验证，急停和限速别省。
 
-## 来源与许可
+## 目前状态
 
-原版包名、版权头、LICENSE 与 README 声明全部保留；第三方来源见 [third_party/README.md](third_party/README.md)。MoveBase3D 原始 README 注明“仅供科研测试，请勿商用”，其余包遵循各自条款。
+仓库结构和启动入口整理过，也逐项对过源码，但**没在这台机器上编译，也没上车跑过**。所以“能编译、能跑”目前还只是应该。
+
+ROS 2 那条线有一轮仿真记录，27 次里 8 次通过，地面任务基本都失败，别当成仿真可用，细节在 `upgrade/ros2` 的 docs/simulation.md。
+
+## 许可
+
+原包的版权头、LICENSE 和 README 声明都保留。MoveBase3D 的原 README 写明“仅供科研测试，请勿商用”，其他包按各自条款。
